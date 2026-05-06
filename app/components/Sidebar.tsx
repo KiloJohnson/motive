@@ -40,6 +40,7 @@ const nav: NavItem[] = [
     section: "Components",
     items: [
       { label: "Buttons", href: "/components/buttons" },
+      { label: "Tabs", href: "/components/tabs" },
       { label: "Avatars", href: "/components/avatars" },
       { label: "Text Inputs", href: "/components/text-inputs" },
       { label: "Forms – Simple", href: "/components/forms-simple" },
