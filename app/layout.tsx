@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Red_Hat_Display, Red_Hat_Text } from "next/font/google";
 import "./globals.css";
 import TopBar from "./components/TopBar";
 import Sidebar from "./components/Sidebar";
@@ -7,6 +7,18 @@ import Sidebar from "./components/Sidebar";
 const geist = Geist({
   variable: "--font-geist",
   subsets: ["latin"],
+});
+
+const redHatDisplay = Red_Hat_Display({
+  variable: "--font-red-hat-display",
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800", "900"],
+});
+
+const redHatText = Red_Hat_Text({
+  variable: "--font-red-hat-text",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geist.variable} h-full`}>
+    <html lang="en" className={`${geist.variable} ${redHatDisplay.variable} ${redHatText.variable} h-full`}>
       <body className="h-full flex flex-col overflow-hidden">
         <TopBar />
         <div className="flex flex-1 overflow-hidden">

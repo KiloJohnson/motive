@@ -28,6 +28,15 @@ const nav: NavItem[] = [
     ],
   },
   {
+    section: "Patterns",
+    items: [
+      { label: "Navigation", href: "/patterns/navigation" },
+      { label: "Header", href: "/patterns/header" },
+      { label: "Footer", href: "/patterns/footer" },
+      { label: "Breadcrumbs", href: "/patterns/breadcrumbs" },
+    ],
+  },
+  {
     section: "Components",
     items: [
       { label: "Buttons", href: "/components/buttons" },
