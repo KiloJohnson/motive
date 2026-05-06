@@ -1,65 +1,112 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-full">
+      <section className="border-b border-gray-100 px-16 py-20">
+        <p
+          style={{ color: "#005EB8" }}
+          className="text-xs font-semibold uppercase tracking-widest mb-4"
+        >
+          Welcome to Motive™
+        </p>
+        <h1 className="text-5xl font-semibold tracking-tight text-gray-900 max-w-2xl leading-tight mb-6">
+          The Scripps Health Design System
+        </h1>
+        <p className="text-lg text-gray-500 max-w-xl leading-relaxed mb-10">
+          Motive provides a unified design language, component library, and
+          guidelines for building digital products and services at Scripps Health.
+        </p>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/guidelines/page-structure"
+            style={{ backgroundColor: "#005EB8" }}
+            className="px-6 py-3 text-sm font-medium text-white rounded hover:opacity-90 transition-opacity"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Get Started
+          </Link>
+          <Link
+            href="/components/buttons"
+            className="px-6 py-3 text-sm font-medium text-gray-700 border border-gray-200 rounded hover:bg-gray-50 transition-colors"
           >
-            Documentation
-          </a>
+            Component Library
+          </Link>
         </div>
-      </main>
+      </section>
+
+      <section className="px-16 py-16 border-b border-gray-100">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
+          What&apos;s in Motive
+        </h2>
+        <div className="grid grid-cols-3 gap-6 max-w-4xl">
+          {[
+            {
+              title: "Foundations",
+              description:
+                "Color, typography, spacing, motion — the core tokens that define Scripps digital experiences.",
+              href: "/guidelines/colors",
+            },
+            {
+              title: "Guidelines",
+              description:
+                "Page structure, grid systems, accessibility standards, and usage patterns.",
+              href: "/guidelines/page-structure",
+            },
+            {
+              title: "Components",
+              description:
+                "A library of reusable UI components built on Flowbite, customized for Scripps.",
+              href: "/components/buttons",
+            },
+          ].map((card) => (
+            <Link
+              key={card.title}
+              href={card.href}
+              className="group block p-6 border border-gray-100 hover:border-gray-300 transition-colors rounded"
+            >
+              <h3 className="text-base font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">
+                {card.title}
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {card.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-16 py-16">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
+          Why Motive
+        </h2>
+        <div className="grid grid-cols-2 gap-x-16 gap-y-8 max-w-3xl">
+          {[
+            {
+              title: "Make experiences consistent",
+              body: "Products built with Motive share a common visual language that earns trust across every Scripps touchpoint.",
+            },
+            {
+              title: "Build accessibility in",
+              body: "Components meet WCAG 2.1 AA standards. Accessibility is a baseline, not a feature.",
+            },
+            {
+              title: "Design for AI workflows",
+              body: "Guidelines and tokens are structured to support AI-assisted creation — for designers, developers, and stakeholders.",
+            },
+            {
+              title: "Move faster",
+              body: "A shared system means teams stop solving the same problems. Focus on new challenges instead.",
+            },
+          ].map((item) => (
+            <div key={item.title}>
+              <h3 className="text-sm font-semibold text-gray-900 mb-2">
+                {item.title}
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
