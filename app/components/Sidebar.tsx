@@ -60,6 +60,7 @@ const nav: NavItem[] = [
       { label: "Search", href: "/components/search" },
       { label: "Switchers", href: "/components/switchers" },
       { label: "Pagination", href: "/components/pagination" },
+
     ],
   },
 ];
@@ -72,7 +73,7 @@ export default function Sidebar() {
       style={{ width: "var(--motive-sidebar-width)", backgroundColor: "#111827" }}
       className="shrink-0 overflow-y-auto flex flex-col"
     >
-      <ul className="py-4">
+      <ul className="py-4 pb-[100px]">
         {nav.map((item, i) => {
           if ("section" in item) {
             return (
