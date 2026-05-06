@@ -34,6 +34,7 @@ const nav: NavItem[] = [
       { label: "Header", href: "/patterns/header" },
       { label: "Footer", href: "/patterns/footer" },
       { label: "Breadcrumbs", href: "/patterns/breadcrumbs" },
+      { label: "Banners", href: "/patterns/banners" },
     ],
   },
   {
