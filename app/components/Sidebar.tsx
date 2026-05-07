@@ -38,6 +38,16 @@ const nav: NavItem[] = [
     ],
   },
   {
+    section: "Sections",
+    items: [
+      { label: "Hero Search", href: "/sections/hero-search" },
+      { label: "Featured Links", href: "/sections/featured-links" },
+      { label: "Featured Specialties", href: "/sections/featured-specialties" },
+      { label: "App Promo", href: "/sections/app-promo" },
+      { label: "Map Pins", href: "/sections/map-pins" },
+    ],
+  },
+  {
     section: "Components",
     items: [
       { label: "Buttons", href: "/components/buttons" },
