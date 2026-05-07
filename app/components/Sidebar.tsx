@@ -38,6 +38,15 @@ const nav: NavItem[] = [
     ],
   },
   {
+    section: "Flows",
+    items: [
+      { label: "Find a Doctor", href: "/flows/find-a-doctor" },
+      { label: "Omnisearch Bar", href: "/flows/omnisearch-bar" },
+      { label: "Facet Panel", href: "/flows/facet-panel" },
+      { label: "List Items", href: "/flows/list-items" },
+    ],
+  },
+  {
     section: "Sections",
     items: [
       { label: "Hero Search", href: "/sections/hero-search" },
