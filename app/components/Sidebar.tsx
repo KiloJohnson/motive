@@ -44,6 +44,11 @@ const nav: NavItem[] = [
       { label: "Omnisearch Bar", href: "/flows/omnisearch-bar" },
       { label: "Facet Panel", href: "/flows/facet-panel" },
       { label: "List Items", href: "/flows/list-items" },
+      { label: "Filter Chips", href: "/flows/filter-chips" },
+      { label: "Results Header", href: "/flows/results-header" },
+      { label: "Insurance Selector", href: "/flows/insurance-selector" },
+      { label: "Insurance Popover", href: "/flows/insurance-popover" },
+      { label: "Facet Menus", href: "/flows/facet-menus" },
     ],
   },
   {
@@ -67,6 +72,7 @@ const nav: NavItem[] = [
       { label: "Toggle", href: "/components/toggle" },
       { label: "Selectors", href: "/components/selectors" },
       { label: "Accordion", href: "/components/accordion" },
+      { label: "Content Cards", href: "/components/content-cards" },
 
       { label: "Dropdown", href: "/components/dropdown" },
       { label: "Modals", href: "/components/modals" },
