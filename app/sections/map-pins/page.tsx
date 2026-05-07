@@ -1,65 +1,24 @@
 type PinState = "default" | "highlighted";
 type PinType = "single" | "multi";
 
-// Teardrop pin shape — rounded top, pointed bottom
-function PinShape({ fill, children, count }: { fill: string; children: React.ReactNode; count?: number }) {
+function MapPin({ type, state, count = 2 }: { type: PinType; state: PinState; count?: number }) {
+  const isHighlighted = state === "highlighted";
+  const prefix = isHighlighted ? "NavPin_hi" : "NavPin_default";
+  const suffix = type === "multi" ? "multi" : "single";
+  const src = `/assets/Navpin/${prefix}_${suffix}.svg`;
+
   return (
-    <div className="relative flex flex-col items-center" style={{ width: 48 }}>
-      <svg width="48" height="56" viewBox="0 0 48 56" fill="none" className="drop-shadow-md">
-        <path
-          d="M24 2C13.5 2 5 10.5 5 21C5 33 24 54 24 54C24 54 43 33 43 21C43 10.5 34.5 2 24 2Z"
-          fill={fill}
-        />
-      </svg>
-      {/* Icon centered in the pin body */}
-      <div className="absolute top-[8px] flex items-center justify-center" style={{ width: 48, height: 34 }}>
-        {children}
-      </div>
-      {/* Count badge for multi */}
-      {count !== undefined && (
+    <div className="relative inline-flex">
+      <img src={src} alt={`${type} pin ${state}`} width={48} height={56} />
+      {type === "multi" && (
         <div
-          className="absolute top-0 right-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shadow"
+          className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shadow"
           style={{ backgroundColor: "#E9C46A", color: "#1a1a1a", fontFamily: "var(--font-red-hat-text)", fontSize: 10 }}
         >
           {count}
         </div>
       )}
     </div>
-  );
-}
-
-function PeopleIcon({ color }: { color: string }) {
-  return (
-    <svg width="22" height="18" viewBox="0 0 22 18" fill="none">
-      <circle cx="8" cy="5" r="3.5" fill={color}/>
-      <path d="M1 17c0-3.866 3.134-7 7-7" stroke={color} strokeWidth="1.8" strokeLinecap="round"/>
-      <circle cx="15" cy="5" r="3.5" fill={color}/>
-      <path d="M22 17c0-3.866-3.134-7-7-7" stroke={color} strokeWidth="1.8" strokeLinecap="round"/>
-      <path d="M8 17h7" stroke={color} strokeWidth="1.8" strokeLinecap="round"/>
-    </svg>
-  );
-}
-
-function RingIcon({ color }: { color: string }) {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <circle cx="10" cy="10" r="7" stroke={color} strokeWidth="3"/>
-    </svg>
-  );
-}
-
-function MapPin({ type, state }: { type: PinType; state: PinState }) {
-  const isHighlighted = state === "highlighted";
-  const fill = isHighlighted ? "#E9C46A" : "#005FCF";
-  const iconColor = isHighlighted ? "#1a1a1a" : "white";
-
-  return (
-    <PinShape fill={fill} count={type === "multi" ? 2 : undefined}>
-      {type === "multi"
-        ? <PeopleIcon color={iconColor} />
-        : <RingIcon color={iconColor} />
-      }
-    </PinShape>
   );
 }
 
