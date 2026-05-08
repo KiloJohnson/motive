@@ -3,28 +3,28 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-type NavLink = { label: string; href: string };
+type NavLink = { label: string; href: string; stub?: boolean };
 type NavSection = { section: string; items: NavLink[] };
 type NavItem = NavLink | NavSection;
 
 const nav: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Accessibility", href: "/accessibility" },
+  { label: "Accessibility", href: "/accessibility", stub: true },
   {
     section: "Guidelines",
     items: [
-      { label: "Page Structure", href: "/guidelines/page-structure" },
-      { label: "Grid & Breakpoints", href: "/guidelines/grid" },
+      { label: "Page Structure", href: "/guidelines/page-structure", stub: true },
+      { label: "Grid & Breakpoints", href: "/guidelines/grid", stub: true },
       { label: "Colors", href: "/guidelines/colors" },
-      { label: "Palettes", href: "/guidelines/palettes" },
-      { label: "Dark Mode", href: "/guidelines/darkmode" },
+      { label: "Palettes", href: "/guidelines/palettes", stub: true },
+      { label: "Dark Mode", href: "/guidelines/darkmode", stub: true },
       { label: "Icons", href: "/guidelines/icons" },
       { label: "Typography", href: "/guidelines/typography" },
-      { label: "Elevation", href: "/guidelines/elevation" },
-      { label: "Spacing", href: "/guidelines/spacing" },
-      { label: "Images", href: "/guidelines/images" },
-      { label: "Blobs", href: "/guidelines/blobs" },
-      { label: "Motion", href: "/guidelines/motion" },
+      { label: "Elevation", href: "/guidelines/elevation", stub: true },
+      { label: "Spacing", href: "/guidelines/spacing", stub: true },
+      { label: "Images", href: "/guidelines/images", stub: true },
+      { label: "Blobs", href: "/guidelines/blobs", stub: true },
+      { label: "Motion", href: "/guidelines/motion", stub: true },
     ],
   },
   {
@@ -32,6 +32,7 @@ const nav: NavItem[] = [
     items: [
       { label: "Navigation", href: "/patterns/navigation" },
       { label: "Header", href: "/patterns/header" },
+      { label: "Search Panel", href: "/patterns/search-panel" },
       { label: "Footer", href: "/patterns/footer" },
       { label: "Breadcrumbs", href: "/patterns/breadcrumbs" },
       { label: "Banners", href: "/patterns/banners" },
@@ -49,6 +50,16 @@ const nav: NavItem[] = [
       { label: "Insurance Selector", href: "/flows/insurance-selector" },
       { label: "Insurance Popover", href: "/flows/insurance-popover" },
       { label: "Facet Menus", href: "/flows/facet-menus" },
+      { label: "Provider Result", href: "/flows/provider-result" },
+      { label: "Profile Header", href: "/flows/profile-header" },
+      { label: "Insurance Banner", href: "/flows/insurance-banner" },
+      { label: "Ratings & Reviews", href: "/flows/ratings-reviews" },
+      { label: "Profile Details", href: "/flows/profile-details" },
+      { label: "Related Providers", href: "/flows/related-providers" },
+      { label: "Appointment Slots", href: "/flows/appointment-slots" },
+      { label: "Availability Table", href: "/flows/availability-table" },
+      { label: "Date Tiles", href: "/flows/date-tiles" },
+      { label: "Availability Modal", href: "/flows/availability-modal" },
     ],
   },
   {
@@ -66,23 +77,21 @@ const nav: NavItem[] = [
     items: [
       { label: "Buttons", href: "/components/buttons" },
       { label: "Tabs", href: "/components/tabs" },
-      { label: "Avatars", href: "/components/avatars" },
+      { label: "Avatars", href: "/components/avatars", stub: true },
       { label: "Forms", href: "/components/forms" },
-      { label: "Pickers", href: "/components/pickers" },
-      { label: "Toggle", href: "/components/toggle" },
-      { label: "Selectors", href: "/components/selectors" },
+      { label: "Pickers", href: "/components/pickers", stub: true },
+      { label: "Toggle", href: "/components/toggle", stub: true },
+      { label: "Selectors", href: "/components/selectors", stub: true },
       { label: "Accordion", href: "/components/accordion" },
       { label: "Content Cards", href: "/components/content-cards" },
-
-      { label: "Dropdown", href: "/components/dropdown" },
-      { label: "Modals", href: "/components/modals" },
-      { label: "Notifications", href: "/components/notifications" },
-      { label: "Tag & Labels", href: "/components/tags" },
-      { label: "Breadcrumbs", href: "/components/breadcrumbs" },
-      { label: "Search", href: "/components/search" },
-      { label: "Switchers", href: "/components/switchers" },
+      { label: "Dropdown", href: "/components/dropdown", stub: true },
+      { label: "Modals", href: "/components/modals", stub: true },
+      { label: "Notifications", href: "/components/notifications", stub: true },
+      { label: "Tag & Labels", href: "/components/tags", stub: true },
+      { label: "Breadcrumbs", href: "/components/breadcrumbs", stub: true },
+      { label: "Search", href: "/components/search", stub: true },
+      { label: "Switchers", href: "/components/switchers", stub: true },
       { label: "Pagination", href: "/components/pagination" },
-
     ],
   },
 ];
@@ -111,13 +120,16 @@ export default function Sidebar() {
                         <Link
                           href={child.href}
                           style={active ? { borderLeftColor: "#005EB8" } : {}}
-                          className={`flex items-center px-4 py-2 text-sm border-l-2 transition-colors ${
+                          className={`flex items-center justify-between px-4 py-2 text-sm border-l-2 transition-colors ${
                             active
                               ? "border-l-2 text-white bg-white/5 font-medium"
                               : "border-transparent text-gray-400 hover:text-white hover:bg-white/5"
                           }`}
                         >
-                          {child.label}
+                          <span>{child.label}</span>
+                          {child.stub && (
+                            <span className="text-gray-600 text-xs">✳</span>
+                          )}
                         </Link>
                       </li>
                     );
@@ -133,13 +145,16 @@ export default function Sidebar() {
               <Link
                 href={item.href}
                 style={active ? { borderLeftColor: "#005EB8" } : {}}
-                className={`flex items-center px-4 py-2 text-sm border-l-2 transition-colors ${
+                className={`flex items-center justify-between px-4 py-2 text-sm border-l-2 transition-colors ${
                   active
                     ? "border-l-2 text-white bg-white/5 font-medium"
                     : "border-transparent text-gray-400 hover:text-white hover:bg-white/5"
                 }`}
               >
-                {item.label}
+                <span>{item.label}</span>
+                {(item as NavLink).stub && (
+                  <span className="text-gray-600 text-xs">✳</span>
+                )}
               </Link>
             </li>
           );

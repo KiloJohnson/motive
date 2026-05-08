@@ -21,9 +21,24 @@ function UsageList({ items }: { items: string[] }) {
   );
 }
 
-function DesktopHeaderPreview() {
+function UtilityBar() {
+  return (
+    <div className="bg-white flex items-center justify-end gap-4 px-6 py-1.5 border-b border-gray-100">
+      <button className="flex items-center gap-1 text-xs text-gray-500 hover:text-gray-700 transition-colors" style={{ fontFamily: "var(--font-red-hat-text)" }}>
+        <span>🌐</span> English <span className="opacity-60">▾</span>
+      </button>
+      <button className="flex items-center gap-1.5 text-xs font-semibold hover:underline transition-colors" style={{ color: "#005FCF", fontFamily: "var(--font-red-hat-text)" }}>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="1.2"/><path d="M4 6h4M6 4v4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>
+        Log In to MyScripps
+      </button>
+    </div>
+  );
+}
+
+function DesktopHeaderPreview({ withUtility }: { withUtility?: boolean }) {
   return (
     <div className="border border-gray-200 rounded overflow-hidden shadow-sm">
+      {withUtility && <UtilityBar />}
       <div className="bg-white flex items-center justify-between px-6 py-3">
         <div className="flex items-center">
           <img src="/logos/scripps.svg" alt="Scripps" className="h-5 w-auto" />
@@ -35,9 +50,14 @@ function DesktopHeaderPreview() {
           <span>About</span>
           <span>Contact</span>
         </nav>
-        <button className="px-4 py-1.5 text-sm font-medium text-white rounded" style={{ backgroundColor: "#005FCF", fontFamily: "var(--font-red-hat-text)" }}>
-          Get Care
-        </button>
+        <div className="flex items-center gap-3">
+          <button className="text-gray-400 hover:text-gray-600">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.5"/><path d="M11 11l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+          </button>
+          <button className="px-4 py-1.5 text-sm font-medium text-white rounded-full" style={{ backgroundColor: "#005FCF", fontFamily: "var(--font-red-hat-text)" }}>
+            Get Care
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -109,7 +129,7 @@ export default function HeaderPage() {
         <h1 className="text-4xl font-semibold tracking-tight text-gray-900 mb-4">Header</h1>
         <p className="text-lg text-gray-500 max-w-2xl leading-relaxed">
           The global header appears at the top of every page. It anchors navigation, brand identity, and the primary
-          patient CTA. Three variants cover desktop, sticky scroll, and mobile contexts.
+          patient CTA. The complete desktop header has two layers — a utility bar on top and the main nav below.
         </p>
         <p className="text-sm text-gray-400 mt-3">
           Part of <Link href="/patterns/navigation" className="underline" style={{ color: "#005EB8" }}>Navigation</Link>
@@ -120,18 +140,38 @@ export default function HeaderPage() {
 
         <section>
           <div className="mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-1">Desktop Header</h2>
-            <p className="text-sm text-gray-500">Standard header for all desktop pages. Full nav visible.</p>
+            <h2 className="text-xl font-semibold text-gray-900 mb-1">Utility Bar</h2>
+            <p className="text-sm text-gray-500">Sits above the main nav. Language selector and MyScripps login shortcut. Right-aligned, always present on desktop.</p>
           </div>
-          <DesktopHeaderPreview />
+          <div className="border border-gray-200 rounded overflow-hidden shadow-sm">
+            <UtilityBar />
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <VariantTag label="Desktop" />
+          </div>
+          <UsageList items={[
+            "Always right-aligned — never centered or left-aligned.",
+            "Language selector opens a dropdown of supported languages.",
+            "'Log In to MyScripps' links directly to the patient portal.",
+            "Not shown on mobile — MyScripps login moves to the nav drawer.",
+          ]} />
+        </section>
+
+        <section>
+          <div className="mb-6">
+            <h2 className="text-xl font-semibold text-gray-900 mb-1">Desktop Header — Complete</h2>
+            <p className="text-sm text-gray-500">Utility bar + main nav together. This is the full desktop header as it appears on every page.</p>
+          </div>
+          <DesktopHeaderPreview withUtility />
           <div className="mt-4 flex flex-wrap gap-2">
             <VariantTag label="Market=Scripps" />
             <VariantTag label="Desktop" />
           </div>
           <UsageList items={[
-            "Appears at the top of every desktop page.",
+            "The utility bar sits above the main nav — do not merge them into a single row.",
             "Navigation items reflect the primary site IA — do not add one-off links.",
             "Get Care CTA is always present and uses brand-primary (#005FCF).",
+            "Search icon appears left of Get Care — opens an inline search input on click.",
             "Logo variant is determined by Market — never swap manually.",
           ]} />
         </section>
