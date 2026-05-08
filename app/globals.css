@@ -1,25 +1,78 @@
 @import "tailwindcss";
+@import "flowbite-react/plugin/tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --motive-primary: #005EB8;
   --motive-primary-hover: #004fa0;
   --motive-topbar-height: 48px;
   --motive-sidebar-width: 256px;
+  --motive-content-bg: #ffffff;
+  --motive-content-fg: #161616;
+}
+
+/* ── Brand themes ────────────────────────────────────────────────────────── */
+
+[data-theme="scripps"] {
+  --motive-primary: #005EB8;
+  --motive-primary-hover: #004fa0;
+}
+
+/* Placeholder — real assets needed: primary hex, secondary hex, logo SVG, font */
+[data-theme="qualcomm"] {
+  --motive-primary: #3253DC;
+  --motive-primary-hover: #2644c0;
+}
+
+/* Placeholder — real assets needed: primary hex, secondary hex, logo SVG, font */
+[data-theme="giving"] {
+  --motive-primary: #C5382B;
+  --motive-primary-hover: #a82e23;
+}
+
+/* Placeholder — real assets needed: primary hex, secondary hex, logo SVG, font */
+[data-theme="scrippsconnect"] {
+  --motive-primary: #00833D;
+  --motive-primary-hover: #006b31;
+}
+
+.dark {
+  --motive-content-bg: #111111;
+  --motive-content-fg: #f4f4f4;
 }
 
 @theme inline {
   --font-sans: var(--font-red-hat-text);
-  --color-background: #ffffff;
-  --color-foreground: #161616;
+  --color-background: var(--motive-content-bg);
+  --color-foreground: var(--motive-content-fg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--motive-content-bg);
+  color: var(--motive-content-fg);
   font-family: var(--font-red-hat-text), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-red-hat-display), system-ui, sans-serif;
+}
+
+/* Remap the Tailwind gray scale inside the content area when in dark mode.
+   Tailwind v4 utilities reference --gray-* (no prefix) for scale colors,
+   and --color-white for white. Overriding these here fixes all content pages
+   at once. The sidebar (<nav>) is outside .motive-content so it is unaffected. */
+.dark .motive-content {
+  --gray-50:    #1a1a1a;
+  --gray-100:   #262626;
+  --gray-200:   #393939;
+  --gray-300:   #525252;
+  --gray-400:   #6f6f6f;
+  --gray-500:   #8d8d8d;
+  --gray-600:   #a8a8a8;
+  --gray-700:   #c6c6c6;
+  --gray-800:   #e0e0e0;
+  --gray-900:   #f4f4f4;
+  --color-white: #1f1f1f;
 }

@@ -125,7 +125,7 @@ function TypeRow({ token }: { token: TypeToken }) {
           className={token.isLink ? "underline cursor-pointer" : ""}
           color={token.isLink ? "#005FCF" : undefined}
         >
-          <span style={token.isLink ? { color: "#005FCF" } : { color: "#1a1a1a" }}>
+          <span style={token.isLink ? { color: "#005FCF" } : undefined}>
             {token.preview}
           </span>
         </p>
