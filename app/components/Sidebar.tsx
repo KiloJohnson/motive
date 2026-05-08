@@ -111,6 +111,12 @@ const homeNav: NavItem[] = [
 const applicationNav: NavItem[] = [
   { label: "Overview", href: "/application" },
   {
+    section: "Layout",
+    items: [
+      { label: "App Shell", href: "/application/app-shell" },
+    ],
+  },
+  {
     section: "Dashboards",
     items: [
       { label: "Analytics", href: "/application/dashboard-analytics", stub: true },
@@ -120,7 +126,7 @@ const applicationNav: NavItem[] = [
   {
     section: "Data",
     items: [
-      { label: "Tables", href: "/application/tables", stub: true },
+      { label: "Tables", href: "/application/tables" },
       { label: "Charts", href: "/application/charts", stub: true },
     ],
   },
