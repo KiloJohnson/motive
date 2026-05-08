@@ -19,6 +19,7 @@ This is not a side project. It is the spinal cord of how UX is done at Scripps H
 - Designs in Figma and Adobe tools
 - Not a developer, but learns fast and wants to get better
 - He doesn't memorize commands — you provide them. His job is to understand *what* they do.
+- Sharp instincts on copy, tone, and visual direction — trust them
 - When he says "yer boi can be taught" — he means it. Don't oversimplify.
 
 ---
@@ -39,129 +40,185 @@ A standalone doc site like [carbondesignsystem.com](https://carbondesignsystem.c
 
 ## The Stack
 
-| Layer | Technology | Why |
-|---|---|---|
-| Framework | Next.js (App Router, TypeScript) | Full React, supports demos + prototypes, deployes to Vercel |
-| Styling | Tailwind CSS | Token-friendly, utility-first, pairs with Flowbite |
-| Components | Flowbite React | Component foundation, Scripps-customized on top |
-| Fonts | Geist (Next.js default) | Clean, professional — can swap later |
-| Version control | Git (local) | Committed after every working session |
-| Future deploy | Vercel (when ready) | Free tier, zero config for Next.js |
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router, TypeScript) |
+| Styling | Tailwind CSS v4 |
+| Components | Flowbite React 0.12.17 |
+| Fonts | Red Hat Display (headings) + Red Hat Text (body) |
+| Dark mode | next-themes (`attribute="class"`) |
+| Version control | Git (local, `main` branch) |
+| Future deploy | Vercel (when Scripps hosting ready) |
 
 **Project location:** `/Users/kilojohnson_scripps/Desktop/! WORK/! KJ, Aethoria/01 UX/motive`
-
 **Dev command:** `npm run dev` → `http://localhost:3000`
 
 ---
 
-## What's Already Built
+## Current State (as of v2 commit)
 
-The shell is complete and git committed ("initial Motive shell — layout, sidebar, home page"):
+Motive is past v1. All sidebar pages have real content. The theme system, dark mode, and context switcher are fully implemented.
 
-- **Top bar** — Scripps blue (`#005EB8`), Motive™ branding
-- **Sidebar** — dark (`#111827`), full nav with active state indicator
-- **Home page** — hero, "What's in Motive" cards, "Why Motive" section
-- **Layout** — Carbon-style: fixed top bar, fixed sidebar, scrollable main content
+### What's built
 
-### Sidebar nav (already mapped, pages are 404s):
+**Umbrella home** (`/`) — "On brand by default." — non-technical, myth-busting, three audience paths (Leaders, Designers, Developers). Written to sell the room, not just explain the product.
 
-**Guidelines:** Page Structure, Grid & Breakpoints, Colors, Palettes, Dark Mode, Icons, Typography, Elevation, Spacing, Images, Blobs, Motion
+**Audience pages:**
+- `/about/leaders` — For the executive with veto power. No jargon.
+- `/about/designers` — Figma workflow, tokens, accessibility baseline.
+- `/about/developers` — Skip-to-components shortcut, Q&A format (why not Bootstrap, what accessible by default means).
 
-**Components:** Buttons, Avatars, Text Inputs, Forms (Simple / Errors / Complex Errors / Warnings), Number Inputs, Pickers, Toggle, Selectors, Accordion, Dropdown, Modals, Notifications, Tag & Labels, Breadcrumbs, Search, Switchers, Pagination
+**Context homes:**
+- `/marketing` — Marketing context landing (Scripps.org / consumer-facing)
+- `/application` — Application context landing ("Production-ready components for every application pattern")
+- `/myscripps` — My Scripps (Epic) coming soon
+- `/scrippsconnect` — ScrippsConnect (SharePoint) coming soon
 
-**Top-level:** Home, Accessibility
+**Guidelines:** Colors, Themes, Typography, Icons (654 Sparkle icons, live searchable), Page Structure, Grid & Breakpoints, Dark Mode, Elevation, Spacing, Images, Motion, Accessibility
+
+**Patterns:** Navigation, Header, Footer, Breadcrumbs, Banners, Search Panel
+
+**Sections:** Hero Search, Featured Links, Featured Specialties, App Promo, Map Pins
+
+**Flows:** Find a Doctor, Omnisearch Bar, Facet Panel, List Items, Filter Chips, Results Header, Insurance Selector, Insurance Popover, Facet Menus, Appointment Slots, Availability Table, Date Tiles, Availability Modal, Provider Result, Profile Header, Insurance Banner, Ratings & Reviews, Profile Details, Related Providers, Booking, Decision Trees
+
+**Components:** Buttons, Tabs, Avatars, Forms, Pickers, Toggle, Selectors, Accordion, Content Cards, Dropdown, Modals, Notifications, Tags & Labels, Search, Switchers, Breadcrumbs, Pagination
 
 ---
 
-## Content Sources
+## Architecture
 
-The content for all these pages already exists — it's been built but lives in the wrong place:
+### Theme system (two independent axes)
 
-1. **SharePoint** — `https://scrippshealth.sharepoint.com/sites/DesignSystem/SitePages/TrainingHome.aspx` (internal only). Has mature documentation for all sections above.
-2. **Figma files** — Multiple files. The flagship Scripps.org redesign has its own internal design system. Flowbite is the component baseline.
-3. **Flowbite** — `https://flowbite.com` — the open-source component library Motive is built on top of.
+**Mode (light/dark):** `[☀/☾]` toggle in TopBar. `next-themes` adds/removes `.dark` class on `<html>`. Gray scale inverted inside `.dark .motive-content` using Tailwind v4's `--gray-*` variables (no `color-` prefix — critical). `--color-white` also remapped.
 
-The job is migration + elevation: take what exists, bring it into Motive's format, make it better.
+**Brand theme:** `[Theme ▾]` dropdown in TopBar. Sets `data-theme` attribute on `<html>` via `BrandThemeContext.tsx`, persists to localStorage. Four themes: Scripps Main ✅, Qualcomm (placeholder — assets needed), Giving (placeholder — assets needed), ScrippsConnect (placeholder — assets needed). Assets needed: primary hex, secondary hex, logo SVG, font.
+
+**Key Tailwind v4 insight:** Color utilities reference `--gray-*` (NOT `--color-gray-*`). White uses `--color-white`. Inline `style={{ color: "#1a1a1a" }}` punches through CSS variables — use `undefined` or `inherit` instead.
+
+### Context switcher (sidebar)
+
+Five contexts in an inline expandable panel at top of sidebar (CSS grid-rows animation, no z-index issues):
+- **About Motive** → `/`
+- **Marketing Pages** → `/marketing`
+- **Application** → `/application`
+- **My Scripps (Epic)** → `/myscripps` (stub)
+- **ScrippsConnect** → `/scrippsconnect` (stub)
+
+Animated Scripps-blue ping dot draws eye to the switcher. Switching navigates to context home + swaps nav. When `pathname === "/"`, sidebar shows umbrella nav regardless of active context.
+
+### Sidebar
+Collapsible via hamburger (TopBar) — shared via `SidebarContext`. Sections collapse individually with chevron — CSS grid-rows animation. All sections start expanded.
+
+### Flowbite strategy
+Use Flowbite React from npm directly — no forking, no copying. Override with Scripps tokens via CSS custom properties. Motive documents the white-labeled patterns. The Application context showcases these — lead with value (production-ready components), not the tool name (Flowbite).
 
 ---
 
-## The Figma → Motive Workflow
+## Key Files
 
-This is the core build loop:
-
-```
-Kilo designs / specs something in Figma (Scripps account)
-        ↓
-Claude reads the design via Figma MCP
-        ↓
-Claude generates the component code or doc page
-        ↓
-It goes live on the Motive site
-        ↓
-Kilo reviews, approves, commits
-```
-
-**Figma MCP is connected** as `johnson.kilo@scrippshealth.org` (Scripps account). Kilo also has a Bethel account (`kijohnson@bethel.jw.org`) for volunteer work — that is NOT for Motive.
-
-**Figma Code Connect** is the future piece: maps Figma components to their real Motive code counterparts so developers inspecting a component in Figma see the actual code snippet, not AI guesses. Set this up once components are stable.
-
-**Figma Make** is for exploration and stakeholder demos. It is NOT the authority. **Motive is the authority.** Figma Make references Motive, never the other way around.
-
-**Write access to Figma** — not enabled yet (current token is read-only). Enable later, carefully. Don't push to shared Figma files without Kilo reviewing first.
+| File | Purpose |
+|---|---|
+| `app/components/BrandThemeContext.tsx` | Brand theme state, `data-theme` on `<html>`, localStorage |
+| `app/components/ThemeDropdown.tsx` | `[Theme ▾]` dropdown in TopBar |
+| `app/components/ThemeToggle.tsx` | `[☀/☾]` light/dark toggle |
+| `app/components/SidebarContext.tsx` | Sidebar open/close + activeContext state |
+| `app/components/Providers.tsx` | ThemeProvider → BrandThemeProvider → SidebarProvider |
+| `app/components/TopBar.tsx` | Client component — hamburger, ThemeDropdown, ThemeToggle |
+| `app/components/Sidebar.tsx` | Collapsible nav + inline context switcher |
+| `app/globals.css` | CSS vars, dark mode gray remap, brand theme blocks, Flowbite plugin import |
 
 ---
 
 ## Design Language
 
-**Brand color:** Scripps blue `#005EB8`
-**Background:** White content area, dark sidebar (`#111827`)
-**Typography:** Geist (current), may migrate to a Scripps-aligned typeface
+**Brand color:** `#005EB8` (Scripps blue) — `var(--motive-primary)` throughout, never hardcoded
+**Typography:** Red Hat Display (headings, `font-family: var(--font-red-hat-display)`), Red Hat Text (body)
+**Sidebar:** Always dark (`#111827`) — unaffected by light/dark mode
 **Grid:** 8px base (Carbon standard)
-**Accessibility:** WCAG 2.1 AA minimum — this is a baseline, not a checkbox
+**Accessibility:** WCAG 2.1 AA minimum — baked in, not a checkbox
+
+**Brand voice:**
+- Headline: "On brand by default." — confident, empowering, not aggressive
+- Tagline: "Design that holds up."
+- Tone: Clear, direct, no jargon, slightly editorial. Speaks to skeptics, not converts.
+
+**Art direction (future):** Kilo has full Scripps brand photo library. Visual direction = San Diego, Southern California coastal, premium-but-unsaid, human. Avoid: generic doctor-smiling stock, literal luxury tropes. The La Jolla / Geisel / Scripps connection is interesting territory.
+
+---
+
+## Figma & MCP Workflow
+
+```
+Kilo shares Figma URL → Claude reads via Figma MCP → builds page/component → Kilo reviews → commit
+```
+
+**Figma MCP:** Connected as `johnson.kilo@scrippshealth.org` (Scripps account). Kilo's Bethel account (`kijohnson@bethel.jw.org`) is NOT for Motive.
+
+**Flowbite Pro Figma:** `https://www.figma.com/design/UlY5rSIqwMznWXgYETcwTn/flowbite-pro-figma-v2.10.0` — licensed, use as Application context layout reference.
+
+**Flowbite MCP:** At `Desktop/! WORK/! KJ, Aethoria/01 UX/flowbite/1 mcp/flowbite-mcp-pro-1.0.0/` — needs `npm install && npm run build` before connecting, then add to `~/.claude/settings.json` as stdio MCP. Not yet connected.
+
+**Figma Code Connect:** Future step — maps finished Motive components back to Figma so devs see real code on inspect. Do this after Application context components are stable.
+
+**Motive is the authority.** Figma references Motive, never the other way around.
 
 ---
 
 ## Principles
 
 1. **Motive is the source of truth.** Everything else references it.
-2. **AI-first documentation.** Guidelines are written to be useful to someone prompting Claude, not just reading them. Include prompt examples where relevant.
-3. **Accessibility is baked in.** Not a section to fill in later — components meet AA from day one.
+2. **AI-first documentation.** Guidelines are written to be useful to someone prompting Claude, not just reading them.
+3. **Accessibility is baked in.** Components meet AA from day one.
 4. **Consistency earns trust.** Every Scripps touchpoint using Motive creates a recognizable, trustworthy experience.
 5. **One keeper, continuous tending.** Built to be maintained by Kilo solo, with Claude as the build partner.
 6. **Local first, deployable always.** Every page should work as if it will be public tomorrow.
+7. **Lead with value, not tools.** Don't say "Flowbite" on first impression — say what the user gets.
 
 ---
 
 ## What To Do At The Start of Every Session
 
 1. Read this file
-2. Check the current state of the project (`ls app/` — what pages exist?)
-3. Ask Kilo what he wants to work on, or resume from where we left off
-4. If building from Figma: ask for the URL, read the design via MCP, then build
-5. Commit at the end of every working session: `git add -A && git commit -m "..."`
+2. Read the memory file (check `.claude/projects/.../memory/MEMORY.md`)
+3. Check current project state (`ls app/`)
+4. Ask Kilo what he wants to work on, or resume from where we left off
+5. If building from Figma: ask for the URL, read via MCP, then build
+6. Commit at the end of every session
 
 ---
 
-## What's Next (as of session 1)
+## What's Next
 
-- [ ] First content page: **Colors** or **Typography** (establishes the template for all foundation pages)
-- [ ] First component page: **Buttons** (most visual, best for stakeholder demos, simplest component)
-- [ ] Set up MDX for doc pages (lets Kilo edit content without touching code)
-- [ ] Figma Code Connect (once 3-5 components are stable)
-- [ ] Deploy to Vercel (when Scripps hosting solution is ready)
+**Immediate — Application context:**
+1. Connect Flowbite MCP (npm install + npm run build + add to settings.json)
+2. Build dashboard shell — sidebar nav, topbar, layout grid (the skeleton everything else sits inside)
+3. Data table, forms, authentication pages
+4. Use Flowbite Pro Figma as layout reference via Figma MCP
+
+**Theme assets needed (to complete stub themes):**
+- Qualcomm: primary hex, secondary hex, logo SVG, font name
+- Giving: same
+- ScrippsConnect: same
+
+**Later:**
+- Figma Code Connect (once Application context components are stable)
+- Art direction pass on umbrella home (photography, mood)
+- Deploy to Vercel (when Scripps hosting ready)
 
 ---
 
 ## Git Status
 
-- Initial commit: `"initial Motive shell — layout, sidebar, home page"` ✓
-- All work should be committed at the end of each session
-- Branch: `main` (local only, not pushed anywhere)
+- Latest commit: `"v2 — theme system, dark mode, context switcher, umbrella home"`
+- Branch: `main` (local only, not pushed)
+- Commit at the end of every session
 
 ---
 
 ## Notes
 
-- The `compdef` warning in terminal (`/dev/fd/13:25: command not found: compdef`) is a harmless zsh autocomplete warning — ignore it
-- Vulnerability warnings from `npm audit` on Flowbite install — moderate severity, ignore for now
-- The folder had to be renamed `Motive` → `motive` (lowercase) due to npm naming restrictions
+- `compdef` warning in terminal — harmless zsh autocomplete warning, ignore
+- `npm audit` moderate vulnerabilities from Flowbite — ignore for now
+- Provider photos: `public/images/providers/` (provider-1.png through provider-5.png + video.png)
+- Toggle bug pattern: `<label>` wrapping `<button>` causes double-fire — use `<div onClick>` + `<div role="switch">` instead
