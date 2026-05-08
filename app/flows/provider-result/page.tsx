@@ -70,15 +70,22 @@ function ProviderPhoto({ src, size = 96, initials = "KN" }: { src?: string; size
 }
 
 function GroupPhotos({ count = 7 }: { count?: number }) {
+  const [errors, setErrors] = useState<boolean[]>([false, false, false]);
   return (
     <div className="flex flex-col items-center gap-1 shrink-0">
       <div className="relative w-20 h-16">
         {[0,1,2].map(i => (
-          <div key={i} className="absolute w-12 h-12 rounded-full bg-gray-300 border-2 border-white overflow-hidden flex items-center justify-center text-gray-500 text-xs font-bold"
-            style={{ left: i * 14, top: i * 2, zIndex: 3 - i, fontFamily: "var(--font-red-hat-display)" }}>
-            <img src={`/images/providers/provider-${i+1}.jpg`} alt="" className="w-full h-full object-cover"
-              onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-            {String.fromCharCode(65 + i)}
+          <div key={i} className="absolute w-12 h-12 rounded-full border-2 border-white overflow-hidden bg-gray-300"
+            style={{ left: i * 14, top: i * 2, zIndex: 3 - i }}>
+            {errors[i] ? (
+              <div className="w-full h-full flex items-center justify-center text-gray-500 text-xs font-bold"
+                style={{ fontFamily: "var(--font-red-hat-display)" }}>
+                {String.fromCharCode(65 + i)}
+              </div>
+            ) : (
+              <img src={`/images/providers/provider-${i+1}.png`} alt="" className="w-full h-full object-cover"
+                onError={() => setErrors(prev => prev.map((v, j) => j === i ? true : v))} />
+            )}
           </div>
         ))}
       </div>
@@ -101,7 +108,7 @@ function IndividualProviderCard({ mobile = false }: { mobile?: boolean }) {
     return (
       <div className="bg-white border border-gray-200 rounded-xl p-4 w-[280px] shadow-sm">
         <div className="flex gap-3 mb-3">
-          <ProviderPhoto src="/images/providers/provider-1.jpg" size={64} initials="KN" />
+          <ProviderPhoto src="/images/providers/provider-1.png" size={64} initials="KN" />
           <div className="flex-1 min-w-0">
             <p className="text-sm font-bold leading-tight mb-0.5" style={{ color: "#005FCF", fontFamily: "var(--font-red-hat-display)" }}>Kosha Nathwani, MD</p>
             <p className="text-xs text-gray-500 mb-1" style={{ fontFamily: "var(--font-red-hat-text)" }}>Internal Medicine</p>
@@ -129,7 +136,7 @@ function IndividualProviderCard({ mobile = false }: { mobile?: boolean }) {
       <div className="flex gap-6">
         {/* Left — provider info */}
         <div className="flex gap-4 w-64 shrink-0">
-          <ProviderPhoto src="/images/providers/provider-1.jpg" size={80} initials="KN" />
+          <ProviderPhoto src="/images/providers/provider-1.png" size={80} initials="KN" />
           <div className="flex-1 min-w-0">
             <p className="text-base font-bold leading-snug mb-0.5" style={{ color: "#005FCF", fontFamily: "var(--font-red-hat-display)" }}>Kosha Nathwani, MD</p>
             <p className="text-xs text-gray-500 mb-1" style={{ fontFamily: "var(--font-red-hat-text)" }}>Family Medicine</p>

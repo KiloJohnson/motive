@@ -222,22 +222,21 @@ function CheckboxGroup() {
 function Toggle({ label, footnote }: { label?: string; footnote?: string }) {
   const [on, setOn] = useState(false);
   return (
-    <label className="flex items-start gap-3 cursor-pointer">
-      <button
+    <div className="flex items-start gap-3 cursor-pointer" onClick={() => setOn(o => !o)}>
+      <div
         role="switch"
         aria-checked={on}
-        onClick={() => setOn(!on)}
         className={`mt-0.5 relative w-10 h-6 rounded-full transition-colors shrink-0 ${on ? "bg-[#005FCF]" : "bg-gray-300"}`}
       >
-        <span className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform ${on ? "translate-x-4" : "translate-x-0.5"}`} />
-      </button>
+        <span className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform ${on ? "translate-x-[18px]" : "translate-x-0.5"}`} />
+      </div>
       {label && (
         <div>
           <p className="text-sm font-semibold text-gray-900" style={{ fontFamily: "var(--font-red-hat-text)" }}>{label}</p>
           {footnote && <p className="text-xs text-gray-400" style={{ fontFamily: "var(--font-red-hat-text)" }}>{footnote}</p>}
         </div>
       )}
-    </label>
+    </div>
   );
 }
 
