@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motiveContexts, useSidebar } from "./SidebarContext";
 
 // ── Nav data ──────────────────────────────────────────────────────────────
@@ -147,6 +147,64 @@ const applicationNav: NavItem[] = [
   },
 ];
 
+const brandStandardsNav: NavItem[] = [
+  { label: "Overview", href: "/brand-standards" },
+  {
+    section: "Introduction",
+    items: [
+      { label: "Letter from Leadership", href: "/brand-standards/introduction/letter-from-leadership" },
+      { label: "About Our Brand", href: "/brand-standards/introduction/about-our-brand" },
+    ],
+  },
+  {
+    section: "The Scripps Logo",
+    items: [
+      { label: "Introduction", href: "/brand-standards/scripps-logo/introduction" },
+      { label: "Clear Space & Alignments", href: "/brand-standards/scripps-logo/clear-space" },
+      { label: "Sizing", href: "/brand-standards/scripps-logo/sizing" },
+      { label: "Color Variations", href: "/brand-standards/scripps-logo/color-variations" },
+      { label: "Placement", href: "/brand-standards/scripps-logo/placement" },
+      { label: "Architecture", href: "/brand-standards/scripps-logo/architecture" },
+      { label: "Program & Event Visuals", href: "/brand-standards/scripps-logo/program-and-event-visuals" },
+      { label: "Headline Scaling", href: "/brand-standards/scripps-logo/headline" },
+      { label: "Scripps Clinic Logo", href: "/brand-standards/scripps-logo/scripps-clinic-logo" },
+    ],
+  },
+  {
+    section: "Design System",
+    items: [
+      { label: "Introduction", href: "/brand-standards/design-system/introduction" },
+      { label: "Color Palette", href: "/brand-standards/design-system/color-palette" },
+      { label: "Typography", href: "/brand-standards/design-system/typography" },
+      { label: "Subgraphic Elements", href: "/brand-standards/design-system/subgraphic-elements" },
+      { label: "Imagery", href: "/brand-standards/design-system/imagery" },
+    ],
+  },
+  {
+    section: "Application Examples",
+    items: [
+      { label: "Folders", href: "/brand-standards/application-examples/folders" },
+      { label: "Brochures", href: "/brand-standards/application-examples/brochures" },
+      { label: "Pole Banners", href: "/brand-standards/application-examples/pole-banners" },
+      { label: "Invitations", href: "/brand-standards/application-examples/invitations" },
+      { label: "Newsletter Header", href: "/brand-standards/application-examples/newsletter-header" },
+      { label: "Physician Bios", href: "/brand-standards/application-examples/physician-bios" },
+      { label: "Flyers", href: "/brand-standards/application-examples/flyers" },
+      { label: "PowerPoint Templates", href: "/brand-standards/application-examples/powerpoint-templates" },
+      { label: "Websites & Social Media", href: "/brand-standards/application-examples/websites-and-social-media" },
+      { label: "Foundation Materials", href: "/brand-standards/application-examples/foundation-materials" },
+    ],
+  },
+  {
+    section: "Word Count",
+    items: [
+      { label: "Physician Bios", href: "/brand-standards/word-count/physician-bios" },
+      { label: "4×9 Brochures", href: "/brand-standards/word-count/4x9-brochures" },
+      { label: "Flyers", href: "/brand-standards/word-count/flyers" },
+    ],
+  },
+];
+
 const myScrippsNav: NavItem[] = [
   { label: "Overview", href: "/myscripps" },
 ];
@@ -159,6 +217,7 @@ const navByContext: Record<string, NavItem[]> = {
   about: homeNav,
   marketing: marketingNav,
   application: applicationNav,
+  "brand-standards": brandStandardsNav,
   myscripps: myScrippsNav,
   scrippsconnect: scrippsConnectNav,
 };
@@ -299,7 +358,13 @@ function ContextSwitcher() {
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const { isOpen, activeContext } = useSidebar();
+  const { isOpen, activeContext, setActiveContext } = useSidebar();
+
+  useEffect(() => {
+    if (pathname === "/" && activeContext !== "about") {
+      setActiveContext("about");
+    }
+  }, [pathname]);
 
   const nav = pathname === "/" ? homeNav : (navByContext[activeContext] ?? marketingNav);
   const sectionNames = nav

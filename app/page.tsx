@@ -83,8 +83,8 @@ export default function MotiveHome() {
             className="inline-block mb-8"
             style={{ borderBottom: "2px solid var(--motive-primary)", width: "2.5rem", paddingBottom: "0" }}
           />
-          <h1 className="text-6xl font-black tracking-tight text-gray-900 leading-[1.05] mb-4">
-            On brand by default.
+          <h1 className="text-[64px] tracking-tight text-gray-900 leading-[1.05] mb-4" style={{ fontWeight: 600 }}>
+            Effortlessly on brand.
           </h1>
           <p className="text-xl text-gray-500 leading-relaxed max-w-xl mb-6">
             Marketing pages to Applications, Motive is the shared design language

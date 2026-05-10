@@ -22,7 +22,7 @@ export const useSidebar = () => useContext(SidebarContext);
 
 // ── Motive contexts ───────────────────────────────────────────────────────
 
-export type MotiveContext = "about" | "marketing" | "application" | "myscripps" | "scrippsconnect";
+export type MotiveContext = "about" | "marketing" | "application" | "brand-standards" | "myscripps" | "scrippsconnect";
 
 export const motiveContexts: {
   id: MotiveContext;
@@ -30,11 +30,12 @@ export const motiveContexts: {
   href: string;
   stub: boolean;
 }[] = [
-  { id: "about",          label: "About Motive",         href: "/",                stub: false },
-  { id: "marketing",      label: "Marketing Pages",      href: "/marketing",       stub: false },
-  { id: "application",    label: "Application",           href: "/application",     stub: false },
-  { id: "myscripps",      label: "My Scripps (Epic)",     href: "/myscripps",       stub: true  },
-  { id: "scrippsconnect", label: "ScrippsConnect",        href: "/scrippsconnect",  stub: true  },
+  { id: "about",            label: "About Motive",         href: "/",                  stub: false },
+  { id: "marketing",        label: "Marketing Pages",      href: "/marketing",         stub: false },
+  { id: "application",      label: "Application",          href: "/application",       stub: false },
+  { id: "brand-standards",  label: "Brand Standards",      href: "/brand-standards",   stub: false },
+  { id: "myscripps",        label: "My Scripps (Epic)",    href: "/myscripps",         stub: true  },
+  { id: "scrippsconnect",   label: "ScrippsConnect",       href: "/scrippsconnect",    stub: true  },
 ];
 
 // ── Provider ──────────────────────────────────────────────────────────────
