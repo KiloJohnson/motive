@@ -30,9 +30,9 @@ export const motiveContexts: {
   href: string;
   stub: boolean;
 }[] = [
-  { id: "about",            label: "About Motive",         href: "/",                  stub: false },
+  { id: "about",            label: "Home",                 href: "/",                  stub: false },
   { id: "marketing",        label: "Marketing Pages",      href: "/marketing",         stub: false },
-  { id: "application",      label: "Application",          href: "/application",       stub: false },
+  { id: "application",      label: "Applications",         href: "/application",       stub: false },
   { id: "brand-standards",  label: "Brand Standards",      href: "/brand-standards",   stub: false },
   { id: "myscripps",        label: "My Scripps (Epic)",    href: "/myscripps",         stub: true  },
   { id: "scrippsconnect",   label: "ScrippsConnect",       href: "/scrippsconnect",    stub: true  },

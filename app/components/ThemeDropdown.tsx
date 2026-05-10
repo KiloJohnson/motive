@@ -26,9 +26,9 @@ export default function ThemeDropdown() {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="flex items-center gap-1.5 px-3 h-7 text-xs text-white/80 hover:text-white border border-white/20 hover:border-white/40 rounded transition-colors whitespace-nowrap"
+        className="flex items-center gap-1.5 px-3 h-7 text-xs font-medium text-white hover:text-white border border-white/40 hover:border-white/70 rounded transition-colors whitespace-nowrap"
       >
-        <span>{current.label}</span>
+        <span><span className="text-white/70">Theme: </span>{current.label}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="10"

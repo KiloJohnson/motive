@@ -1,18 +1,36 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+
 import ThemeToggle from "./ThemeToggle";
 import ThemeDropdown from "./ThemeDropdown";
-import { useSidebar } from "./SidebarContext";
+import { useSidebar, motiveContexts } from "./SidebarContext";
 
 export default function TopBar() {
-  const { toggle } = useSidebar();
+  const { toggle, activeContext, setActiveContext } = useSidebar();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const currentCtx = motiveContexts.find((c) => c.id === activeContext);
+  const label = currentCtx?.label ?? "Motive";
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header
       style={{ backgroundColor: "var(--motive-primary)", height: "48px" }}
       className="flex items-center px-4 shrink-0 z-50 gap-3"
     >
+      {/* Hamburger */}
       <button
         onClick={toggle}
         aria-label="Toggle navigation"
@@ -25,19 +43,47 @@ export default function TopBar() {
         </svg>
       </button>
 
-      <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-        <span className="text-white font-semibold text-lg tracking-tight">
-          Motive™
-        </span>
-        <span className="text-white/40 text-sm font-light">
-          Design System
-        </span>
+      {/* Logo */}
+      <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+        <img src="/logos/motive_dark.svg" alt="Motive — Scripps Health Design System" style={{ height: "26px", width: "auto" }} />
       </Link>
 
       <div className="ml-auto flex items-center gap-3">
         <ThemeDropdown />
         <ThemeToggle />
-        <span className="text-white/50 text-xs font-mono">v2.0</span>
+
+        {/* Context switcher */}
+        <div className="relative" ref={dropdownRef}>
+          <button
+            onClick={() => setDropdownOpen((v) => !v)}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold text-white border border-white/40 hover:border-white/80 transition-colors"
+          >
+            {label}
+            <svg width="10" height="10" viewBox="0 0 12 12" fill="none" style={{ transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}>
+              <path d="M2 4l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          {dropdownOpen && (
+            <div className="absolute right-0 top-full mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50">
+              {motiveContexts.map((ctx) => (
+                <Link
+                  key={ctx.id}
+                  href={ctx.href}
+                  onClick={() => { setActiveContext(ctx.id); setDropdownOpen(false); }}
+                  className={`flex items-center justify-between px-4 py-3 text-sm transition-colors ${
+                    ctx.id === activeContext
+                      ? "bg-blue-50 text-blue-700 font-medium"
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  <span>{ctx.label}</span>
+                  {ctx.stub && <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">soon</span>}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

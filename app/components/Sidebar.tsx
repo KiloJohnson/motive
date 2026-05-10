@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { motiveContexts, useSidebar } from "./SidebarContext";
+import { useSidebar } from "./SidebarContext";
 
 // ── Nav data ──────────────────────────────────────────────────────────────
 
@@ -263,96 +263,6 @@ function NavLink({ item, active }: { item: NavLink; active: boolean }) {
 
 // ── Context switcher ──────────────────────────────────────────────────────
 
-function ContextSwitcher() {
-  const { activeContext, setActiveContext } = useSidebar();
-  const [open, setOpen] = useState(false);
-  const router = useRouter();
-
-  const current = motiveContexts.find((c) => c.id === activeContext)!;;
-
-  const handleSelect = (c: typeof motiveContexts[0]) => {
-    setActiveContext(c.id);
-    setOpen(false);
-    router.push(c.href);
-  };
-
-  return (
-    <div className="px-3 py-3 border-b border-white/10">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between px-3 py-2 rounded text-sm text-gray-200 hover:text-white bg-white/5 hover:bg-white/10 transition-colors"
-      >
-        <span className="flex items-center gap-2 min-w-0">
-          <span className="relative flex h-2 w-2 shrink-0">
-            <span
-              className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
-              style={{ backgroundColor: "var(--motive-primary)" }}
-            />
-            <span
-              className="relative inline-flex rounded-full h-2 w-2"
-              style={{ backgroundColor: "var(--motive-primary)" }}
-            />
-          </span>
-          <span className="font-medium truncate">{current.label}</span>
-        </span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="12"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          style={{ transition: "transform 0.2s ease", flexShrink: 0 }}
-          className={open ? "rotate-180 ml-2" : "rotate-0 ml-2"}
-        >
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </button>
-
-      {/* Inline panel — uses grid-rows trick, no absolute positioning */}
-      <div
-        style={{ transition: "grid-template-rows 0.2s ease" }}
-        className={`grid ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
-      >
-        <div className="overflow-hidden">
-          <div className="pt-1 pb-0.5 space-y-0.5">
-            {motiveContexts.map((c) => {
-              const isActive = c.id === activeContext;
-              return (
-                <button
-                  key={c.id}
-                  onClick={() => handleSelect(c)}
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded text-sm transition-colors ${
-                    isActive
-                      ? "text-white bg-white/10 font-medium"
-                      : "text-gray-400 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  <span className="truncate">{c.label}</span>
-                  <span className="flex items-center gap-1.5 shrink-0 ml-2">
-                    {c.stub && (
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-gray-500">
-                        soon
-                      </span>
-                    )}
-                    {isActive && (
-                      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    )}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // ── Sidebar ───────────────────────────────────────────────────────────────
 
@@ -367,13 +277,7 @@ export default function Sidebar() {
   }, [pathname]);
 
   const nav = pathname === "/" ? homeNav : (navByContext[activeContext] ?? marketingNav);
-  const sectionNames = nav
-    .filter((item): item is NavSection => "section" in item)
-    .map((item) => item.section);
-
-  const [expanded, setExpanded] = useState<Set<string>>(
-    () => new Set(sectionNames)
-  );
+  const [expanded, setExpanded] = useState<Set<string>>(() => new Set());
 
   const toggleSection = (section: string) => {
     setExpanded((prev) => {
@@ -395,8 +299,6 @@ export default function Sidebar() {
       className="shrink-0 overflow-hidden flex flex-col"
     >
       <div className="w-(--motive-sidebar-width) flex flex-col flex-1 overflow-hidden">
-        <ContextSwitcher />
-
         <ul className="py-4 pb-25 overflow-y-auto flex-1">
           {nav.map((item, i) => {
             if ("section" in item) {
