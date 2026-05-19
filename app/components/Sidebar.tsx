@@ -127,7 +127,7 @@ const applicationNav: NavItem[] = [
     section: "Data",
     items: [
       { label: "Tables", href: "/application/tables" },
-      { label: "Charts", href: "/application/charts", stub: true },
+      { label: "Charts", href: "/application/charts" },
     ],
   },
   {
