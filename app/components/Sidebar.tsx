@@ -119,7 +119,7 @@ const applicationNav: NavItem[] = [
   {
     section: "Dashboards",
     items: [
-      { label: "Analytics", href: "/application/dashboard-analytics", stub: true },
+      { label: "Analytics", href: "/application/dashboard-analytics" },
       { label: "E-commerce", href: "/application/dashboard-ecommerce", stub: true },
     ],
   },

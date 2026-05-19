@@ -35,12 +35,12 @@ export default function AppShellPage() {
     <div className="min-h-full">
 
       {/* ── Header ─────────────────────────────────────────────────────── */}
-      <section className="border-b border-gray-100 px-16 py-12">
+      <section className="border-b border-gray-100 dark:border-gray-700 px-16 py-12">
         <p style={{ color: "var(--motive-primary)" }} className="text-xs font-semibold uppercase tracking-widest mb-3">
           Application
         </p>
-        <h1 className="text-4xl font-semibold tracking-tight text-gray-900 mb-4">App Shell</h1>
-        <p className="text-lg text-gray-500 max-w-2xl leading-relaxed">
+        <h1 className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">App Shell</h1>
+        <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
           The foundational layout for all Scripps application interfaces — sidebar navigation,
           topbar, and scrollable content area. Every application page lives inside this shell.
           Click the nav items below to see the active state in action.
@@ -48,7 +48,7 @@ export default function AppShellPage() {
       </section>
 
       {/* ── Live preview ───────────────────────────────────────────────── */}
-      <section className="px-16 py-12 border-b border-gray-100">
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Live preview</h2>
         <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden" style={{ height: "560px" }}>
           <div className="flex h-full">
@@ -120,13 +120,13 @@ export default function AppShellPage() {
       </section>
 
       {/* ── Anatomy ────────────────────────────────────────────────────── */}
-      <section className="px-16 py-12 border-b border-gray-100">
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">Anatomy</h2>
         <div className="grid grid-cols-2 gap-6 max-w-3xl">
           {anatomy.map((item) => (
-            <div key={item.part} className="p-6 border border-gray-100 rounded">
-              <h3 className="text-sm font-bold text-gray-900 mb-2">{item.part}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+            <div key={item.part} className="p-6 border border-gray-100 dark:border-gray-700 rounded">
+              <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2">{item.part}</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>
@@ -141,12 +141,12 @@ export default function AppShellPage() {
             { name: "Navbar", pkg: "flowbite-react", note: "Use for the topbar. Pair with DarkThemeToggle for light/dark switching." },
             { name: "Avatar", pkg: "flowbite-react", note: "User identity in the topbar. Use with the user's initials or profile photo." },
           ].map((item, i) => (
-            <div key={i} className="grid grid-cols-[160px_1fr] gap-8 py-6 border-b border-gray-100 last:border-0">
+            <div key={i} className="grid grid-cols-[160px_1fr] gap-8 py-6 border-b border-gray-100 dark:border-gray-700 last:border-0">
               <div>
-                <p className="text-sm font-bold text-gray-900">{item.name}</p>
+                <p className="text-sm font-bold text-gray-900 dark:text-white">{item.name}</p>
                 <p className="text-xs text-gray-400 font-mono mt-0.5">{item.pkg}</p>
               </div>
-              <p className="text-sm text-gray-500 leading-relaxed">{item.note}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.note}</p>
             </div>
           ))}
         </div>

@@ -1,4 +1,3 @@
-import Link from "next/link";
 
 const upcoming = [
   {
@@ -26,41 +25,41 @@ const upcoming = [
 export default function ApplicationPage() {
   return (
     <div className="min-h-full">
-      <section className="border-b border-gray-100 px-16 py-20">
+      <section className="border-b border-gray-100 dark:border-gray-700 px-16 py-20">
         <p
           style={{ color: "var(--motive-primary)" }}
           className="text-xs font-semibold uppercase tracking-widest mb-4"
         >
           Application Context
         </p>
-        <h1 className="text-5xl font-semibold tracking-tight text-gray-900 max-w-2xl leading-tight mb-6">
+        <h1 className="text-5xl font-semibold tracking-tight text-gray-900 dark:text-white max-w-2xl leading-tight mb-6">
           Production-ready components for every application pattern.
         </h1>
-        <p className="text-lg text-gray-500 max-w-xl leading-relaxed mb-10">
+        <p className="text-lg text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed mb-10">
           Dashboards, data tables, forms, authentication — fully-featured application
           components styled with Scripps tokens, documented, and ready to build with.
         </p>
         <div className="flex items-center gap-3">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded text-sm font-medium bg-gray-100 text-gray-500">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
             <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
             In progress
           </span>
         </div>
       </section>
 
-      <section className="px-16 py-16 border-b border-gray-100">
+      <section className="px-16 py-16 border-b border-gray-100 dark:border-gray-700">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
           What&apos;s coming
         </h2>
         <div className="grid grid-cols-2 gap-6 max-w-4xl">
           {upcoming.map((block) => (
-            <div key={block.title} className="p-6 border border-gray-100 rounded">
-              <h3 className="text-base font-semibold text-gray-900 mb-2">{block.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">{block.description}</p>
+            <div key={block.title} className="p-6 border border-gray-100 dark:border-gray-700 rounded">
+              <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-2">{block.title}</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4">{block.description}</p>
               <ul className="space-y-1">
                 {block.items.map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm text-gray-400">
-                    <span className="text-gray-300">✳</span>
+                    <span className="text-gray-300 dark:text-gray-600">✳</span>
                     {item}
                   </li>
                 ))}
@@ -82,8 +81,8 @@ export default function ApplicationPage() {
           ].map((item) => (
             <div key={item.step}>
               <p style={{ color: "var(--motive-primary)" }} className="text-xs font-mono font-semibold mb-3">{item.step}</p>
-              <h3 className="text-sm font-semibold text-gray-900 mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{item.body}</p>
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
             </div>
           ))}
         </div>

@@ -50,7 +50,7 @@ A standalone doc site like [carbondesignsystem.com](https://carbondesignsystem.c
 | Version control | Git (local, `main` branch) |
 | Future deploy | Vercel (when Scripps hosting ready) |
 
-**Project location:** `/Users/kilojohnson_scripps/Desktop/! WORK/! KJ, Aethoria/01 UX/motive`
+**Project location:** `/Users/kilojohnson_scripps/Documents/sites/motive`
 **Dev command:** `npm run dev` → `http://localhost:3000`
 
 ---
@@ -157,7 +157,7 @@ Kilo shares Figma URL → Claude reads via Figma MCP → builds page/component �
 
 **Flowbite Pro Figma:** `https://www.figma.com/design/UlY5rSIqwMznWXgYETcwTn/flowbite-pro-figma-v2.10.0` — licensed, use as Application context layout reference.
 
-**Flowbite MCP:** At `Desktop/! WORK/! KJ, Aethoria/01 UX/flowbite/1 mcp/flowbite-mcp-pro-1.0.0/` — needs `npm install && npm run build` before connecting, then add to `~/.claude/settings.json` as stdio MCP. Not yet connected.
+**Flowbite MCP:** At `Desktop/! UX/Flowbite/1 mcp/flowbite-mcp-pro-1.0.0/` — built and registered ✅. Command: `node "/Users/kilojohnson_scripps/Desktop/! UX/Flowbite/1 mcp/flowbite-mcp-pro-1.0.0/build/index.js"`. Active on session start.
 
 **Figma Code Connect:** Future step — maps finished Motive components back to Figma so devs see real code on inspect. Do this after Application context components are stable.
 
@@ -188,13 +188,41 @@ Kilo shares Figma URL → Claude reads via Figma MCP → builds page/component �
 
 ---
 
-## What's Next
+## What's Next — CURRENT PRIORITY
 
-**Immediate — Application context:**
-1. Connect Flowbite MCP (npm install + npm run build + add to settings.json)
-2. Build dashboard shell — sidebar nav, topbar, layout grid (the skeleton everything else sits inside)
-3. Data table, forms, authentication pages
-4. Use Flowbite Pro Figma as layout reference via Figma MCP
+**The Application context is the immediate focus.** The goal: build a full working dashboard shell using Flowbite components with Motive/Scripps tokens applied. This serves three purposes simultaneously:
+1. Motive Application context documentation — living component library
+2. PIMC back office skeleton — devs can use this as their reference/starting point
+3. The argument to the dev team — "here's Motive-themed Flowbite, here's what the app looks like"
+
+### Step 1 — Dashboard shell (do this first)
+Build the skeleton everything else sits inside:
+- Persistent sidebar nav (collapsible, dark, Scripps blue active states)
+- Top bar (breadcrumb, user avatar, notifications)
+- Main content area with layout grid
+- This should feel like opening a real admin app
+
+Route: `/application` already exists as the context landing. Build the shell as a sub-route or inline demo.
+
+### Step 2 — Core components (add one by one)
+Priority order for PIMC back office:
+1. Data table (customer list, invoice list, waitlist)
+2. Forms + inputs (create customer, record payment)
+3. Modal (payment confirmation, record cash/check)
+4. Status badges (subscription status, payment status)
+5. Cards (customer detail, stats/KPIs)
+6. Pagination, search, filters
+
+### Flowbite MCP — CONNECTED ✅
+- Built and registered: `node "/Users/kilojohnson_scripps/Desktop/! UX/Flowbite/1 mcp/flowbite-mcp-pro-1.0.0/build/index.js"`
+- Registered via `claude mcp add` — active on next session start
+- Figma file: `https://www.figma.com/design/UlY5rSIqwMznWXgYETcwTn/flowbite-pro-figma-v2.10.0`
+- Workflow: Flowbite MCP reads component → build with Scripps tokens → document in Motive
+
+### Why this matters right now
+Scripps PIMC admin project brief has landed. 10 .NET devs building the backend. Kilo owns the two React frontends (customer portal + back office). The Application context in Motive IS the PIMC back office design system. Get it built before the devs start on frontend — that's the whole play. See `/Users/kilojohnson_scripps/Documents/sites/scripps-pimc-admin/CLAUDE.md` for full context.
+
+---
 
 **Theme assets needed (to complete stub themes):**
 - Qualcomm: primary hex, secondary hex, logo SVG, font name
@@ -212,6 +240,7 @@ Kilo shares Figma URL → Claude reads via Figma MCP → builds page/component �
 
 - Latest commit: `"v2 — theme system, dark mode, context switcher, umbrella home"`
 - Branch: `main` (local only, not pushed)
+- Dev port: `localhost:3000` (or `--port 3001` if 3000 is taken by scripps-giving)
 - Commit at the end of every session
 
 ---
@@ -222,3 +251,4 @@ Kilo shares Figma URL → Claude reads via Figma MCP → builds page/component �
 - `npm audit` moderate vulnerabilities from Flowbite — ignore for now
 - Provider photos: `public/images/providers/` (provider-1.png through provider-5.png + video.png)
 - Toggle bug pattern: `<label>` wrapping `<button>` causes double-fire — use `<div onClick>` + `<div role="switch">` instead
+- Port conflict: scripps-giving also runs on 3000 — use `npm run dev -- --port 3001` if needed

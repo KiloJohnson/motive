@@ -34,18 +34,21 @@ function IconCard({ icon, style }: { icon: Icon; style: StyleFilter }) {
       className="group flex flex-col items-center gap-2 p-4 rounded border border-transparent hover:border-gray-200 hover:bg-gray-50 transition-all text-center"
     >
       <div className="w-8 h-8 flex items-center justify-center">
-        <img src={src} alt={icon.name} className="w-8 h-8 object-contain" />
+        <img
+          src={src}
+          alt={icon.name}
+          className={`w-8 h-8 object-contain ${style !== "color" ? "dark:invert" : ""}`}
+        />
       </div>
-      <p className="text-[10px] text-gray-400 leading-snug break-all group-hover:text-gray-600 transition-colors w-full" style={{ fontFamily: "var(--font-red-hat-text)" }}>
+      <p className="text-[10px] text-gray-700 leading-snug break-all group-hover:text-gray-900 transition-colors w-full" style={{ fontFamily: "var(--font-red-hat-text)" }}>
         {copied ? <span className="text-green-600 font-semibold">copied!</span> : icon.name}
       </p>
     </button>
   );
 }
 
-function getPrefix(name: string) {
-  const parts = name.split("-");
-  return parts.length > 1 ? parts[0] : "other";
+function getFirstLetter(name: string) {
+  return name.charAt(0).toUpperCase();
 }
 
 export default function IconsClient({ icons }: { icons: Icon[] }) {
@@ -61,7 +64,7 @@ export default function IconsClient({ icons }: { icons: Icon[] }) {
   const groups = useMemo(() => {
     const map = new Map<string, Icon[]>();
     for (const icon of filtered) {
-      const prefix = getPrefix(icon.name);
+      const prefix = getFirstLetter(icon.name);
       const group = map.get(prefix) || [];
       group.push(icon);
       map.set(prefix, group);
@@ -113,7 +116,7 @@ export default function IconsClient({ icons }: { icons: Icon[] }) {
                 <path d="M10 10l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
               <input
-                className="flex-1 text-sm outline-none text-gray-900 placeholder:text-gray-400"
+                className="flex-1 text-sm outline-none bg-transparent text-gray-900 placeholder:text-gray-400"
                 placeholder="Search icons..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
@@ -130,7 +133,7 @@ export default function IconsClient({ icons }: { icons: Icon[] }) {
                   key={s}
                   onClick={() => setStyle(s)}
                   className={`px-4 py-2 text-sm font-semibold capitalize transition-colors ${
-                    style === s ? "bg-[#005FCF] text-white" : "text-[#005FCF] hover:bg-[#F3F8FB]"
+                    style === s ? "bg-[#005FCF] text-[#ffffff]" : "text-[#005FCF] hover:bg-[#F3F8FB]"
                   }`}
                   style={{ fontFamily: "var(--font-red-hat-text)" }}
                 >

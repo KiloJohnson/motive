@@ -32,7 +32,7 @@ const statusStyles: Record<Status, string> = {
   Confirmed:  "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
   Pending:    "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
   Cancelled:  "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
-  Completed:  "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400",
+  Completed:  "bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400",
 };
 
 function StatusBadge({ status }: { status: Status }) {
@@ -61,19 +61,19 @@ export default function TablesPage() {
     <div className="min-h-full">
 
       {/* ── Header ─────────────────────────────────────────────────────── */}
-      <section className="border-b border-gray-100 px-16 py-12">
+      <section className="border-b border-gray-100 dark:border-gray-700 px-16 py-12">
         <p style={{ color: "var(--motive-primary)" }} className="text-xs font-semibold uppercase tracking-widest mb-3">
           Application
         </p>
-        <h1 className="text-4xl font-semibold tracking-tight text-gray-900 mb-4">Data Table</h1>
-        <p className="text-lg text-gray-500 max-w-2xl leading-relaxed">
+        <h1 className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">Data Table</h1>
+        <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
           Sortable, filterable, paginated tables for patient records, provider rosters,
           appointment logs, and admin views. Built on Flowbite&apos;s Table component with Scripps tokens applied.
         </p>
       </section>
 
       {/* ── Live demo ──────────────────────────────────────────────────── */}
-      <section className="px-16 py-12 border-b border-gray-100">
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Live demo</h2>
 
         {/* Toolbar */}
@@ -86,7 +86,7 @@ export default function TablesPage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search patient, provider, department…"
-              className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 placeholder-gray-400 outline-none focus:ring-2 focus:border-transparent"
+              className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 placeholder-gray-400 outline-none focus:ring-2 focus:border-transparent"
               style={{ ["--tw-ring-color" as string]: "var(--motive-primary)" }}
             />
           </div>
@@ -94,7 +94,7 @@ export default function TablesPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as Status | "All")}
-            className="px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 outline-none"
+            className="px-3 py-2 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 outline-none"
           >
             {["All", "Confirmed", "Pending", "Cancelled", "Completed"].map((s) => (
               <option key={s} value={s}>{s === "All" ? "All statuses" : s}</option>
@@ -135,14 +135,14 @@ export default function TablesPage() {
                 </tr>
               ) : (
                 filtered.map((appt) => (
-                  <tr key={appt.id} className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+                  <tr key={appt.id} className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                     <td className="px-4 py-3 font-mono text-xs text-gray-400 dark:text-gray-500">{appt.id}</td>
-                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-gray-100 whitespace-nowrap">{appt.patient}</td>
+                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white whitespace-nowrap">{appt.patient}</td>
                     <td className="px-4 py-3 text-gray-600 dark:text-gray-300 whitespace-nowrap">{appt.provider}</td>
                     <td className="px-4 py-3 text-gray-500 dark:text-gray-400">{appt.department}</td>
                     <td className="px-4 py-3 text-gray-500 dark:text-gray-400 whitespace-nowrap">
                       <span className="block">{appt.date}</span>
-                      <span className="text-gray-400 text-xs">{appt.time}</span>
+                      <span className="text-gray-400 dark:text-gray-500 text-xs">{appt.time}</span>
                     </td>
                     <td className="px-4 py-3 text-gray-500 dark:text-gray-400 whitespace-nowrap">{appt.type}</td>
                     <td className="px-4 py-3"><StatusBadge status={appt.status} /></td>
@@ -162,7 +162,7 @@ export default function TablesPage() {
 
         {/* Pagination */}
         <div className="flex items-center justify-between mt-4">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             Showing <span className="font-medium text-gray-700 dark:text-gray-300">{filtered.length}</span> of <span className="font-medium text-gray-700 dark:text-gray-300">{appointments.length}</span> appointments
           </p>
           <div className="flex items-center gap-1">
@@ -172,7 +172,7 @@ export default function TablesPage() {
                 className={`px-3 py-1.5 text-sm rounded transition-colors ${
                   p === "1"
                     ? "text-white font-medium"
-                    : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
                 }`}
                 style={p === "1" ? { backgroundColor: "var(--motive-primary)" } : {}}
               >
@@ -184,7 +184,7 @@ export default function TablesPage() {
       </section>
 
       {/* ── Variants ───────────────────────────────────────────────────── */}
-      <section className="px-16 py-12 border-b border-gray-100">
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">Variants</h2>
         <div className="grid grid-cols-3 gap-6 max-w-3xl">
           {[
@@ -192,9 +192,9 @@ export default function TablesPage() {
             { name: "Striped", note: "Alternating row backgrounds. Add striped prop to Table. Better for dense, long tables." },
             { name: "Compact", note: "Reduced cell padding. Use when vertical density matters more than legibility." },
           ].map((v) => (
-            <div key={v.name} className="p-5 border border-gray-100 rounded">
-              <h3 className="text-sm font-bold text-gray-900 mb-2">{v.name}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{v.note}</p>
+            <div key={v.name} className="p-5 border border-gray-100 dark:border-gray-700 rounded">
+              <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2">{v.name}</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{v.note}</p>
             </div>
           ))}
         </div>
@@ -210,9 +210,9 @@ export default function TablesPage() {
             { label: "Empty state", note: "Always handle zero results explicitly. Show a clear message — never an empty table body." },
             { label: "Actions column", note: "Keep action triggers in the rightmost column. Use a kebab menu (⋮) for 3+ actions. Use text links for 1–2." },
           ].map((item, i) => (
-            <div key={i} className="grid grid-cols-[160px_1fr] gap-8 py-6 border-b border-gray-100 last:border-0">
-              <p className="text-sm font-bold text-gray-900">{item.label}</p>
-              <p className="text-sm text-gray-500 leading-relaxed">{item.note}</p>
+            <div key={i} className="grid grid-cols-[160px_1fr] gap-8 py-6 border-b border-gray-100 dark:border-gray-700 last:border-0">
+              <p className="text-sm font-bold text-gray-900 dark:text-white">{item.label}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.note}</p>
             </div>
           ))}
         </div>
