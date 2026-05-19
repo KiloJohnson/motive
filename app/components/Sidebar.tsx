@@ -133,16 +133,16 @@ const applicationNav: NavItem[] = [
   {
     section: "Forms",
     items: [
-      { label: "Form Layouts", href: "/application/form-layouts", stub: true },
-      { label: "Validation", href: "/application/form-validation", stub: true },
+      { label: "Form Layouts", href: "/application/form-layouts" },
+      { label: "Validation", href: "/application/form-validation" },
     ],
   },
   {
     section: "Auth",
     items: [
-      { label: "Sign In", href: "/application/auth-signin", stub: true },
-      { label: "Sign Up", href: "/application/auth-signup", stub: true },
-      { label: "Forgot Password", href: "/application/auth-forgot", stub: true },
+      { label: "Sign In", href: "/application/auth-signin" },
+      { label: "Register", href: "/application/auth-signup" },
+      { label: "Forgot Password", href: "/application/auth-forgot" },
     ],
   },
   {
