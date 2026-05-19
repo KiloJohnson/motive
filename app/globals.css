@@ -46,6 +46,19 @@
   --font-sans: var(--font-red-hat-text);
   --color-background: var(--motive-content-bg);
   --color-foreground: var(--motive-content-fg);
+
+  /* Scripps primary scale — drives Flowbite color="default" (bg-primary-*) */
+  --color-primary-50:  #eff6ff;
+  --color-primary-100: #dbeeff;
+  --color-primary-200: #c0dfff;
+  --color-primary-300: #8ec4ff;
+  --color-primary-400: #56a0f7;
+  --color-primary-500: #2e81ea;
+  --color-primary-600: #1a67cc;
+  --color-primary-700: #005EB8;
+  --color-primary-800: #004da0;
+  --color-primary-900: #003d82;
+  --color-primary-950: #002754;
 }
 
 body {
