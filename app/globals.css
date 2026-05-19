@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "flowbite-react/plugin/tailwindcss";
 
+/* Tell Tailwind v4 to scan Flowbite React's source so it generates all
+   the utility classes Flowbite uses (bg-primary-700 etc.) */
+@source "../node_modules/flowbite-react/dist";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
@@ -9,7 +13,25 @@
   --motive-topbar-height: 48px;
   --motive-sidebar-width: 256px;
   --motive-content-bg: #ffffff;
-  --motive-content-fg: #161616;
+  --motive-content-fg: #121723;
+
+  /* Override Flowbite's gray-400 default (#9ca3af = 2.85:1, fails WCAG AA).
+     #595f6b = 6.1:1 on white — passes AA, not full black. */
+  --gray-400: #545b68;
+
+  /* Override Flowbite's default primary scale with Scripps blue.
+     Flowbite's plugin sets --color-primary-* as var(--primary-*),
+     so overriding --primary-* here is enough to retheme everything. */
+  --primary-50:  #eff6ff;
+  --primary-100: #dbeeff;
+  --primary-200: #c0dfff;
+  --primary-300: #8ec4ff;
+  --primary-400: #56a0f7;
+  --primary-500: #2e81ea;
+  --primary-600: #1a67cc;
+  --primary-700: #005EB8;
+  --primary-800: #004da0;
+  --primary-900: #003d82;
 }
 
 /* ── Brand themes ────────────────────────────────────────────────────────── */
@@ -42,7 +64,7 @@
   --motive-content-fg: #f4f4f4;
 }
 
-@theme inline {
+@theme {
   --font-sans: var(--font-red-hat-text);
   --color-background: var(--motive-content-bg);
   --color-foreground: var(--motive-content-fg);
@@ -71,6 +93,17 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-red-hat-display), system-ui, sans-serif;
 }
+
+/* Darken mid-range grays site-wide for WCAG 2.1 AA compliance.
+   gray-400 (#9ca3af) = 2.85:1 on white — fails AA.
+   gray-500 (#6b7280) = 4.54:1 on white — barely passes.
+   Shifting all three up to safe values. */
+.motive-content {
+  --gray-400: #545b68;
+  --gray-500: #4b5563;
+  --gray-600: #374151;
+}
+
 
 /* Remap the Tailwind gray scale inside the content area when in dark mode.
    Tailwind v4 utilities reference --gray-* (no prefix) for scale colors,

@@ -32,13 +32,11 @@ export default function AppButtonsPage() {
         <div className="flex flex-wrap items-center gap-4 p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
           <Button color="default">Default</Button>
           <Button color="default" disabled>Disabled</Button>
-          <Button color="default" isProcessing>Loading</Button>
           <Button color="default"><HiPlus className="mr-2 h-4 w-4" />New member</Button>
           <Button color="default">View invoices<HiArrowRight className="ml-2 h-4 w-4" /></Button>
         </div>
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Button color="default">Default</Button>
 <Button color="default" disabled>Disabled</Button>
-<Button color="default" isProcessing>Loading</Button>
 <Button color="default"><HiPlus className="mr-2 h-4 w-4" />New member</Button>`}</pre>
       </section>
 

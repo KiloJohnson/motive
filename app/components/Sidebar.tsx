@@ -111,6 +111,12 @@ const homeNav: NavItem[] = [
 const applicationNav: NavItem[] = [
   { label: "Overview", href: "/application" },
   {
+    section: "Foundations",
+    items: [
+      { label: "Text Styles", href: "/application/text-styles" },
+    ],
+  },
+  {
     section: "Layout",
     items: [
       { label: "App Shell", href: "/application/app-shell" },
