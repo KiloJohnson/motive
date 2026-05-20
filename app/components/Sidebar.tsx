@@ -171,9 +171,9 @@ const applicationNav: NavItem[] = [
     section: "UI Previews",
     items: [
       { label: "Overview", href: "/application/ui-previews" },
-      { label: "PIMC Dashboard", href: "/application/preview/pimc-backoffice" },
-      { label: "Member Management", href: "/application/preview/member-list" },
-      { label: "Waitlist", href: "/application/preview/waitlist" },
+      { label: "PIMC Dashboard", href: "/preview/pimc-backoffice" },
+      { label: "Member Management", href: "/preview/member-list" },
+      { label: "Waitlist", href: "/preview/waitlist" },
     ],
   },
   {

@@ -2,19 +2,19 @@ import Link from "next/link";
 
 const previews = [
   {
-    slug: "/application/preview/pimc-backoffice",
+    slug: "/preview/pimc-backoffice",
     label: "PIMC Dashboard",
     description: "KPI cards, membership tier breakdown, recent invoices. The opening view for back office staff.",
     screens: ["Dashboard", "Analytics", "Overview"],
   },
   {
-    slug: "/application/preview/member-list",
+    slug: "/preview/member-list",
     label: "Member Management",
     description: "Full member list with search, filters, row actions, create modal, and delete confirmation.",
     screens: ["List", "Create", "Delete confirm"],
   },
   {
-    slug: "/application/preview/waitlist",
+    slug: "/preview/waitlist",
     label: "Waitlist Management",
     description: "Waitlist queue with position reordering, convert to member flow, and deposit refund.",
     screens: ["Queue", "Convert", "Decline & refund"],

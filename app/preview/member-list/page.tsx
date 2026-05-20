@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PreviewShell } from "../PreviewShell";
-import { Badge, Button, TextInput, Select, Table, Modal, Label, Dropdown } from "flowbite-react";
+import { Badge, Button, TextInput, Select, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, Label, Dropdown } from "flowbite-react";
 import { HiPlus, HiSearch, HiDownload, HiDotsVertical, HiPencil, HiMail, HiCurrencyDollar, HiTrash } from "react-icons/hi";
 
 const members = [
@@ -60,34 +60,34 @@ export default function MemberListPage() {
 
           {/* Table */}
           <Table hoverable>
-            <Table.Head>
-              <Table.HeadCell>Member</Table.HeadCell>
-              <Table.HeadCell>Tier</Table.HeadCell>
-              <Table.HeadCell>Status</Table.HeadCell>
-              <Table.HeadCell>Billing</Table.HeadCell>
-              <Table.HeadCell>Member since</Table.HeadCell>
-              <Table.HeadCell>Next charge</Table.HeadCell>
-              <Table.HeadCell><span className="sr-only">Actions</span></Table.HeadCell>
-            </Table.Head>
-            <Table.Body className="divide-y divide-gray-100 dark:divide-gray-700">
+            <TableHead>
+              <TableHeadCell>Member</TableHeadCell>
+              <TableHeadCell>Tier</TableHeadCell>
+              <TableHeadCell>Status</TableHeadCell>
+              <TableHeadCell>Billing</TableHeadCell>
+              <TableHeadCell>Member since</TableHeadCell>
+              <TableHeadCell>Next charge</TableHeadCell>
+              <TableHeadCell><span className="sr-only">Actions</span></TableHeadCell>
+            </TableHead>
+            <TableBody className="divide-y divide-gray-100 dark:divide-gray-700">
               {members.map((m) => (
-                <Table.Row key={m.name} className="bg-white dark:bg-gray-800">
-                  <Table.Cell>
+                <TableRow key={m.name} className="bg-white dark:bg-gray-800">
+                  <TableCell>
                     <div>
                       <p className="text-sm font-medium text-gray-900 dark:text-white">{m.name}</p>
                       <p className="text-xs text-gray-400 dark:text-gray-500">{m.email}</p>
                     </div>
-                  </Table.Cell>
-                  <Table.Cell>
+                  </TableCell>
+                  <TableCell>
                     <Badge color={m.tier === "Diamond+" ? "indigo" : m.tier === "Diamond" ? "purple" : "warning"} size="xs">{m.tier}</Badge>
-                  </Table.Cell>
-                  <Table.Cell>
+                  </TableCell>
+                  <TableCell>
                     <Badge color={statusColor[m.status]} size="xs">{m.status}</Badge>
-                  </Table.Cell>
-                  <Table.Cell className="text-xs text-gray-500 dark:text-gray-400">{m.billing}</Table.Cell>
-                  <Table.Cell className="text-xs text-gray-500 dark:text-gray-400">{m.joined}</Table.Cell>
-                  <Table.Cell className="text-xs font-medium text-gray-900 dark:text-white">{m.amount}</Table.Cell>
-                  <Table.Cell>
+                  </TableCell>
+                  <TableCell className="text-xs text-gray-500 dark:text-gray-400">{m.billing}</TableCell>
+                  <TableCell className="text-xs text-gray-500 dark:text-gray-400">{m.joined}</TableCell>
+                  <TableCell className="text-xs font-medium text-gray-900 dark:text-white">{m.amount}</TableCell>
+                  <TableCell>
                     <Dropdown label="" dismissOnClick renderTrigger={() => (
                       <button className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
                         <HiDotsVertical className="h-4 w-4" />
@@ -102,10 +102,10 @@ export default function MemberListPage() {
                         Cancel membership
                       </Dropdown.Item>
                     </Dropdown>
-                  </Table.Cell>
-                </Table.Row>
+                  </TableCell>
+                </TableRow>
               ))}
-            </Table.Body>
+            </TableBody>
           </Table>
 
           {/* Footer */}

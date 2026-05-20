@@ -11,11 +11,11 @@ import {
 } from "react-icons/hi";
 
 const nav = [
-  { label: "Dashboard",   href: "/application/preview/pimc-backoffice", icon: HiHome },
-  { label: "Members",     href: "/application/preview/member-list",      icon: HiUsers,          badge: "847" },
+  { label: "Dashboard",   href: "/preview/pimc-backoffice", icon: HiHome },
+  { label: "Members",     href: "/preview/member-list",      icon: HiUsers,          badge: "847" },
   { label: "Invoices",    href: "#",                                      icon: HiDocumentText,   badge: "12", badgeColor: "failure" as const },
   { label: "Payments",    href: "#",                                      icon: HiCurrencyDollar },
-  { label: "Waitlist",    href: "/application/preview/waitlist",          icon: HiClock,          badge: "34" },
+  { label: "Waitlist",    href: "/preview/waitlist",          icon: HiClock,          badge: "34" },
   { label: "Reports",     href: "#",                                      icon: HiChartBar },
 ];
 

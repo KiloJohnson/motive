@@ -1,7 +1,7 @@
 "use client";
 
 import { PreviewShell } from "../PreviewShell";
-import { Badge, Button, Table } from "flowbite-react";
+import { Badge, Button, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "flowbite-react";
 import { HiPlus, HiArrowUp, HiArrowDown } from "react-icons/hi";
 
 const kpis = [
@@ -86,31 +86,31 @@ export default function PIMCBackofficePage() {
               </Button>
             </div>
             <Table hoverable>
-              <Table.Head>
-                <Table.HeadCell>Member</Table.HeadCell>
-                <Table.HeadCell>Tier</Table.HeadCell>
-                <Table.HeadCell>Amount</Table.HeadCell>
-                <Table.HeadCell>Due</Table.HeadCell>
-                <Table.HeadCell>Status</Table.HeadCell>
-              </Table.Head>
-              <Table.Body className="divide-y divide-gray-100 dark:divide-gray-700">
+              <TableHead>
+                <TableHeadCell>Member</TableHeadCell>
+                <TableHeadCell>Tier</TableHeadCell>
+                <TableHeadCell>Amount</TableHeadCell>
+                <TableHeadCell>Due</TableHeadCell>
+                <TableHeadCell>Status</TableHeadCell>
+              </TableHead>
+              <TableBody className="divide-y divide-gray-100 dark:divide-gray-700">
                 {invoices.map((inv) => (
-                  <Table.Row key={inv.member} className="bg-white dark:bg-gray-800">
-                    <Table.Cell>
+                  <TableRow key={inv.member} className="bg-white dark:bg-gray-800">
+                    <TableCell>
                       <p className="text-xs font-medium text-gray-900 dark:text-white">{inv.member}</p>
                       <p className="text-xs text-gray-400">{inv.billing}</p>
-                    </Table.Cell>
-                    <Table.Cell>
+                    </TableCell>
+                    <TableCell>
                       <Badge color={inv.tier === "Diamond+" ? "indigo" : inv.tier === "Diamond" ? "purple" : "warning"} size="xs">{inv.tier}</Badge>
-                    </Table.Cell>
-                    <Table.Cell className="text-xs font-medium text-gray-900 dark:text-white">{inv.amount}</Table.Cell>
-                    <Table.Cell className="text-xs text-gray-500 dark:text-gray-400">{inv.due}</Table.Cell>
-                    <Table.Cell>
+                    </TableCell>
+                    <TableCell className="text-xs font-medium text-gray-900 dark:text-white">{inv.amount}</TableCell>
+                    <TableCell className="text-xs text-gray-500 dark:text-gray-400">{inv.due}</TableCell>
+                    <TableCell>
                       <Badge color={statusColor[inv.status]} size="xs">{inv.status}</Badge>
-                    </Table.Cell>
-                  </Table.Row>
+                    </TableCell>
+                  </TableRow>
                 ))}
-              </Table.Body>
+              </TableBody>
             </Table>
           </div>
 

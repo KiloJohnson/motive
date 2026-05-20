@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PreviewShell } from "../PreviewShell";
-import { Badge, Button, TextInput, Table, Modal, Label, Dropdown } from "flowbite-react";
+import { Badge, Button, TextInput, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, Label, Dropdown } from "flowbite-react";
 import { HiSearch, HiDotsVertical, HiCheck, HiPhone, HiX, HiArrowUp, HiArrowDown } from "react-icons/hi";
 
 const waitlist = [
@@ -52,19 +52,19 @@ export default function WaitlistPage() {
 
           {/* Table */}
           <Table hoverable>
-            <Table.Head>
-              <Table.HeadCell className="w-12">Pos</Table.HeadCell>
-              <Table.HeadCell>Applicant</Table.HeadCell>
-              <Table.HeadCell>Tier interest</Table.HeadCell>
-              <Table.HeadCell>Status</Table.HeadCell>
-              <Table.HeadCell>Deposit</Table.HeadCell>
-              <Table.HeadCell>Applied</Table.HeadCell>
-              <Table.HeadCell><span className="sr-only">Actions</span></Table.HeadCell>
-            </Table.Head>
-            <Table.Body className="divide-y divide-gray-100 dark:divide-gray-700">
+            <TableHead>
+              <TableHeadCell className="w-12">Pos</TableHeadCell>
+              <TableHeadCell>Applicant</TableHeadCell>
+              <TableHeadCell>Tier interest</TableHeadCell>
+              <TableHeadCell>Status</TableHeadCell>
+              <TableHeadCell>Deposit</TableHeadCell>
+              <TableHeadCell>Applied</TableHeadCell>
+              <TableHeadCell><span className="sr-only">Actions</span></TableHeadCell>
+            </TableHead>
+            <TableBody className="divide-y divide-gray-100 dark:divide-gray-700">
               {waitlist.map((w) => (
-                <Table.Row key={w.name} className="bg-white dark:bg-gray-800">
-                  <Table.Cell>
+                <TableRow key={w.name} className="bg-white dark:bg-gray-800">
+                  <TableCell>
                     <div className="flex items-center gap-1">
                       <span className="text-sm font-mono font-medium text-gray-500 dark:text-gray-400 w-5">{w.pos}</span>
                       <div className="flex flex-col gap-0.5">
@@ -72,21 +72,21 @@ export default function WaitlistPage() {
                         <button className="text-gray-300 hover:text-gray-500"><HiArrowDown className="h-3 w-3" /></button>
                       </div>
                     </div>
-                  </Table.Cell>
-                  <Table.Cell>
+                  </TableCell>
+                  <TableCell>
                     <p className="text-sm font-medium text-gray-900 dark:text-white">{w.name}</p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">{w.email}</p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">{w.phone}</p>
-                  </Table.Cell>
-                  <Table.Cell>
+                  </TableCell>
+                  <TableCell>
                     <Badge color={w.tier === "Diamond+" ? "indigo" : w.tier === "Diamond" ? "purple" : "warning"} size="xs">{w.tier}</Badge>
-                  </Table.Cell>
-                  <Table.Cell>
+                  </TableCell>
+                  <TableCell>
                     <Badge color={statusColor[w.status]} size="xs">{w.status}</Badge>
-                  </Table.Cell>
-                  <Table.Cell className="text-xs font-medium text-gray-900 dark:text-white">{w.deposit}</Table.Cell>
-                  <Table.Cell className="text-xs text-gray-500 dark:text-gray-400">{w.joined}</Table.Cell>
-                  <Table.Cell>
+                  </TableCell>
+                  <TableCell className="text-xs font-medium text-gray-900 dark:text-white">{w.deposit}</TableCell>
+                  <TableCell className="text-xs text-gray-500 dark:text-gray-400">{w.joined}</TableCell>
+                  <TableCell>
                     <Dropdown label="" dismissOnClick renderTrigger={() => (
                       <button className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 hover:text-gray-600">
                         <HiDotsVertical className="h-4 w-4" />
@@ -103,10 +103,10 @@ export default function WaitlistPage() {
                         Decline &amp; refund deposit
                       </Dropdown.Item>
                     </Dropdown>
-                  </Table.Cell>
-                </Table.Row>
+                  </TableCell>
+                </TableRow>
               ))}
-            </Table.Body>
+            </TableBody>
           </Table>
 
           <div className="flex items-center justify-between px-5 py-3 border-t border-gray-100 dark:border-gray-700">
