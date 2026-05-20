@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "flowbite-react";
-import { HiArrowRight, HiPlus, HiDownload, HiTrash } from "react-icons/hi";
+import { Button, ButtonGroup } from "flowbite-react";
+import { HiArrowRight, HiPlus, HiDownload, HiTrash, HiPencil, HiFilter, HiRefresh, HiDocumentDownload } from "react-icons/hi";
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
@@ -86,6 +86,83 @@ export default function AppButtonsPage() {
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Button color="green">Export</Button>
 <Button color="red">Delete member</Button>
 <Button color="yellow">Warning action</Button>`}</pre>
+      </section>
+
+      {/* ── Icon-only ───────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Icon-only</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Use for toolbars and table row actions where space is tight. Always add an
+          <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono mx-1">aria-label</code>
+          for screen readers.
+        </p>
+        <div className="flex flex-wrap items-center gap-4 p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <Button color="default" aria-label="Edit"><HiPencil className="h-4 w-4" /></Button>
+          <Button color="alternative" aria-label="Filter"><HiFilter className="h-4 w-4" /></Button>
+          <Button color="light" aria-label="Refresh"><HiRefresh className="h-4 w-4" /></Button>
+          <Button color="default" outline aria-label="Download"><HiDocumentDownload className="h-4 w-4" /></Button>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Button color="default" aria-label="Edit">
+  <HiPencil className="h-4 w-4" />
+</Button>`}</pre>
+      </section>
+
+      {/* ── Button group ────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Button group</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Use <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">ButtonGroup</code> for
+          segmented controls — view toggles, filter sets, export options. Treats a set of buttons as a single control.
+        </p>
+        <div className="flex flex-wrap items-center gap-8 p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <ButtonGroup>
+            <Button color="alternative" size="sm">All members</Button>
+            <Button color="alternative" size="sm">Active</Button>
+            <Button color="alternative" size="sm">Waitlist</Button>
+            <Button color="alternative" size="sm">Cancelled</Button>
+          </ButtonGroup>
+
+          <ButtonGroup>
+            <Button color="alternative" size="sm" aria-label="Edit"><HiPencil className="h-4 w-4" /></Button>
+            <Button color="alternative" size="sm" aria-label="Download"><HiDownload className="h-4 w-4" /></Button>
+            <Button color="alternative" size="sm" aria-label="Delete"><HiTrash className="h-4 w-4" /></Button>
+          </ButtonGroup>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`import { Button, ButtonGroup } from "flowbite-react";
+
+<ButtonGroup>
+  <Button color="alternative" size="sm">All members</Button>
+  <Button color="alternative" size="sm">Active</Button>
+  <Button color="alternative" size="sm">Waitlist</Button>
+</ButtonGroup>`}</pre>
+      </section>
+
+      {/* ── As link ─────────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">As link</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Pass <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">href</code> to
+          render a button as an anchor tag. Use for navigation actions — "View member profile", "Open invoice". For
+          Next.js, wrap in <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">Link</code> from
+          <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono mx-1">next/link</code> instead.
+        </p>
+        <div className="flex flex-wrap items-center gap-4 p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <Button color="default" href="#" as="a">View member profile</Button>
+          <Button color="alternative" href="#" as="a">Open invoice</Button>
+          <Button color="default" outline href="#" as="a">
+            Download PDF <HiDownload className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`// Simple anchor
+<Button color="default" href="/members/123" as="a">
+  View member profile
+</Button>
+
+// Next.js — use Link wrapper instead
+import Link from "next/link";
+<Button color="default" as={Link} href="/members/123">
+  View member profile
+</Button>`}</pre>
       </section>
 
       {/* ── Pill variant ────────────────────────────────────────────────── */}

@@ -113,6 +113,49 @@ export default function AppToastPage() {
 </Toast>`}</pre>
       </section>
 
+      {/* ── Stacked ─────────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Stacked toasts</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          When multiple events fire close together — bulk payment recorded, SMS sent, member updated —
+          stack toasts vertically with a small gap. Limit to 3 visible at once. The oldest dismisses first.
+        </p>
+        <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <div className="flex flex-col gap-3 w-80">
+            <Toast>
+              <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500">
+                <HiCheck className="h-5 w-5" />
+              </div>
+              <div className="ml-3 text-sm font-normal">Payment of $4,660 recorded.</div>
+              <ToastToggle />
+            </Toast>
+            <Toast>
+              <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-500">
+                <HiInformationCircle className="h-5 w-5" />
+              </div>
+              <div className="ml-3 text-sm font-normal">SMS receipt sent to member.</div>
+              <ToastToggle />
+            </Toast>
+            <Toast>
+              <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500">
+                <HiCheck className="h-5 w-5" />
+              </div>
+              <div className="ml-3 text-sm font-normal">Invoice marked paid.</div>
+              <ToastToggle />
+            </Toast>
+          </div>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`// Position the stack — fixed bottom-right in production
+<div className="fixed bottom-4 right-4 flex flex-col gap-3 z-50">
+  {toasts.map(toast => (
+    <Toast key={toast.id}>
+      {/* ... */}
+      <ToastToggle onDismiss={() => removeToast(toast.id)} />
+    </Toast>
+  ))}
+</div>`}</pre>
+      </section>
+
       {/* ── Usage ───────────────────────────────────────────────────────── */}
       <section className="px-16 py-12">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">Usage notes</h2>

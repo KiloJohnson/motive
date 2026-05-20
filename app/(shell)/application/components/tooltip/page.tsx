@@ -91,6 +91,54 @@ export default function AppTooltipPage() {
         </div>
       </section>
 
+      {/* ── Rich content ────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Rich content tooltip</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Pass JSX as the <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">content</code> prop
+          for multi-line or structured tooltips. Use for billing rule summaries, tier feature lists, retry schedule details.
+        </p>
+        <div className="flex flex-wrap items-center gap-8 p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <Tooltip
+            content={
+              <div className="text-sm space-y-1 max-w-xs">
+                <p className="font-semibold text-white">Retry schedule</p>
+                <p className="text-gray-300">Day 3 — first retry</p>
+                <p className="text-gray-300">Day 7 — second retry</p>
+                <p className="text-gray-300">Day 14 — final retry</p>
+                <p className="text-gray-400 text-xs mt-2">Membership cancelled if all retries fail.</p>
+              </div>
+            }
+          >
+            <Badge color="failure" className="cursor-help">Payment failed <HiInformationCircle className="ml-1 h-3.5 w-3.5 inline" /></Badge>
+          </Tooltip>
+
+          <Tooltip
+            content={
+              <div className="text-sm space-y-1 max-w-xs">
+                <p className="font-semibold text-white">Diamond+ includes</p>
+                <p className="text-gray-300">✓ Executive Health WholePerson Exam</p>
+                <p className="text-gray-300">✓ Scripps Center for Executive Health</p>
+                <p className="text-gray-300">✓ 24/7 physician access</p>
+              </div>
+            }
+          >
+            <Badge color="indigo" className="cursor-help">Diamond+ <HiQuestionMarkCircle className="ml-1 h-3.5 w-3.5 inline" /></Badge>
+          </Tooltip>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Tooltip
+  content={
+    <div className="text-sm space-y-1 max-w-xs">
+      <p className="font-semibold text-white">Retry schedule</p>
+      <p className="text-gray-300">Day 3 — first retry</p>
+      <p className="text-gray-300">Day 7 — second retry</p>
+    </div>
+  }
+>
+  <Badge color="failure">Payment failed</Badge>
+</Tooltip>`}</pre>
+      </section>
+
       {/* ── Usage ───────────────────────────────────────────────────────── */}
       <section className="px-16 py-12">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">Usage notes</h2>

@@ -111,6 +111,43 @@ export default function AppBadgePage() {
         </div>
       </section>
 
+      {/* ── With border ─────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Border variant</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Use bordered badges for higher contrast in light backgrounds where the filled variant reads as too heavy.
+        </p>
+        <div className="flex flex-wrap gap-3 p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          {[
+            { color: "success", label: "Active" },
+            { color: "warning", label: "Pending" },
+            { color: "failure", label: "Cancelled" },
+            { color: "gray",    label: "Expired" },
+            { color: "indigo",  label: "Renewing" },
+          ].map(({ color, label }) => (
+            <Badge key={label} color={color as any} className="border border-current bg-transparent">{label}</Badge>
+          ))}
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Badge color="success" className="border border-current bg-transparent">
+  Active
+</Badge>`}</pre>
+      </section>
+
+      {/* ── As link ─────────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Clickable badge</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Pass <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">href</code> to
+          make a badge a navigation link — useful for tier labels that link to the tier management page.
+        </p>
+        <div className="flex flex-wrap gap-3 p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <Badge color="indigo" href="#">Diamond+</Badge>
+          <Badge color="warning" href="#">Gold</Badge>
+          <Badge color="purple" href="#">Diamond</Badge>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Badge color="indigo" href="/tiers/diamond-plus">Diamond+</Badge>`}</pre>
+      </section>
+
       {/* ── Usage ───────────────────────────────────────────────────────── */}
       <section className="px-16 py-12">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">Usage notes</h2>

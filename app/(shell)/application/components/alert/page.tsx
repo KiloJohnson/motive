@@ -75,6 +75,72 @@ export default function AppAlertPage() {
         </div>
       </section>
 
+      {/* ── With action ─────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">With action button</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Use <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">additionalContent</code> to
+          add a CTA inside the alert. Use for actionable failures — payment retry, card update, resend link.
+        </p>
+        <div className="space-y-4 p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <Alert color="failure" icon={HiXCircle}
+            additionalContent={
+              <div className="mt-2 flex gap-2">
+                <button className="text-xs font-medium text-red-700 dark:text-red-400 underline hover:no-underline">Update card</button>
+                <button className="text-xs font-medium text-red-700 dark:text-red-400 underline hover:no-underline">Resend payment link</button>
+              </div>
+            }>
+            <span className="font-semibold">Payment failed</span> — Card ending in 4242 was declined. Day 7 retry scheduled.
+          </Alert>
+          <Alert color="warning" icon={HiExclamation}
+            additionalContent={
+              <div className="mt-2">
+                <button className="text-xs font-medium text-yellow-700 dark:text-yellow-400 underline hover:no-underline">Review SMS settings</button>
+              </div>
+            }>
+            <span className="font-semibold">SMS opt-in required</span> — This member will not receive billing reminders until they opt in.
+          </Alert>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Alert color="failure" icon={HiXCircle}
+  additionalContent={
+    <div className="mt-2 flex gap-2">
+      <button className="text-xs font-medium text-red-700 underline">Update card</button>
+      <button className="text-xs font-medium text-red-700 underline">Resend payment link</button>
+    </div>
+  }>
+  <span className="font-semibold">Payment failed</span> — Card declined.
+</Alert>`}</pre>
+      </section>
+
+      {/* ── With list ───────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">With list — validation errors</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Use for form validation summaries — list all errors at the top of the form so the user can see everything at once.
+        </p>
+        <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <Alert color="failure" icon={HiXCircle}
+            additionalContent={
+              <ul className="mt-2 list-disc list-inside text-sm text-red-700 dark:text-red-400 space-y-1">
+                <li>Email address is required</li>
+                <li>Phone number format is invalid</li>
+                <li>Membership tier must be selected</li>
+              </ul>
+            }>
+            <span className="font-semibold">Fix 3 errors before saving</span>
+          </Alert>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Alert color="failure" icon={HiXCircle}
+  additionalContent={
+    <ul className="mt-2 list-disc list-inside text-sm text-red-700 space-y-1">
+      <li>Email address is required</li>
+      <li>Phone number format is invalid</li>
+    </ul>
+  }>
+  <span className="font-semibold">Fix 3 errors before saving</span>
+</Alert>`}</pre>
+      </section>
+
       {/* ── Usage ───────────────────────────────────────────────────────── */}
       <section className="px-16 py-12">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">Usage notes</h2>

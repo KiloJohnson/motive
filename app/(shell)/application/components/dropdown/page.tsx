@@ -1,7 +1,7 @@
 "use client";
 
-import { Dropdown } from "flowbite-react";
-import { HiPencil, HiMail, HiCurrencyDollar, HiDocumentText, HiBan, HiDotsVertical } from "react-icons/hi";
+import { Dropdown, Avatar } from "flowbite-react";
+import { HiPencil, HiMail, HiCurrencyDollar, HiDocumentText, HiBan, HiDotsVertical, HiCheck } from "react-icons/hi";
 
 export default function AppDropdownPage() {
   return (
@@ -91,6 +91,85 @@ export default function AppDropdownPage() {
             </Dropdown>
           ))}
         </div>
+      </section>
+
+      {/* ── User / topbar menu ──────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">User menu — topbar</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          The avatar dropdown in the top bar. Shows identity context, quick links, and sign out.
+          Use <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">Dropdown.Header</code> for the identity block.
+        </p>
+        <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4 flex justify-end">
+          <Dropdown
+            label=""
+            dismissOnClick
+            renderTrigger={() => (
+              <button className="flex items-center gap-2 rounded-full focus:ring-2 focus:ring-primary-300">
+                <Avatar placeholderInitials="KJ" rounded size="sm" />
+              </button>
+            )}
+          >
+            <Dropdown.Header>
+              <span className="block text-sm font-semibold text-gray-900 dark:text-white">Kilo Johnson</span>
+              <span className="block text-xs text-gray-500 truncate">kilo@scrippshealth.org</span>
+            </Dropdown.Header>
+            <Dropdown.Item>My profile</Dropdown.Item>
+            <Dropdown.Item>Settings</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item>Sign out</Dropdown.Item>
+          </Dropdown>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Dropdown label="" renderTrigger={() => <Avatar placeholderInitials="KJ" rounded size="sm" />}>
+  <Dropdown.Header>
+    <span className="block text-sm font-semibold">Kilo Johnson</span>
+    <span className="block text-xs text-gray-500">kilo@scrippshealth.org</span>
+  </Dropdown.Header>
+  <Dropdown.Item>My profile</Dropdown.Item>
+  <Dropdown.Item>Settings</Dropdown.Item>
+  <Dropdown.Divider />
+  <Dropdown.Item>Sign out</Dropdown.Item>
+</Dropdown>`}</pre>
+      </section>
+
+      {/* ── Checkbox items ───────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Multi-select filter</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          For filters that allow multiple selections — billing cycles, tier filters, status filters.
+          Use a custom item with a checkbox rather than dismissing on click.
+        </p>
+        <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4 flex gap-4">
+          <Dropdown label="Billing cycle" color="alternative" size="sm" dismissOnClick={false}>
+            <Dropdown.Header>
+              <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Select cycles</span>
+            </Dropdown.Header>
+            {["Monthly", "Semi-annual", "Annual"].map((item) => (
+              <Dropdown.Item key={item} as="label" className="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" className="rounded border-gray-300 text-primary-600" defaultChecked={item === "Annual"} />
+                <span className="text-sm">{item}</span>
+              </Dropdown.Item>
+            ))}
+          </Dropdown>
+
+          <Dropdown label="Tier" color="alternative" size="sm" dismissOnClick={false}>
+            <Dropdown.Header>
+              <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Select tiers</span>
+            </Dropdown.Header>
+            {["Gold", "Diamond", "Diamond+"].map((item) => (
+              <Dropdown.Item key={item} as="label" className="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" className="rounded border-gray-300 text-primary-600" defaultChecked />
+                <span className="text-sm">{item}</span>
+              </Dropdown.Item>
+            ))}
+          </Dropdown>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Dropdown label="Billing cycle" color="alternative" dismissOnClick={false}>
+  <Dropdown.Item as="label" className="flex items-center gap-3 cursor-pointer">
+    <input type="checkbox" className="rounded border-gray-300 text-primary-600" />
+    <span>Monthly</span>
+  </Dropdown.Item>
+</Dropdown>`}</pre>
       </section>
 
       {/* ── Usage ───────────────────────────────────────────────────────── */}

@@ -84,6 +84,64 @@ export default function AppTabsPage() {
         </div>
       </section>
 
+      {/* ── Disabled tab ────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Disabled tab</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Use <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">disabled</code> to
+          restrict tabs by role. The Audit log tab should only be accessible to the Leader role — disable it for FrontDesk and Staff.
+        </p>
+        <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <Tabs variant="underline">
+            <Tabs.Item title="Invoices" icon={HiDocumentText} active>
+              <div className="py-4 text-sm text-gray-500 dark:text-gray-400">Invoice content visible to all roles.</div>
+            </Tabs.Item>
+            <Tabs.Item title="Payments" icon={HiCurrencyDollar}>
+              <div className="py-4 text-sm text-gray-500 dark:text-gray-400">Payment history.</div>
+            </Tabs.Item>
+            <Tabs.Item title="Audit log" icon={HiClipboardList} disabled>
+              <div className="py-4 text-sm text-gray-500 dark:text-gray-400">Leader role only.</div>
+            </Tabs.Item>
+          </Tabs>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Tabs variant="underline">
+  <Tabs.Item title="Invoices" icon={HiDocumentText} active>
+    {/* visible to all roles */}
+  </Tabs.Item>
+  <Tabs.Item title="Audit log" icon={HiClipboardList} disabled>
+    {/* Leader role only — disable conditionally */}
+  </Tabs.Item>
+</Tabs>`}</pre>
+      </section>
+
+      {/* ── Icon only ────────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Icon-only tabs</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Pass only an <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">icon</code> with
+          no <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">title</code> for compact toolbars.
+          Always provide a tooltip or aria-label for accessibility.
+        </p>
+        <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <Tabs variant="pills">
+            <Tabs.Item icon={HiDocumentText} title="" active>
+              <div className="py-4 text-sm text-gray-500 dark:text-gray-400">Invoices panel.</div>
+            </Tabs.Item>
+            <Tabs.Item icon={HiCurrencyDollar} title="">
+              <div className="py-4 text-sm text-gray-500 dark:text-gray-400">Payments panel.</div>
+            </Tabs.Item>
+            <Tabs.Item icon={HiChat} title="">
+              <div className="py-4 text-sm text-gray-500 dark:text-gray-400">SMS panel.</div>
+            </Tabs.Item>
+          </Tabs>
+        </div>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Tabs variant="pills">
+  <Tabs.Item icon={HiDocumentText} title="" active>
+    {/* content */}
+  </Tabs.Item>
+</Tabs>`}</pre>
+      </section>
+
       {/* ── Usage ───────────────────────────────────────────────────────── */}
       <section className="px-16 py-12">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">Usage notes</h2>

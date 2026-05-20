@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Modal } from "flowbite-react";
-import { HiExclamation, HiCheck, HiCurrencyDollar, HiX } from "react-icons/hi";
+import { Button, Modal, Label, TextInput, Select } from "flowbite-react";
+import { HiExclamation, HiCheck, HiCurrencyDollar, HiX, HiUserAdd } from "react-icons/hi";
 
 export default function AppModalPage() {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [paymentOpen, setPaymentOpen] = useState(false);
   const [cancelOpen, setCancelOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
+  const [scrollOpen, setScrollOpen] = useState(false);
 
   return (
     <div className="min-h-full">
@@ -170,6 +172,122 @@ export default function AppModalPage() {
   <Modal.Footer>
     <Button color="red">Confirm cancellation</Button>
     <Button color="alternative">Keep membership</Button>
+  </Modal.Footer>
+</Modal>`}</pre>
+      </section>
+
+      {/* ── Form modal ──────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Form modal — create member</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Use for short create/edit flows that don't warrant a full page. Keep to 4–6 fields max.
+          Longer forms belong on a dedicated page.
+        </p>
+        <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <Button color="default" onClick={() => setFormOpen(true)}>
+            <HiUserAdd className="mr-2 h-4 w-4" />New member
+          </Button>
+        </div>
+        <Modal show={formOpen} size="lg" onClose={() => setFormOpen(false)}>
+          <Modal.Header>Create new member</Modal.Header>
+          <Modal.Body>
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="first" value="First name" className="mb-2 block" />
+                  <TextInput id="first" placeholder="Maria" />
+                </div>
+                <div>
+                  <Label htmlFor="last" value="Last name" className="mb-2 block" />
+                  <TextInput id="last" placeholder="Garcia" />
+                </div>
+              </div>
+              <div>
+                <Label htmlFor="email" value="Email" className="mb-2 block" />
+                <TextInput id="email" type="email" placeholder="maria.garcia@email.com" />
+              </div>
+              <div>
+                <Label htmlFor="phone" value="Phone" className="mb-2 block" />
+                <TextInput id="phone" type="tel" placeholder="+1 (619) 555-0100" />
+              </div>
+              <div>
+                <Label htmlFor="tier" value="Membership tier" className="mb-2 block" />
+                <Select id="tier">
+                  <option>Gold — $3,780 / yr</option>
+                  <option>Diamond — $4,660 / yr</option>
+                  <option>Diamond+ — $4,660 / yr</option>
+                </Select>
+              </div>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button color="default" onClick={() => setFormOpen(false)}>Create member</Button>
+            <Button color="alternative" onClick={() => setFormOpen(false)}>Cancel</Button>
+          </Modal.Footer>
+        </Modal>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal show={isOpen} size="lg" onClose={() => setOpen(false)}>
+  <Modal.Header>Create new member</Modal.Header>
+  <Modal.Body>
+    <div className="space-y-4">
+      <Label htmlFor="email" value="Email" className="mb-2 block" />
+      <TextInput id="email" type="email" placeholder="..." />
+    </div>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button color="default">Create member</Button>
+    <Button color="alternative">Cancel</Button>
+  </Modal.Footer>
+</Modal>`}</pre>
+      </section>
+
+      {/* ── Scrollable ──────────────────────────────────────────────────── */}
+      <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Scrollable body</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          Add <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">scrollable</code> when
+          modal content may overflow — invoice line items, terms, audit log entries. Header and footer stay fixed.
+        </p>
+        <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
+          <Button color="alternative" onClick={() => setScrollOpen(true)}>Open scrollable modal</Button>
+        </div>
+        <Modal show={scrollOpen} size="md" onClose={() => setScrollOpen(false)}>
+          <Modal.Header>Invoice #2024-0847 — Line items</Modal.Header>
+          <Modal.Body>
+            <div className="space-y-3">
+              {[
+                { desc: "Diamond+ Annual Membership — Year 2", amount: "$4,660.00" },
+                { desc: "Executive Health WholePerson Exam — included", amount: "$0.00" },
+                { desc: "Scripps Center for Executive Health access", amount: "Included" },
+                { desc: "Priority scheduling benefit", amount: "Included" },
+                { desc: "24/7 physician access", amount: "Included" },
+                { desc: "Comprehensive lab work panel", amount: "Included" },
+                { desc: "Annual membership renewal processing", amount: "$0.00" },
+                { desc: "Waitlist deposit applied", amount: "-$500.00" },
+              ].map((item, i) => (
+                <div key={i} className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700 last:border-0 text-sm">
+                  <span className="text-gray-600 dark:text-gray-300">{item.desc}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">{item.amount}</span>
+                </div>
+              ))}
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <div className="flex justify-between w-full items-center">
+              <span className="text-sm font-semibold text-gray-900 dark:text-white">Total due: $4,160.00</span>
+              <div className="flex gap-2">
+                <Button color="default" size="sm">Send payment link</Button>
+                <Button color="alternative" size="sm" onClick={() => setScrollOpen(false)}>Close</Button>
+              </div>
+            </div>
+          </Modal.Footer>
+        </Modal>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal show={isOpen} size="md" onClose={() => setOpen(false)}>
+  <Modal.Header>Invoice line items</Modal.Header>
+  <Modal.Body>
+    {/* long content scrolls — header + footer stay fixed */}
+  </Modal.Body>
+  <Modal.Footer>
+    <Button color="default">Send payment link</Button>
   </Modal.Footer>
 </Modal>`}</pre>
       </section>
