@@ -5,7 +5,19 @@ const previews = [
     slug: "/preview/pimc-backoffice",
     label: "PIMC Dashboard",
     description: "KPI cards, membership tier breakdown, recent invoices. The opening view for back office staff.",
-    screens: ["Dashboard", "Analytics", "Overview"],
+    screens: ["KPIs", "Tier breakdown", "Invoice table"],
+  },
+  {
+    slug: "/preview/dashboard-analytics",
+    label: "Analytics Dashboard",
+    description: "Filterable invoice table with status breakdown. KPI cards with tier-color-coded membership counts.",
+    screens: ["KPIs", "Tier cards", "Invoice filter"],
+  },
+  {
+    slug: "/preview/dashboard-ecommerce",
+    label: "E-commerce Dashboard",
+    description: "Revenue area chart, category bar chart, and order management table with status filtering.",
+    screens: ["KPIs", "Revenue chart", "Orders table"],
   },
   {
     slug: "/preview/member-list",

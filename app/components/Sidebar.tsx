@@ -172,6 +172,8 @@ const applicationNav: NavItem[] = [
     items: [
       { label: "Overview", href: "/application/ui-previews" },
       { label: "PIMC Dashboard", href: "/preview/pimc-backoffice" },
+      { label: "Analytics", href: "/preview/dashboard-analytics" },
+      { label: "E-commerce", href: "/preview/dashboard-ecommerce" },
       { label: "Member Management", href: "/preview/member-list" },
       { label: "Waitlist", href: "/preview/waitlist" },
     ],
