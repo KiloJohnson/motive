@@ -168,6 +168,15 @@ const applicationNav: NavItem[] = [
     ],
   },
   {
+    section: "UI Previews",
+    items: [
+      { label: "Overview", href: "/application/ui-previews" },
+      { label: "PIMC Dashboard", href: "/application/preview/pimc-backoffice" },
+      { label: "Member Management", href: "/application/preview/member-list" },
+      { label: "Waitlist", href: "/application/preview/waitlist" },
+    ],
+  },
+  {
     section: "Components",
     items: [
       { label: "Buttons", href: "/application/components/buttons" },
