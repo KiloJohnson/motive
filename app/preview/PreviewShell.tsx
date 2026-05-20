@@ -52,10 +52,9 @@ export function PreviewShell({
                 key={item.label}
                 href={item.href}
                 className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
-                  active
-                    ? "bg-primary-700 text-white font-medium"
-                    : "text-gray-400 hover:bg-white/5 hover:text-white"
+                  active ? "bg-primary-700 text-white font-medium" : "hover:bg-white/5 hover:text-white"
                 }`}
+                style={!active ? { color: '#ffffff' } : {}}
               >
                 <div className="flex items-center gap-3">
                   <item.icon className="h-4 w-4 shrink-0" />
@@ -71,7 +70,7 @@ export function PreviewShell({
 
         {/* Bottom */}
         <div className="px-2 py-3 border-t border-gray-700/50 space-y-0.5">
-          <a href="#" className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+          <a href="#" className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm hover:bg-white/5 hover:text-white transition-colors" style={{ color: '#ffffff' }}>
             <HiCog className="h-4 w-4 shrink-0" />Settings
           </a>
           <div className="flex items-center gap-3 px-3 py-2">

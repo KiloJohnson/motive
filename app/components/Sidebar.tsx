@@ -301,7 +301,7 @@ function NavLink({ item, active }: { item: NavLink; active: boolean }) {
       className={`flex items-center justify-between px-4 py-2 text-sm border-l-2 transition-colors ${
         active
           ? "border-l-2 text-white bg-white/5 font-medium"
-          : "border-transparent text-gray-400 hover:text-white hover:bg-white/5"
+          : "border-transparent text-white hover:text-white hover:bg-white/5"
       }`}
     >
       <span>{item.label}</span>
@@ -358,10 +358,10 @@ export default function Sidebar() {
                     onClick={() => toggleSection(item.section)}
                     className="w-full flex items-center justify-between px-4 pt-6 pb-2 text-left group"
                   >
-                    <span className="text-xs font-semibold uppercase tracking-widest text-gray-500 group-hover:text-gray-400 transition-colors">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-gray-300 group-hover:text-white transition-colors">
                       {item.section}
                     </span>
-                    <span className="text-gray-600 group-hover:text-gray-400 transition-colors mr-1">
+                    <span className="text-gray-300 group-hover:text-white transition-colors mr-1">
                       <Chevron expanded={isExpanded} />
                     </span>
                   </button>
