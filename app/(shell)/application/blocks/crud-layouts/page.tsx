@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Badge, Modal, TextInput, Select, Label, Dropdown, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "flowbite-react";
+import { Button, Badge, Modal, ModalHeader, ModalBody, ModalFooter, TextInput, Select, Label, Dropdown, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "flowbite-react";
 import { HiPlus, HiSearch, HiFilter, HiDotsVertical, HiPencil, HiMail, HiCurrencyDollar, HiTrash, HiDownload } from "react-icons/hi";
 
 const members = [
@@ -139,9 +139,9 @@ export default function CRUDLayoutsPage() {
         </div>
 
         {/* Create modal */}
-        <Modal show={createOpen} size="lg" onClose={() => setCreateOpen(false)}>
-          <Modal.Header>New member</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={createOpen} size="lg" onClose={() => setCreateOpen(false)}>
+          <ModalHeader>New member</ModalHeader>
+          <ModalBody>
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -180,26 +180,26 @@ export default function CRUDLayoutsPage() {
                 </div>
               </div>
             </div>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <Button color="default" onClick={() => setCreateOpen(false)}>Create member</Button>
             <Button color="alternative" onClick={() => setCreateOpen(false)}>Cancel</Button>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
 
         {/* Delete confirm modal */}
-        <Modal show={deleteOpen} size="md" onClose={() => setDeleteOpen(false)}>
-          <Modal.Header>Cancel membership</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={deleteOpen} size="md" onClose={() => setDeleteOpen(false)}>
+          <ModalHeader>Cancel membership</ModalHeader>
+          <ModalBody>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Are you sure you want to cancel <span className="font-semibold text-gray-900 dark:text-white">{selected}'s</span> membership?
               The remaining balance will be prorated and refunded. This action cannot be undone.
             </p>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <Button color="red" onClick={() => setDeleteOpen(false)}>Cancel membership</Button>
             <Button color="alternative" onClick={() => setDeleteOpen(false)}>Keep membership</Button>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
 
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`// Full CRUD layout — table + create modal + delete confirm

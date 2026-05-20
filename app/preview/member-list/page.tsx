@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PreviewShell } from "../PreviewShell";
-import { Badge, Button, TextInput, Select, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, Label, Dropdown } from "flowbite-react";
+import { Badge, Button, TextInput, Select, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, ModalHeader, ModalBody, ModalFooter, Label, Dropdown } from "flowbite-react";
 import { HiPlus, HiSearch, HiDownload, HiDotsVertical, HiPencil, HiMail, HiCurrencyDollar, HiTrash } from "react-icons/hi";
 
 const members = [
@@ -122,9 +122,9 @@ export default function MemberListPage() {
         </div>
 
         {/* Create modal */}
-        <Modal show={createOpen} size="lg" onClose={() => setCreateOpen(false)}>
-          <Modal.Header>New member</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={createOpen} size="lg" onClose={() => setCreateOpen(false)}>
+          <ModalHeader>New member</ModalHeader>
+          <ModalBody>
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div><Label value="First name" className="mb-2 block" /><TextInput placeholder="Maria" sizing="sm" /></div>
@@ -143,26 +143,26 @@ export default function MemberListPage() {
                 </div>
               </div>
             </div>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <Button color="default" onClick={() => setCreateOpen(false)}>Create member</Button>
             <Button color="alternative" onClick={() => setCreateOpen(false)}>Cancel</Button>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
 
         {/* Delete confirm */}
-        <Modal show={deleteOpen} size="md" onClose={() => setDeleteOpen(false)}>
-          <Modal.Header>Cancel membership</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={deleteOpen} size="md" onClose={() => setDeleteOpen(false)}>
+          <ModalHeader>Cancel membership</ModalHeader>
+          <ModalBody>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Cancel <span className="font-semibold text-gray-900 dark:text-white">{selected}'s</span> membership?
               The remaining balance will be prorated and refunded.
             </p>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <Button color="red" onClick={() => setDeleteOpen(false)}>Cancel membership</Button>
             <Button color="alternative" onClick={() => setDeleteOpen(false)}>Keep membership</Button>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
       </div>
     </PreviewShell>

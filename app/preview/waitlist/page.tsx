@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PreviewShell } from "../PreviewShell";
-import { Badge, Button, TextInput, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, Label, Dropdown } from "flowbite-react";
+import { Badge, Button, TextInput, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, ModalHeader, ModalBody, ModalFooter, Label, Dropdown } from "flowbite-react";
 import { HiSearch, HiDotsVertical, HiCheck, HiPhone, HiX, HiArrowUp, HiArrowDown } from "react-icons/hi";
 
 const waitlist = [
@@ -119,9 +119,9 @@ export default function WaitlistPage() {
         </div>
 
         {/* Convert modal */}
-        <Modal show={convertOpen} size="md" onClose={() => setConvertOpen(false)}>
-          <Modal.Header>Convert to member</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={convertOpen} size="md" onClose={() => setConvertOpen(false)}>
+          <ModalHeader>Convert to member</ModalHeader>
+          <ModalBody>
             <div className="space-y-3 text-sm text-gray-500 dark:text-gray-400">
               <p>Convert <span className="font-semibold text-gray-900 dark:text-white">{selected?.name}</span> to an active member?</p>
               <ul className="list-disc list-inside space-y-1 text-xs">
@@ -131,27 +131,27 @@ export default function WaitlistPage() {
                 <li>SMS opt-in will be collected separately at signup</li>
               </ul>
             </div>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <Button color="default" onClick={() => setConvertOpen(false)}>Convert to member</Button>
             <Button color="alternative" onClick={() => setConvertOpen(false)}>Cancel</Button>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
 
         {/* Decline modal */}
-        <Modal show={declineOpen} size="md" onClose={() => setDeclineOpen(false)}>
-          <Modal.Header>Decline &amp; refund deposit</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={declineOpen} size="md" onClose={() => setDeclineOpen(false)}>
+          <ModalHeader>Decline &amp; refund deposit</ModalHeader>
+          <ModalBody>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Decline <span className="font-semibold text-gray-900 dark:text-white">{selected?.name}</span>?
               Their <span className="font-medium text-gray-700 dark:text-gray-300">{selected?.deposit}</span> deposit
               will be automatically refunded via Orbital to the card on file.
             </p>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <Button color="red" onClick={() => setDeclineOpen(false)}>Decline &amp; refund</Button>
             <Button color="alternative" onClick={() => setDeclineOpen(false)}>Keep on waitlist</Button>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
 
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Modal, Label, TextInput, Select } from "flowbite-react";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, TextInput, Select } from "flowbite-react";
 import { HiExclamation, HiCheck, HiCurrencyDollar, HiX, HiUserAdd } from "react-icons/hi";
 
 export default function AppModalPage() {
@@ -39,31 +39,31 @@ export default function AppModalPage() {
           </Button>
         </div>
 
-        <Modal show={confirmOpen} size="md" onClose={() => setConfirmOpen(false)}>
-          <Modal.Header>Resend payment link</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={confirmOpen} size="md" onClose={() => setConfirmOpen(false)}>
+          <ModalHeader>Resend payment link</ModalHeader>
+          <ModalBody>
             <p className="text-gray-600 dark:text-gray-400">
               A payment link will be sent to <strong>maria.garcia@email.com</strong> for invoice <strong>INV-2849</strong> ($4,660.00).
             </p>
             <p className="text-sm text-gray-400 dark:text-gray-500 mt-3">
               The previous link will be invalidated. The member has 7 days to complete payment before the next retry.
             </p>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <Button color="default" onClick={() => setConfirmOpen(false)}>Send link</Button>
             <Button color="alternative" onClick={() => setConfirmOpen(false)}>Cancel</Button>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
 
-        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal show={isOpen} size="md" onClose={() => setIsOpen(false)}>
-  <Modal.Header>Resend payment link</Modal.Header>
-  <Modal.Body>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal dismissible show={isOpen} size="md" onClose={() => setIsOpen(false)}>
+  <ModalHeader>Resend payment link</ModalHeader>
+  <ModalBody>
     <p>A payment link will be sent to...</p>
-  </Modal.Body>
-  <Modal.Footer>
+  </ModalBody>
+  <ModalFooter>
     <Button color="default">Send link</Button>
     <Button color="alternative">Cancel</Button>
-  </Modal.Footer>
+  </ModalFooter>
 </Modal>`}</pre>
       </section>
 
@@ -79,9 +79,9 @@ export default function AppModalPage() {
           </Button>
         </div>
 
-        <Modal show={paymentOpen} size="md" onClose={() => setPaymentOpen(false)}>
-          <Modal.Header>Record payment</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={paymentOpen} size="md" onClose={() => setPaymentOpen(false)}>
+          <ModalHeader>Record payment</ModalHeader>
+          <ModalBody>
             <div className="space-y-4">
               <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg text-sm">
                 <div className="flex justify-between text-gray-600 dark:text-gray-300 mb-1">
@@ -106,22 +106,22 @@ export default function AppModalPage() {
                 <input type="text" placeholder="Optional" className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400" />
               </div>
             </div>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <Button color="default" onClick={() => setPaymentOpen(false)}>Record payment</Button>
             <Button color="alternative" onClick={() => setPaymentOpen(false)}>Cancel</Button>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
 
-        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal show={isOpen} size="md" onClose={() => setIsOpen(false)}>
-  <Modal.Header>Record payment</Modal.Header>
-  <Modal.Body>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal dismissible show={isOpen} size="md" onClose={() => setIsOpen(false)}>
+  <ModalHeader>Record payment</ModalHeader>
+  <ModalBody>
     {/* invoice summary + method select + reference input */}
-  </Modal.Body>
-  <Modal.Footer>
+  </ModalBody>
+  <ModalFooter>
     <Button color="default">Record payment</Button>
     <Button color="alternative">Cancel</Button>
-  </Modal.Footer>
+  </ModalFooter>
 </Modal>`}</pre>
       </section>
 
@@ -138,9 +138,9 @@ export default function AppModalPage() {
           </Button>
         </div>
 
-        <Modal show={cancelOpen} size="md" onClose={() => setCancelOpen(false)}>
-          <Modal.Header>Cancel membership</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={cancelOpen} size="md" onClose={() => setCancelOpen(false)}>
+          <ModalHeader>Cancel membership</ModalHeader>
+          <ModalBody>
             <div className="flex items-start gap-3 mb-4">
               <div className="shrink-0 w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
                 <HiExclamation className="h-5 w-5 text-red-600 dark:text-red-400" />
@@ -157,22 +157,22 @@ export default function AppModalPage() {
               Access ends: <strong className="text-gray-900 dark:text-white">June 30, 2026</strong> &nbsp;·&nbsp;
               Refund estimate: <strong className="text-gray-900 dark:text-white">$1,165.00</strong>
             </div>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <Button color="red" onClick={() => setCancelOpen(false)}>Confirm cancellation</Button>
             <Button color="alternative" onClick={() => setCancelOpen(false)}>Keep membership</Button>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
 
-        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal show={isOpen} size="md" onClose={() => setIsOpen(false)}>
-  <Modal.Header>Cancel membership</Modal.Header>
-  <Modal.Body>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal dismissible show={isOpen} size="md" onClose={() => setIsOpen(false)}>
+  <ModalHeader>Cancel membership</ModalHeader>
+  <ModalBody>
     {/* warning icon + consequence summary */}
-  </Modal.Body>
-  <Modal.Footer>
+  </ModalBody>
+  <ModalFooter>
     <Button color="red">Confirm cancellation</Button>
     <Button color="alternative">Keep membership</Button>
-  </Modal.Footer>
+  </ModalFooter>
 </Modal>`}</pre>
       </section>
 
@@ -188,9 +188,9 @@ export default function AppModalPage() {
             <HiUserAdd className="mr-2 h-4 w-4" />New member
           </Button>
         </div>
-        <Modal show={formOpen} size="lg" onClose={() => setFormOpen(false)}>
-          <Modal.Header>Create new member</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={formOpen} size="lg" onClose={() => setFormOpen(false)}>
+          <ModalHeader>Create new member</ModalHeader>
+          <ModalBody>
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -219,24 +219,24 @@ export default function AppModalPage() {
                 </Select>
               </div>
             </div>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <Button color="default" onClick={() => setFormOpen(false)}>Create member</Button>
             <Button color="alternative" onClick={() => setFormOpen(false)}>Cancel</Button>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
-        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal show={isOpen} size="lg" onClose={() => setOpen(false)}>
-  <Modal.Header>Create new member</Modal.Header>
-  <Modal.Body>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal dismissible show={isOpen} size="lg" onClose={() => setOpen(false)}>
+  <ModalHeader>Create new member</ModalHeader>
+  <ModalBody>
     <div className="space-y-4">
       <Label htmlFor="email" value="Email" className="mb-2 block" />
       <TextInput id="email" type="email" placeholder="..." />
     </div>
-  </Modal.Body>
-  <Modal.Footer>
+  </ModalBody>
+  <ModalFooter>
     <Button color="default">Create member</Button>
     <Button color="alternative">Cancel</Button>
-  </Modal.Footer>
+  </ModalFooter>
 </Modal>`}</pre>
       </section>
 
@@ -250,9 +250,9 @@ export default function AppModalPage() {
         <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
           <Button color="alternative" onClick={() => setScrollOpen(true)}>Open scrollable modal</Button>
         </div>
-        <Modal show={scrollOpen} size="md" onClose={() => setScrollOpen(false)}>
-          <Modal.Header>Invoice #2024-0847 — Line items</Modal.Header>
-          <Modal.Body>
+        <Modal dismissible show={scrollOpen} size="md" onClose={() => setScrollOpen(false)}>
+          <ModalHeader>Invoice #2024-0847 — Line items</ModalHeader>
+          <ModalBody className="overflow-y-auto max-h-64">
             <div className="space-y-3">
               {[
                 { desc: "Diamond+ Annual Membership — Year 2", amount: "$4,660.00" },
@@ -270,8 +270,8 @@ export default function AppModalPage() {
                 </div>
               ))}
             </div>
-          </Modal.Body>
-          <Modal.Footer>
+          </ModalBody>
+          <ModalFooter>
             <div className="flex justify-between w-full items-center">
               <span className="text-sm font-semibold text-gray-900 dark:text-white">Total due: $4,160.00</span>
               <div className="flex gap-2">
@@ -279,16 +279,16 @@ export default function AppModalPage() {
                 <Button color="alternative" size="sm" onClick={() => setScrollOpen(false)}>Close</Button>
               </div>
             </div>
-          </Modal.Footer>
+          </ModalFooter>
         </Modal>
-        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal show={isOpen} size="md" onClose={() => setOpen(false)}>
-  <Modal.Header>Invoice line items</Modal.Header>
-  <Modal.Body>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Modal dismissible show={isOpen} size="md" onClose={() => setOpen(false)}>
+  <ModalHeader>Invoice line items</ModalHeader>
+  <ModalBody>
     {/* long content scrolls — header + footer stay fixed */}
-  </Modal.Body>
-  <Modal.Footer>
+  </ModalBody>
+  <ModalFooter>
     <Button color="default">Send payment link</Button>
-  </Modal.Footer>
+  </ModalFooter>
 </Modal>`}</pre>
       </section>
 
