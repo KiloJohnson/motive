@@ -152,6 +152,22 @@ const applicationNav: NavItem[] = [
     ],
   },
   {
+    section: "Blocks",
+    items: [
+      { label: "Overview", href: "/application/blocks" },
+      { label: "Navbars", href: "/application/blocks/navbars" },
+      { label: "Side Navigation", href: "/application/blocks/side-navigation" },
+      { label: "CRUD Layouts", href: "/application/blocks/crud-layouts" },
+      { label: "Table Headers", href: "/application/blocks/table-headers" },
+      { label: "Table Footers", href: "/application/blocks/table-footers" },
+      { label: "Create Forms", href: "/application/blocks/create-forms" },
+      { label: "Create Modals", href: "/application/blocks/create-modals" },
+      { label: "Read Drawers", href: "/application/blocks/read-drawers" },
+      { label: "Update Forms", href: "/application/blocks/update-forms" },
+      { label: "Delete Confirm", href: "/application/blocks/delete-confirm" },
+    ],
+  },
+  {
     section: "Components",
     items: [
       { label: "Buttons", href: "/application/components/buttons" },
