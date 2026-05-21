@@ -51,9 +51,13 @@ const adminNav: NavEntry[] = [
   {
     kind: "group", label: "E-Commerce", icon: HiShoppingBag,
     items: [
-      { label: "Products", href: "/preview/admin-products" },
-      { label: "Billing",  href: "/preview/admin-billing" },
-      { label: "Invoice",  href: "/preview/admin-invoice" },
+      { label: "Products",           href: "/preview/admin-products" },
+      { label: "Billing",            href: "/preview/admin-billing" },
+      { label: "Invoices",           href: "/preview/admin-invoices" },
+      { label: "Invoice",            href: "/preview/admin-invoice" },
+      { label: "Create Invoice",     href: "/preview/admin-invoice-create" },
+      { label: "Transactions",       href: "/preview/admin-transactions" },
+      { label: "Transaction",        href: "/preview/admin-transaction" },
     ],
   },
   {
