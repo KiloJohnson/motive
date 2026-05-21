@@ -1,94 +1,63 @@
 import Link from "next/link";
 
-const adminPreviews = [
+const dashboardPreviews = [
   {
-    slug: "/preview/admin-dashboard",
-    label: "Dashboard",
-    description: "KPI cards, weekly revenue area chart, traffic source bar chart, and recent transactions table.",
-    screens: ["KPIs", "Area chart", "Transactions"],
+    slug: "/preview/dashboard-primary-care",
+    label: "Primary Care",
+    accent: "#005EB8",
+    description: "Patient volume, provider utilization, appointment type mix, and no-show rate across all Scripps Clinic primary care locations.",
+    screens: ["Patient volume", "Provider util.", "Appt types"],
   },
   {
-    slug: "/preview/admin-kanban",
-    label: "Kanban",
-    description: "Four-column project board with labeled cards, assignee avatars, due dates, and attachment counts.",
-    screens: ["To Do", "In Progress", "Review", "Done"],
+    slug: "/preview/dashboard-cancer",
+    label: "Cancer Care",
+    accent: "#0d9488",
+    description: "Weekly treatment volume by modality, cancer type mix, and tumor board case queue for Scripps Cancer Center oncology teams.",
+    screens: ["Treatment volume", "Cancer types", "Tumor board"],
   },
   {
-    slug: "/preview/admin-mailing",
-    label: "Mailing",
-    description: "Full inbox layout — folder sidebar, email list with unread indicators, and a reading pane.",
-    screens: ["Inbox", "Email list", "Reading pane"],
+    slug: "/preview/dashboard-heart",
+    label: "Heart Care",
+    accent: "#dc2626",
+    description: "Cardiac procedure volume, cath lab utilization, 30-day readmission trend vs. national benchmark, and tomorrow's procedure schedule.",
+    screens: ["Procedures", "Readmission trend", "OR schedule"],
   },
   {
-    slug: "/preview/admin-users",
-    label: "Users",
-    description: "Searchable, filterable user table with avatars, roles, country, status badges, and pagination.",
-    screens: ["Search", "Table", "Pagination"],
+    slug: "/preview/dashboard-ortho",
+    label: "Orthopedics",
+    accent: "#475569",
+    description: "Surgical volume by procedure type, OR utilization, post-op follow-up compliance, and today's operating room schedule.",
+    screens: ["Surgical volume", "OR schedule", "PT conversion"],
   },
   {
-    slug: "/preview/admin-profile",
-    label: "User Profile",
-    description: "Profile cover, avatar, stats, bio, skills badges, and a recent activity feed.",
-    screens: ["Cover", "Stats", "Activity"],
+    slug: "/preview/dashboard-healthexpress",
+    label: "HealthExpress Walk-In",
+    accent: "#16a34a",
+    description: "Live patient queue with color-coded wait status, wait time by hour of day, and check-in method breakdown. The standout.",
+    screens: ["Live queue", "Wait trend", "Check-in method"],
   },
   {
-    slug: "/preview/admin-settings",
-    label: "Settings",
-    description: "Multi-section settings panel: General info, Password, Notifications toggles, Sessions, and Delete account.",
-    screens: ["General", "Password", "Notifications"],
-  },
-  {
-    slug: "/preview/admin-products",
-    label: "Products",
-    description: "E-commerce product table with SKU, category, price, stock count, and status badges.",
-    screens: ["Search", "Table", "Stock status"],
-  },
-  {
-    slug: "/preview/admin-billing",
-    label: "Billing",
-    description: "Plan comparison cards, payment method management, and a downloadable billing history table.",
-    screens: ["Plans", "Payment", "History"],
-  },
-  {
-    slug: "/preview/admin-signin",
-    label: "Sign In",
-    description: "Centered authentication page with email/password, remember me, and forgot password flow.",
-    screens: ["Email", "Password", "Remember me"],
+    slug: "/preview/dashboard-urgentcare",
+    label: "Urgent Care",
+    accent: "#d97706",
+    description: "Census, door-to-doctor time, LWBS rate, divert status, hourly arrivals, ESI acuity mix, disposition donut, and current patient list.",
+    screens: ["Census", "Arrivals", "ESI acuity", "Patients"],
   },
 ];
 
-const pimcPreviews = [
-  {
-    slug: "/preview/pimc-backoffice",
-    label: "PIMC Dashboard",
-    description: "KPI cards, membership tier breakdown, and recent invoices. The opening view for PIMC back office staff.",
-    screens: ["KPIs", "Tier breakdown", "Invoice table"],
-  },
-  {
-    slug: "/preview/member-list",
-    label: "Member Management",
-    description: "Full member list with search, filters, row actions, create modal, and delete confirmation.",
-    screens: ["List", "Create", "Delete confirm"],
-  },
-  {
-    slug: "/preview/waitlist",
-    label: "Waitlist",
-    description: "Waitlist queue with position reordering, convert to member flow, and deposit refund.",
-    screens: ["Queue", "Convert", "Decline & refund"],
-  },
-];
-
-function PreviewCard({ p }: { p: { slug: string; label: string; description: string; screens: string[] } }) {
+function DashboardCard({ p }: { p: typeof dashboardPreviews[0] }) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
-      <div className="h-36 bg-gray-900 relative overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: "radial-gradient(circle at 50% 50%, var(--motive-primary) 0%, transparent 70%)" }} />
-        <div className="text-center z-10">
-          <p className="text-white font-semibold mb-1">{p.label}</p>
+      <div className="h-36 relative overflow-hidden flex items-center justify-center" style={{ backgroundColor: `${p.accent}18` }}>
+        <div className="absolute inset-0" style={{ backgroundImage: `radial-gradient(circle at 50% 50%, ${p.accent} 0%, transparent 70%)`, opacity: 0.12 }} />
+        <div className="text-center z-10 px-4">
+          <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-2" style={{ backgroundColor: p.accent, color: "#fff" }}>
+            Scripps Health
+          </div>
+          <p className="font-semibold text-gray-900 dark:text-white mb-2">{p.label}</p>
           <div className="flex flex-wrap justify-center gap-1.5">
             {p.screens.map((s) => (
-              <span key={s} className="text-xs bg-white/10 text-white/70 px-2 py-0.5 rounded-full">{s}</span>
+              <span key={s} className="text-xs px-2 py-0.5 rounded-full text-white/80" style={{ backgroundColor: `${p.accent}33` }}>{s}</span>
             ))}
           </div>
         </div>
@@ -100,10 +69,10 @@ function PreviewCard({ p }: { p: { slug: string; label: string; description: str
           href={p.slug}
           target="_blank"
           rel="noopener"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-white transition-colors"
-          style={{ backgroundColor: "var(--motive-primary)" }}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-white transition-opacity hover:opacity-90"
+          style={{ backgroundColor: p.accent }}
         >
-          Open in new tab ↗
+          Open dashboard ↗
         </Link>
       </div>
     </div>
@@ -123,8 +92,20 @@ export default function UIPreviewsPage() {
         </h1>
         <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
           Complete, navigable application shells built with Motive tokens — live running code, not screenshots.
-          Open the Sample App to explore a fully connected admin dashboard with 17 pages and internal navigation.
+          Six Scripps service-line dashboards, a fully connected 17-page admin sample app, and the PIMC back office.
         </p>
+      </section>
+
+      {/* Medical dashboards */}
+      <section className="px-16 py-10 border-b border-gray-100 dark:border-gray-700">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">Scripps Service-Line Dashboards</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 max-w-2xl">
+          Six clinical dashboards — one per Scripps service line. Each uses real-world KPIs, Recharts data visualizations,
+          and service-line accent colors. These are the argument for what Motive-powered analytics can look like.
+        </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+          {dashboardPreviews.map((p) => <DashboardCard key={p.slug} p={p} />)}
+        </div>
       </section>
 
       {/* Sample App hero */}
@@ -155,22 +136,14 @@ export default function UIPreviewsPage() {
         </div>
       </section>
 
-      <section className="px-16 py-10">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
-          Individual Pages
-        </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
-          {adminPreviews.map((p) => <PreviewCard key={p.slug} p={p} />)}
-        </div>
-      </section>
-
-      <section className="px-16 pb-12 border-t border-gray-100 dark:border-gray-700 pt-10">
+      {/* PIMC hero */}
+      <section className="px-16 pb-12 pt-10">
         <div className="flex items-start justify-between gap-8 max-w-3xl">
           <div>
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">PIMC Back Office</h2>
             <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
-              Scripps PIMC-specific back office shell — Dashboard, Analytics, E-commerce,
-              Member Management, and Waitlist. A product-specific implementation built on Motive.
+              Scripps PIMC-specific back office shell — Dashboard, Invoices, Member Management, and Waitlist.
+              A product-specific implementation built on Motive.
               Will become a standalone project when the PIMC front end ships.
             </p>
             <Link
@@ -178,13 +151,13 @@ export default function UIPreviewsPage() {
               target="_blank"
               rel="noopener"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-colors"
-              style={{ backgroundColor: "var(--motive-primary)" }}
+              style={{ backgroundColor: "#544329" }}
             >
               Open PIMC App ↗
             </Link>
           </div>
           <div className="hidden lg:flex shrink-0 items-center gap-1.5 flex-wrap w-56">
-            {["Dashboard","Analytics","E-commerce","Members","Waitlist","Invoices","Payments","Reports"].map((s) => (
+            {["Dashboard","Invoices","Members","Waitlist","Payments","Analytics"].map((s) => (
               <span key={s} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full">{s}</span>
             ))}
           </div>

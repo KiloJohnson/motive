@@ -8,7 +8,7 @@ import { useSidebar } from "./SidebarContext";
 // ── Nav data ──────────────────────────────────────────────────────────────
 
 type NavLink = { label: string; href: string; stub?: boolean; newTab?: boolean };
-type NavSection = { section: string; items: NavLink[]; accent?: boolean };
+type NavSection = { section: string; items: NavLink[]; accent?: boolean; accentColor?: string };
 type NavItem = NavLink | NavSection;
 
 const marketingNav: NavItem[] = [
@@ -165,8 +165,21 @@ const applicationNav: NavItem[] = [
   {
     section: "Dashboards",
     items: [
-      { label: "Overview",    href: "/application/ui-previews" },
-      { label: "Sample App",  href: "/preview/admin-dashboard", newTab: true },
+      { label: "Overview",       href: "/application/ui-previews" },
+      { label: "Primary Care",   href: "/preview/dashboard-primary-care",   newTab: true },
+      { label: "Cancer Care",    href: "/preview/dashboard-cancer",          newTab: true },
+      { label: "Heart Care",     href: "/preview/dashboard-heart",           newTab: true },
+      { label: "Orthopedics",    href: "/preview/dashboard-ortho",           newTab: true },
+      { label: "HealthExpress",  href: "/preview/dashboard-healthexpress",   newTab: true },
+      { label: "Urgent Care",    href: "/preview/dashboard-urgentcare",      newTab: true },
+    ],
+  },
+  {
+    section: "Sample App",
+    accent: true,
+    accentColor: "#1e3a5f",
+    items: [
+      { label: "Open App", href: "/preview/admin-dashboard", newTab: true },
     ],
   },
   {
@@ -360,7 +373,7 @@ export default function Sidebar() {
             if ("section" in item) {
               const isExpanded = expanded.has(item.section);
               return (
-                <li key={i} style={item.accent ? { backgroundColor: "#544329", borderRadius: "8px", margin: "8px 4px 4px" } : undefined}>
+                <li key={i} style={item.accent ? { backgroundColor: item.accentColor ?? "#544329", borderRadius: "8px", margin: "8px 4px 4px" } : undefined}>
                   {item.accent ? (
                     <Link
                       href={item.items[0]?.href ?? "#"}
