@@ -1,6 +1,7 @@
 "use client";
 
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { DashboardShell } from "../DashboardShell";
 
 const ACCENT = "#0d9488";
 
@@ -38,6 +39,7 @@ const kpis = [
 
 export default function CancerCareDashboardPage() {
   return (
+    <DashboardShell>
     <div className="min-h-full bg-gray-50 dark:bg-gray-900">
       <div className="p-6 space-y-6 max-w-7xl mx-auto">
 
@@ -71,7 +73,7 @@ export default function CancerCareDashboardPage() {
             <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">Treatments delivered by modality · last 6 weeks</p>
             <ResponsiveContainer width="100%" height={220}>
               <LineChart data={weeklyVolume}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
                 <XAxis dataKey="week" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} width={30} />
                 <Tooltip />
@@ -132,5 +134,6 @@ export default function CancerCareDashboardPage() {
 
       </div>
     </div>
+    </DashboardShell>
   );
 }

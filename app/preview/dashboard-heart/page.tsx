@@ -1,6 +1,7 @@
 "use client";
 
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, Legend } from "recharts";
+import { DashboardShell } from "../DashboardShell";
 
 const ACCENT = "#dc2626";
 
@@ -45,6 +46,7 @@ const kpis = [
 
 export default function HeartCareDashboardPage() {
   return (
+    <DashboardShell>
     <div className="min-h-full bg-gray-50 dark:bg-gray-900">
       <div className="p-6 space-y-6 max-w-7xl mx-auto">
 
@@ -78,7 +80,7 @@ export default function HeartCareDashboardPage() {
             <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">All cardiac procedure types · last 6 weeks</p>
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={procedureVolume} barSize={8}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
                 <XAxis dataKey="week" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} width={30} />
                 <Tooltip />
@@ -97,7 +99,7 @@ export default function HeartCareDashboardPage() {
             <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">% vs Scripps target 10%</p>
             <ResponsiveContainer width="100%" height={220}>
               <LineChart data={readmissionTrend}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
                 <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} width={30} domain={[0, 15]} />
                 <Tooltip formatter={(v) => `${v}%`} />
@@ -141,5 +143,6 @@ export default function HeartCareDashboardPage() {
 
       </div>
     </div>
+    </DashboardShell>
   );
 }

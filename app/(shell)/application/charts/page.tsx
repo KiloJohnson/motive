@@ -118,7 +118,7 @@ export default function ChartsPage() {
         </div>
         <ResponsiveContainer width="100%" height={280}>
           <LineChart data={revenueData} margin={{ top: 4, right: 16, bottom: 0, left: 16 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" className="dark:stroke-gray-700" />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
             <XAxis dataKey="month" tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} />
             <YAxis tickFormatter={dollars} tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} width={48} />
             <Tooltip {...tooltipStyle} formatter={(v: number) => ["$" + v.toLocaleString(), ""]} />
@@ -165,7 +165,7 @@ export default function ChartsPage() {
                 <stop offset="95%" stopColor={DIAMOND_PLUS} stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
             <XAxis dataKey="month" tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} domain={[0, 500]} />
             <Tooltip {...tooltipStyle} />
@@ -256,7 +256,7 @@ export default function ChartsPage() {
         </div>
         <ResponsiveContainer width="100%" height={260}>
           <BarChart data={collectionData} margin={{ top: 4, right: 16, bottom: 0, left: 8 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" vertical={false} />
             <XAxis dataKey="month" tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} />
             <YAxis domain={[95, 100]} tickFormatter={(v) => v + "%"} tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} />
             <Tooltip {...tooltipStyle} formatter={(v: number) => [v.toFixed(1) + "%", ""]} />
@@ -293,7 +293,7 @@ export default function ChartsPage() {
         </div>
         <ResponsiveContainer width="100%" height={260}>
           <BarChart data={retryData} margin={{ top: 4, right: 16, bottom: 0, left: 8 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" vertical={false} />
             <XAxis dataKey="month" tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} />
             <Tooltip {...tooltipStyle} />

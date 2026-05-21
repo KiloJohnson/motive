@@ -123,6 +123,22 @@ const applicationNav: NavItem[] = [
     ],
   },
   {
+    section: "Components",
+    items: [
+      { label: "Buttons", href: "/application/components/buttons" },
+      { label: "Badge", href: "/application/components/badge" },
+      { label: "Alert", href: "/application/components/alert" },
+      { label: "Modal", href: "/application/components/modal" },
+      { label: "Dropdown", href: "/application/components/dropdown" },
+      { label: "Tabs", href: "/application/components/tabs" },
+      { label: "Avatar", href: "/application/components/avatar" },
+      { label: "Spinner", href: "/application/components/spinner" },
+      { label: "Toast", href: "/application/components/toast" },
+      { label: "Tooltip", href: "/application/components/tooltip" },
+      { label: "Progress", href: "/application/components/progress" },
+    ],
+  },
+  {
     section: "Data",
     items: [
       { label: "Tables",     href: "/application/tables" },
@@ -180,22 +196,6 @@ const applicationNav: NavItem[] = [
     accentColor: "#1e3a5f",
     items: [
       { label: "Open App", href: "/preview/admin-dashboard", newTab: true },
-    ],
-  },
-  {
-    section: "Components",
-    items: [
-      { label: "Buttons", href: "/application/components/buttons" },
-      { label: "Badge", href: "/application/components/badge" },
-      { label: "Alert", href: "/application/components/alert" },
-      { label: "Modal", href: "/application/components/modal" },
-      { label: "Dropdown", href: "/application/components/dropdown" },
-      { label: "Tabs", href: "/application/components/tabs" },
-      { label: "Avatar", href: "/application/components/avatar" },
-      { label: "Spinner", href: "/application/components/spinner" },
-      { label: "Toast", href: "/application/components/toast" },
-      { label: "Tooltip", href: "/application/components/tooltip" },
-      { label: "Progress", href: "/application/components/progress" },
     ],
   },
   {

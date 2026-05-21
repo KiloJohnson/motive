@@ -1,6 +1,7 @@
 "use client";
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { DashboardShell } from "../DashboardShell";
 
 const ACCENT = "#16a34a";
 
@@ -36,6 +37,7 @@ function waitColor(min: number) {
 
 export default function HealthExpressDashboardPage() {
   return (
+    <DashboardShell>
     <div className="min-h-full bg-gray-50 dark:bg-gray-900">
       <div className="p-6 space-y-6 max-w-7xl mx-auto">
 
@@ -110,7 +112,7 @@ export default function HealthExpressDashboardPage() {
             <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">Today's trend — 30 min target shown as dashed line</p>
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={waitByHour}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
                 <XAxis dataKey="hour" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} width={30} />
                 <Tooltip formatter={(v) => `${v} min`} />
@@ -136,5 +138,6 @@ export default function HealthExpressDashboardPage() {
 
       </div>
     </div>
+    </DashboardShell>
   );
 }

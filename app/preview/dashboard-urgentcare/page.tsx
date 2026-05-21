@@ -1,6 +1,7 @@
 "use client";
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { DashboardShell } from "../DashboardShell";
 
 const ACCENT = "#d97706";
 
@@ -55,6 +56,7 @@ const kpis = [
 
 export default function UrgentCareDashboardPage() {
   return (
+    <DashboardShell>
     <div className="min-h-full bg-gray-50 dark:bg-gray-900">
       <div className="p-6 space-y-6 max-w-7xl mx-auto">
 
@@ -88,7 +90,7 @@ export default function UrgentCareDashboardPage() {
             <p className="text-xs text-gray-400 dark:text-gray-500 mb-3">Today's patient flow</p>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={hourlyArrivals} barSize={6}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
                 <XAxis dataKey="hour" tick={{ fontSize: 9 }} interval={3} />
                 <YAxis tick={{ fontSize: 11 }} width={25} />
                 <Tooltip />
@@ -102,7 +104,7 @@ export default function UrgentCareDashboardPage() {
             <p className="text-xs text-gray-400 dark:text-gray-500 mb-3">Today's patient acuity mix</p>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={esiBreakdown} layout="vertical" barSize={12}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" horizontal={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" horizontal={false} />
                 <XAxis type="number" tick={{ fontSize: 10 }} />
                 <YAxis type="category" dataKey="level" tick={{ fontSize: 9 }} width={95} />
                 <Tooltip />
@@ -161,5 +163,6 @@ export default function UrgentCareDashboardPage() {
 
       </div>
     </div>
+    </DashboardShell>
   );
 }

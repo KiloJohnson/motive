@@ -1,6 +1,7 @@
 "use client";
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { DashboardShell } from "../DashboardShell";
 
 const ACCENT = "#475569";
 
@@ -45,6 +46,7 @@ const kpis = [
 
 export default function OrthoDashboardPage() {
   return (
+    <DashboardShell>
     <div className="min-h-full bg-gray-50 dark:bg-gray-900">
       <div className="p-6 space-y-6 max-w-7xl mx-auto">
 
@@ -78,7 +80,7 @@ export default function OrthoDashboardPage() {
             <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">Procedures by type · last 6 months</p>
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={monthlyVolume} barSize={7}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
                 <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} width={30} />
                 <Tooltip />
@@ -141,5 +143,6 @@ export default function OrthoDashboardPage() {
 
       </div>
     </div>
+    </DashboardShell>
   );
 }
