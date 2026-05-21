@@ -3,25 +3,26 @@
 import { PreviewShell } from "../PreviewShell";
 import { Badge, Button, Label, TextInput, Select, Textarea, ToggleSwitch } from "flowbite-react";
 import { useState } from "react";
-import { HiCheck, HiDownload, HiPlus } from "react-icons/hi";
+import { HiCheck, HiPlus } from "react-icons/hi";
 
 const invoices = [
-  { id: "#AB4521", date: "17 May 2025", amount: "$9.99", status: "Pending" },
-  { id: "#AB4520", date: "19 Apr 2025", amount: "$9.99", status: "Paid" },
-  { id: "#AB4519", date: "19 Mar 2025", amount: "$9.99", status: "Paid" },
-  { id: "#AB4518", date: "17 Feb 2025", amount: "$9.99", status: "Paid" },
-  { id: "#AB4517", date: "20 Jan 2025", amount: "$9.99", status: "Paid" },
+  { id: "#1846325", date: "01 May 2025", amount: "$9,99", status: "Pending" },
+  { id: "#1846328", date: "01 Apr 2025", amount: "$9,99", status: "Paid" },
+  { id: "#1846329", date: "01 Mar 2025", amount: "$9,99", status: "Paid" },
+  { id: "#1846330", date: "01 Feb 2025", amount: "$9,99", status: "Paid" },
+  { id: "#1846331", date: "01 Jan 2025", amount: "$9,99", status: "Paid" },
 ];
 
 const benefits = [
-  "30,000 orders per month",
+  "35,000 orders per month",
   "Multivariate Testing",
-  "Enterprise Reporting",
-  "Unlimited Integrations",
-  "Team size: 9.5 developers",
-  "Free support: Budget",
+  "Comparative Reporting",
+  "Unlimited integrations",
+  "Team size: 1-3 developers",
+  "Customer Journey Builder",
+  "Phone support",
   "Custom Templates",
-  "Customer Accounts",
+  "Exclusive discounts",
 ];
 
 export default function AdminBillingPage() {
@@ -30,7 +31,7 @@ export default function AdminBillingPage() {
 
   return (
     <PreviewShell variant="admin" title="Billing">
-      <div className="p-6 max-w-6xl mx-auto space-y-6">
+      <div className="p-6 space-y-6">
 
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Billing</h1>
 
@@ -61,11 +62,15 @@ export default function AdminBillingPage() {
                   </div>
                 </div>
               </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Renewal date: 06/07/2025</p>
-              <p className="text-3xl font-bold text-gray-900 dark:text-white mb-1">$9.98<span className="text-base font-normal text-gray-500 dark:text-gray-400">/month</span></p>
-              <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
-                <span><strong className="text-gray-900 dark:text-white">23,478</strong> orders of 30,000</span>
-                <span><strong className="text-gray-900 dark:text-white">3</strong> of 3 seats used</span>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Renewal Date: 05/07/2025</p>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white mb-1">$9,99<span className="text-base font-normal text-gray-500 dark:text-gray-400">/month</span></p>
+              <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+                <p>Orders</p>
+                <p><strong className="text-gray-900 dark:text-white">27,965</strong> of 35,000 orders used</p>
+              </div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-4 space-y-0.5">
+                <p><strong className="text-gray-700 dark:text-gray-300">26,478</strong> Sales orders</p>
+                <p><strong className="text-gray-700 dark:text-gray-300">1,478</strong> API orders</p>
               </div>
 
               <p className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Current plan benefits</p>
@@ -111,7 +116,7 @@ export default function AdminBillingPage() {
               <table className="w-full text-sm text-left">
                 <thead className="bg-gray-50 dark:bg-gray-700 text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                   <tr>
-                    {["Invoice", "Date", "Amount", "Status", ""].map((h, i) => (
+                    {["Invoice ID", "Date", "Amount", "Status", "Actions"].map((h, i) => (
                       <th key={i} className="px-5 py-3 font-semibold">{h}</th>
                     ))}
                   </tr>
@@ -126,9 +131,10 @@ export default function AdminBillingPage() {
                         <Badge color={inv.status === "Paid" ? "success" : "warning"} size="xs">{inv.status}</Badge>
                       </td>
                       <td className="px-5 py-3">
-                        <button className="flex items-center gap-1 text-xs text-primary-700 dark:text-primary-400 hover:underline">
-                          <HiDownload className="h-3.5 w-3.5" />PDF
-                        </button>
+                        <div className="flex items-center gap-3">
+                          <button className="text-xs text-primary-700 dark:text-primary-400 hover:underline font-medium">Edit</button>
+                          <button className="text-xs text-primary-700 dark:text-primary-400 hover:underline font-medium">View</button>
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -205,8 +211,8 @@ export default function AdminBillingPage() {
               <h2 className="text-sm font-semibold text-gray-900 dark:text-white">Payment methods</h2>
 
               {[
-                { name: "Visa ending in 7658", detail: "Visa", expires: "Exp. 12/2025", logo: "VISA", color: "#1a1f71", bg: "#EEF2FF" },
-                { name: "Mastercard ending in 8429", detail: "Mastercard", expires: "Exp. 04/2026", logo: "MC", color: "#EB001B", bg: "#FFF1F2" },
+                { name: "Visa ending in 7658", detail: "Visa", expires: "Expiry 10/2025", logo: "VISA", color: "#1a1f71", bg: "#EEF2FF" },
+                { name: "Mastercard ending in 8429", detail: "Mastercard", expires: "Expiry 10/2025", logo: "MC", color: "#EB001B", bg: "#FFF1F2" },
               ].map((card) => (
                 <div key={card.name} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 dark:border-gray-700">
                   <div className="flex items-center gap-3">
