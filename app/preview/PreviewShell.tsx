@@ -55,6 +55,7 @@ const adminNav: NavEntry[] = [
       { label: "Billing",            href: "/preview/admin-billing" },
       { label: "Invoices",           href: "/preview/admin-invoices" },
       { label: "Invoice",            href: "/preview/admin-invoice" },
+      { label: "Invoice Preview",    href: "/preview/admin-invoice-preview" },
       { label: "Create Invoice",     href: "/preview/admin-invoice-create" },
       { label: "Transactions",       href: "/preview/admin-transactions" },
       { label: "Transaction",        href: "/preview/admin-transaction" },
