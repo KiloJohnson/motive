@@ -8,7 +8,7 @@ import { useSidebar } from "./SidebarContext";
 // ── Nav data ──────────────────────────────────────────────────────────────
 
 type NavLink = { label: string; href: string; stub?: boolean; newTab?: boolean };
-type NavSection = { section: string; items: NavLink[] };
+type NavSection = { section: string; items: NavLink[]; accent?: boolean };
 type NavItem = NavLink | NavSection;
 
 const marketingNav: NavItem[] = [
@@ -170,12 +170,6 @@ const applicationNav: NavItem[] = [
     ],
   },
   {
-    section: "PIMC",
-    items: [
-      { label: "PIMC App", href: "/preview/pimc-backoffice", newTab: true },
-    ],
-  },
-  {
     section: "Components",
     items: [
       { label: "Buttons", href: "/application/components/buttons" },
@@ -189,6 +183,13 @@ const applicationNav: NavItem[] = [
       { label: "Toast", href: "/application/components/toast" },
       { label: "Tooltip", href: "/application/components/tooltip" },
       { label: "Progress", href: "/application/components/progress" },
+    ],
+  },
+  {
+    section: "PIMC",
+    accent: true,
+    items: [
+      { label: "PIMC App", href: "/preview/pimc-backoffice", newTab: true },
     ],
   },
 ];
@@ -305,7 +306,7 @@ function NavLink({ item, active }: { item: NavLink; active: boolean }) {
     >
       <span>{item.label}</span>
       {item.newTab && (
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white shrink-0">
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
           <polyline points="15 3 21 3 21 9" />
           <line x1="10" y1="14" x2="21" y2="3" />
@@ -359,30 +360,50 @@ export default function Sidebar() {
             if ("section" in item) {
               const isExpanded = expanded.has(item.section);
               return (
-                <li key={i}>
-                  <button
-                    onClick={() => toggleSection(item.section)}
-                    className="w-full flex items-center justify-between px-4 pt-6 pb-2 text-left group"
-                  >
-                    <span className="text-xs font-semibold uppercase tracking-widest text-gray-300 group-hover:text-white transition-colors">
-                      {item.section}
-                    </span>
-                    <span className="text-gray-300 group-hover:text-white transition-colors mr-1">
-                      <Chevron expanded={isExpanded} />
-                    </span>
-                  </button>
-                  <div
-                    style={{ transition: "grid-template-rows 0.2s ease" }}
-                    className={`grid ${isExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
-                  >
-                    <ul className="overflow-hidden">
-                      {item.items.map((child) => (
-                        <li key={child.href}>
-                          <NavLink item={child} active={pathname === child.href} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <li key={i} style={item.accent ? { backgroundColor: "#544329", borderRadius: "8px", margin: "8px 4px 4px" } : undefined}>
+                  {item.accent ? (
+                    <Link
+                      href={item.items[0]?.href ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-between px-4 py-3 text-white group"
+                    >
+                      <span className="text-xs font-semibold uppercase tracking-widest group-hover:text-white transition-colors">
+                        {item.section}
+                      </span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white shrink-0">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                    </Link>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => toggleSection(item.section)}
+                        className="w-full flex items-center justify-between px-4 pt-6 pb-2 text-left group"
+                      >
+                        <span className="text-xs font-semibold uppercase tracking-widest text-gray-300 group-hover:text-white transition-colors">
+                          {item.section}
+                        </span>
+                        <span className="text-gray-300 group-hover:text-white transition-colors mr-1">
+                          <Chevron expanded={isExpanded} />
+                        </span>
+                      </button>
+                      <div
+                        style={{ transition: "grid-template-rows 0.2s ease" }}
+                        className={`grid ${isExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+                      >
+                        <ul className="overflow-hidden">
+                          {item.items.map((child) => (
+                            <li key={child.href}>
+                              <NavLink item={child} active={pathname === child.href} />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  )}
                 </li>
               );
             }

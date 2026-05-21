@@ -36,13 +36,11 @@ type NavEntry = FlatItem | GroupItem;
 
 const pimcNav: NavEntry[] = [
   { kind: "link", label: "Dashboard",  href: "/preview/pimc-backoffice",        icon: HiHome },
-  { kind: "link", label: "Analytics",  href: "/preview/dashboard-analytics",    icon: HiChartBar },
-  { kind: "link", label: "E-commerce", href: "/preview/dashboard-ecommerce",    icon: HiShoppingBag },
+  { kind: "link", label: "Invoices",   href: "/preview/dashboard-analytics",    icon: HiDocumentText, badge: "12", badgeColor: "failure" },
   { kind: "link", label: "Members",    href: "/preview/member-list",            icon: HiUsers,        badge: "847" },
   { kind: "link", label: "Waitlist",   href: "/preview/waitlist",               icon: HiClock,        badge: "34" },
-  { kind: "link", label: "Invoices",   href: "#",                               icon: HiDocumentText, badge: "12", badgeColor: "failure" },
   { kind: "link", label: "Payments",   href: "#",                               icon: HiCurrencyDollar },
-  { kind: "link", label: "Reports",    href: "#",                               icon: HiChartBar },
+  { kind: "link", label: "Analytics",  href: "#",                               icon: HiChartBar },
 ];
 
 // ── Admin nav ──────────────────────────────────────────────────────────────

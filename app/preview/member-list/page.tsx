@@ -61,13 +61,15 @@ export default function MemberListPage() {
           {/* Table */}
           <Table hoverable>
             <TableHead>
-              <TableHeadCell>Member</TableHeadCell>
-              <TableHeadCell>Tier</TableHeadCell>
-              <TableHeadCell>Status</TableHeadCell>
-              <TableHeadCell>Billing</TableHeadCell>
-              <TableHeadCell>Member since</TableHeadCell>
-              <TableHeadCell>Next charge</TableHeadCell>
-              <TableHeadCell><span className="sr-only">Actions</span></TableHeadCell>
+              <TableRow>
+                <TableHeadCell>Member</TableHeadCell>
+                <TableHeadCell>Tier</TableHeadCell>
+                <TableHeadCell>Status</TableHeadCell>
+                <TableHeadCell>Billing</TableHeadCell>
+                <TableHeadCell>Member since</TableHeadCell>
+                <TableHeadCell>Next charge</TableHeadCell>
+                <TableHeadCell><span className="sr-only">Actions</span></TableHeadCell>
+              </TableRow>
             </TableHead>
             <TableBody className="divide-y divide-gray-100 dark:divide-gray-700">
               {members.map((m) => (

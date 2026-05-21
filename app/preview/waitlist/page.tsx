@@ -53,13 +53,15 @@ export default function WaitlistPage() {
           {/* Table */}
           <Table hoverable>
             <TableHead>
-              <TableHeadCell className="w-12">Pos</TableHeadCell>
-              <TableHeadCell>Applicant</TableHeadCell>
-              <TableHeadCell>Tier interest</TableHeadCell>
-              <TableHeadCell>Status</TableHeadCell>
-              <TableHeadCell>Deposit</TableHeadCell>
-              <TableHeadCell>Applied</TableHeadCell>
-              <TableHeadCell><span className="sr-only">Actions</span></TableHeadCell>
+              <TableRow>
+                <TableHeadCell className="w-12">Pos</TableHeadCell>
+                <TableHeadCell>Applicant</TableHeadCell>
+                <TableHeadCell>Tier interest</TableHeadCell>
+                <TableHeadCell>Status</TableHeadCell>
+                <TableHeadCell>Deposit</TableHeadCell>
+                <TableHeadCell>Applied</TableHeadCell>
+                <TableHeadCell><span className="sr-only">Actions</span></TableHeadCell>
+              </TableRow>
             </TableHead>
             <TableBody className="divide-y divide-gray-100 dark:divide-gray-700">
               {waitlist.map((w) => (

@@ -56,13 +56,13 @@ export default function DashboardAnalyticsPreviewPage() {
   const filtered = statusFilter === "All" ? invoices : invoices.filter((inv) => inv.status === statusFilter);
 
   return (
-    <PreviewShell title="Dashboard — Analytics">
+    <PreviewShell title="Invoices">
       <div className="p-6 space-y-6">
 
         {/* Page header */}
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Dashboard</h2>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Invoices</h2>
             <p className="text-sm text-gray-400 dark:text-gray-500 mt-0.5">PIMC Back Office · May 2026</p>
           </div>
           <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-lg hover:opacity-90 transition-opacity"

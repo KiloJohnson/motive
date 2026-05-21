@@ -87,11 +87,13 @@ export default function PIMCBackofficePage() {
             </div>
             <Table hoverable>
               <TableHead>
-                <TableHeadCell>Member</TableHeadCell>
-                <TableHeadCell>Tier</TableHeadCell>
-                <TableHeadCell>Amount</TableHeadCell>
-                <TableHeadCell>Due</TableHeadCell>
-                <TableHeadCell>Status</TableHeadCell>
+                <TableRow>
+                  <TableHeadCell>Member</TableHeadCell>
+                  <TableHeadCell>Tier</TableHeadCell>
+                  <TableHeadCell>Amount</TableHeadCell>
+                  <TableHeadCell>Due</TableHeadCell>
+                  <TableHeadCell>Status</TableHeadCell>
+                </TableRow>
               </TableHead>
               <TableBody className="divide-y divide-gray-100 dark:divide-gray-700">
                 {invoices.map((inv) => (
