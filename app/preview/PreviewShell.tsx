@@ -21,6 +21,7 @@ type FlatItem = {
   icon: React.ComponentType<{ className?: string }>;
   badge?: string;
   badgeColor?: "gray" | "failure" | "warning" | "success";
+  disabled?: boolean;
 };
 
 type GroupItem = {
@@ -39,8 +40,8 @@ const pimcNav: NavEntry[] = [
   { kind: "link", label: "Invoices",   href: "/preview/dashboard-analytics",    icon: HiDocumentText, badge: "12", badgeColor: "failure" },
   { kind: "link", label: "Members",    href: "/preview/member-list",            icon: HiUsers,        badge: "847" },
   { kind: "link", label: "Waitlist",   href: "/preview/waitlist",               icon: HiClock,        badge: "34" },
-  { kind: "link", label: "Payments",   href: "#",                               icon: HiCurrencyDollar },
-  { kind: "link", label: "Analytics",  href: "#",                               icon: HiChartBar },
+  { kind: "link", label: "Payments",   href: "#", icon: HiCurrencyDollar, disabled: true },
+  { kind: "link", label: "Analytics",  href: "#", icon: HiChartBar,       disabled: true },
 ];
 
 // ── Admin nav ──────────────────────────────────────────────────────────────
@@ -143,6 +144,17 @@ export function PreviewShell({
         <nav className="flex-1 px-2 py-3 overflow-y-auto">
           {nav.map((entry) => {
             if (entry.kind === "link") {
+              if (entry.disabled) {
+                return (
+                  <span
+                    key={entry.label}
+                    className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm mb-0.5 cursor-not-allowed opacity-70 text-white/60"
+                  >
+                    <entry.icon className="h-4 w-4 shrink-0" />
+                    {entry.label}
+                  </span>
+                );
+              }
               const active = pathname === entry.href;
               return (
                 <Link

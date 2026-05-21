@@ -2,13 +2,13 @@
 
 import { PreviewShell } from "../PreviewShell";
 import { Badge, Button, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "flowbite-react";
-import { HiPlus, HiArrowUp, HiArrowDown } from "react-icons/hi";
+import { HiPlus, HiArrowUp, HiArrowDown, HiUsers, HiCurrencyDollar, HiExclamationCircle, HiClock } from "react-icons/hi";
 
 const kpis = [
-  { label: "Active Members",   value: "847",      delta: "+34 this month",  up: true,  icon: "👤" },
-  { label: "Revenue MTD",      value: "$248,400",  delta: "98.6% collection", up: true,  icon: "💰" },
-  { label: "Overdue Invoices", value: "12",        delta: "Day 7 retries",   up: false, icon: "⚠️" },
-  { label: "Waitlist",         value: "34",        delta: "3 converted",     up: true,  icon: "⏳" },
+  { label: "Active Members",   value: "847",      delta: "+34 this month",  up: true,  icon: HiUsers,             iconBg: "bg-blue-50 dark:bg-blue-900/20",   iconColor: "text-blue-600 dark:text-blue-400" },
+  { label: "Revenue MTD",      value: "$248,400", delta: "98.6% collection", up: true,  icon: HiCurrencyDollar,    iconBg: "bg-green-50 dark:bg-green-900/20", iconColor: "text-green-600 dark:text-green-400" },
+  { label: "Overdue Invoices", value: "12",       delta: "Day 7 retries",   up: false, icon: HiExclamationCircle, iconBg: "bg-red-50 dark:bg-red-900/20",     iconColor: "text-red-600 dark:text-red-400" },
+  { label: "Waitlist",         value: "34",       delta: "3 converted",     up: true,  icon: HiClock,             iconBg: "bg-amber-50 dark:bg-amber-900/20", iconColor: "text-amber-600 dark:text-amber-400" },
 ];
 
 const invoices = [
@@ -40,7 +40,9 @@ export default function PIMCBackofficePage() {
             <div key={k.label} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
               <div className="flex items-start justify-between mb-3">
                 <p className="text-sm text-gray-500 dark:text-gray-400">{k.label}</p>
-                <span className="text-xl">{k.icon}</span>
+                <div className={`h-9 w-9 rounded-lg flex items-center justify-center ${k.iconBg}`}>
+                  <k.icon className={`h-5 w-5 ${k.iconColor}`} />
+                </div>
               </div>
               <p className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{k.value}</p>
               <div className="flex items-center gap-1">
