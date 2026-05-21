@@ -9,9 +9,13 @@ import {
   HiClock, HiChartBar, HiCog, HiLogout, HiUser,
   HiBell, HiMenu, HiX, HiChevronDown,
   HiChartPie, HiShoppingBag, HiInboxIn, HiViewGrid,
+  HiLockClosed,
 } from "react-icons/hi";
 
-type NavItem = {
+// ── Nav types ──────────────────────────────────────────────────────────────
+
+type FlatItem = {
+  kind: "link";
   label: string;
   href: string;
   icon: React.ComponentType<{ className?: string }>;
@@ -19,22 +23,83 @@ type NavItem = {
   badgeColor?: "gray" | "failure" | "warning" | "success";
 };
 
-const pimcNav: NavItem[] = [
-  { label: "Dashboard",  href: "/preview/pimc-backoffice", icon: HiHome },
-  { label: "Members",    href: "/preview/member-list",     icon: HiUsers,        badge: "847" },
-  { label: "Invoices",   href: "#",                        icon: HiDocumentText, badge: "12", badgeColor: "failure" },
-  { label: "Payments",   href: "#",                        icon: HiCurrencyDollar },
-  { label: "Waitlist",   href: "/preview/waitlist",        icon: HiClock,        badge: "34" },
-  { label: "Reports",    href: "#",                        icon: HiChartBar },
+type GroupItem = {
+  kind: "group";
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  items: { label: string; href: string }[];
+};
+
+type NavEntry = FlatItem | GroupItem;
+
+// ── PIMC nav ───────────────────────────────────────────────────────────────
+
+const pimcNav: NavEntry[] = [
+  { kind: "link", label: "Dashboard", href: "/preview/pimc-backoffice",       icon: HiHome },
+  { kind: "link", label: "Members",   href: "/preview/member-list",           icon: HiUsers,        badge: "847" },
+  { kind: "link", label: "Invoices",  href: "#",                              icon: HiDocumentText, badge: "12", badgeColor: "failure" },
+  { kind: "link", label: "Payments",  href: "#",                              icon: HiCurrencyDollar },
+  { kind: "link", label: "Waitlist",  href: "/preview/waitlist",              icon: HiClock,        badge: "34" },
+  { kind: "link", label: "Reports",   href: "#",                              icon: HiChartBar },
 ];
 
-const adminNav: NavItem[] = [
-  { label: "Dashboard",  href: "/preview/admin-dashboard", icon: HiChartPie },
-  { label: "Products",   href: "/preview/admin-products",  icon: HiShoppingBag },
-  { label: "Users",      href: "/preview/admin-users",     icon: HiUsers },
-  { label: "Kanban",     href: "/preview/admin-kanban",    icon: HiViewGrid },
-  { label: "Mailing",    href: "/preview/admin-mailing",   icon: HiInboxIn,      badge: "4" },
+// ── Admin nav ──────────────────────────────────────────────────────────────
+
+const adminNav: NavEntry[] = [
+  { kind: "link",  label: "Dashboard",      href: "/preview/admin-dashboard", icon: HiChartPie },
+  {
+    kind: "group", label: "E-Commerce", icon: HiShoppingBag,
+    items: [
+      { label: "Products", href: "/preview/admin-products" },
+      { label: "Billing",  href: "/preview/admin-billing" },
+      { label: "Invoice",  href: "/preview/admin-invoice" },
+    ],
+  },
+  {
+    kind: "group", label: "Users", icon: HiUsers,
+    items: [
+      { label: "All Users", href: "/preview/admin-users" },
+      { label: "User Feed", href: "/preview/admin-feed" },
+      { label: "Profile",   href: "/preview/admin-profile" },
+      { label: "Settings",  href: "/preview/admin-settings" },
+    ],
+  },
+  { kind: "link",  label: "Kanban",         href: "/preview/admin-kanban",    icon: HiViewGrid },
+  { kind: "link",  label: "Mailing",        href: "/preview/admin-mailing",   icon: HiInboxIn, badge: "4" },
+  {
+    kind: "group", label: "Pages", icon: HiDocumentText,
+    items: [
+      { label: "Pricing",       href: "/preview/admin-pricing" },
+      { label: "404 Not Found", href: "/preview/admin-404" },
+    ],
+  },
+  {
+    kind: "group", label: "Authentication", icon: HiLockClosed,
+    items: [
+      { label: "Sign In",           href: "/preview/admin-signin" },
+      { label: "Sign Up",           href: "/preview/admin-signup" },
+      { label: "Forgot Password",   href: "/preview/admin-forgot-password" },
+      { label: "Reset Password",    href: "/preview/admin-reset-password" },
+      { label: "Profile Lock",      href: "/preview/admin-profile-lock" },
+    ],
+  },
 ];
+
+// ── Chevron ────────────────────────────────────────────────────────────────
+
+function Chevron({ open }: { open: boolean }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+      style={{ transition: "transform 0.15s ease", transform: open ? "rotate(90deg)" : "rotate(0deg)" }}
+    >
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
+  );
+}
+
+// ── Shell ──────────────────────────────────────────────────────────────────
 
 export function PreviewShell({
   children,
@@ -51,46 +116,110 @@ export function PreviewShell({
   const subtitle = variant === "admin" ? "Admin Dashboard" : "PIMC Back Office";
   const displayTitle = title ?? subtitle;
 
+  // All groups open by default
+  const [openGroups, setOpenGroups] = useState<Set<string>>(
+    () => new Set(adminNav.filter((e): e is GroupItem => e.kind === "group").map((e) => e.label))
+  );
+
+  const toggleGroup = (label: string) =>
+    setOpenGroups((prev) => {
+      const next = new Set(prev);
+      next.has(label) ? next.delete(label) : next.add(label);
+      return next;
+    });
+
   return (
     <div className="flex h-full overflow-hidden bg-gray-50 dark:bg-gray-900">
 
       {/* Sidebar */}
       <aside className={`${sidebarOpen ? "w-64" : "w-0 overflow-hidden"} shrink-0 bg-gray-900 flex flex-col transition-all duration-200`}>
+
         {/* Logo */}
         <div className="flex items-center px-4 py-3.5 border-b border-gray-700/50">
           <p className="text-sm font-semibold text-white tracking-tight">{subtitle}</p>
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 px-2 py-3 space-y-0.5 overflow-y-auto">
-          {nav.map((item) => {
-            const active = pathname === item.href;
+        <nav className="flex-1 px-2 py-3 overflow-y-auto">
+          {nav.map((entry) => {
+            if (entry.kind === "link") {
+              const active = pathname === entry.href;
+              return (
+                <Link
+                  key={entry.label}
+                  href={entry.href}
+                  className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors mb-0.5 ${
+                    active ? "bg-primary-700 text-white font-medium" : "hover:bg-white/5"
+                  }`}
+                  style={!active ? { color: "#ffffff" } : {}}
+                >
+                  <div className="flex items-center gap-3">
+                    <entry.icon className="h-4 w-4 shrink-0" />
+                    {entry.label}
+                  </div>
+                  {entry.badge && (
+                    <Badge color={entry.badgeColor ?? "gray"} size="xs">{entry.badge}</Badge>
+                  )}
+                </Link>
+              );
+            }
+
+            // Group
+            const isOpen = openGroups.has(entry.label);
+            const anyActive = entry.items.some((i) => pathname === i.href);
             return (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
-                  active ? "bg-primary-700 text-white font-medium" : "hover:bg-white/5"
-                }`}
-                style={!active ? { color: "#ffffff" } : {}}
-              >
-                <div className="flex items-center gap-3">
-                  <item.icon className="h-4 w-4 shrink-0" />
-                  {item.label}
+              <div key={entry.label} className="mb-0.5">
+                <button
+                  onClick={() => toggleGroup(entry.label)}
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors hover:bg-white/5 ${
+                    anyActive ? "text-white" : "text-white/70"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <entry.icon className="h-4 w-4 shrink-0" />
+                    {entry.label}
+                  </div>
+                  <Chevron open={isOpen} />
+                </button>
+                <div
+                  className="overflow-hidden"
+                  style={{
+                    display: "grid",
+                    gridTemplateRows: isOpen ? "1fr" : "0fr",
+                    transition: "grid-template-rows 0.15s ease",
+                  }}
+                >
+                  <ul className="overflow-hidden pl-9 py-0.5 space-y-0.5">
+                    {entry.items.map((item) => {
+                      const active = pathname === item.href;
+                      return (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            className={`block px-3 py-1.5 rounded-lg text-sm transition-colors ${
+                              active
+                                ? "bg-primary-700 text-white font-medium"
+                                : "hover:bg-white/5"
+                            }`}
+                            style={!active ? { color: "#ffffffcc" } : {}}
+                          >
+                            {item.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
-                {item.badge && (
-                  <Badge color={item.badgeColor ?? "gray"} size="xs">{item.badge}</Badge>
-                )}
-              </Link>
+              </div>
             );
           })}
         </nav>
 
         {/* Bottom */}
         <div className="px-2 py-3 border-t border-gray-700/50 space-y-0.5">
-          <a href="#" className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm hover:bg-white/5 transition-colors" style={{ color: "#ffffff" }}>
+          <Link href="/preview/admin-settings" className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm hover:bg-white/5 transition-colors" style={{ color: "#ffffff" }}>
             <HiCog className="h-4 w-4 shrink-0" />Settings
-          </a>
+          </Link>
           <div className="flex items-center gap-3 px-3 py-2">
             <Avatar placeholderInitials="KJ" rounded size="xs" />
             <div className="flex-1 min-w-0">
@@ -103,8 +232,6 @@ export function PreviewShell({
 
       {/* Main */}
       <div className="flex-1 flex flex-col overflow-hidden">
-
-        {/* Topbar */}
         <header className="shrink-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-2.5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -140,8 +267,6 @@ export function PreviewShell({
             </div>
           </div>
         </header>
-
-        {/* Content */}
         <main className="flex-1 overflow-y-auto app-context">
           {children}
         </main>

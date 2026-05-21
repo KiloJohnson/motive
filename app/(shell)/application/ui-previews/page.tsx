@@ -123,13 +123,41 @@ export default function UIPreviewsPage() {
         </h1>
         <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
           Complete, navigable application shells built with Motive tokens — live running code, not screenshots.
-          Each preview is a standalone app with its own sidebar, topbar, and full interactions.
+          Open the Sample App to explore a fully connected admin dashboard with 17 pages and internal navigation.
         </p>
+      </section>
+
+      {/* Sample App hero */}
+      <section className="px-16 py-10 border-b border-gray-100 dark:border-gray-700">
+        <div className="flex items-start justify-between gap-8 max-w-3xl">
+          <div>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Sample App</h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
+              A complete Scripps-ified admin dashboard — 17 pages, fully connected internal navigation.
+              Dashboard, E-Commerce, Users, Kanban, Mailing, Auth pages, and more.
+              Demonstrates the full breadth of what Motive can produce.
+            </p>
+            <Link
+              href="/preview/admin-dashboard"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-colors"
+              style={{ backgroundColor: "var(--motive-primary)" }}
+            >
+              Open Sample App ↗
+            </Link>
+          </div>
+          <div className="hidden lg:flex shrink-0 items-center gap-1.5 flex-wrap w-56">
+            {["Dashboard","Kanban","Mailing","Users","Products","Billing","Invoice","Profile","Settings","Sign In","Sign Up","Pricing","404"].map((s) => (
+              <span key={s} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full">{s}</span>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="px-16 py-10">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
-          Admin Dashboard Gallery
+          Individual Pages
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
           {adminPreviews.map((p) => <PreviewCard key={p.slug} p={p} />)}
