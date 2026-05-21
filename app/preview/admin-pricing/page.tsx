@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Badge } from "flowbite-react";
 import { HiCheck } from "react-icons/hi";
 

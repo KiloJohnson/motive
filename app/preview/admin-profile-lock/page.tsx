@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Label, TextInput } from "flowbite-react";
 import { HiLockClosed } from "react-icons/hi";
 import { Avatar } from "flowbite-react";

@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { HiMail, HiLockClosed, HiUser } from "react-icons/hi";
 

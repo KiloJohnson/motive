@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "flowbite-react";
 import { HiHome, HiArrowLeft } from "react-icons/hi";
 

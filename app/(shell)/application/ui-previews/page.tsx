@@ -96,23 +96,15 @@ function PreviewCard({ p }: { p: { slug: string; label: string; description: str
       <div className="p-4">
         <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1.5">{p.label}</h3>
         <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-3">{p.description}</p>
-        <div className="flex gap-2">
-          <Link
-            href={p.slug}
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-white transition-colors"
-            style={{ backgroundColor: "var(--motive-primary)" }}
-          >
-            Open →
-          </Link>
-          <Link
-            href={p.slug}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-          >
-            Inline
-          </Link>
-        </div>
+        <Link
+          href={p.slug}
+          target="_blank"
+          rel="noopener"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-white transition-colors"
+          style={{ backgroundColor: "var(--motive-primary)" }}
+        >
+          Open in new tab ↗
+        </Link>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { useSidebar } from "./SidebarContext";
 
 // ── Nav data ──────────────────────────────────────────────────────────────
 
-type NavLink = { label: string; href: string; stub?: boolean };
+type NavLink = { label: string; href: string; stub?: boolean; newTab?: boolean };
 type NavSection = { section: string; items: NavLink[] };
 type NavItem = NavLink | NavSection;
 
@@ -166,33 +166,33 @@ const applicationNav: NavItem[] = [
     section: "Dashboards",
     items: [
       { label: "Overview",          href: "/application/ui-previews" },
-      { label: "Dashboard",         href: "/preview/admin-dashboard" },
-      { label: "Kanban",            href: "/preview/admin-kanban" },
-      { label: "Mailing",           href: "/preview/admin-mailing" },
-      { label: "Users",             href: "/preview/admin-users" },
-      { label: "User Feed",         href: "/preview/admin-feed" },
-      { label: "Profile",           href: "/preview/admin-profile" },
-      { label: "Settings",          href: "/preview/admin-settings" },
-      { label: "Products",          href: "/preview/admin-products" },
-      { label: "Billing",           href: "/preview/admin-billing" },
-      { label: "Invoice",           href: "/preview/admin-invoice" },
-      { label: "Sign In",           href: "/preview/admin-signin" },
-      { label: "Sign Up",           href: "/preview/admin-signup" },
-      { label: "Forgot Password",   href: "/preview/admin-forgot-password" },
-      { label: "Reset Password",    href: "/preview/admin-reset-password" },
-      { label: "Profile Lock",      href: "/preview/admin-profile-lock" },
-      { label: "Pricing",           href: "/preview/admin-pricing" },
-      { label: "404",               href: "/preview/admin-404" },
+      { label: "Dashboard",         href: "/preview/admin-dashboard", newTab: true },
+      { label: "Kanban",            href: "/preview/admin-kanban", newTab: true },
+      { label: "Mailing",           href: "/preview/admin-mailing", newTab: true },
+      { label: "Users",             href: "/preview/admin-users", newTab: true },
+      { label: "User Feed",         href: "/preview/admin-feed", newTab: true },
+      { label: "Profile",           href: "/preview/admin-profile", newTab: true },
+      { label: "Settings",          href: "/preview/admin-settings", newTab: true },
+      { label: "Products",          href: "/preview/admin-products", newTab: true },
+      { label: "Billing",           href: "/preview/admin-billing", newTab: true },
+      { label: "Invoice",           href: "/preview/admin-invoice", newTab: true },
+      { label: "Sign In",           href: "/preview/admin-signin", newTab: true },
+      { label: "Sign Up",           href: "/preview/admin-signup", newTab: true },
+      { label: "Forgot Password",   href: "/preview/admin-forgot-password", newTab: true },
+      { label: "Reset Password",    href: "/preview/admin-reset-password", newTab: true },
+      { label: "Profile Lock",      href: "/preview/admin-profile-lock", newTab: true },
+      { label: "Pricing",           href: "/preview/admin-pricing", newTab: true },
+      { label: "404",               href: "/preview/admin-404", newTab: true },
     ],
   },
   {
     section: "PIMC",
     items: [
-      { label: "PIMC Dashboard",    href: "/preview/pimc-backoffice" },
-      { label: "Analytics",         href: "/preview/dashboard-analytics" },
-      { label: "E-commerce",        href: "/preview/dashboard-ecommerce" },
-      { label: "Member Management", href: "/preview/member-list" },
-      { label: "Waitlist",          href: "/preview/waitlist" },
+      { label: "PIMC Dashboard",    href: "/preview/pimc-backoffice", newTab: true },
+      { label: "Analytics",         href: "/preview/dashboard-analytics", newTab: true },
+      { label: "E-commerce",        href: "/preview/dashboard-ecommerce", newTab: true },
+      { label: "Member Management", href: "/preview/member-list", newTab: true },
+      { label: "Waitlist",          href: "/preview/waitlist", newTab: true },
     ],
   },
   {
@@ -314,6 +314,8 @@ function NavLink({ item, active }: { item: NavLink; active: boolean }) {
   return (
     <Link
       href={item.href}
+      target={item.newTab ? "_blank" : undefined}
+      rel={item.newTab ? "noopener noreferrer" : undefined}
       style={active ? { borderLeftColor: "var(--motive-primary)" } : {}}
       className={`flex items-center justify-between px-4 py-2 text-sm border-l-2 transition-colors ${
         active
@@ -322,6 +324,13 @@ function NavLink({ item, active }: { item: NavLink; active: boolean }) {
       }`}
     >
       <span>{item.label}</span>
+      {item.newTab && (
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 shrink-0">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          <polyline points="15 3 21 3 21 9" />
+          <line x1="10" y1="14" x2="21" y2="3" />
+        </svg>
+      )}
       {item.stub && <span className="text-gray-600 text-xs">✳</span>}
     </Link>
   );

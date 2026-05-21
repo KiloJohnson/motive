@@ -52,17 +52,13 @@ export function PreviewShell({
   const displayTitle = title ?? subtitle;
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-full overflow-hidden bg-gray-50 dark:bg-gray-900">
 
       {/* Sidebar */}
       <aside className={`${sidebarOpen ? "w-64" : "w-0 overflow-hidden"} shrink-0 bg-gray-900 flex flex-col transition-all duration-200`}>
         {/* Logo */}
-        <div className="flex items-center gap-2.5 px-4 py-3.5 border-b border-gray-700/50">
-          <img src="/logos/scripps_dark.svg" alt="Scripps" className="h-7 w-auto" />
-          <div>
-            <p className="text-xs font-semibold text-white leading-tight">{subtitle}</p>
-            <p className="text-xs text-gray-500 leading-tight">Scripps Health</p>
-          </div>
+        <div className="flex items-center px-4 py-3.5 border-b border-gray-700/50">
+          <p className="text-sm font-semibold text-white tracking-tight">{subtitle}</p>
         </div>
 
         {/* Nav */}

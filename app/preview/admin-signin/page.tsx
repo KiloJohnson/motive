@@ -1,4 +1,5 @@
-import Link from "next/link";
+"use client";
+
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { HiMail, HiLockClosed } from "react-icons/hi";
 
