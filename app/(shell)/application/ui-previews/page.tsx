@@ -164,12 +164,30 @@ export default function UIPreviewsPage() {
         </div>
       </section>
 
-      <section className="px-16 pb-12">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
-          PIMC Back Office
-        </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
-          {pimcPreviews.map((p) => <PreviewCard key={p.slug} p={p} />)}
+      <section className="px-16 pb-12 border-t border-gray-100 dark:border-gray-700 pt-10">
+        <div className="flex items-start justify-between gap-8 max-w-3xl">
+          <div>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">PIMC Back Office</h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
+              Scripps PIMC-specific back office shell — Dashboard, Analytics, E-commerce,
+              Member Management, and Waitlist. A product-specific implementation built on Motive.
+              Will become a standalone project when the PIMC front end ships.
+            </p>
+            <Link
+              href="/preview/pimc-backoffice"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-colors"
+              style={{ backgroundColor: "var(--motive-primary)" }}
+            >
+              Open PIMC App ↗
+            </Link>
+          </div>
+          <div className="hidden lg:flex shrink-0 items-center gap-1.5 flex-wrap w-56">
+            {["Dashboard","Analytics","E-commerce","Members","Waitlist","Invoices","Payments","Reports"].map((s) => (
+              <span key={s} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full">{s}</span>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -172,11 +172,7 @@ const applicationNav: NavItem[] = [
   {
     section: "PIMC",
     items: [
-      { label: "PIMC Dashboard",    href: "/preview/pimc-backoffice", newTab: true },
-      { label: "Analytics",         href: "/preview/dashboard-analytics", newTab: true },
-      { label: "E-commerce",        href: "/preview/dashboard-ecommerce", newTab: true },
-      { label: "Member Management", href: "/preview/member-list", newTab: true },
-      { label: "Waitlist",          href: "/preview/waitlist", newTab: true },
+      { label: "PIMC App", href: "/preview/pimc-backoffice", newTab: true },
     ],
   },
   {
