@@ -1,128 +1,114 @@
 "use client";
 
 import { PreviewShell } from "../PreviewShell";
-import { Avatar, Badge, Button } from "flowbite-react";
-import { HiPlus, HiPaperClip, HiChatAlt, HiDotsHorizontal, HiClock } from "react-icons/hi";
+import { Button, Badge } from "flowbite-react";
+import { HiPlus, HiSearch, HiFilter, HiShare, HiAdjustments } from "react-icons/hi";
 
 type Card = {
-  id: string;
   title: string;
-  label?: { text: string; color: string };
-  attachments?: number;
-  comments?: number;
-  due?: string;
-  initials: string[];
+  desc: string;
+  assignees: string[];
+  colors: string[];
+  due: string;
+  dueColor: string;
+  img?: boolean;
 };
 
-const columns: { id: string; title: string; count: number; cards: Card[] }[] = [
+const columns: { id: string; label: string; cards: Card[] }[] = [
   {
-    id: "todo", title: "To Do", count: 3,
+    id: "todo", label: "To Do",
     cards: [
-      { id: "t1", title: "Update user onboarding flow with new brand guidelines", label: { text: "Design", color: "bg-purple-100 text-purple-700" }, attachments: 2, comments: 4, due: "Apr 30", initials: ["KJ", "LM"] },
-      { id: "t2", title: "Migrate legacy authentication to JWT tokens", label: { text: "Backend", color: "bg-blue-100 text-blue-700" }, comments: 6, initials: ["RC"] },
-      { id: "t3", title: "Write Q2 product roadmap documentation", label: { text: "Docs", color: "bg-gray-100 text-gray-700" }, attachments: 1, due: "May 5", initials: ["BG", "TL"] },
+      { title: "Change charts javascript", desc: "In variables occuring the 873 you define Statsby variable. Each example of 'color-level' needs to be changed to 'color-user'.", assignees: ["KJ", "MG", "BG"], colors: ["#6366f1","#10b981","#f97316"], due: "5 days left", dueColor: "failure", img: true },
+      { title: "Change homepage", desc: "In variables occuring the 873 you define Statsby variable. Each example of 'color-level' needs to be changed to 'color-user'.", assignees: ["KJ", "NS"], colors: ["#6366f1","#8b5cf6"], due: "7 days left", dueColor: "warning", img: true },
+      { title: "Change charts javascript", desc: "In variables occuring the 873 you define Statsby variable. Each example of 'color-level' needs to be changed to 'color-user'.", assignees: ["MG", "LL", "KN"], colors: ["#f97316","#f59e0b","#ec4899"], due: "2 days left", dueColor: "failure" },
     ],
   },
   {
-    id: "inprogress", title: "In Progress", count: 2,
+    id: "progress", label: "In Progress",
     cards: [
-      { id: "p1", title: "Build admin dashboard analytics overview page", label: { text: "Feature", color: "bg-green-100 text-green-700" }, attachments: 3, comments: 12, due: "Apr 28", initials: ["KJ"] },
-      { id: "p2", title: "Integrate Orbital payment gateway for subscription billing", label: { text: "Backend", color: "bg-blue-100 text-blue-700" }, comments: 8, due: "May 1", initials: ["JM", "RC"] },
+      { title: "Redesign tables card", desc: "In variables occuring the 873 you define Statsby variable. Each example of 'color-level' needs to be changed to 'color-user'.", assignees: ["KJ", "AM"], colors: ["#6366f1","#0ea5e9"], due: "4 days left", dueColor: "warning", img: true },
+      { title: "Redesign tables card", desc: "In variables occuring the 873 you define Statsby variable. Each example of 'color-level' needs to be changed to 'color-user'.", assignees: ["RB", "JL", "KG"], colors: ["#8b5cf6","#d946ef","#8b5cf6"], due: "9 days left", dueColor: "success" },
     ],
   },
   {
-    id: "review", title: "In Review", count: 2,
+    id: "done", label: "Done",
     cards: [
-      { id: "r1", title: "Redesign member profile page — mobile responsive", label: { text: "Design", color: "bg-purple-100 text-purple-700" }, attachments: 5, comments: 9, initials: ["LM", "KJ"] },
-      { id: "r2", title: "Add CSV export to invoices and payment reports", label: { text: "Feature", color: "bg-green-100 text-green-700" }, comments: 3, due: "Apr 25", initials: ["BG"] },
-    ],
-  },
-  {
-    id: "done", title: "Done", count: 3,
-    cards: [
-      { id: "d1", title: "Set up Elasticsearch logging with Kibana dashboard", label: { text: "DevOps", color: "bg-orange-100 text-orange-700" }, attachments: 1, comments: 5, initials: ["TL"] },
-      { id: "d2", title: "WCAG 2.1 AA accessibility audit and fixes", label: { text: "QA", color: "bg-red-100 text-red-700" }, comments: 14, initials: ["KJ", "LM", "RC"] },
-      { id: "d3", title: "Configure IIS deployment pipeline for React builds", label: { text: "DevOps", color: "bg-orange-100 text-orange-700" }, attachments: 2, comments: 7, initials: ["JM"] },
+      { title: "Redesign tables card", desc: "In variables occuring the 873 you define Statsby variable. Each example of 'color-level' needs to be changed to 'color-user'.", assignees: ["NS", "BG"], colors: ["#6366f1","#14b8a6"], due: "3 days left", dueColor: "failure", img: true },
+      { title: "Redesign tables card", desc: "In variables occuring the 873 you define Statsby variable. Each example of 'color-level' needs to be changed to 'color-user'.", assignees: ["JM", "MM", "LL"], colors: ["#3b82f6","#10b981","#f59e0b"], due: "12 days left", dueColor: "success" },
+      { title: "Create JavaScript elements", desc: "In variables occuring the 873 you define Statsby variable. Each example of 'color-level' needs to be changed to 'color-user'.", assignees: ["KJ"], colors: ["#6366f1"], due: "8 days left", dueColor: "warning" },
     ],
   },
 ];
 
-const colorDot: Record<string, string> = {
-  "To Do": "bg-gray-400",
-  "In Progress": "bg-blue-500",
-  "In Review": "bg-yellow-400",
-  "Done": "bg-green-500",
-};
+function KanbanCard({ card }: { card: Card }) {
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-4 space-y-3 cursor-grab active:cursor-grabbing hover:shadow-md transition-shadow">
+      {card.img && (
+        <div className="h-28 rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 overflow-hidden">
+          <div className="h-full w-full flex items-center justify-center text-gray-400 dark:text-gray-500 text-xs">Preview image</div>
+        </div>
+      )}
+      <h3 className="text-sm font-semibold text-gray-900 dark:text-white">{card.title}</h3>
+      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{card.desc}</p>
+      <div className="flex items-center justify-between">
+        <div className="flex -space-x-1.5">
+          {card.assignees.map((a, i) => (
+            <div key={i} className="h-6 w-6 rounded-full border-2 border-white dark:border-gray-800 flex items-center justify-center text-white text-xs font-bold" style={{ backgroundColor: card.colors[i] }}>
+              {a[0]}
+            </div>
+          ))}
+        </div>
+        <Badge color={card.dueColor as any} size="xs">{card.due}</Badge>
+      </div>
+    </div>
+  );
+}
 
 export default function AdminKanbanPage() {
   return (
     <PreviewShell variant="admin" title="Kanban">
-      <div className="p-6 h-full">
+      <div className="p-6 space-y-5 h-full flex flex-col">
 
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Project Board</h1>
-          <Button size="sm">
-            <HiPlus className="mr-1.5 h-4 w-4" />New card
-          </Button>
+        {/* Toolbar */}
+        <div className="flex flex-wrap items-center gap-3">
+          <nav className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1.5 mr-auto">
+            <a href="#" className="hover:text-primary-600">Home</a>
+            <span>/</span>
+            <a href="#" className="hover:text-primary-600">Project management</a>
+            <span>/</span>
+            <span className="text-gray-900 dark:text-white font-medium">Tasks</span>
+          </nav>
+          <div className="flex items-center gap-2">
+            <button className="flex items-center gap-1.5 px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"><HiShare className="h-4 w-4" />Share</button>
+            <button className="flex items-center gap-1.5 px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"><HiFilter className="h-4 w-4" />Filter</button>
+            <button className="flex items-center gap-1.5 px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"><HiAdjustments className="h-4 w-4" />Group by: Status</button>
+            <button className="flex items-center gap-1.5 px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"><HiSearch className="h-4 w-4" />Search for tasks</button>
+            <button className="flex items-center gap-1.5 px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">Customize cards</button>
+          </div>
         </div>
 
         {/* Board */}
-        <div className="flex gap-5 overflow-x-auto pb-4">
+        <div className="flex gap-4 overflow-x-auto flex-1 pb-4">
           {columns.map((col) => (
-            <div key={col.id} className="flex-shrink-0 w-72">
-
-              {/* Column header */}
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <span className={`h-2.5 w-2.5 rounded-full ${colorDot[col.title]}`} />
-                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{col.title}</span>
-                  <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full px-2 py-0.5 font-medium">{col.count}</span>
-                </div>
-                <button className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
-                  <HiDotsHorizontal className="h-4 w-4" />
+            <div key={col.id} className="flex-1 min-w-72 flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <h2 className="text-sm font-semibold text-gray-900 dark:text-white">{col.label}</h2>
+                <button className="h-7 w-7 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600">
+                  <HiPlus className="h-4 w-4" />
                 </button>
               </div>
-
-              {/* Cards */}
-              <div className="space-y-3">
-                {col.cards.map((card) => (
-                  <div key={card.id} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer hover:shadow-md transition-shadow">
-                    {card.label && (
-                      <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full mb-2 ${card.label.color}`}>
-                        {card.label.text}
-                      </span>
-                    )}
-                    <p className="text-sm font-medium text-gray-900 dark:text-white leading-snug mb-3">{card.title}</p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex -space-x-2">
-                        {card.initials.map((init, i) => (
-                          <Avatar key={i} placeholderInitials={init} rounded size="xs" className="border-2 border-white dark:border-gray-800" />
-                        ))}
-                      </div>
-                      <div className="flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500">
-                        {card.due && (
-                          <span className="flex items-center gap-1"><HiClock className="h-3.5 w-3.5" />{card.due}</span>
-                        )}
-                        {card.attachments && (
-                          <span className="flex items-center gap-1"><HiPaperClip className="h-3.5 w-3.5" />{card.attachments}</span>
-                        )}
-                        {card.comments && (
-                          <span className="flex items-center gap-1"><HiChatAlt className="h-3.5 w-3.5" />{card.comments}</span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+              <div className="space-y-3 flex-1">
+                {col.cards.map((card, i) => (
+                  <KanbanCard key={i} card={card} />
                 ))}
-
-                {/* Add card button */}
-                <button className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm text-gray-400 dark:text-gray-500 hover:bg-white dark:hover:bg-gray-800 hover:text-gray-600 dark:hover:text-gray-300 transition-colors border border-dashed border-gray-200 dark:border-gray-700">
-                  <HiPlus className="h-4 w-4" />Add a card
-                </button>
               </div>
+              <button className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white py-2">
+                <HiPlus className="h-4 w-4" />Add new task
+              </button>
             </div>
           ))}
         </div>
+
       </div>
     </PreviewShell>
   );

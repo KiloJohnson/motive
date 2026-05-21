@@ -1,49 +1,72 @@
 "use client";
 
 import { PreviewShell } from "../PreviewShell";
-import { Avatar, Badge, Button, Checkbox, TextInput, Select } from "flowbite-react";
-import { HiSearch, HiPlus, HiPencilAlt, HiTrash, HiDotsVertical, HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { Badge, Button, Checkbox, TextInput, Select } from "flowbite-react";
+import { HiSearch, HiPlus, HiDownload, HiStar } from "react-icons/hi";
 
 const users = [
-  { id: 1, name: "Neil Sims",          email: "neil@company.com",    role: "Administrator", country: "United States", status: "Active",   initials: "NS" },
-  { id: 2, name: "Bonnie Green",        email: "bonnie@company.com",  role: "Editor",        country: "Australia",     status: "Active",   initials: "BG" },
-  { id: 3, name: "Jese Leos",          email: "jese@company.com",    role: "Viewer",        country: "Italy",         status: "Inactive", initials: "JL" },
-  { id: 4, name: "Leslie Livingston",   email: "leslie@company.com",  role: "Editor",        country: "Canada",        status: "Active",   initials: "LL" },
-  { id: 5, name: "Roberta Casas",      email: "roberta@company.com", role: "Administrator", country: "Spain",         status: "Active",   initials: "RC" },
-  { id: 6, name: "Thomas Lean",        email: "thomas@company.com",  role: "Viewer",        country: "Germany",       status: "Inactive", initials: "TL" },
-  { id: 7, name: "Karen Nelson",       email: "karen@company.com",   role: "Editor",        country: "France",        status: "Active",   initials: "KN" },
-  { id: 8, name: "Joseph McFall",      email: "joseph@company.com",  role: "Viewer",        country: "Mexico",        status: "Active",   initials: "JM" },
+  { name: "Jose Leos",         email: "jose@scripps.com",     role: "Administrator", type: "PRO",  rating: 4.7, country: "United States", status: "Active",   avatar: "JL", color: "#6366f1" },
+  { name: "Karen Gilman",      email: "karen@scripps.com",    role: "Viewer",        type: "PRO",  rating: 4.8, country: "Australia",      status: "Active",   avatar: "KG", color: "#8b5cf6" },
+  { name: "Leslie Livingston", email: "leslie@scripps.com",   role: "Moderator",     type: "PRO",  rating: 4.8, country: "France",         status: "Inactive", avatar: "LL", color: "#f59e0b" },
+  { name: "Michael McFall",    email: "michael@scripps.com",  role: "Viewer",        type: "Basic",rating: 4.2, country: "England",        status: "Active",   avatar: "MM", color: "#10b981" },
+  { name: "Joseph McFall",     email: "joseph@scripps.com",   role: "Viewer",        type: "PRO",  rating: 4.3, country: "United States",  status: "Active",   avatar: "JM", color: "#3b82f6" },
+  { name: "Karen Nelson",      email: "karenN@scripps.com",   role: "Moderator",     type: "PRO",  rating: 4.1, country: "Canada",         status: "Inactive", avatar: "KN", color: "#ec4899" },
+  { name: "Bonnie Green",      email: "bonnie@scripps.com",   role: "Viewer",        type: "PRO",  rating: 2.3, country: "United States",  status: "Active",   avatar: "BG", color: "#14b8a6" },
+  { name: "Michael Gough",     email: "mgough@scripps.com",   role: "Moderator",     type: "PRO",  rating: 5,   country: "France",         status: "Active",   avatar: "MG", color: "#f97316" },
+  { name: "Neil Sims",         email: "neil@scripps.com",     role: "Administrator", type: "PRO",  rating: 4.5, country: "Canada",         status: "Active",   avatar: "NS", color: "#6366f1" },
+  { name: "Robert Brown",      email: "rbrown@scripps.com",   role: "Viewer",        type: "PRO",  rating: 4.8, country: "Australia",      status: "Inactive", avatar: "RB", color: "#8b5cf6" },
+  { name: "Alexander Mcfly",   email: "amcfly@scripps.com",   role: "Viewer",        type: "PRO",  rating: 4.9, country: "United States",  status: "Active",   avatar: "AM", color: "#0ea5e9" },
+  { name: "Jane Leos",         email: "jane@scripps.com",     role: "Moderator",     type: "PRO",  rating: 2.3, country: "Australia",      status: "Inactive", avatar: "JL", color: "#d946ef" },
 ];
+
+const roleColor: Record<string, string> = {
+  Administrator: "indigo",
+  Moderator: "warning",
+  Viewer: "gray",
+};
+
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex items-center gap-1">
+      <HiStar className="h-3.5 w-3.5 text-yellow-400" />
+      <span className="text-sm font-medium text-gray-900 dark:text-white">{rating}</span>
+    </div>
+  );
+}
 
 export default function AdminUsersPage() {
   return (
-    <PreviewShell variant="admin" title="Users">
-      <div className="p-6 space-y-4">
+    <PreviewShell variant="admin" title="All Users">
+      <div className="p-6 space-y-5">
 
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <h1 className="text-xl font-semibold text-gray-900 dark:text-white">All Users</h1>
-          <Button size="sm">
-            <HiPlus className="mr-1.5 h-4 w-4" />Add user
-          </Button>
-        </div>
+        <nav className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+          <a href="#" className="hover:text-primary-600">Home</a>
+          <span>/</span>
+          <a href="#" className="hover:text-primary-600">Platform</a>
+          <span>/</span>
+          <span className="text-gray-900 dark:text-white font-medium">Users</span>
+        </nav>
 
-        {/* Table card */}
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">All Users</h1>
+
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
 
-          {/* Toolbar */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-5 py-4 border-b border-gray-100 dark:border-gray-700">
-            <div className="flex items-center gap-3">
-              <TextInput placeholder="Search users..." icon={HiSearch} sizing="sm" className="w-64" />
-              <Select sizing="sm" className="w-32">
-                <option>All roles</option>
-                <option>Administrator</option>
-                <option>Editor</option>
-                <option>Viewer</option>
-              </Select>
+          {/* Filters */}
+          <div className="flex flex-wrap items-center gap-3 px-5 py-4 border-b border-gray-100 dark:border-gray-700">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="text-sm text-gray-500 dark:text-gray-400">Show</span>
+              {["All", "User Role", "Account Type", "Status", "Rating"].map((t, i) => (
+                <button key={t} className={`px-3 py-1 rounded-lg text-xs font-medium ${i === 0 ? "bg-primary-600 text-white" : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"}`}>{t}</button>
+              ))}
             </div>
-            <div className="flex items-center gap-2">
-              <Button color="alternative" size="sm">Export CSV</Button>
+            <div className="flex flex-wrap items-center gap-2 ml-auto">
+              <TextInput placeholder="Search users..." icon={HiSearch} sizing="sm" className="w-48" />
+              <Select sizing="sm" className="w-32"><option>Status</option><option>Active</option><option>Inactive</option></Select>
+              <Select sizing="sm" className="w-28"><option>Type</option><option>PRO</option><option>Basic</option></Select>
+              <Select sizing="sm" className="w-28"><option>Rating</option><option>5 stars</option><option>4+ stars</option></Select>
+              <Select sizing="sm" className="w-36"><option>Country</option><option>United States</option><option>Canada</option><option>Australia</option></Select>
+              <Button size="sm"><HiPlus className="mr-1.5 h-3.5 w-3.5" />Add new user</Button>
+              <Select sizing="sm" className="w-28"><option>Actions</option><option>Edit</option><option>Delete</option></Select>
             </div>
           </div>
 
@@ -52,40 +75,32 @@ export default function AdminUsersPage() {
             <table className="w-full text-sm text-left">
               <thead className="bg-gray-50 dark:bg-gray-700 text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 <tr>
-                  <th className="px-5 py-3 w-8">
-                    <Checkbox />
-                  </th>
-                  {["Name", "Role", "Country", "Status", "Actions"].map((h) => (
-                    <th key={h} className="px-5 py-3 font-semibold">{h}</th>
+                  <th className="px-4 py-3 w-8"><Checkbox /></th>
+                  {["User", "User Role", "Account Type", "Rating", "Country", "Status", "Actions"].map((h) => (
+                    <th key={h} className="px-4 py-3 font-semibold">{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
-                {users.map((user) => (
-                  <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
-                    <td className="px-5 py-3">
-                      <Checkbox />
-                    </td>
-                    <td className="px-5 py-3">
+                {users.map((u) => (
+                  <tr key={u.email} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                    <td className="px-4 py-3"><Checkbox /></td>
+                    <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
-                        <Avatar placeholderInitials={user.initials} rounded size="sm" />
+                        <div className="h-8 w-8 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0" style={{ backgroundColor: u.color }}>{u.avatar}</div>
                         <div>
-                          <p className="font-medium text-gray-900 dark:text-white">{user.name}</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">{user.email}</p>
+                          <p className="font-medium text-gray-900 dark:text-white whitespace-nowrap">{u.name}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">{u.email}</p>
                         </div>
                       </div>
                     </td>
-                    <td className="px-5 py-3 text-gray-600 dark:text-gray-300">{user.role}</td>
-                    <td className="px-5 py-3 text-gray-600 dark:text-gray-300">{user.country}</td>
-                    <td className="px-5 py-3">
-                      <Badge color={user.status === "Active" ? "success" : "gray"} size="xs">{user.status}</Badge>
-                    </td>
-                    <td className="px-5 py-3">
-                      <div className="flex items-center gap-1">
-                        <button className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-600"><HiPencilAlt className="h-4 w-4" /></button>
-                        <button className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-red-500"><HiTrash className="h-4 w-4" /></button>
-                        <button className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-600"><HiDotsVertical className="h-4 w-4" /></button>
-                      </div>
+                    <td className="px-4 py-3"><Badge color={roleColor[u.role] as any} size="xs">{u.role}</Badge></td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{u.type}</td>
+                    <td className="px-4 py-3"><StarRating rating={u.rating} /></td>
+                    <td className="px-4 py-3 text-gray-600 dark:text-gray-300 whitespace-nowrap">{u.country}</td>
+                    <td className="px-4 py-3"><Badge color={u.status === "Active" ? "success" : "failure"} size="xs">{u.status}</Badge></td>
+                    <td className="px-4 py-3">
+                      <button className="text-xs font-medium text-primary-700 dark:text-primary-400 hover:underline">Edit user</button>
                     </td>
                   </tr>
                 ))}
@@ -93,22 +108,14 @@ export default function AdminUsersPage() {
             </table>
           </div>
 
-          {/* Pagination */}
+          {/* Footer */}
           <div className="flex items-center justify-between px-5 py-4 border-t border-gray-100 dark:border-gray-700">
             <span className="text-sm text-gray-500 dark:text-gray-400">
-              Showing <strong className="text-gray-900 dark:text-white">1-8</strong> of <strong className="text-gray-900 dark:text-white">2,340</strong>
+              Total users: <span className="font-semibold text-gray-900 dark:text-white">1,567</span>
             </span>
-            <div className="flex items-center gap-1">
-              <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-40">
-                <HiChevronLeft className="h-4 w-4" />Prev
-              </button>
-              {[1,2,3].map((n) => (
-                <button key={n} className={`w-8 h-8 rounded-lg text-sm ${n === 1 ? "bg-primary-600 text-white font-medium" : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"}`}>{n}</button>
-              ))}
-              <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
-                Next<HiChevronRight className="h-4 w-4" />
-              </button>
-            </div>
+            <Button color="alternative" size="sm">
+              <HiDownload className="mr-1.5 h-3.5 w-3.5" />Download CSV
+            </Button>
           </div>
         </div>
       </div>
