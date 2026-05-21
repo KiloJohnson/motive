@@ -2,10 +2,12 @@
 
 import { Button } from "flowbite-react";
 import { HiHome, HiArrowLeft } from "react-icons/hi";
+import { PreviewShell } from "../PreviewShell";
 
 export default function Admin404Page() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
+    <PreviewShell title="404" variant="admin">
+    <div className="min-h-full flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
       <div className="text-center max-w-md">
 
         {/* 404 display */}
@@ -18,7 +20,8 @@ export default function Admin404Page() {
           </div>
         </div>
 
-        <img src="/logos/scripps_dark.svg" alt="Scripps" className="h-7 w-auto mx-auto mb-6" />
+        <img src="/logos/scripps_light.svg" alt="Scripps" className="h-7 w-auto mx-auto mb-6 dark:hidden" />
+        <img src="/logos/scripps_dark.svg" alt="Scripps" className="h-7 w-auto mx-auto mb-6 hidden dark:block" />
 
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
           Oops! This page doesn't exist.
@@ -43,5 +46,6 @@ export default function Admin404Page() {
         </p>
       </div>
     </div>
+    </PreviewShell>
   );
 }

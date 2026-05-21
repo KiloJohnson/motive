@@ -1,15 +1,18 @@
 "use client";
 
 import { Button, Label, TextInput } from "flowbite-react";
+import { PreviewShell } from "../PreviewShell";
 import { HiMail, HiArrowLeft } from "react-icons/hi";
 
 export default function AdminForgotPasswordPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
+    <PreviewShell title="Auth" variant="admin">
+    <div className="min-h-full flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
       <div className="w-full max-w-sm">
 
         <div className="flex justify-center mb-6">
-          <img src="/logos/scripps_dark.svg" alt="Scripps Health" className="h-8 w-auto" />
+          <img src="/logos/scripps_light.svg" alt="Scripps Health" className="h-8 w-auto dark:hidden" />
+          <img src="/logos/scripps_dark.svg" alt="Scripps Health" className="h-8 w-auto hidden dark:block" />
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
@@ -41,5 +44,6 @@ export default function AdminForgotPasswordPage() {
         </p>
       </div>
     </div>
+    </PreviewShell>
   );
 }

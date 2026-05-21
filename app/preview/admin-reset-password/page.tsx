@@ -1,26 +1,24 @@
 "use client";
 
 import { Button, Label, TextInput } from "flowbite-react";
-import { HiLockClosed, HiArrowLeft } from "react-icons/hi";
+import { PreviewShell } from "../PreviewShell";
+import { HiLockClosed } from "react-icons/hi";
 
 export default function AdminResetPasswordPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
+    <PreviewShell title="Auth" variant="admin">
+    <div className="min-h-full flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
       <div className="w-full max-w-sm">
 
         <div className="flex justify-center mb-6">
-          <img src="/logos/scripps_dark.svg" alt="Scripps Health" className="h-8 w-auto" />
+          <img src="/logos/scripps_light.svg" alt="Scripps Health" className="h-8 w-auto dark:hidden" />
+          <img src="/logos/scripps_dark.svg" alt="Scripps Health" className="h-8 w-auto hidden dark:block" />
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-          <div className="flex justify-center mb-5">
-            <div className="w-14 h-14 bg-green-50 dark:bg-green-900/20 rounded-2xl flex items-center justify-center">
-              <HiLockClosed className="h-7 w-7 text-green-600 dark:text-green-400" />
-            </div>
-          </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-2">Set new password</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-1">Reset password</h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 text-center mb-6">
-            Your new password must be at least 8 characters and different from your previous one.
+            Choose a strong new password for your account.
           </p>
 
           <form className="space-y-4">
@@ -33,23 +31,20 @@ export default function AdminResetPasswordPage() {
               <TextInput id="confirm" type="password" placeholder="••••••••" icon={HiLockClosed} required />
             </div>
 
-            {/* Password strength */}
-            <div className="space-y-1.5">
-              <p className="text-xs text-gray-500 dark:text-gray-400">Password strength</p>
-              <div className="flex gap-1">
-                {[1, 2, 3, 4].map((n) => (
-                  <div key={n} className={`flex-1 h-1.5 rounded-full ${n <= 3 ? "bg-yellow-400" : "bg-gray-200 dark:bg-gray-700"}`} />
-                ))}
-              </div>
-              <p className="text-xs text-yellow-600 dark:text-yellow-400">Medium — add symbols to strengthen</p>
-            </div>
+            <ul className="text-xs text-gray-500 dark:text-gray-400 space-y-1 pt-1">
+              <li className="flex items-center gap-1.5"><span className="text-gray-300 dark:text-gray-600">•</span> At least 8 characters</li>
+              <li className="flex items-center gap-1.5"><span className="text-gray-300 dark:text-gray-600">•</span> One uppercase letter</li>
+              <li className="flex items-center gap-1.5"><span className="text-gray-300 dark:text-gray-600">•</span> One number or special character</li>
+            </ul>
 
-            <Button type="submit" className="w-full">Reset password</Button>
+            <Button type="submit" className="w-full">Set new password</Button>
           </form>
 
-          <a href="/preview/admin-signin" className="flex items-center justify-center gap-1.5 mt-5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-            <HiArrowLeft className="h-4 w-4" />Back to sign in
-          </a>
+          <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-5">
+            <a href="/preview/admin-signin" className="text-primary-700 dark:text-primary-400 font-medium hover:underline">
+              ← Back to sign in
+            </a>
+          </p>
         </div>
 
         <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-6">
@@ -57,5 +52,6 @@ export default function AdminResetPasswordPage() {
         </p>
       </div>
     </div>
+    </PreviewShell>
   );
 }

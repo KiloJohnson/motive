@@ -2,6 +2,7 @@
 
 import { Button, Badge } from "flowbite-react";
 import { HiCheck } from "react-icons/hi";
+import { PreviewShell } from "../PreviewShell";
 
 const plans = [
   {
@@ -30,19 +31,8 @@ const faqs = [
 
 export default function AdminPricingPage() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-
-      {/* Nav */}
-      <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <img src="/logos/scripps_dark.svg" alt="Scripps" className="h-7 w-auto" />
-          <div className="flex items-center gap-3">
-            <a href="/preview/admin-signin" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Sign in</a>
-            <Button size="sm">Get started</Button>
-          </div>
-        </div>
-      </header>
-
+    <PreviewShell title="Pricing" variant="admin">
+    <div className="min-h-full bg-gray-50 dark:bg-gray-900">
       <div className="max-w-5xl mx-auto px-6 py-16 space-y-16">
 
         {/* Hero */}
@@ -103,5 +93,6 @@ export default function AdminPricingPage() {
 
       </div>
     </div>
+    </PreviewShell>
   );
 }
