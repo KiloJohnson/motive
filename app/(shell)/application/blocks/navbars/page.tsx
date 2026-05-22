@@ -1,6 +1,6 @@
 "use client";
 
-import { Dropdown, TextInput, Avatar } from "flowbite-react";
+import { Dropdown, TextInput, Avatar, DropdownItem, DropdownDivider, DropdownHeader} from "flowbite-react";
 import { HiSearch, HiBell, HiMenu, HiCog, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
 
 // ── Shared block preview wrapper ─────────────────────────────────────────────
@@ -52,14 +52,14 @@ function DefaultNavbar() {
               <Avatar placeholderInitials="KJ" rounded size="sm" />
             </button>
           )}>
-            <Dropdown.Header>
+            <DropdownHeader>
               <span className="block text-sm font-semibold text-gray-900 dark:text-white">Kilo Johnson</span>
               <span className="block text-xs text-gray-500 truncate">kilo@scrippshealth.org</span>
-            </Dropdown.Header>
-            <Dropdown.Item icon={HiUser}>My profile</Dropdown.Item>
-            <Dropdown.Item icon={HiCog}>Settings</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item icon={HiLogout}>Sign out</Dropdown.Item>
+            </DropdownHeader>
+            <DropdownItem icon={HiUser}>My profile</DropdownItem>
+            <DropdownItem icon={HiCog}>Settings</DropdownItem>
+            <DropdownDivider />
+            <DropdownItem icon={HiLogout}>Sign out</DropdownItem>
           </Dropdown>
         </div>
       </div>
@@ -100,14 +100,14 @@ function NavbarWithSearch() {
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300 hidden md:block">Kilo Johnson</span>
             </button>
           )}>
-            <Dropdown.Header>
+            <DropdownHeader>
               <span className="block text-sm font-semibold text-gray-900 dark:text-white">Kilo Johnson</span>
               <span className="block text-xs text-gray-500 truncate">kilo@scrippshealth.org · Staff</span>
-            </Dropdown.Header>
-            <Dropdown.Item icon={HiUser}>My profile</Dropdown.Item>
-            <Dropdown.Item icon={HiCog}>Settings</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item icon={HiLogout}>Sign out</Dropdown.Item>
+            </DropdownHeader>
+            <DropdownItem icon={HiUser}>My profile</DropdownItem>
+            <DropdownItem icon={HiCog}>Settings</DropdownItem>
+            <DropdownDivider />
+            <DropdownItem icon={HiLogout}>Sign out</DropdownItem>
           </Dropdown>
         </div>
       </div>
@@ -140,11 +140,11 @@ function NavbarWithBreadcrumb() {
               <Avatar placeholderInitials="KJ" rounded size="sm" />
             </button>
           )}>
-            <Dropdown.Header>
+            <DropdownHeader>
               <span className="block text-sm font-semibold text-gray-900 dark:text-white">Kilo Johnson</span>
               <span className="block text-xs text-gray-500">kilo@scrippshealth.org</span>
-            </Dropdown.Header>
-            <Dropdown.Item icon={HiLogout}>Sign out</Dropdown.Item>
+            </DropdownHeader>
+            <DropdownItem icon={HiLogout}>Sign out</DropdownItem>
           </Dropdown>
         </div>
       </div>
@@ -206,13 +206,13 @@ export default function NavbarsBlockPage() {
         <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-red-500" />
       </button>
       <Dropdown label="" renderTrigger={() => <Avatar placeholderInitials="KJ" rounded size="sm" />}>
-        <Dropdown.Header>
+        <DropdownHeader>
           <span className="block text-sm font-semibold">Kilo Johnson</span>
           <span className="block text-xs text-gray-500">kilo@scrippshealth.org</span>
-        </Dropdown.Header>
-        <Dropdown.Item icon={HiUser}>My profile</Dropdown.Item>
-        <Dropdown.Divider />
-        <Dropdown.Item icon={HiLogout}>Sign out</Dropdown.Item>
+        </DropdownHeader>
+        <DropdownItem icon={HiUser}>My profile</DropdownItem>
+        <DropdownDivider />
+        <DropdownItem icon={HiLogout}>Sign out</DropdownItem>
       </Dropdown>
     </div>
   </div>

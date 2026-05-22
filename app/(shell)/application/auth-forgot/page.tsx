@@ -47,7 +47,7 @@ export default function AuthForgotPage() {
                 <p className="text-sm text-gray-400 dark:text-gray-500 mb-6">Enter your email and we'll send a reset code.</p>
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="forgotEmail" value="Email address" className="mb-2 block" />
+                    <Label htmlFor="forgotEmail" className="mb-2 block">Email address</Label>
                     <TextInput id="forgotEmail" type="email" placeholder="you@email.com" icon={HiMail} />
                   </div>
                   <Button color="default" className="w-full" onClick={() => setStep("code")}>Send reset code</Button>
@@ -66,7 +66,7 @@ export default function AuthForgotPage() {
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="resetCode" value="Reset code" className="mb-2 block" />
+                    <Label htmlFor="resetCode" className="mb-2 block">Reset code</Label>
                     <TextInput id="resetCode" placeholder="000000" maxLength={6} className="text-center tracking-widest font-mono text-lg" />
                   </div>
                   <Button color="default" className="w-full" onClick={() => setStep("reset")}>Verify code</Button>
@@ -84,11 +84,11 @@ export default function AuthForgotPage() {
                 <p className="text-sm text-gray-400 dark:text-gray-500 mb-6">Must be at least 8 characters.</p>
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="newPw" value="New password" className="mb-2 block" />
+                    <Label htmlFor="newPw" className="mb-2 block">New password</Label>
                     <TextInput id="newPw" type="password" placeholder="••••••••" icon={HiLockClosed} />
                   </div>
                   <div>
-                    <Label htmlFor="confirmPw" value="Confirm password" className="mb-2 block" />
+                    <Label htmlFor="confirmPw" className="mb-2 block">Confirm password</Label>
                     <TextInput id="confirmPw" type="password" placeholder="••••••••" icon={HiLockClosed} />
                   </div>
                   <Button color="default" className="w-full" onClick={() => setStep("done")}>Reset password</Button>

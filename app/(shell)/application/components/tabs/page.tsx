@@ -1,6 +1,6 @@
 "use client";
 
-import { Tabs } from "flowbite-react";
+import { Tabs, TabItem } from "flowbite-react";
 import { HiDocumentText, HiCurrencyDollar, HiChat, HiClipboardList } from "react-icons/hi";
 
 export default function AppTabsPage() {
@@ -30,40 +30,40 @@ export default function AppTabsPage() {
               <p className="text-sm text-gray-400">Diamond+ · Member since Jan 2024</p>
             </div>
             <Tabs>
-              <Tabs.Item title="Invoices" icon={HiDocumentText}>
+              <TabItem title="Invoices" icon={HiDocumentText}>
                 <div className="py-4 text-sm text-gray-500 dark:text-gray-400">
                   Invoice history, PDF downloads, and payment status for this member. See{" "}
                   <span style={{ color: "var(--motive-primary)" }}>Application → Data → Tables</span> for the full table pattern.
                 </div>
-              </Tabs.Item>
-              <Tabs.Item title="Payments" icon={HiCurrencyDollar}>
+              </TabItem>
+              <TabItem title="Payments" icon={HiCurrencyDollar}>
                 <div className="py-4 text-sm text-gray-500 dark:text-gray-400">
                   Payment method on file, transaction history, cash/check records.
                 </div>
-              </Tabs.Item>
-              <Tabs.Item title="SMS history" icon={HiChat}>
+              </TabItem>
+              <TabItem title="SMS history" icon={HiChat}>
                 <div className="py-4 text-sm text-gray-500 dark:text-gray-400">
                   All SMS messages sent to this member — reminders, 2FA codes, opt-in/out events. 4-year retention.
                 </div>
-              </Tabs.Item>
-              <Tabs.Item title="Audit log" icon={HiClipboardList}>
+              </TabItem>
+              <TabItem title="Audit log" icon={HiClipboardList}>
                 <div className="py-4 text-sm text-gray-500 dark:text-gray-400">
                   All staff actions on this record. Leader role only.
                 </div>
-              </Tabs.Item>
+              </TabItem>
             </Tabs>
           </div>
         </div>
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Tabs>
-  <Tabs.Item title="Invoices" icon={HiDocumentText}>
+  <TabItem title="Invoices" icon={HiDocumentText}>
     {/* invoice table */}
-  </Tabs.Item>
-  <Tabs.Item title="Payments" icon={HiCurrencyDollar}>
+  </TabItem>
+  <TabItem title="Payments" icon={HiCurrencyDollar}>
     {/* payment history */}
-  </Tabs.Item>
-  <Tabs.Item title="SMS history" icon={HiChat}>
+  </TabItem>
+  <TabItem title="SMS history" icon={HiChat}>
     {/* sms log */}
-  </Tabs.Item>
+  </TabItem>
 </Tabs>`}</pre>
       </section>
 
@@ -75,9 +75,9 @@ export default function AppTabsPage() {
             <div key={style}>
               <p className="text-xs font-mono text-gray-400 mb-3">variant="{style}"</p>
               <Tabs variant={style}>
-                <Tabs.Item title="Overview" active>Content for overview tab.</Tabs.Item>
-                <Tabs.Item title="Details">Content for details tab.</Tabs.Item>
-                <Tabs.Item title="History">Content for history tab.</Tabs.Item>
+                <TabItem title="Overview" active>Content for overview tab.</TabItem>
+                <TabItem title="Details">Content for details tab.</TabItem>
+                <TabItem title="History">Content for history tab.</TabItem>
               </Tabs>
             </div>
           ))}
@@ -93,24 +93,24 @@ export default function AppTabsPage() {
         </p>
         <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
           <Tabs variant="underline">
-            <Tabs.Item title="Invoices" icon={HiDocumentText} active>
+            <TabItem title="Invoices" icon={HiDocumentText} active>
               <div className="py-4 text-sm text-gray-500 dark:text-gray-400">Invoice content visible to all roles.</div>
-            </Tabs.Item>
-            <Tabs.Item title="Payments" icon={HiCurrencyDollar}>
+            </TabItem>
+            <TabItem title="Payments" icon={HiCurrencyDollar}>
               <div className="py-4 text-sm text-gray-500 dark:text-gray-400">Payment history.</div>
-            </Tabs.Item>
-            <Tabs.Item title="Audit log" icon={HiClipboardList} disabled>
+            </TabItem>
+            <TabItem title="Audit log" icon={HiClipboardList} disabled>
               <div className="py-4 text-sm text-gray-500 dark:text-gray-400">Leader role only.</div>
-            </Tabs.Item>
+            </TabItem>
           </Tabs>
         </div>
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Tabs variant="underline">
-  <Tabs.Item title="Invoices" icon={HiDocumentText} active>
+  <TabItem title="Invoices" icon={HiDocumentText} active>
     {/* visible to all roles */}
-  </Tabs.Item>
-  <Tabs.Item title="Audit log" icon={HiClipboardList} disabled>
+  </TabItem>
+  <TabItem title="Audit log" icon={HiClipboardList} disabled>
     {/* Leader role only — disable conditionally */}
-  </Tabs.Item>
+  </TabItem>
 </Tabs>`}</pre>
       </section>
 
@@ -124,21 +124,21 @@ export default function AppTabsPage() {
         </p>
         <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
           <Tabs variant="pills">
-            <Tabs.Item icon={HiDocumentText} title="" active>
+            <TabItem icon={HiDocumentText} title="" active>
               <div className="py-4 text-sm text-gray-500 dark:text-gray-400">Invoices panel.</div>
-            </Tabs.Item>
-            <Tabs.Item icon={HiCurrencyDollar} title="">
+            </TabItem>
+            <TabItem icon={HiCurrencyDollar} title="">
               <div className="py-4 text-sm text-gray-500 dark:text-gray-400">Payments panel.</div>
-            </Tabs.Item>
-            <Tabs.Item icon={HiChat} title="">
+            </TabItem>
+            <TabItem icon={HiChat} title="">
               <div className="py-4 text-sm text-gray-500 dark:text-gray-400">SMS panel.</div>
-            </Tabs.Item>
+            </TabItem>
           </Tabs>
         </div>
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Tabs variant="pills">
-  <Tabs.Item icon={HiDocumentText} title="" active>
+  <TabItem icon={HiDocumentText} title="" active>
     {/* content */}
-  </Tabs.Item>
+  </TabItem>
 </Tabs>`}</pre>
       </section>
 

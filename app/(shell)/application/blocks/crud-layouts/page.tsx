@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Badge, Modal, ModalHeader, ModalBody, ModalFooter, TextInput, Select, Label, Dropdown, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "flowbite-react";
+import { Button, Badge, Modal, ModalHeader, ModalBody, ModalFooter, TextInput, Select, Label, Dropdown, DropdownItem, DropdownDivider, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "flowbite-react";
 import { HiPlus, HiSearch, HiFilter, HiDotsVertical, HiPencil, HiMail, HiCurrencyDollar, HiTrash, HiDownload } from "react-icons/hi";
 
 const members = [
@@ -110,14 +110,14 @@ export default function CRUDLayoutsPage() {
                         <HiDotsVertical className="h-4 w-4" />
                       </button>
                     )}>
-                      <Dropdown.Item icon={HiPencil}>Edit member</Dropdown.Item>
-                      <Dropdown.Item icon={HiMail}>Resend payment link</Dropdown.Item>
-                      <Dropdown.Item icon={HiCurrencyDollar}>Record payment</Dropdown.Item>
-                      <Dropdown.Divider />
-                      <Dropdown.Item icon={HiTrash} className="text-red-600 dark:text-red-400"
+                      <DropdownItem icon={HiPencil}>Edit member</DropdownItem>
+                      <DropdownItem icon={HiMail}>Resend payment link</DropdownItem>
+                      <DropdownItem icon={HiCurrencyDollar}>Record payment</DropdownItem>
+                      <DropdownDivider />
+                      <DropdownItem icon={HiTrash} className="text-red-600 dark:text-red-400"
                         onClick={() => { setSelected(m.name); setDeleteOpen(true); }}>
                         Cancel membership
-                      </Dropdown.Item>
+                      </DropdownItem>
                     </Dropdown>
                   </TableCell>
                 </TableRow>
@@ -145,25 +145,25 @@ export default function CRUDLayoutsPage() {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="cfirst" value="First name" className="mb-2 block" />
+                  <Label htmlFor="cfirst" className="mb-2 block">First name</Label>
                   <TextInput id="cfirst" placeholder="Maria" sizing="sm" />
                 </div>
                 <div>
-                  <Label htmlFor="clast" value="Last name" className="mb-2 block" />
+                  <Label htmlFor="clast" className="mb-2 block">Last name</Label>
                   <TextInput id="clast" placeholder="Garcia" sizing="sm" />
                 </div>
               </div>
               <div>
-                <Label htmlFor="cemail" value="Email" className="mb-2 block" />
+                <Label htmlFor="cemail" className="mb-2 block">Email</Label>
                 <TextInput id="cemail" type="email" placeholder="maria.garcia@email.com" sizing="sm" />
               </div>
               <div>
-                <Label htmlFor="cphone" value="Phone" className="mb-2 block" />
+                <Label htmlFor="cphone" className="mb-2 block">Phone</Label>
                 <TextInput id="cphone" type="tel" placeholder="+1 (619) 555-0100" sizing="sm" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="ctier" value="Membership tier" className="mb-2 block" />
+                  <Label htmlFor="ctier" className="mb-2 block">Membership tier</Label>
                   <Select id="ctier" sizing="sm">
                     <option>Gold — $3,780 / yr</option>
                     <option>Diamond — $4,660 / yr</option>
@@ -171,7 +171,7 @@ export default function CRUDLayoutsPage() {
                   </Select>
                 </div>
                 <div>
-                  <Label htmlFor="cbilling" value="Billing cycle" className="mb-2 block" />
+                  <Label htmlFor="cbilling" className="mb-2 block">Billing cycle</Label>
                   <Select id="cbilling" sizing="sm">
                     <option>Annual</option>
                     <option>Semi-annual</option>

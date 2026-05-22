@@ -141,9 +141,9 @@ export default function AppBadgePage() {
           make a badge a navigation link — useful for tier labels that link to the tier management page.
         </p>
         <div className="flex flex-wrap gap-3 p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
-          <Badge color="indigo" href="#">Diamond+</Badge>
-          <Badge color="warning" href="#">Gold</Badge>
-          <Badge color="purple" href="#">Diamond</Badge>
+          <a href="#"><Badge color="indigo">Diamond+</Badge></a>
+          <a href="#"><Badge color="warning">Gold</Badge></a>
+          <a href="#"><Badge color="purple">Diamond</Badge></a>
         </div>
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Badge color="indigo" href="/tiers/diamond-plus">Diamond+</Badge>`}</pre>
       </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Dropdown, Avatar } from "flowbite-react";
+import { Dropdown, Avatar, DropdownItem, DropdownDivider, DropdownHeader} from "flowbite-react";
 import { HiPencil, HiMail, HiCurrencyDollar, HiDocumentText, HiBan, HiDotsVertical, HiCheck } from "react-icons/hi";
 
 export default function AppDropdownPage() {
@@ -34,20 +34,20 @@ export default function AppDropdownPage() {
               </button>
             )}
           >
-            <Dropdown.Item icon={HiPencil}>Edit member</Dropdown.Item>
-            <Dropdown.Item icon={HiMail}>Resend payment link</Dropdown.Item>
-            <Dropdown.Item icon={HiCurrencyDollar}>Record payment</Dropdown.Item>
-            <Dropdown.Item icon={HiDocumentText}>View invoices</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item icon={HiBan} className="text-red-600 dark:text-red-400">Cancel membership</Dropdown.Item>
+            <DropdownItem icon={HiPencil}>Edit member</DropdownItem>
+            <DropdownItem icon={HiMail}>Resend payment link</DropdownItem>
+            <DropdownItem icon={HiCurrencyDollar}>Record payment</DropdownItem>
+            <DropdownItem icon={HiDocumentText}>View invoices</DropdownItem>
+            <DropdownDivider />
+            <DropdownItem icon={HiBan} className="text-red-600 dark:text-red-400">Cancel membership</DropdownItem>
           </Dropdown>
         </div>
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Dropdown label="" renderTrigger={() => <button><HiDotsVertical /></button>}>
-  <Dropdown.Item icon={HiPencil}>Edit member</Dropdown.Item>
-  <Dropdown.Item icon={HiMail}>Resend payment link</Dropdown.Item>
-  <Dropdown.Item icon={HiCurrencyDollar}>Record payment</Dropdown.Item>
-  <Dropdown.Divider />
-  <Dropdown.Item icon={HiBan} className="text-red-600">Cancel membership</Dropdown.Item>
+  <DropdownItem icon={HiPencil}>Edit member</DropdownItem>
+  <DropdownItem icon={HiMail}>Resend payment link</DropdownItem>
+  <DropdownItem icon={HiCurrencyDollar}>Record payment</DropdownItem>
+  <DropdownDivider />
+  <DropdownItem icon={HiBan} className="text-red-600">Cancel membership</DropdownItem>
 </Dropdown>`}</pre>
       </section>
 
@@ -56,26 +56,26 @@ export default function AppDropdownPage() {
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Labeled dropdown</h2>
         <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl flex flex-wrap gap-4">
           <Dropdown label="Filter status" color="alternative" size="sm">
-            <Dropdown.Item>All statuses</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item>Active</Dropdown.Item>
-            <Dropdown.Item>Pending</Dropdown.Item>
-            <Dropdown.Item>Overdue</Dropdown.Item>
-            <Dropdown.Item>Cancelled</Dropdown.Item>
+            <DropdownItem>All statuses</DropdownItem>
+            <DropdownDivider />
+            <DropdownItem>Active</DropdownItem>
+            <DropdownItem>Pending</DropdownItem>
+            <DropdownItem>Overdue</DropdownItem>
+            <DropdownItem>Cancelled</DropdownItem>
           </Dropdown>
 
           <Dropdown label="Filter tier" color="alternative" size="sm">
-            <Dropdown.Item>All tiers</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item>Gold</Dropdown.Item>
-            <Dropdown.Item>Diamond</Dropdown.Item>
-            <Dropdown.Item>Diamond+</Dropdown.Item>
+            <DropdownItem>All tiers</DropdownItem>
+            <DropdownDivider />
+            <DropdownItem>Gold</DropdownItem>
+            <DropdownItem>Diamond</DropdownItem>
+            <DropdownItem>Diamond+</DropdownItem>
           </Dropdown>
 
           <Dropdown label="Actions" color="default" size="sm">
-            <Dropdown.Item>Export CSV</Dropdown.Item>
-            <Dropdown.Item>Print list</Dropdown.Item>
-            <Dropdown.Item>Send bulk reminder</Dropdown.Item>
+            <DropdownItem>Export CSV</DropdownItem>
+            <DropdownItem>Print list</DropdownItem>
+            <DropdownItem>Send bulk reminder</DropdownItem>
           </Dropdown>
         </div>
       </section>
@@ -86,8 +86,8 @@ export default function AppDropdownPage() {
         <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl flex flex-wrap gap-4">
           {(["bottom", "top", "right", "left"] as const).map((p) => (
             <Dropdown key={p} label={p} placement={p} color="alternative" size="sm">
-              <Dropdown.Item>Option one</Dropdown.Item>
-              <Dropdown.Item>Option two</Dropdown.Item>
+              <DropdownItem>Option one</DropdownItem>
+              <DropdownItem>Option two</DropdownItem>
             </Dropdown>
           ))}
         </div>
@@ -98,7 +98,7 @@ export default function AppDropdownPage() {
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">User menu — topbar</h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
           The avatar dropdown in the top bar. Shows identity context, quick links, and sign out.
-          Use <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">Dropdown.Header</code> for the identity block.
+          Use <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">DropdownHeader</code> for the identity block.
         </p>
         <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4 flex justify-end">
           <Dropdown
@@ -110,25 +110,25 @@ export default function AppDropdownPage() {
               </button>
             )}
           >
-            <Dropdown.Header>
+            <DropdownHeader>
               <span className="block text-sm font-semibold text-gray-900 dark:text-white">Kilo Johnson</span>
               <span className="block text-xs text-gray-500 truncate">kilo@scrippshealth.org</span>
-            </Dropdown.Header>
-            <Dropdown.Item>My profile</Dropdown.Item>
-            <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item>Sign out</Dropdown.Item>
+            </DropdownHeader>
+            <DropdownItem>My profile</DropdownItem>
+            <DropdownItem>Settings</DropdownItem>
+            <DropdownDivider />
+            <DropdownItem>Sign out</DropdownItem>
           </Dropdown>
         </div>
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Dropdown label="" renderTrigger={() => <Avatar placeholderInitials="KJ" rounded size="sm" />}>
-  <Dropdown.Header>
+  <DropdownHeader>
     <span className="block text-sm font-semibold">Kilo Johnson</span>
     <span className="block text-xs text-gray-500">kilo@scrippshealth.org</span>
-  </Dropdown.Header>
-  <Dropdown.Item>My profile</Dropdown.Item>
-  <Dropdown.Item>Settings</Dropdown.Item>
-  <Dropdown.Divider />
-  <Dropdown.Item>Sign out</Dropdown.Item>
+  </DropdownHeader>
+  <DropdownItem>My profile</DropdownItem>
+  <DropdownItem>Settings</DropdownItem>
+  <DropdownDivider />
+  <DropdownItem>Sign out</DropdownItem>
 </Dropdown>`}</pre>
       </section>
 
@@ -141,34 +141,34 @@ export default function AppDropdownPage() {
         </p>
         <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4 flex gap-4">
           <Dropdown label="Billing cycle" color="alternative" size="sm" dismissOnClick={false}>
-            <Dropdown.Header>
+            <DropdownHeader>
               <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Select cycles</span>
-            </Dropdown.Header>
+            </DropdownHeader>
             {["Monthly", "Semi-annual", "Annual"].map((item) => (
-              <Dropdown.Item key={item} as="label" className="flex items-center gap-3 cursor-pointer">
+              <DropdownItem key={item} as="label" className="flex items-center gap-3 cursor-pointer">
                 <input type="checkbox" className="rounded border-gray-300 text-primary-600" defaultChecked={item === "Annual"} />
                 <span className="text-sm">{item}</span>
-              </Dropdown.Item>
+              </DropdownItem>
             ))}
           </Dropdown>
 
           <Dropdown label="Tier" color="alternative" size="sm" dismissOnClick={false}>
-            <Dropdown.Header>
+            <DropdownHeader>
               <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Select tiers</span>
-            </Dropdown.Header>
+            </DropdownHeader>
             {["Gold", "Diamond", "Diamond+"].map((item) => (
-              <Dropdown.Item key={item} as="label" className="flex items-center gap-3 cursor-pointer">
+              <DropdownItem key={item} as="label" className="flex items-center gap-3 cursor-pointer">
                 <input type="checkbox" className="rounded border-gray-300 text-primary-600" defaultChecked />
                 <span className="text-sm">{item}</span>
-              </Dropdown.Item>
+              </DropdownItem>
             ))}
           </Dropdown>
         </div>
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<Dropdown label="Billing cycle" color="alternative" dismissOnClick={false}>
-  <Dropdown.Item as="label" className="flex items-center gap-3 cursor-pointer">
+  <DropdownItem as="label" className="flex items-center gap-3 cursor-pointer">
     <input type="checkbox" className="rounded border-gray-300 text-primary-600" />
     <span>Monthly</span>
-  </Dropdown.Item>
+  </DropdownItem>
 </Dropdown>`}</pre>
       </section>
 

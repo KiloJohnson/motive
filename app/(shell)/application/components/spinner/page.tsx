@@ -36,12 +36,12 @@ export default function AppSpinnerPage() {
           Use <code className="text-sm bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 rounded font-mono">isProcessing</code> on the Button component instead of manually placing a spinner. It handles size, position, and aria state.
         </p>
         <div className="flex flex-wrap items-center gap-4 p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
-          <Button color="default" isProcessing>Processing payment…</Button>
-          <Button color="default" isProcessing disabled>Saving…</Button>
-          <Button color="alternative" isProcessing>Loading members…</Button>
+          <Button color="default"><Spinner size="sm" className="mr-2" />Processing payment…</Button>
+          <Button color="default" disabled><Spinner size="sm" className="mr-2" />Saving…</Button>
+          <Button color="alternative"><Spinner size="sm" className="mr-2" />Loading members…</Button>
         </div>
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`// Prefer isProcessing on Button over manual Spinner placement
-<Button color="default" isProcessing>Processing payment…</Button>
+<Button color="default"><Spinner size="sm" className="mr-2" />Processing payment…</Button>
 
 // Manual spinner with label — for page-level loading states
 <div className="flex items-center gap-2">

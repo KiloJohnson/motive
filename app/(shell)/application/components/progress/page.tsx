@@ -71,10 +71,10 @@ export default function AppProgressPage() {
       <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Label inside bar</h2>
         <div className="space-y-4 max-w-lg p-8 bg-gray-50 dark:bg-gray-900 rounded-xl">
-          <Progress progress={82} size="lg" label="Gold renewals" labelPosition="inside" labelProgress />
-          <Progress progress={98.6} color="green" size="lg" label="Collection rate" labelPosition="inside" labelProgress />
+          <p className="text-sm font-medium text-gray-700 dark:text-white mb-1">Gold renewals</p><Progress progress={82} size="lg" />
+          <p className="text-sm font-medium text-gray-700 dark:text-white mb-1">Collection rate</p><Progress progress={98.6} color="green" size="lg" />
         </div>
-        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 mt-4 overflow-x-auto">{`<Progress progress={82} size="lg" label="Gold renewals" labelPosition="inside" labelProgress />`}</pre>
+        <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 mt-4 overflow-x-auto">{`<p className="text-sm font-medium text-gray-700 dark:text-white mb-1">Gold renewals</p><Progress progress={82} size="lg" />`}</pre>
       </section>
 
       {/* ── Colors ──────────────────────────────────────────────────────── */}

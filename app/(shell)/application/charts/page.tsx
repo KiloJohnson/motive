@@ -121,7 +121,7 @@ export default function ChartsPage() {
             <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
             <XAxis dataKey="month" tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} />
             <YAxis tickFormatter={dollars} tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} width={48} />
-            <Tooltip {...tooltipStyle} formatter={(v: number) => ["$" + v.toLocaleString(), ""]} />
+            <Tooltip {...tooltipStyle} formatter={v => "$" + Number(v).toLocaleString()} />
             <Legend wrapperStyle={{ fontSize: 12, paddingTop: 12 }} />
             <Line type="monotone" dataKey="revenue" name="Revenue" stroke={SCRIPPS} strokeWidth={2.5} dot={{ r: 3, fill: SCRIPPS }} activeDot={{ r: 5 }} />
             <Line type="monotone" dataKey="target" name="Target" stroke={GRAY} strokeWidth={1.5} strokeDasharray="4 4" dot={false} />
@@ -215,7 +215,7 @@ export default function ChartsPage() {
               </Pie>
               <Tooltip
                 {...tooltipStyle}
-                formatter={(v: number) => [v + " members", ""]}
+                formatter={v => Number(v) + " members"}
               />
             </PieChart>
           </ResponsiveContainer>
@@ -259,7 +259,7 @@ export default function ChartsPage() {
             <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" vertical={false} />
             <XAxis dataKey="month" tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} />
             <YAxis domain={[95, 100]} tickFormatter={(v) => v + "%"} tick={{ fontSize: 12, fill: GRAY }} axisLine={false} tickLine={false} />
-            <Tooltip {...tooltipStyle} formatter={(v: number) => [v.toFixed(1) + "%", ""]} />
+            <Tooltip {...tooltipStyle} formatter={v => Number(v).toFixed(1) + "%"} />
             <Bar dataKey="collected" name="Collected" radius={[4, 4, 0, 0]}>
               {collectionData.map((entry) => (
                 <Cell

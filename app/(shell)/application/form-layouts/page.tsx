@@ -29,25 +29,25 @@ export default function FormLayoutsPage() {
         <div className="max-w-2xl p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <Label htmlFor="firstName" value="First name" className="mb-2 block" />
+              <Label htmlFor="firstName" className="mb-2 block">First name</Label>
               <TextInput id="firstName" placeholder="Maria" icon={HiUser} />
             </div>
             <div>
-              <Label htmlFor="lastName" value="Last name" className="mb-2 block" />
+              <Label htmlFor="lastName" className="mb-2 block">Last name</Label>
               <TextInput id="lastName" placeholder="Garcia" />
             </div>
           </div>
           <div className="mb-4">
-            <Label htmlFor="email" value="Email address" className="mb-2 block" />
+            <Label htmlFor="email" className="mb-2 block">Email address</Label>
             <TextInput id="email" type="email" placeholder="maria.garcia@email.com" icon={HiMail} />
           </div>
           <div className="mb-4">
-            <Label htmlFor="phone" value="Phone number" className="mb-2 block" />
+            <Label htmlFor="phone" className="mb-2 block">Phone number</Label>
             <TextInput id="phone" type="tel" placeholder="(619) 555-0100" icon={HiPhone} />
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <Label htmlFor="tier" value="Membership tier" className="mb-2 block" />
+              <Label htmlFor="tier" className="mb-2 block">Membership tier</Label>
               <Select id="tier">
                 <option value="">Select tier</option>
                 <option>Gold — $3,780/yr</option>
@@ -56,7 +56,7 @@ export default function FormLayoutsPage() {
               </Select>
             </div>
             <div>
-              <Label htmlFor="billing" value="Billing cycle" className="mb-2 block" />
+              <Label htmlFor="billing" className="mb-2 block">Billing cycle</Label>
               <Select id="billing">
                 <option>Annual</option>
                 <option>Semi-annual</option>
@@ -65,7 +65,7 @@ export default function FormLayoutsPage() {
             </div>
           </div>
           <div className="mb-6">
-            <Label htmlFor="notes" value="Internal notes" className="mb-2 block" />
+            <Label htmlFor="notes" className="mb-2 block">Internal notes</Label>
             <Textarea id="notes" placeholder="Referred by Dr. Chen. Prefers email contact." rows={3} />
           </div>
           <div className="flex items-center gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -75,15 +75,15 @@ export default function FormLayoutsPage() {
         </div>
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`<div className="grid grid-cols-2 gap-4">
   <div>
-    <Label htmlFor="firstName" value="First name" className="mb-2 block" />
+    <Label htmlFor="firstName" className="mb-2 block">First name</Label>
     <TextInput id="firstName" placeholder="Maria" icon={HiUser} />
   </div>
   <div>
-    <Label htmlFor="lastName" value="Last name" className="mb-2 block" />
+    <Label htmlFor="lastName" className="mb-2 block">Last name</Label>
     <TextInput id="lastName" placeholder="Garcia" />
   </div>
 </div>
-<Label htmlFor="tier" value="Membership tier" className="mb-2 block" />
+<Label htmlFor="tier" className="mb-2 block">Membership tier</Label>
 <Select id="tier">
   <option>Gold — $3,780/yr</option>
   <option>Diamond — $4,660/yr</option>

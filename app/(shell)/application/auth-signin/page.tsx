@@ -36,19 +36,19 @@ export default function AuthSignInPage() {
             </div>
             <div className="space-y-4">
               <div>
-                <Label htmlFor="portalEmail" value="Email address" className="mb-2 block" />
+                <Label htmlFor="portalEmail" className="mb-2 block">Email address</Label>
                 <TextInput id="portalEmail" type="email" placeholder="you@email.com" icon={HiMail} />
               </div>
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <Label htmlFor="portalPassword" value="Password" />
+                  <Label htmlFor="portalPassword">Password</Label>
                   <a href="#" className="text-xs font-medium" style={{ color: "var(--motive-primary)" }}>Forgot password?</a>
                 </div>
                 <TextInput id="portalPassword" type="password" placeholder="••••••••" icon={HiLockClosed} />
               </div>
               <div className="flex items-center gap-2">
                 <Checkbox id="remember" />
-                <Label htmlFor="remember" value="Remember me for 30 days" className="font-normal text-sm" />
+                <Label htmlFor="remember" className="font-normal text-sm">Remember me for 30 days</Label>
               </div>
               <Button color="default" className="w-full">Sign in</Button>
             </div>
@@ -75,7 +75,7 @@ export default function AuthSignInPage() {
             </div>
             <div className="space-y-4">
               <div>
-                <Label htmlFor="twofa" value="6-digit code" className="mb-2 block" />
+                <Label htmlFor="twofa" className="mb-2 block">6-digit code</Label>
                 <TextInput id="twofa" placeholder="000000" maxLength={6} className="text-center tracking-widest text-lg font-mono" />
               </div>
               <Button color="default" className="w-full">Verify</Button>

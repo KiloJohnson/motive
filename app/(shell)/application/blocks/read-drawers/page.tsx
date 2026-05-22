@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Drawer } from "flowbite-react";
+import { Button, Drawer, DrawerHeader, DrawerItems } from "flowbite-react";
 import { HiPencil, HiTrash } from "react-icons/hi";
 
 function BlockPreview({ children, label, code }: {
@@ -28,8 +28,8 @@ function ProductDrawer() {
     <>
       <Button onClick={() => setOpen(true)}>Read product</Button>
       <Drawer open={open} onClose={() => setOpen(false)} className="w-full max-w-sm">
-        <Drawer.Header title='Apple iMac 25"' titleIcon={() => <></>} />
-        <Drawer.Items>
+        <DrawerHeader title='Apple iMac 25"' titleIcon={() => <></>} />
+        <DrawerItems>
           <p className="mb-5 text-xl font-bold text-gray-900 dark:text-white">$2999</p>
           <dl>
             <dt className="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Details</dt>
@@ -50,7 +50,7 @@ function ProductDrawer() {
               Delete
             </Button>
           </div>
-        </Drawer.Items>
+        </DrawerItems>
       </Drawer>
     </>
   );
@@ -62,8 +62,8 @@ function UserDrawer() {
     <>
       <Button onClick={() => setOpen(true)}>Read user</Button>
       <Drawer open={open} onClose={() => setOpen(false)}>
-        <Drawer.Header title="Helene Engels" titleIcon={() => <></>} />
-        <Drawer.Items>
+        <DrawerHeader title="Helene Engels" titleIcon={() => <></>} />
+        <DrawerItems>
           <dl className="mt-4 sm:mt-5">
             <dt className="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Biography</dt>
             <dd className="mb-4 font-light text-gray-500 dark:text-gray-400 sm:mb-5">
@@ -83,7 +83,7 @@ function UserDrawer() {
               Delete
             </Button>
           </div>
-        </Drawer.Items>
+        </DrawerItems>
       </Drawer>
     </>
   );
@@ -118,8 +118,8 @@ export default function ReadDrawersPage() {
 
 <Button onClick={() => setOpen(true)}>Read product</Button>
 <Drawer open={open} onClose={() => setOpen(false)} className="w-full max-w-sm">
-  <Drawer.Header title='Apple iMac 25"' titleIcon={() => <></>} />
-  <Drawer.Items>
+  <DrawerHeader title='Apple iMac 25"' titleIcon={() => <></>} />
+  <DrawerItems>
     <p className="mb-5 text-xl font-bold text-gray-900 dark:text-white">$2999</p>
     <dl>
       <dt className="mb-2 font-semibold text-gray-900 dark:text-white">Details</dt>
@@ -131,7 +131,7 @@ export default function ReadDrawersPage() {
       <Button className="inline-flex w-full">Edit</Button>
       <Button color="failure" className="inline-flex w-full">Delete</Button>
     </div>
-  </Drawer.Items>
+  </DrawerItems>
 </Drawer>`}
         >
           <ProductDrawer />
@@ -143,8 +143,8 @@ export default function ReadDrawersPage() {
 
 <Button onClick={() => setOpen(true)}>Read user</Button>
 <Drawer open={open} onClose={() => setOpen(false)}>
-  <Drawer.Header title="Helene Engels" titleIcon={() => <></>} />
-  <Drawer.Items>
+  <DrawerHeader title="Helene Engels" titleIcon={() => <></>} />
+  <DrawerItems>
     <dl className="mt-4 sm:mt-5">
       <dt className="mb-2 font-semibold text-gray-900 dark:text-white">Biography</dt>
       <dd className="mb-4 font-light text-gray-500 dark:text-gray-400">...</dd>
@@ -155,7 +155,7 @@ export default function ReadDrawersPage() {
       <Button className="inline-flex w-full">Edit</Button>
       <Button color="failure" className="inline-flex w-full">Delete</Button>
     </div>
-  </Drawer.Items>
+  </DrawerItems>
 </Drawer>`}
         >
           <UserDrawer />

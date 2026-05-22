@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PreviewShell } from "../PreviewShell";
-import { Badge, Button, TextInput, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, ModalHeader, ModalBody, ModalFooter, Label, Dropdown } from "flowbite-react";
+import { Badge, Button, TextInput, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, ModalHeader, ModalBody, ModalFooter, Label, Dropdown, DropdownItem, DropdownDivider} from "flowbite-react";
 import { HiSearch, HiDotsVertical, HiCheck, HiPhone, HiX, HiArrowUp, HiArrowDown } from "react-icons/hi";
 
 const waitlist = [
@@ -94,16 +94,16 @@ export default function WaitlistPage() {
                         <HiDotsVertical className="h-4 w-4" />
                       </button>
                     )}>
-                      <Dropdown.Item icon={HiPhone}>Mark as contacted</Dropdown.Item>
-                      <Dropdown.Item icon={HiCheck}
+                      <DropdownItem icon={HiPhone}>Mark as contacted</DropdownItem>
+                      <DropdownItem icon={HiCheck}
                         onClick={() => { setSelected(w); setConvertOpen(true); }}>
                         Convert to member
-                      </Dropdown.Item>
-                      <Dropdown.Divider />
-                      <Dropdown.Item icon={HiX} className="text-red-600 dark:text-red-400"
+                      </DropdownItem>
+                      <DropdownDivider />
+                      <DropdownItem icon={HiX} className="text-red-600 dark:text-red-400"
                         onClick={() => { setSelected(w); setDeclineOpen(true); }}>
                         Decline &amp; refund deposit
-                      </Dropdown.Item>
+                      </DropdownItem>
                     </Dropdown>
                   </TableCell>
                 </TableRow>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Dropdown, Label, Pagination, Progress, Select } from "flowbite-react";
+import { Button, Dropdown, Label, Pagination, Progress, Select, DropdownItem, DropdownDivider, DropdownHeader} from "flowbite-react";
 import { HiChevronRight, HiEye } from "react-icons/hi";
 
 function BlockPreview({ children, label, code }: {
@@ -139,15 +139,15 @@ export default function TableFootersPage() {
           label="With dropdown and link — date range + report CTA"
           code={`<nav className="flex flex-row items-center justify-between p-4">
   <Dropdown inline label="Last 7 days">
-    <Dropdown.Header className="font-medium text-gray-900 dark:text-white">
+    <DropdownHeader className="font-medium text-gray-900 dark:text-white">
       Sep 16 – Sep 22, 2021
-    </Dropdown.Header>
-    <Dropdown.Item>Yesterday</Dropdown.Item>
-    <Dropdown.Item>Today</Dropdown.Item>
-    <Dropdown.Item>Last 7 days</Dropdown.Item>
-    <Dropdown.Item>Last 30 days</Dropdown.Item>
-    <Dropdown.Divider />
-    <Dropdown.Item>Custom...</Dropdown.Item>
+    </DropdownHeader>
+    <DropdownItem>Yesterday</DropdownItem>
+    <DropdownItem>Today</DropdownItem>
+    <DropdownItem>Last 7 days</DropdownItem>
+    <DropdownItem>Last 30 days</DropdownItem>
+    <DropdownDivider />
+    <DropdownItem>Custom...</DropdownItem>
   </Dropdown>
   <a href="#" className="inline-flex items-center text-sm font-medium text-primary-700 hover:text-primary-800 dark:text-primary-500">
     Transactions Report <HiChevronRight className="ml-1 h-4 w-4" />
@@ -157,15 +157,15 @@ export default function TableFootersPage() {
           <div className="rounded-b-lg bg-white dark:bg-gray-800 shadow-md">
             <nav className="flex flex-row items-center justify-between p-4">
               <Dropdown inline label="Last 7 days">
-                <Dropdown.Header className="font-medium text-gray-900 dark:text-white">
+                <DropdownHeader className="font-medium text-gray-900 dark:text-white">
                   Sep 16 – Sep 22, 2021
-                </Dropdown.Header>
-                <Dropdown.Item>Yesterday</Dropdown.Item>
-                <Dropdown.Item>Today</Dropdown.Item>
-                <Dropdown.Item>Last 7 days</Dropdown.Item>
-                <Dropdown.Item>Last 30 days</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item>Custom...</Dropdown.Item>
+                </DropdownHeader>
+                <DropdownItem>Yesterday</DropdownItem>
+                <DropdownItem>Today</DropdownItem>
+                <DropdownItem>Last 7 days</DropdownItem>
+                <DropdownItem>Last 30 days</DropdownItem>
+                <DropdownDivider />
+                <DropdownItem>Custom...</DropdownItem>
               </Dropdown>
               <a
                 href="#"

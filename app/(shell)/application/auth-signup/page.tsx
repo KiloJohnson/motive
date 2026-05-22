@@ -30,25 +30,25 @@ export default function AuthSignUpPage() {
 
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
-                <Label htmlFor="regFirst" value="First name *" className="mb-2 block" />
+                <Label htmlFor="regFirst" className="mb-2 block">First name *</Label>
                 <TextInput id="regFirst" placeholder="Maria" icon={HiUser} />
               </div>
               <div>
-                <Label htmlFor="regLast" value="Last name *" className="mb-2 block" />
+                <Label htmlFor="regLast" className="mb-2 block">Last name *</Label>
                 <TextInput id="regLast" placeholder="Garcia" />
               </div>
             </div>
             <div className="mb-4">
-              <Label htmlFor="regEmail" value="Email address *" className="mb-2 block" />
+              <Label htmlFor="regEmail" className="mb-2 block">Email address *</Label>
               <TextInput id="regEmail" type="email" placeholder="maria.garcia@email.com" icon={HiMail} />
             </div>
             <div className="mb-4">
-              <Label htmlFor="regPhone" value="Mobile phone" className="mb-2 block" />
+              <Label htmlFor="regPhone" className="mb-2 block">Mobile phone</Label>
               <TextInput id="regPhone" type="tel" placeholder="(619) 555-0100" icon={HiPhone} />
             </div>
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
-                <Label htmlFor="regTier" value="Membership tier *" className="mb-2 block" />
+                <Label htmlFor="regTier" className="mb-2 block">Membership tier *</Label>
                 <Select id="regTier">
                   <option value="">Select tier</option>
                   <option>Gold — $3,780/yr</option>
@@ -57,7 +57,7 @@ export default function AuthSignUpPage() {
                 </Select>
               </div>
               <div>
-                <Label htmlFor="regCycle" value="Billing cycle *" className="mb-2 block" />
+                <Label htmlFor="regCycle" className="mb-2 block">Billing cycle *</Label>
                 <Select id="regCycle">
                   <option>Annual</option>
                   <option>Semi-annual</option>
@@ -104,27 +104,27 @@ export default function AuthSignUpPage() {
             </div>
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
-                <Label value="First name *" className="mb-2 block" />
+                <Label className="mb-2 block">First name *</Label>
                 <TextInput defaultValue="David" readOnly className="opacity-75" />
               </div>
               <div>
-                <Label value="Last name *" className="mb-2 block" />
+                <Label className="mb-2 block">Last name *</Label>
                 <TextInput defaultValue="Chen" readOnly className="opacity-75" />
               </div>
             </div>
             <div className="mb-4">
-              <Label value="Email address *" className="mb-2 block" />
+              <Label className="mb-2 block">Email address *</Label>
               <TextInput type="email" defaultValue="david.chen@email.com" readOnly className="opacity-75" />
             </div>
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div>
-                <Label htmlFor="wlTier" value="Membership tier *" className="mb-2 block" />
+                <Label htmlFor="wlTier" className="mb-2 block">Membership tier *</Label>
                 <Select id="wlTier">
                   <option>Gold — $3,780/yr</option>
                 </Select>
               </div>
               <div>
-                <Label htmlFor="wlCycle" value="Billing cycle *" className="mb-2 block" />
+                <Label htmlFor="wlCycle" className="mb-2 block">Billing cycle *</Label>
                 <Select id="wlCycle">
                   <option>Annual</option>
                   <option>Semi-annual</option>

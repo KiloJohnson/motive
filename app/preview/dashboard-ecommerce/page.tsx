@@ -111,7 +111,7 @@ export default function DashboardEcommercePreviewPage() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="day" tick={{ fontSize: 11, fill: "#9ca3af" }} axisLine={false} tickLine={false} />
                 <YAxis tickFormatter={(v) => "$" + (v / 1000).toFixed(0) + "k"} tick={{ fontSize: 11, fill: "#9ca3af" }} axisLine={false} tickLine={false} width={40} />
-                <Tooltip {...tooltipStyle} formatter={(v: number) => ["$" + v.toLocaleString(), "Revenue"]} />
+                <Tooltip {...tooltipStyle} formatter={v => "$" + Number(v).toLocaleString()} />
                 <Area type="monotone" dataKey="revenue" stroke="#005EB8" strokeWidth={2.5} fill="url(#revGrad2)" dot={false} activeDot={{ r: 4 }} />
               </AreaChart>
             </ResponsiveContainer>
@@ -124,7 +124,7 @@ export default function DashboardEcommercePreviewPage() {
               <BarChart data={categoryData} layout="vertical" margin={{ top: 0, right: 8, bottom: 0, left: 0 }}>
                 <XAxis type="number" tickFormatter={(v) => "$" + v / 1000 + "k"} tick={{ fontSize: 10, fill: "#9ca3af" }} axisLine={false} tickLine={false} />
                 <YAxis type="category" dataKey="name" tick={{ fontSize: 10, fill: "#9ca3af" }} axisLine={false} tickLine={false} width={80} />
-                <Tooltip {...tooltipStyle} formatter={(v: number) => ["$" + v.toLocaleString(), ""]} />
+                <Tooltip {...tooltipStyle} formatter={v => "$" + Number(v).toLocaleString()} />
                 <Bar dataKey="revenue" fill="#005EB8" radius={[0, 4, 4, 0]} />
               </BarChart>
             </ResponsiveContainer>

@@ -39,7 +39,7 @@ export default function FormValidationPage() {
           <div className="space-y-4">
 
             <div>
-              <Label htmlFor="valEmail" color={emailState} value="Email address" className="mb-2 block" />
+              <Label htmlFor="valEmail" color={emailState} className="mb-2 block">Email address</Label>
               <TextInput
                 id="valEmail"
                 type="email"
@@ -57,7 +57,7 @@ export default function FormValidationPage() {
             </div>
 
             <div>
-              <Label htmlFor="valPhone" color={phoneState} value="Phone number (10 digits)" className="mb-2 block" />
+              <Label htmlFor="valPhone" color={phoneState} className="mb-2 block">Phone number (10 digits)</Label>
               <TextInput
                 id="valPhone"
                 type="tel"
@@ -75,7 +75,7 @@ export default function FormValidationPage() {
             </div>
 
             <div>
-              <Label htmlFor="valTier" color={tierState} value="Membership tier" className="mb-2 block" />
+              <Label htmlFor="valTier" color={tierState} className="mb-2 block">Membership tier</Label>
               <Select
                 id="valTier"
                 color={tierState}
@@ -93,7 +93,7 @@ export default function FormValidationPage() {
             </div>
 
             <div>
-              <Label htmlFor="valNotes" value="Internal notes (optional)" className="mb-2 block" />
+              <Label htmlFor="valNotes" className="mb-2 block">Internal notes (optional)</Label>
               <Textarea
                 id="valNotes"
                 placeholder="Referred by Dr. Chen…"
@@ -114,7 +114,7 @@ export default function FormValidationPage() {
         </div>
 
         <pre className="text-xs bg-gray-900 text-gray-300 rounded-lg p-4 overflow-x-auto">{`// color prop drives the validation state on Label, TextInput, Select
-<Label htmlFor="email" color={emailState} value="Email" className="mb-2 block" />
+<Label htmlFor="email" color={emailState} className="mb-2 block">Email</Label>
 <TextInput
   id="email"
   color={emailState}   // "default" | "success" | "failure"
@@ -131,19 +131,19 @@ export default function FormValidationPage() {
         <div className="grid grid-cols-3 gap-6 max-w-3xl">
           <div>
             <p className="text-xs font-mono text-gray-400 mb-3">default</p>
-            <Label htmlFor="s1" value="Field label" className="mb-2 block" />
+            <Label htmlFor="s1" className="mb-2 block">Field label</Label>
             <TextInput id="s1" placeholder="Enter value" />
             <HelperText>Helper text goes here.</HelperText>
           </div>
           <div>
             <p className="text-xs font-mono text-gray-400 mb-3">success</p>
-            <Label htmlFor="s2" color="success" value="Field label" className="mb-2 block" />
+            <Label htmlFor="s2" color="success" className="mb-2 block">Field label</Label>
             <TextInput id="s2" color="success" value="Valid input" readOnly />
             <HelperText color="success">Looks good!</HelperText>
           </div>
           <div>
             <p className="text-xs font-mono text-gray-400 mb-3">failure</p>
-            <Label htmlFor="s3" color="failure" value="Field label" className="mb-2 block" />
+            <Label htmlFor="s3" color="failure" className="mb-2 block">Field label</Label>
             <TextInput id="s3" color="failure" value="bad@" readOnly />
             <HelperText color="failure">Enter a valid email address.</HelperText>
           </div>

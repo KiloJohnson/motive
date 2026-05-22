@@ -194,24 +194,24 @@ export default function AppModalPage() {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="first" value="First name" className="mb-2 block" />
+                  <Label htmlFor="first" className="mb-2 block">First name</Label>
                   <TextInput id="first" placeholder="Maria" />
                 </div>
                 <div>
-                  <Label htmlFor="last" value="Last name" className="mb-2 block" />
+                  <Label htmlFor="last" className="mb-2 block">Last name</Label>
                   <TextInput id="last" placeholder="Garcia" />
                 </div>
               </div>
               <div>
-                <Label htmlFor="email" value="Email" className="mb-2 block" />
+                <Label htmlFor="email" className="mb-2 block">Email</Label>
                 <TextInput id="email" type="email" placeholder="maria.garcia@email.com" />
               </div>
               <div>
-                <Label htmlFor="phone" value="Phone" className="mb-2 block" />
+                <Label htmlFor="phone" className="mb-2 block">Phone</Label>
                 <TextInput id="phone" type="tel" placeholder="+1 (619) 555-0100" />
               </div>
               <div>
-                <Label htmlFor="tier" value="Membership tier" className="mb-2 block" />
+                <Label htmlFor="tier" className="mb-2 block">Membership tier</Label>
                 <Select id="tier">
                   <option>Gold — $3,780 / yr</option>
                   <option>Diamond — $4,660 / yr</option>
@@ -229,7 +229,7 @@ export default function AppModalPage() {
   <ModalHeader>Create new member</ModalHeader>
   <ModalBody>
     <div className="space-y-4">
-      <Label htmlFor="email" value="Email" className="mb-2 block" />
+      <Label htmlFor="email" className="mb-2 block">Email</Label>
       <TextInput id="email" type="email" placeholder="..." />
     </div>
   </ModalBody>

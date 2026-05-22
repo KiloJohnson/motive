@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PreviewShell } from "../PreviewShell";
-import { Badge, Button, TextInput, Select, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, ModalHeader, ModalBody, ModalFooter, Label, Dropdown } from "flowbite-react";
+import { Badge, Button, TextInput, Select, Table, TableHead, TableHeadCell, TableBody, TableRow, TableCell, Modal, ModalHeader, ModalBody, ModalFooter, Label, Dropdown, DropdownItem, DropdownDivider} from "flowbite-react";
 import { HiPlus, HiSearch, HiDownload, HiDotsVertical, HiPencil, HiMail, HiCurrencyDollar, HiTrash } from "react-icons/hi";
 
 const members = [
@@ -95,14 +95,14 @@ export default function MemberListPage() {
                         <HiDotsVertical className="h-4 w-4" />
                       </button>
                     )}>
-                      <Dropdown.Item icon={HiPencil}>Edit member</Dropdown.Item>
-                      <Dropdown.Item icon={HiMail}>Resend payment link</Dropdown.Item>
-                      <Dropdown.Item icon={HiCurrencyDollar}>Record payment</Dropdown.Item>
-                      <Dropdown.Divider />
-                      <Dropdown.Item icon={HiTrash} className="text-red-600 dark:text-red-400"
+                      <DropdownItem icon={HiPencil}>Edit member</DropdownItem>
+                      <DropdownItem icon={HiMail}>Resend payment link</DropdownItem>
+                      <DropdownItem icon={HiCurrencyDollar}>Record payment</DropdownItem>
+                      <DropdownDivider />
+                      <DropdownItem icon={HiTrash} className="text-red-600 dark:text-red-400"
                         onClick={() => { setSelected(m.name); setDeleteOpen(true); }}>
                         Cancel membership
-                      </Dropdown.Item>
+                      </DropdownItem>
                     </Dropdown>
                   </TableCell>
                 </TableRow>
@@ -129,18 +129,18 @@ export default function MemberListPage() {
           <ModalBody>
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <div><Label value="First name" className="mb-2 block" /><TextInput placeholder="Maria" sizing="sm" /></div>
-                <div><Label value="Last name" className="mb-2 block" /><TextInput placeholder="Garcia" sizing="sm" /></div>
+                <div><Label className="mb-2 block">First name</Label><TextInput placeholder="Maria" sizing="sm" /></div>
+                <div><Label className="mb-2 block">Last name</Label><TextInput placeholder="Garcia" sizing="sm" /></div>
               </div>
-              <div><Label value="Email" className="mb-2 block" /><TextInput type="email" placeholder="maria@email.com" sizing="sm" /></div>
-              <div><Label value="Phone" className="mb-2 block" /><TextInput type="tel" placeholder="+1 (619) 555-0100" sizing="sm" /></div>
+              <div><Label className="mb-2 block">Email</Label><TextInput type="email" placeholder="maria@email.com" sizing="sm" /></div>
+              <div><Label className="mb-2 block">Phone</Label><TextInput type="tel" placeholder="+1 (619) 555-0100" sizing="sm" /></div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label value="Tier" className="mb-2 block" />
+                  <Label className="mb-2 block">Tier</Label>
                   <Select sizing="sm"><option>Gold — $3,780/yr</option><option>Diamond — $4,660/yr</option><option>Diamond+</option></Select>
                 </div>
                 <div>
-                  <Label value="Billing cycle" className="mb-2 block" />
+                  <Label className="mb-2 block">Billing cycle</Label>
                   <Select sizing="sm"><option>Annual</option><option>Semi-annual</option><option>Monthly</option></Select>
                 </div>
               </div>
