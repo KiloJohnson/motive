@@ -9,7 +9,7 @@ import {
   HiClock, HiChartBar, HiCog, HiLogout, HiUser,
   HiBell, HiMenu, HiX, HiChevronDown,
   HiChartPie, HiShoppingBag, HiInboxIn, HiViewGrid,
-  HiLockClosed,
+  HiLockClosed, HiVideoCamera, HiPhone, HiServer,
 } from "react-icons/hi";
 
 // ── Nav types ──────────────────────────────────────────────────────────────
@@ -102,19 +102,59 @@ const adminNav: NavEntry[] = [
   { kind: "link",  label: "Kanban",         href: "/preview/admin-kanban",    icon: HiViewGrid },
   { kind: "link",  label: "Calendar",       href: "/preview/admin-calendar",  icon: HiClock },
   { kind: "link",  label: "AI Chat",        href: "/preview/admin-ai-chat",   icon: HiInboxIn },
-  { kind: "link",  label: "Mailing",        href: "/preview/admin-mailing",   icon: HiInboxIn, badge: "4" },
+  {
+    kind: "group", label: "Mailing", icon: HiInboxIn,
+    items: [
+      { label: "Inbox",  href: "/preview/admin-mailing" },
+      { label: "Read",   href: "/preview/admin-mailing-read" },
+      { label: "Reply",  href: "/preview/admin-mailing-reply" },
+    ],
+  },
+  {
+    kind: "group", label: "Support", icon: HiDocumentText,
+    items: [
+      { label: "All Tickets",    href: "/preview/admin-support-tickets" },
+      { label: "Single Ticket",  href: "/preview/admin-support-ticket" },
+    ],
+  },
+  {
+    kind: "group", label: "Video", icon: HiVideoCamera,
+    items: [
+      { label: "Create Meeting",    href: "/preview/admin-create-meeting" },
+      { label: "Join Call",         href: "/preview/admin-join-call" },
+      { label: "Meeting Room",      href: "/preview/admin-meeting-room" },
+      { label: "Rate Conversation", href: "/preview/admin-rate-conversation" },
+    ],
+  },
+  {
+    kind: "group", label: "Audio", icon: HiPhone,
+    items: [
+      { label: "Incoming Call",  href: "/preview/admin-incoming-call" },
+      { label: "Outgoing Call",  href: "/preview/admin-outgoing-call" },
+      { label: "In Call",        href: "/preview/admin-in-call" },
+      { label: "Call Ended",     href: "/preview/admin-call-ended" },
+    ],
+  },
+  {
+    kind: "group", label: "Status", icon: HiServer,
+    items: [
+      { label: "Server Status",   href: "/preview/admin-server-status" },
+      { label: "Status History",  href: "/preview/admin-status-history" },
+      { label: "Uptime",          href: "/preview/admin-uptime" },
+    ],
+  },
   {
     kind: "group", label: "Pages", icon: HiDocumentText,
     items: [
-      { label: "Pricing",        href: "/preview/admin-pricing" },
-      { label: "404 Not Found",  href: "/preview/admin-404" },
-      { label: "500 Error",      href: "/preview/admin-500" },
-      { label: "Maintenance",    href: "/preview/admin-maintenance" },
-      { label: "Text Editor",    href: "/preview/admin-text-editor" },
-      { label: "API Keys",       href: "/preview/admin-api" },
-      { label: "Chat Room",      href: "/preview/admin-chat-room" },
-      { label: "Events",         href: "/preview/admin-events" },
-      { label: "Integrations",   href: "/preview/admin-integrations" },
+      { label: "Pricing",       href: "/preview/admin-pricing" },
+      { label: "404 Not Found", href: "/preview/admin-404" },
+      { label: "500 Error",     href: "/preview/admin-500" },
+      { label: "Maintenance",   href: "/preview/admin-maintenance" },
+      { label: "Text Editor",   href: "/preview/admin-text-editor" },
+      { label: "API Keys",      href: "/preview/admin-api" },
+      { label: "Chat Room",     href: "/preview/admin-chat-room" },
+      { label: "Events",        href: "/preview/admin-events" },
+      { label: "Integrations",  href: "/preview/admin-integrations" },
     ],
   },
   {
@@ -125,6 +165,7 @@ const adminNav: NavEntry[] = [
       { label: "Forgot Password",   href: "/preview/admin-forgot-password" },
       { label: "Reset Password",    href: "/preview/admin-reset-password" },
       { label: "Profile Lock",      href: "/preview/admin-profile-lock" },
+      { label: "Two-Factor",        href: "/preview/admin-two-factor" },
     ],
   },
 ];
