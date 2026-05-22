@@ -7,6 +7,22 @@ import {
   PieChart, Pie, Cell,
 } from "recharts";
 import { HiArrowUp, HiArrowDown, HiArrowRight, HiDotsVertical } from "react-icons/hi";
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+
+const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+const highlightedCountries = new Set([
+  "840", // United States
+  "124", // Canada
+  "250", // France
+  "380", // Italy
+  "036", // Australia
+  "724", // Spain
+  "392", // Japan
+  "056", // Belgium
+  "826", // UK
+  "356", // India
+]);
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 
@@ -142,33 +158,34 @@ export default function AdminSaaSPage() {
           </div>
 
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            {/* Map placeholder */}
-            <div className="rounded-xl overflow-hidden bg-[#cce8f4] dark:bg-[#1a2f3f] relative" style={{ height: 260 }}>
-              {/* Ocean */}
-              <div className="absolute inset-0" style={{
-                background: "linear-gradient(135deg, #a8d8ea 0%, #84c5e4 40%, #6bb8df 100%)"
-              }} />
-              {/* Simplified coastal San Diego SVG */}
-              <svg viewBox="0 0 400 260" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-                {/* Land mass — rough Southern California coast */}
-                <path d="M220,0 L400,0 L400,260 L280,260 L270,240 L260,220 L255,200 L250,180 L248,160 L245,140 L242,120 L238,100 L232,80 L226,60 L220,40 Z" fill="#e8dcc8" className="dark:fill-[#3d3520]" />
-                {/* Water tones */}
-                <path d="M0,0 L220,0 L220,40 L226,60 L232,80 L238,100 L242,120 L245,140 L248,160 L250,180 L255,200 L260,220 L270,240 L280,260 L0,260 Z" fill="#7ec8e3" className="dark:fill-[#1a3a4f]" />
-                {/* City dots */}
-                <circle cx="268" cy="155" r="5" fill="#005EB8" opacity="0.9" />
-                <circle cx="255" cy="175" r="3.5" fill="#005EB8" opacity="0.7" />
-                <circle cx="272" cy="135" r="3" fill="#005EB8" opacity="0.7" />
-                <circle cx="278" cy="165" r="2.5" fill="#005EB8" opacity="0.6" />
-                {/* Labels */}
-                <text x="275" y="153" fontSize="9" fill="#1e3a5f" fontWeight="600" className="dark:fill-white">San Diego</text>
-                <text x="250" y="173" fontSize="7" fill="#1e3a5f" className="dark:fill-gray-300">La Jolla</text>
-                <text x="258" y="133" fontSize="7" fill="#1e3a5f" className="dark:fill-gray-300">Del Mar</text>
-                <text x="130" y="140" fontSize="10" fill="#2a6a8a" fontWeight="500" className="dark:fill-[#5ba3c7]">Pacific Ocean</text>
-              </svg>
-              {/* Scripps pin */}
-              <div className="absolute" style={{ left: "64%", top: "56%" }}>
-                <div className="h-3 w-3 rounded-full bg-primary-600 border-2 border-white shadow-md animate-pulse" />
-              </div>
+            {/* World map */}
+            <div className="rounded-xl overflow-hidden bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700" style={{ height: 280 }}>
+              <ComposableMap
+                projectionConfig={{ scale: 140 }}
+                style={{ width: "100%", height: "100%" }}
+              >
+                <Geographies geography={GEO_URL}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => {
+                      const isHighlighted = highlightedCountries.has(geo.id);
+                      return (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill={isHighlighted ? "#005EB8" : "#E2E8F0"}
+                          stroke="#ffffff"
+                          strokeWidth={0.5}
+                          style={{
+                            default: { outline: "none" },
+                            hover:   { fill: isHighlighted ? "#004fa0" : "#cbd5e1", outline: "none" },
+                            pressed: { outline: "none" },
+                          }}
+                        />
+                      );
+                    })
+                  }
+                </Geographies>
+              </ComposableMap>
             </div>
 
             {/* Country list */}
