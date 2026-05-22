@@ -28,7 +28,7 @@ function initMap(id: string, dark: boolean, data: MapData) {
       targetElementID: id,
       colorMin: "#A4CAFE",
       colorMax: "#1A56DB",
-      colorNoData: dark ? "#4B5563" : "#D1D5DB",
+      colorNoData: dark ? "#4B5563" : "#374151",
       flagType: "image",
       flagURL: "https://flowbite.com/application-ui/demo/images/flags/{0}.svg",
       data: {
@@ -62,7 +62,7 @@ export function SvgMap({ data = defaultData }: { data?: MapData }) {
   return (
     <div
       ref={containerRef}
-      className="w-full [&_.svgMap-map-wrapper]:dark:bg-gray-900 [&_.svgMap-map-wrapper]:rounded-lg [&_.svgMap-tooltip]:dark:bg-gray-700 [&_.svgMap-tooltip]:dark:text-white [&_.svgMap-tooltip]:dark:border-gray-600"
+      className="w-full [&_.svgMap-map-wrapper]:bg-white! [&_.svgMap-map-wrapper]:dark:bg-gray-900! [&_.svgMap-map-wrapper]:rounded-lg [&_.svgMap-tooltip]:dark:bg-gray-700 [&_.svgMap-tooltip]:dark:text-white [&_.svgMap-tooltip]:dark:border-gray-600"
     />
   );
 }
