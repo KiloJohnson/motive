@@ -66,6 +66,9 @@ export default function AdminInvoicePage() {
           </div>
         </div>
 
+        {/* Two-column layout: invoice + status sidebar */}
+        <div className="grid grid-cols-1 xl:grid-cols-[1fr_300px] gap-5 items-stretch">
+
         {/* Invoice card */}
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-8 space-y-7">
 
@@ -146,11 +149,11 @@ export default function AdminInvoicePage() {
           </div>
         </div>
 
-        {/* Invoice paid + details */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-6 space-y-5">
+        {/* Status sidebar */}
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-6 flex flex-col gap-5">
 
-          <div className="flex items-center gap-2 text-sm font-semibold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 rounded-lg px-4 py-2.5">
-            <HiCheck className="h-4 w-4" />Invoice paid
+          <div className="flex items-center gap-2 text-sm font-semibold text-[#0E543E] dark:text-[#65E3B1] rounded-lg px-4 py-2.5 whitespace-nowrap bg-[#D1EDE0] dark:bg-[#303947]">
+            <HiCheck className="h-4 w-4 shrink-0" />Invoice paid
           </div>
 
           <div>
@@ -189,13 +192,13 @@ export default function AdminInvoicePage() {
                   </div>
                   <span className="text-gray-700 dark:text-gray-300">{t.label}</span>
                 </div>
-                <span className="text-gray-500 dark:text-gray-400">{t.date}</span>
+                <span className="text-gray-500 dark:text-gray-400 whitespace-nowrap">{t.date}</span>
               </div>
             ))}
           </div>
 
           {/* Promo banner */}
-          <div className="flex items-start justify-between bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4">
+          <div className="mt-auto flex items-start justify-between bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4">
             <div>
               <Badge color="indigo" size="xs" className="mb-1">Version 2.0</Badge>
               <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Get paid 3× faster with our PRO plan for online payments!</p>
@@ -207,6 +210,7 @@ export default function AdminInvoicePage() {
           </div>
 
         </div>
+        </div>{/* end two-column grid */}
       </div>
     </PreviewShell>
   );
