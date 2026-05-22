@@ -4,12 +4,9 @@ import { PreviewShell } from "../PreviewShell";
 import { Badge, Button, Checkbox } from "flowbite-react";
 import dynamic from "next/dynamic";
 import { HiArrowUp, HiArrowDown, HiArrowRight, HiDotsVertical, HiChevronDown } from "react-icons/hi";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import { SvgMap } from "../SvgMap";
 
 const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
-
-const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
-const highlightedCountries = new Set(["840","124","250","380","036","724","392","056","826","356"]);
 
 // ── ApexCharts configs (direct from charts.js source) ─────────────────────
 
@@ -198,23 +195,7 @@ export default function AdminSaaSPage() {
             </div>
 
             {/* World map */}
-            <div style={{ height: 260 }} className="overflow-hidden rounded-lg">
-              <ComposableMap projectionConfig={{ scale: 140 }} style={{ width: "100%", height: "100%" }}>
-                <Geographies geography={GEO_URL}>
-                  {({ geographies }) =>
-                    geographies.map((geo) => {
-                      const active = highlightedCountries.has(geo.id);
-                      return (
-                        <Geography key={geo.rsmKey} geography={geo}
-                          fill={active ? PRIMARY : "#E2E8F0"} stroke="#ffffff" strokeWidth={0.5}
-                          style={{ default: { outline: "none" }, hover: { outline: "none" }, pressed: { outline: "none" } }}
-                        />
-                      );
-                    })
-                  }
-                </Geographies>
-              </ComposableMap>
-            </div>
+            <SvgMap />
 
             {/* Country list */}
             <ul className="space-y-6" role="list">
