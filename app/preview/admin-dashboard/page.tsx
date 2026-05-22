@@ -2,57 +2,127 @@
 
 import { PreviewShell } from "../PreviewShell";
 import { Avatar } from "flowbite-react";
-import {
-  AreaChart, Area, BarChart, Bar, LineChart, Line,
-  PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer,
-  XAxis, YAxis,
-} from "recharts";
+import dynamic from "next/dynamic";
 import {
   HiChevronDown, HiChevronRight, HiArrowUp, HiCalendar,
   HiDotsHorizontal, HiPaperAirplane,
 } from "react-icons/hi";
 
-// ── Chart data ─────────────────────────────────────────────────────────────
+const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const mainData = [
-  { date: "01 Mar", revenue: 10356, prev: 10256 },
-  { date: "02 Mar", revenue: 10456, prev: 10356 },
-  { date: "03 Mar", revenue: 10356, prev: 10456 },
-  { date: "04 Mar", revenue: 10456, prev: 10356 },
-  { date: "05 Mar", revenue: 10556, prev: 10556 },
-  { date: "06 Mar", revenue: 10556, prev: 10456 },
-  { date: "07 Mar", revenue: 10656, prev: 10556 },
-];
-
-const newProductsData = [
-  { date: "01 Feb", digital: 170, goods: 120 },
-  { date: "02 Feb", digital: 180, goods: 134 },
-  { date: "03 Feb", digital: 164, goods: 167 },
-  { date: "04 Feb", digital: 145, goods: 179 },
-  { date: "05 Feb", digital: 174, goods: 145 },
-  { date: "06 Feb", digital: 170, goods: 182 },
-  { date: "07 Feb", digital: 155, goods: 143 },
-];
-
-const trafficData = [
-  { name: "Direct",         value: 52.8 },
-  { name: "Organic search", value: 26.8 },
-  { name: "Referrals",      value: 20.4 },
-];
-
-const cpcData = [
-  { date: "01 Feb", clicks: 6500, cpc: 6456 },
-  { date: "02 Feb", clicks: 6418, cpc: 6356 },
-  { date: "03 Feb", clicks: 6456, cpc: 6526 },
-  { date: "04 Feb", clicks: 6526, cpc: 6332 },
-  { date: "05 Feb", clicks: 6356, cpc: 6418 },
-  { date: "06 Feb", clicks: 6456, cpc: 6500 },
-];
+// ── Colors (from charts.js) ────────────────────────────────────────────────
 
 const PRIMARY   = "#1A56DB";
 const SECONDARY = "#FF9963";
 const TERTIARY  = "#7E3AF2";
-const TRAFFIC_COLORS = [PRIMARY, SECONDARY, TERTIARY];
+
+// ── Chart configs (direct from charts.js source) ───────────────────────────
+
+const mainSeries = [
+  {
+    name: "Revenue",
+    data: [10356, 10456, 10356, 10456, 10556, 10556, 10656],
+    color: PRIMARY,
+  },
+  {
+    name: "Revenue (previous period)",
+    data: [10256, 10356, 10456, 10356, 10556, 10456, 10556],
+    color: SECONDARY,
+  },
+];
+
+const mainOptions = {
+  chart: { width: "100%", height: 412, type: "area" as const, fontFamily: "Inter, sans-serif", toolbar: { show: false } },
+  fill: { type: "gradient", gradient: { enabled: true, opacityFrom: 0.45, opacityTo: 0 } },
+  stroke: { curve: "smooth" as const },
+  dataLabels: { enabled: false },
+  tooltip: { style: { fontSize: "14px", fontFamily: "Inter, sans-serif" } },
+  grid: { show: false, padding: { left: 8, right: 8, top: 0, bottom: 5 } },
+  markers: { size: 5, strokeColors: "#ffffff", hover: { sizeOffset: 3 } },
+  xaxis: {
+    categories: ["01 Mar", "02 Mar", "03 Mar", "04 Mar", "05 Mar", "06 Mar", "07 Mar"],
+    labels: { trim: true, style: { colors: ["#6B7280"], fontSize: "14px", fontWeight: 400 } },
+    axisBorder: { color: "#F3F4F6" },
+    axisTicks: { color: "#F3F4F6" },
+  },
+  yaxis: { show: false },
+  legend: {
+    fontSize: "14px",
+    fontFamily: "Inter, sans-serif",
+    labels: { colors: ["#6B7280"] },
+    itemMargin: { horizontal: 10 },
+  },
+};
+
+const newProductsSeries = [
+  {
+    name: "Digital",
+    color: PRIMARY,
+    data: [
+      { x: "01 Feb", y: 170 }, { x: "02 Feb", y: 180 }, { x: "03 Feb", y: 164 },
+      { x: "04 Feb", y: 145 }, { x: "05 Feb", y: 174 }, { x: "06 Feb", y: 170 }, { x: "07 Feb", y: 155 },
+    ],
+  },
+  {
+    name: "Goods",
+    color: SECONDARY,
+    data: [
+      { x: "01 Feb", y: 120 }, { x: "02 Feb", y: 134 }, { x: "03 Feb", y: 167 },
+      { x: "04 Feb", y: 179 }, { x: "05 Feb", y: 145 }, { x: "06 Feb", y: 182 }, { x: "07 Feb", y: 143 },
+    ],
+  },
+];
+
+const newProductsOptions = {
+  colors: [PRIMARY, SECONDARY],
+  chart: { type: "bar" as const, height: 316, fontFamily: "Inter, sans-serif", foreColor: "#4B5563", toolbar: { show: false } },
+  plotOptions: { bar: { columnWidth: "80%", borderRadius: 3, borderRadiusApplication: "end" as const } },
+  tooltip: { shared: true, intersect: false, style: { fontSize: "14px", fontFamily: "Inter, sans-serif" } },
+  states: { hover: { filter: { type: "darken" as const, value: 1 } } },
+  stroke: { show: true, width: 5, colors: ["transparent"] },
+  grid: { show: false, padding: { left: 0, right: 0, top: 0, bottom: 0 } },
+  dataLabels: { enabled: false },
+  legend: { show: false },
+  xaxis: { floating: true, labels: { show: false }, axisBorder: { show: false }, axisTicks: { show: false } },
+  yaxis: { show: false },
+  fill: { opacity: 1 },
+};
+
+const trafficSeries = [52.8, 26.8, 20.4];
+
+const trafficOptions = {
+  colors: [PRIMARY, SECONDARY, TERTIARY],
+  chart: { height: 320, width: "100%", type: "pie" as const },
+  stroke: { colors: ["#ffffff"] },
+  plotOptions: { pie: { labels: { show: true }, size: "100%", dataLabels: { offset: -25 } } },
+  grid: { padding: { left: 0, right: 0, top: 0, bottom: 0 } },
+  labels: ["Direct", "Organic search", "Referrals"],
+  dataLabels: { enabled: true, style: { fontFamily: "Inter, sans-serif" } },
+  legend: { position: "bottom" as const, fontFamily: "Inter, sans-serif" },
+  yaxis: { labels: { formatter: (v: number) => v + "%" } },
+  xaxis: { labels: { formatter: (v: number) => v + "%" }, axisTicks: { show: false }, axisBorder: { show: false } },
+};
+
+const cpcSeries = [
+  { name: "Clicks", data: [6500, 6418, 6456, 6526, 6356, 6456], color: PRIMARY   },
+  { name: "CPC",    data: [6456, 6356, 6526, 6332, 6418, 6500], color: SECONDARY },
+];
+
+const cpcOptions = {
+  chart: { height: 286, type: "line" as const, fontFamily: "Inter, sans-serif", dropShadow: { enabled: false }, toolbar: { show: false } },
+  tooltip: { enabled: true, x: { show: false } },
+  dataLabels: { enabled: false },
+  stroke: { width: 4, curve: "smooth" as const },
+  grid: { show: false, strokeDashArray: 4, padding: { left: 0, right: 0, top: 0, bottom: 0 } },
+  legend: { show: false },
+  xaxis: {
+    categories: ["01 Feb", "02 Feb", "03 Feb", "04 Feb", "05 Feb", "06 Feb", "07 Feb"],
+    labels: { show: false, style: { fontFamily: "Inter, sans-serif" } },
+    axisBorder: { show: false },
+    axisTicks: { show: false },
+  },
+  yaxis: { show: false },
+};
 
 // ── Static content ─────────────────────────────────────────────────────────
 
@@ -94,7 +164,7 @@ const replies = [
   { initials: "JL", name: "Jese Leos",       text: "Hi @josephh Sure, just let me know when you are available and we can speak." },
 ];
 
-// ── Component ──────────────────────────────────────────────────────────────
+// ── Page ───────────────────────────────────────────────────────────────────
 
 export default function AdminDashboardPage() {
   return (
@@ -114,29 +184,7 @@ export default function AdminDashboardPage() {
               <HiChevronDown className="-me-0.5 h-4 w-4" />
             </button>
           </div>
-          <div className="mt-4">
-            <ResponsiveContainer width="100%" height={380}>
-              <AreaChart data={mainData}>
-                <defs>
-                  <linearGradient id="gradRevenue" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%"  stopColor={PRIMARY}   stopOpacity={0.45} />
-                    <stop offset="95%" stopColor={PRIMARY}   stopOpacity={0}    />
-                  </linearGradient>
-                  <linearGradient id="gradPrev" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%"  stopColor={SECONDARY} stopOpacity={0.45} />
-                    <stop offset="95%" stopColor={SECONDARY} stopOpacity={0}    />
-                  </linearGradient>
-                </defs>
-                <XAxis dataKey="date" tick={{ fontSize: 12, fill: "#6B7280" }} axisLine={false} tickLine={false} />
-                <YAxis hide />
-                <Tooltip />
-                <Area type="monotone" dataKey="revenue" stroke={PRIMARY}   strokeWidth={2} fill="url(#gradRevenue)" name="Revenue"
-                  dot={{ r: 4, fill: "white", strokeWidth: 2, stroke: PRIMARY }}   activeDot={{ r: 6 }} />
-                <Area type="monotone" dataKey="prev"    stroke={SECONDARY} strokeWidth={2} fill="url(#gradPrev)"    name="Revenue (previous period)"
-                  dot={{ r: 4, fill: "white", strokeWidth: 2, stroke: SECONDARY }} activeDot={{ r: 6 }} />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
+          <ReactApexChart options={mainOptions} series={mainSeries} type="area" height={412} />
         </div>
 
         {/* 2 ── Three-column stats grid */}
@@ -153,15 +201,7 @@ export default function AdminDashboardPage() {
                 <HiArrowUp className="h-5 w-5" />7%
               </span>
             </div>
-            <div className="mt-3">
-              <ResponsiveContainer width="100%" height={250}>
-                <BarChart data={newProductsData} barGap={2} barSize={10}>
-                  <Tooltip />
-                  <Bar dataKey="digital" fill={PRIMARY}   name="Digital" radius={[3, 3, 0, 0]} />
-                  <Bar dataKey="goods"   fill={SECONDARY} name="Goods"   radius={[3, 3, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+            <ReactApexChart options={newProductsOptions} series={newProductsSeries} type="bar" height={316} />
             <div className="flex items-center justify-between border-t border-gray-200 pt-4 dark:border-gray-700">
               <button className="inline-flex items-center rounded-lg p-2 text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                 Last 7 days <HiChevronDown className="ms-1 h-4 w-4" />
@@ -185,16 +225,7 @@ export default function AdminDashboardPage() {
                 <HiDotsHorizontal className="h-5 w-5" />
               </button>
             </div>
-            <ResponsiveContainer width="100%" height={260}>
-              <PieChart>
-                <Pie data={trafficData} cx="50%" cy="45%" outerRadius={90} dataKey="value"
-                  label={({ value }) => `${value}%`} labelLine>
-                  {trafficData.map((_, i) => <Cell key={i} fill={TRAFFIC_COLORS[i % TRAFFIC_COLORS.length]} />)}
-                </Pie>
-                <Legend verticalAlign="bottom" iconType="circle" iconSize={10} />
-                <Tooltip formatter={(v) => `${v}%`} />
-              </PieChart>
-            </ResponsiveContainer>
+            <ReactApexChart options={trafficOptions} series={trafficSeries} type="pie" height={320} />
             <div className="flex items-center justify-between border-t border-gray-200 pt-4 dark:border-gray-700">
               <button className="inline-flex items-center rounded-lg p-2 text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                 Last 7 days <HiChevronDown className="ms-1 h-4 w-4" />
@@ -222,13 +253,7 @@ export default function AdminDashboardPage() {
                 Last week <HiChevronDown className="h-4 w-4" />
               </button>
             </div>
-            <ResponsiveContainer width="100%" height={240}>
-              <LineChart data={cpcData}>
-                <Tooltip />
-                <Line type="monotone" dataKey="clicks" stroke={PRIMARY}   strokeWidth={3} dot={false} name="Clicks" />
-                <Line type="monotone" dataKey="cpc"    stroke={SECONDARY} strokeWidth={3} dot={false} name="CPC"    />
-              </LineChart>
-            </ResponsiveContainer>
+            <ReactApexChart options={cpcOptions} series={cpcSeries} type="line" height={286} />
             <div className="mt-2.5 border-t border-gray-200 dark:border-gray-700 pt-5">
               <a href="#" className="inline-flex items-center gap-1.5 rounded-lg bg-primary-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700">
                 View full report
@@ -273,11 +298,10 @@ export default function AdminDashboardPage() {
                   Ok <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">@team</a> I'am attaching our offer and pitch deck. Take your time to review everything. I'am looking forward to the next steps! Thank you.
                 </p>
                 <p className="mb-3 text-gray-900 dark:text-white">Looking forward to it! Thanks.</p>
-                {/* Attachments */}
                 <div className="flex flex-wrap gap-3">
                   {[
-                    { name: "flowbite_offer_345", size: "PDF, 2.3 MB",     bg: "bg-primary-100 dark:bg-primary-900", text: "text-primary-700 dark:text-primary-300", label: "PDF" },
-                    { name: "flowbite_showcase",  size: "MP4, 100.56 MB",  bg: "bg-teal-100 dark:bg-teal-900",       text: "text-teal-700 dark:text-teal-300",       label: "MP4" },
+                    { name: "flowbite_offer_345", size: "PDF, 2.3 MB",    bg: "bg-primary-100 dark:bg-primary-900", text: "text-primary-700 dark:text-primary-300", label: "PDF" },
+                    { name: "flowbite_showcase",  size: "MP4, 100.56 MB", bg: "bg-teal-100 dark:bg-teal-900",       text: "text-teal-700 dark:text-teal-300",       label: "MP4" },
                   ].map((f) => (
                     <div key={f.name} className="flex items-center rounded-lg border border-gray-200 bg-white p-3 dark:border-gray-700 dark:bg-gray-600 gap-3">
                       <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${f.bg} ${f.text} text-xs font-bold`}>{f.label}</div>
@@ -289,8 +313,6 @@ export default function AdminDashboardPage() {
                   ))}
                 </div>
               </article>
-
-              {/* Replies */}
               {replies.map((r, i) => (
                 <article key={i} className="mb-3 pl-5 border-l-2 border-gray-200 dark:border-gray-600">
                   <footer className="mb-1 flex items-center gap-2">
@@ -397,8 +419,8 @@ export default function AdminDashboardPage() {
               </div>
             </div>
 
-          </div>{/* end right col */}
-        </div>{/* end chat/activity grid */}
+          </div>
+        </div>
 
       </div>
     </PreviewShell>
