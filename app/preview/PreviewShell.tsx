@@ -47,8 +47,13 @@ const pimcNav: NavEntry[] = [
 // ── Admin nav ──────────────────────────────────────────────────────────────
 
 const adminNav: NavEntry[] = [
-  { kind: "link",  label: "Dashboard",      href: "/preview/admin-dashboard", icon: HiChartPie },
-  { kind: "link",  label: "SaaS",           href: "/preview/admin-saas",      icon: HiChartPie },
+  {
+    kind: "group", label: "Dashboards", icon: HiChartPie,
+    items: [
+      { label: "Main",        href: "/preview/admin-dashboard" },
+      { label: "SaaS",        href: "/preview/admin-saas" },
+    ],
+  },
   {
     kind: "group", label: "E-Commerce", icon: HiShoppingBag,
     items: [
