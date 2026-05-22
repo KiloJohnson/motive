@@ -22,27 +22,6 @@ const defaultData: MapData = {
   BR: { visitors:  40016, change: 5     },
 };
 
-function initMap(id: string, dark: boolean, data: MapData) {
-  return import("svgmap").then(({ default: SvgMapLib }) => {
-    new (SvgMapLib as any)({
-      targetElementID: id,
-      colorMin: "#A4CAFE",
-      colorMax: "#1A56DB",
-      colorNoData: dark ? "#4B5563" : "#374151",
-      flagType: "image",
-      flagURL: "https://flowbite.com/application-ui/demo/images/flags/{0}.svg",
-      data: {
-        data: {
-          visitors: { name: "Visitors:", format: "{0}", thousandSeparator: ",", thresholdMax: 500000, thresholdMin: 0 },
-          change:   { name: "Change:",   format: "{0} %" },
-        },
-        applyData: "visitors",
-        values: data,
-      },
-    });
-  });
-}
-
 export function SvgMap({ data = defaultData }: { data?: MapData }) {
   const { resolvedTheme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -52,17 +31,45 @@ export function SvgMap({ data = defaultData }: { data?: MapData }) {
     if (!containerRef.current) return;
     const dark = resolvedTheme === "dark";
 
-    // Clear any previous instance before reinitializing
     containerRef.current.innerHTML = "";
     containerRef.current.id = idRef.current;
 
-    initMap(idRef.current, dark, data);
+    import("svgmap").then(({ default: SvgMapLib }) => {
+      if (!containerRef.current) return;
+      new (SvgMapLib as any)({
+        targetElementID: idRef.current,
+        colorMin: "#A4CAFE",
+        colorMax: "#1A56DB",
+        colorNoData: dark ? "#4B5563" : "#374151",
+        flagType: "image",
+        flagURL: "https://flowbite.com/application-ui/demo/images/flags/{0}.svg",
+        data: {
+          data: {
+            visitors: { name: "Visitors:", format: "{0}", thousandSeparator: ",", thresholdMax: 500000, thresholdMin: 0 },
+            change:   { name: "Change:",   format: "{0} %" },
+          },
+          applyData: "visitors",
+          values: data,
+        },
+      });
+
+      // Remove svgmap's hardcoded ocean background — inherit card bg
+      const wrapper = containerRef.current?.querySelector<HTMLElement>(".svgMap-map-wrapper");
+      if (wrapper) wrapper.style.background = "transparent";
+
+      // In dark mode, soften country borders so they don't flash white
+      if (dark) {
+        containerRef.current?.querySelectorAll<SVGPathElement>(".svgMap-country").forEach((p) => {
+          p.style.stroke = "#1D2530";
+        });
+      }
+    });
   }, [resolvedTheme]);
 
   return (
     <div
       ref={containerRef}
-      className="w-full [&_.svgMap-map-wrapper]:bg-white! [&_.svgMap-map-wrapper]:dark:bg-gray-900! [&_.svgMap-map-wrapper]:rounded-lg [&_.svgMap-tooltip]:dark:bg-gray-700 [&_.svgMap-tooltip]:dark:text-white [&_.svgMap-tooltip]:dark:border-gray-600"
+      className="w-full [&_.svgMap-map-wrapper]:rounded-lg [&_.svgMap-tooltip]:dark:bg-gray-700! [&_.svgMap-tooltip]:dark:text-white!"
     />
   );
 }
