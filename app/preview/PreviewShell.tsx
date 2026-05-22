@@ -50,8 +50,17 @@ const adminNav: NavEntry[] = [
   {
     kind: "group", label: "Dashboards", icon: HiChartPie,
     items: [
-      { label: "Main",        href: "/preview/admin-dashboard" },
-      { label: "SaaS",        href: "/preview/admin-saas" },
+      { label: "Main",               href: "/preview/admin-dashboard" },
+      { label: "SaaS",               href: "/preview/admin-saas" },
+      { label: "Bank",               href: "/preview/admin-bank" },
+      { label: "Car Service",        href: "/preview/admin-car-service" },
+      { label: "Crypto",             href: "/preview/admin-crypto" },
+      { label: "Customer Service",   href: "/preview/admin-customer-service" },
+      { label: "E-Commerce",         href: "/preview/admin-ecommerce" },
+      { label: "Logistics",          href: "/preview/admin-logistics" },
+      { label: "Marketing",          href: "/preview/admin-marketing" },
+      { label: "Music",              href: "/preview/admin-music" },
+      { label: "Project Management", href: "/preview/admin-project-management" },
     ],
   },
   {
