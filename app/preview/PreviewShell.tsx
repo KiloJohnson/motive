@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Dropdown, DropdownHeader, DropdownItem, DropdownDivider, Avatar, Badge } from "flowbite-react";
@@ -59,7 +59,6 @@ const adminNav: NavEntry[] = [
       { label: "E-Commerce",         href: "/preview/admin-ecommerce" },
       { label: "Logistics",          href: "/preview/admin-logistics" },
       { label: "Marketing",          href: "/preview/admin-marketing" },
-      { label: "Music",              href: "/preview/admin-music" },
       { label: "Project Management", href: "/preview/admin-project-management" },
     ],
   },
@@ -99,9 +98,6 @@ const adminNav: NavEntry[] = [
       { label: "Notifications",  href: "/preview/admin-notifications" },
     ],
   },
-  { kind: "link",  label: "Kanban",         href: "/preview/admin-kanban",    icon: HiViewGrid },
-  { kind: "link",  label: "Calendar",       href: "/preview/admin-calendar",  icon: HiClock },
-  { kind: "link",  label: "AI Chat",        href: "/preview/admin-ai-chat",   icon: HiInboxIn },
   {
     kind: "group", label: "Mailing", icon: HiInboxIn,
     items: [
@@ -146,6 +142,9 @@ const adminNav: NavEntry[] = [
   {
     kind: "group", label: "Pages", icon: HiDocumentText,
     items: [
+      { label: "Kanban",        href: "/preview/admin-kanban" },
+      { label: "Calendar",      href: "/preview/admin-calendar" },
+      { label: "AI Chat",       href: "/preview/admin-ai-chat" },
       { label: "Pricing",       href: "/preview/admin-pricing" },
       { label: "404 Not Found", href: "/preview/admin-404" },
       { label: "500 Error",     href: "/preview/admin-500" },
@@ -201,10 +200,25 @@ export function PreviewShell({
   const subtitle = variant === "admin" ? "Admin Dashboard" : "PIMC Back Office";
   const displayTitle = title ?? subtitle;
 
-  // All groups open by default
-  const [openGroups, setOpenGroups] = useState<Set<string>>(
-    () => new Set(adminNav.filter((e): e is GroupItem => e.kind === "group").map((e) => e.label))
-  );
+  // Start collapsed; auto-open the group containing the active route
+  const [openGroups, setOpenGroups] = useState<Set<string>>(() => {
+    const active = new Set<string>();
+    for (const entry of adminNav) {
+      if (entry.kind === "group" && entry.items.some(i => i.href === pathname)) {
+        active.add(entry.label);
+      }
+    }
+    return active;
+  });
+
+  useEffect(() => {
+    for (const entry of adminNav) {
+      if (entry.kind === "group" && entry.items.some(i => i.href === pathname)) {
+        setOpenGroups(prev => new Set([...prev, entry.label]));
+        break;
+      }
+    }
+  }, [pathname]);
 
   const toggleGroup = (label: string) =>
     setOpenGroups((prev) => {

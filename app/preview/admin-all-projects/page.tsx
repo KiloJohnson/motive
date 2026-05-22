@@ -101,7 +101,7 @@ const projects: Project[] = [
   {
     name: "Upload feed and Reels in Instagram",
     status: "In progress",
-    avatars: ["avatar-10.png", "avatar-1.png", "avatar-3.png"],
+    avatars: ["avatar-9.png", "avatar-1.png", "avatar-3.png"],
     overflow: "+5",
     progress: 75,
     progressColor: "bg-blue-600",
@@ -149,7 +149,7 @@ const projects: Project[] = [
   {
     name: "Users profile update",
     status: "In progress",
-    avatars: ["avatar-10.png", "avatar-1.png", "avatar-5.png"],
+    avatars: ["avatar-9.png", "avatar-1.png", "avatar-5.png"],
     overflow: "+2",
     progress: 20,
     progressColor: "bg-blue-600",
@@ -173,7 +173,7 @@ const projects: Project[] = [
   {
     name: "Update design system",
     status: "In review",
-    avatars: ["avatar-10.png", "avatar-1.png"],
+    avatars: ["avatar-9.png", "avatar-1.png"],
     progress: 100,
     progressColor: "bg-yellow-300",
     preview: false,
@@ -207,7 +207,7 @@ const projects: Project[] = [
   {
     name: "Implement GPT 3.0 in Flowbite",
     status: "In progress",
-    avatars: ["avatar-10.png", "avatar-1.png", "avatar-5.png"],
+    avatars: ["avatar-9.png", "avatar-1.png", "avatar-5.png"],
     overflow: "+2",
     progress: 25,
     progressColor: "bg-blue-600",
@@ -231,7 +231,7 @@ const projects: Project[] = [
   {
     name: "Update design system",
     status: "In review",
-    avatars: ["avatar-10.png", "avatar-1.png"],
+    avatars: ["avatar-9.png", "avatar-1.png"],
     progress: 100,
     progressColor: "bg-yellow-300",
     preview: false,
@@ -265,7 +265,7 @@ const projects: Project[] = [
   {
     name: "Implement GPT 3",
     status: "In progress",
-    avatars: ["avatar-10.png", "avatar-1.png", "avatar-5.png"],
+    avatars: ["avatar-9.png", "avatar-1.png", "avatar-5.png"],
     overflow: "+2",
     progress: 25,
     progressColor: "bg-blue-600",

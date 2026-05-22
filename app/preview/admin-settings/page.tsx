@@ -19,7 +19,7 @@ export default function AdminSettingsPage() {
 
   return (
     <PreviewShell variant="admin" title="Settings">
-      <div className="p-6 space-y-6 max-w-6xl mx-auto">
+      <div className="p-6 space-y-6 w-full">
 
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Settings</h1>
 

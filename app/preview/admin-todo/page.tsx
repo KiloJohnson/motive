@@ -703,6 +703,200 @@ export default function AdminTodoPage() {
           onAddClick={() => setNewTaskOpen(true)}
         />
       </div>
+
+      {/* ── Right panel: My Day schedule ───────────────────────────────────── */}
+      <aside
+        className="fixed right-0 h-full w-80 translate-x-full border-l border-gray-200 bg-white pt-14 transition-transform dark:border-gray-700 dark:bg-gray-800 xl:!translate-x-0"
+        aria-label="Daily schedule"
+      >
+        <div className="h-full overflow-y-auto bg-white px-3 py-5 dark:bg-gray-800">
+          {/* Date nav */}
+          <div className="flex items-center justify-between">
+            <button
+              type="button"
+              className="rounded-lg border border-gray-200 bg-white p-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
+            >
+              <svg className="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m15 19-7-7 7-7" />
+              </svg>
+            </button>
+            <h3 className="font-medium text-gray-900 dark:text-white">Tue, Sep 18</h3>
+            <button
+              type="button"
+              className="rounded-lg border border-gray-200 bg-white p-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
+            >
+              <svg className="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m9 5 7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Hourly time list */}
+          <ol className="space-y-6 py-6">
+            {/* 06:00 */}
+            <li className="flex items-center">
+              <time dateTime="06:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">06:00 am</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 07:00 */}
+            <li className="flex items-center">
+              <time dateTime="07:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">07:00 am</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 08:00 + purple event */}
+            <li>
+              <div className="mb-6 flex items-center">
+                <time dateTime="08:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">08:00 am</time>
+                <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+              </div>
+              <a href="#" className="flex items-start rounded-lg bg-purple-600 p-2 text-white hover:bg-purple-500">
+                <svg className="me-1.5 h-4 w-4 shrink-0 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M5 9a7 7 0 1 1 8 7v5a1 1 0 1 1-2 0v-5a7 7 0 0 1-6-7Zm6-1c.2-.3.6-.5 1-.5a1 1 0 1 0 0-2A3.5 3.5 0 0 0 8.5 9a1 1 0 0 0 2 0c0-.4.2-.8.4-1Z" clipRule="evenodd" />
+                </svg>
+                <div className="space-y-1.5 leading-none">
+                  <time dateTime="08:15" className="block text-xs font-normal leading-none">08:15 am</time>
+                  <p className="text-sm font-medium">Video presentation for Flowbite Inc</p>
+                </div>
+              </a>
+            </li>
+            {/* 09:00 */}
+            <li className="flex items-center">
+              <time dateTime="09:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">09:00 am</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 10:00 + blue event */}
+            <li>
+              <div className="mb-6 flex items-center">
+                <time dateTime="10:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">10:00 am</time>
+                <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+              </div>
+              <a href="#" className="flex items-start rounded-lg p-2 text-white hover:opacity-90" style={{ backgroundColor: "#1A56DB" }}>
+                <svg className="me-1.5 h-4 w-4 shrink-0 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M5 9a7 7 0 1 1 8 7v5a1 1 0 1 1-2 0v-5a7 7 0 0 1-6-7Zm6-1c.2-.3.6-.5 1-.5a1 1 0 1 0 0-2A3.5 3.5 0 0 0 8.5 9a1 1 0 0 0 2 0c0-.4.2-.8.4-1Z" clipRule="evenodd" />
+                </svg>
+                <div className="space-y-1.5 leading-none">
+                  <time dateTime="10:25" className="block text-xs font-normal leading-none">10:25 am - 11:00 am</time>
+                  <p className="text-sm font-medium">Meeting with Bonnie Green and Jese Leos</p>
+                </div>
+              </a>
+            </li>
+            {/* 11:00 */}
+            <li className="flex items-center">
+              <time dateTime="11:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">11:00 am</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 12:00 */}
+            <li className="flex items-center">
+              <time dateTime="12:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">12:00 pm</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 13:00 */}
+            <li className="flex items-center">
+              <time dateTime="13:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">13:00 pm</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 14:00 + teal event */}
+            <li>
+              <div className="mb-6 flex items-center">
+                <time dateTime="14:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">14:00 pm</time>
+                <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+              </div>
+              <a href="#" className="flex items-start rounded-lg bg-teal-600 p-2 text-white hover:bg-teal-500">
+                <svg className="me-1.5 h-4 w-4 shrink-0 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M5 9a7 7 0 1 1 8 7v5a1 1 0 1 1-2 0v-5a7 7 0 0 1-6-7Zm6-1c.2-.3.6-.5 1-.5a1 1 0 1 0 0-2A3.5 3.5 0 0 0 8.5 9a1 1 0 0 0 2 0c0-.4.2-.8.4-1Z" clipRule="evenodd" />
+                </svg>
+                <div className="space-y-1.5 leading-none">
+                  <time dateTime="14:00" className="block text-xs font-normal leading-none">14:00 pm - 14:30 pm</time>
+                  <p className="text-sm font-medium">Planning for the new website</p>
+                </div>
+              </a>
+            </li>
+            {/* 15:00 */}
+            <li className="flex items-center">
+              <time dateTime="15:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">15:00 pm</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 16:00 */}
+            <li className="flex items-center">
+              <time dateTime="16:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">16:00 pm</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 17:00 + pink event */}
+            <li>
+              <div className="mb-6 flex items-center">
+                <time dateTime="17:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">17:00 pm</time>
+                <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+              </div>
+              <a href="#" className="flex items-start rounded-lg bg-pink-600 p-2 text-white hover:bg-pink-500">
+                <svg className="me-1.5 h-4 w-4 shrink-0 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M5 9a7 7 0 1 1 8 7v5a1 1 0 1 1-2 0v-5a7 7 0 0 1-6-7Zm6-1c.2-.3.6-.5 1-.5a1 1 0 1 0 0-2A3.5 3.5 0 0 0 8.5 9a1 1 0 0 0 2 0c0-.4.2-.8.4-1Z" clipRule="evenodd" />
+                </svg>
+                <div className="space-y-1.5 leading-none">
+                  <time dateTime="17:15" className="block text-xs font-normal leading-none">17:15 pm - 18:00 pm</time>
+                  <p className="text-sm font-medium">Presentation of Flowbite</p>
+                </div>
+              </a>
+            </li>
+            {/* 18:00 */}
+            <li className="flex items-center">
+              <time dateTime="18:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">18:00 pm</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 19:00 */}
+            <li className="flex items-center">
+              <time dateTime="19:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">19:00 pm</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 20:00 + indigo event */}
+            <li>
+              <div className="mb-6 flex items-center">
+                <time dateTime="20:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">20:00 pm</time>
+                <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+              </div>
+              <a href="#" className="flex items-start rounded-lg bg-indigo-600 p-2 text-white hover:bg-indigo-500">
+                <svg className="me-1.5 h-4 w-4 shrink-0 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M5 9a7 7 0 1 1 8 7v5a1 1 0 1 1-2 0v-5a7 7 0 0 1-6-7Zm6-1c.2-.3.6-.5 1-.5a1 1 0 1 0 0-2A3.5 3.5 0 0 0 8.5 9a1 1 0 0 0 2 0c0-.4.2-.8.4-1Z" clipRule="evenodd" />
+                </svg>
+                <div className="space-y-1.5 leading-none">
+                  <time dateTime="20:00" className="block text-xs font-normal leading-none">20:00 pm - 21:00 pm</time>
+                  <p className="text-sm font-medium">Meeting with Flowbite CEO to discuss financial results</p>
+                </div>
+              </a>
+            </li>
+            {/* 21:00 */}
+            <li className="flex items-center">
+              <time dateTime="21:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">21:00 pm</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 22:00 */}
+            <li className="flex items-center">
+              <time dateTime="22:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">22:00 pm</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 23:00 */}
+            <li className="flex items-center">
+              <time dateTime="23:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">23:00 pm</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+            {/* 24:00 */}
+            <li className="flex items-center">
+              <time dateTime="24:00" className="w-20 text-xs font-normal text-gray-500 dark:text-gray-400">24:00 pm</time>
+              <div className="h-px w-full bg-gray-200 dark:bg-gray-700" />
+            </li>
+          </ol>
+
+          {/* Add new task button */}
+          <button
+            type="button"
+            onClick={() => setNewTaskOpen(true)}
+            className="flex w-full items-center justify-center rounded-lg px-3 py-2 text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300"
+            style={{ backgroundColor: "#1A56DB" }}
+          >
+            <PlusIcon className="-ms-0.5 me-1.5 h-4 w-4" />
+            Add new task
+          </button>
+        </div>
+      </aside>
     </PreviewShell>
   );
 }
