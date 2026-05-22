@@ -79,6 +79,7 @@ const adminNav: NavEntry[] = [
     kind: "group", label: "E-Commerce", icon: HiShoppingBag,
     items: [
       { label: "Products",           href: "/preview/admin-products" },
+      { label: "Datatables",         href: "/preview/admin-datatables" },
       { label: "Billing",            href: "/preview/admin-billing" },
       { label: "Invoices",           href: "/preview/admin-invoices" },
       { label: "Invoice",            href: "/preview/admin-invoice" },
@@ -91,19 +92,29 @@ const adminNav: NavEntry[] = [
   {
     kind: "group", label: "Users", icon: HiUsers,
     items: [
-      { label: "All Users", href: "/preview/admin-users" },
-      { label: "User Feed", href: "/preview/admin-feed" },
-      { label: "Profile",   href: "/preview/admin-profile" },
-      { label: "Settings",  href: "/preview/admin-settings" },
+      { label: "All Users",      href: "/preview/admin-users" },
+      { label: "User Feed",      href: "/preview/admin-feed" },
+      { label: "Profile",        href: "/preview/admin-profile" },
+      { label: "Settings",       href: "/preview/admin-settings" },
+      { label: "Notifications",  href: "/preview/admin-notifications" },
     ],
   },
   { kind: "link",  label: "Kanban",         href: "/preview/admin-kanban",    icon: HiViewGrid },
+  { kind: "link",  label: "Calendar",       href: "/preview/admin-calendar",  icon: HiClock },
+  { kind: "link",  label: "AI Chat",        href: "/preview/admin-ai-chat",   icon: HiInboxIn },
   { kind: "link",  label: "Mailing",        href: "/preview/admin-mailing",   icon: HiInboxIn, badge: "4" },
   {
     kind: "group", label: "Pages", icon: HiDocumentText,
     items: [
-      { label: "Pricing",       href: "/preview/admin-pricing" },
-      { label: "404 Not Found", href: "/preview/admin-404" },
+      { label: "Pricing",        href: "/preview/admin-pricing" },
+      { label: "404 Not Found",  href: "/preview/admin-404" },
+      { label: "500 Error",      href: "/preview/admin-500" },
+      { label: "Maintenance",    href: "/preview/admin-maintenance" },
+      { label: "Text Editor",    href: "/preview/admin-text-editor" },
+      { label: "API Keys",       href: "/preview/admin-api" },
+      { label: "Chat Room",      href: "/preview/admin-chat-room" },
+      { label: "Events",         href: "/preview/admin-events" },
+      { label: "Integrations",   href: "/preview/admin-integrations" },
     ],
   },
   {
