@@ -74,8 +74,8 @@ export default function AdminInvoicePage() {
 
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-full bg-primary-600 flex items-center justify-center text-white text-sm font-bold">F</div>
-            <span className="text-lg font-bold text-gray-900 dark:text-white">Flowbite</span>
+            <img src="/logos/scripps_light.svg" alt="Scripps Health" className="h-7 w-auto dark:hidden" />
+            <img src="/logos/scripps_dark.svg" alt="Scripps Health" className="h-7 w-auto hidden dark:block" />
           </div>
 
           {/* Invoice # + date */}
