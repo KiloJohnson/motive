@@ -64,6 +64,18 @@ const adminNav: NavEntry[] = [
     ],
   },
   {
+    kind: "group", label: "Project Mgmt", icon: HiDocumentText,
+    items: [
+      { label: "All Files",       href: "/preview/admin-all-files" },
+      { label: "All Projects",    href: "/preview/admin-all-projects" },
+      { label: "My Projects",     href: "/preview/admin-my-projects" },
+      { label: "PM Table",        href: "/preview/admin-project-management-table" },
+      { label: "Project Summary", href: "/preview/admin-project-summary" },
+      { label: "To-Do",           href: "/preview/admin-todo" },
+      { label: "To-Do Upcoming",  href: "/preview/admin-todo-upcoming" },
+    ],
+  },
+  {
     kind: "group", label: "E-Commerce", icon: HiShoppingBag,
     items: [
       { label: "Products",           href: "/preview/admin-products" },
