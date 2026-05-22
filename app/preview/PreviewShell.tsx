@@ -228,7 +228,7 @@ export function PreviewShell({
     });
 
   return (
-    <div className="flex h-full overflow-hidden bg-gray-100 dark:bg-gray-900">
+    <div className="flex h-full overflow-hidden bg-(--preview-canvas) dark:bg-gray-900">
 
       {/* Sidebar */}
       <aside className={`${sidebarOpen ? "w-64" : "w-0 overflow-hidden"} shrink-0 bg-gray-900 flex flex-col transition-all duration-200`}>

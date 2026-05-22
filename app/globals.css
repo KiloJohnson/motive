@@ -36,28 +36,51 @@
 }
 
 /* ── Brand themes ────────────────────────────────────────────────────────── */
+/*
+  Surface tokens used throughout preview pages:
+  --preview-canvas   : background behind cards
+  --preview-border   : card / divider borders
+  --preview-text-muted : secondary/label text
+  --preview-text-subtle: tertiary/caption text
+*/
 
 [data-theme="scripps"] {
-  --motive-primary: #005EB8;
-  --motive-primary-hover: #004fa0;
+  --motive-primary:        #005EB8;
+  --motive-primary-hover:  #004fa0;
+  --preview-canvas:        #f3f4f6; /* gray-100 */
+  --preview-border:        #d1d5db; /* gray-300 */
+  --preview-text-muted:    #4b5563; /* gray-600 */
+  --preview-text-subtle:   #6b7280; /* gray-500 */
 }
 
 /* Placeholder — real assets needed: primary hex, secondary hex, logo SVG, font */
 [data-theme="qualcomm"] {
-  --motive-primary: #3253DC;
-  --motive-primary-hover: #2644c0;
+  --motive-primary:        #3253DC;
+  --motive-primary-hover:  #2644c0;
+  --preview-canvas:        #f3f4f6;
+  --preview-border:        #d1d5db;
+  --preview-text-muted:    #4b5563;
+  --preview-text-subtle:   #6b7280;
 }
 
 /* Placeholder — real assets needed: primary hex, secondary hex, logo SVG, font */
 [data-theme="giving"] {
-  --motive-primary: #C5382B;
-  --motive-primary-hover: #a82e23;
+  --motive-primary:        #C5382B;
+  --motive-primary-hover:  #a82e23;
+  --preview-canvas:        #f3f4f6;
+  --preview-border:        #d1d5db;
+  --preview-text-muted:    #4b5563;
+  --preview-text-subtle:   #6b7280;
 }
 
 /* Placeholder — real assets needed: primary hex, secondary hex, logo SVG, font */
 [data-theme="scrippsconnect"] {
-  --motive-primary: #00833D;
-  --motive-primary-hover: #006b31;
+  --motive-primary:        #00833D;
+  --motive-primary-hover:  #006b31;
+  --preview-canvas:        #f3f4f6;
+  --preview-border:        #d1d5db;
+  --preview-text-muted:    #4b5563;
+  --preview-text-subtle:   #6b7280;
 }
 
 .dark {

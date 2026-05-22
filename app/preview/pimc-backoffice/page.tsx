@@ -37,7 +37,7 @@ export default function PIMCBackofficePage() {
         {/* KPI cards */}
         <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
           {kpis.map((k) => (
-            <div key={k.label} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-300 dark:border-gray-700 p-5">
+            <div key={k.label} className="bg-white dark:bg-gray-800 rounded-xl border border-(--preview-border) dark:border-gray-700 p-5">
               <div className="flex items-start justify-between mb-3">
                 <p className="text-sm text-gray-600 dark:text-gray-400">{k.label}</p>
                 <div className={`h-9 w-9 rounded-lg flex items-center justify-center ${k.iconBg}`}>
@@ -56,7 +56,7 @@ export default function PIMCBackofficePage() {
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
 
           {/* Tier breakdown */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-300 dark:border-gray-700 p-5">
+          <div className="bg-white dark:bg-gray-800 rounded-xl border border-(--preview-border) dark:border-gray-700 p-5">
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Membership tiers</h2>
             <div className="space-y-4">
               {tiers.map((t) => (
@@ -80,7 +80,7 @@ export default function PIMCBackofficePage() {
           </div>
 
           {/* Recent invoices */}
-          <div className="xl:col-span-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-300 dark:border-gray-700">
+          <div className="xl:col-span-2 bg-white dark:bg-gray-800 rounded-xl border border-(--preview-border) dark:border-gray-700">
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700">
               <h2 className="text-sm font-semibold text-gray-900 dark:text-white">Recent invoices</h2>
               <Button color="default" size="xs">
