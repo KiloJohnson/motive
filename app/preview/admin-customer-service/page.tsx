@@ -37,7 +37,7 @@ const ticketsOverviewOptions = {
     height: 520,
     type: "area" as const,
     fontFamily: "Inter, sans-serif",
-    dropShadow: { enabled: false },
+    dropShadow: { enabled: false , animations: { enabled: false } },
     toolbar: { show: false },
   },
   tooltip: { enabled: true, x: { show: false } },

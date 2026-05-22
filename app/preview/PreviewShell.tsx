@@ -92,7 +92,7 @@ const adminNav: NavEntry[] = [
     kind: "group", label: "Users", icon: HiUsers,
     items: [
       { label: "All Users",      href: "/preview/admin-users" },
-      { label: "User Feed",      href: "/preview/admin-feed" },
+      { label: "Activity",        href: "/preview/admin-feed" },
       { label: "Profile",        href: "/preview/admin-profile" },
       { label: "Settings",       href: "/preview/admin-settings" },
       { label: "Notifications",  href: "/preview/admin-notifications" },

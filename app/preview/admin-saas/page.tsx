@@ -43,7 +43,7 @@ const totalSalesSeries = [
 
 const totalSalesOptions = {
   colors: [PRIMARY, SECONDARY, TERTIARY],
-  chart: { type: "bar" as const, height: 520, fontFamily: "Inter, sans-serif", toolbar: { show: false } },
+  chart: { type: "bar" as const, height: 520, fontFamily: "Inter, sans-serif", toolbar: { show: false }, animations: { enabled: false } },
   plotOptions: { bar: { horizontal: false, columnWidth: "70%", borderRadiusApplication: "end" as const, borderRadius: 8 } },
   tooltip: { shared: true, intersect: false, style: { fontFamily: "Inter, sans-serif" } },
   states: { hover: { filter: { type: "darken" as const, value: 1 } } },
@@ -69,7 +69,7 @@ const visitsSeries = [
 
 const visitsOptions = {
   colors: [PRIMARY, SECONDARY, TERTIARY],
-  chart: { type: "bar" as const, height: 130, stacked: true, stackType: "100%" as const, toolbar: { show: false } },
+  chart: { type: "bar" as const, height: 130, stacked: true, stackType: "100%" as const, toolbar: { show: false }, animations: { enabled: false } },
   plotOptions: { bar: { horizontal: true, borderRadius: 8 } },
   stroke: { width: 0, colors: ["#ffffff"] },
   xaxis: {

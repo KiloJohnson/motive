@@ -81,7 +81,7 @@ const inventorySeries = [
 ];
 const inventoryOptions = {
   colors: [PRIMARY],
-  chart: { type: "bar" as const, height: 520, fontFamily: "Inter, sans-serif", toolbar: { show: false } },
+  chart: { type: "bar" as const, height: 520, fontFamily: "Inter, sans-serif", toolbar: { show: false }, animations: { enabled: false } },
   plotOptions: { bar: { horizontal: false, columnWidth: "70%", borderRadiusApplication: "end" as const, borderRadius: 8 } },
   tooltip: { shared: true, intersect: false, style: { fontFamily: "Inter, sans-serif" } },
   states: { hover: { filter: { type: "darken" as const, value: 1 } } },
@@ -113,7 +113,7 @@ const trucksSeries = [
 ];
 const trucksOptions = {
   colors: [PRIMARY],
-  chart: { type: "bar" as const, height: 420, fontFamily: "Inter, sans-serif", toolbar: { show: false } },
+  chart: { type: "bar" as const, height: 420, fontFamily: "Inter, sans-serif", toolbar: { show: false }, animations: { enabled: false } },
   plotOptions: { bar: { horizontal: false, columnWidth: "70%", borderRadiusApplication: "end" as const, borderRadius: 8 } },
   tooltip: { shared: true, intersect: false, style: { fontFamily: "Inter, sans-serif" } },
   states: { hover: { filter: { type: "darken" as const, value: 1 } } },

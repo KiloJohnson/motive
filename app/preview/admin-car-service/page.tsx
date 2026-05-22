@@ -17,7 +17,7 @@ const WARNING   = "#C27803";
 // ── KPI sparklines ────────────────────────────────────────────────────────────
 
 const makeSparkline = (color: string) => ({
-  chart: { height: 80, maxWidth: "100%", type: "line" as const, fontFamily: "Inter, sans-serif", dropShadow: { enabled: false }, toolbar: { show: false } },
+  chart: { height: 80, maxWidth: "100%", type: "line" as const, fontFamily: "Inter, sans-serif", dropShadow: { enabled: false }, toolbar: { show: false }, animations: { enabled: false } },
   tooltip: { enabled: true, followCursor: true, x: { show: false }, fixed: { enabled: true, position: "top" as const, offsetX: 0, offsetY: -24 } },
   dataLabels: { enabled: false },
   stroke: { width: 3, curve: "smooth" as const },
@@ -93,7 +93,7 @@ const revenueSeries = [
 
 const revenueOptions = {
   colors: [PRIMARY, SECONDARY, "#7E3AF2"],
-  chart: { type: "bar" as const, height: 400, fontFamily: "Inter, sans-serif", toolbar: { show: false } },
+  chart: { type: "bar" as const, height: 400, fontFamily: "Inter, sans-serif", toolbar: { show: false }, animations: { enabled: false } },
   plotOptions: { bar: { horizontal: false, columnWidth: "65%", borderRadiusApplication: "end" as const, borderRadius: 6 } },
   tooltip: { shared: true, intersect: false, style: { fontFamily: "Inter, sans-serif" } },
   states: { hover: { filter: { type: "darken" as const, value: 1 } } },
@@ -118,7 +118,7 @@ const bookingVolumeSeries = [
 ];
 
 const bookingVolumeOptions = {
-  chart: { height: 260, type: "area" as const, fontFamily: "Inter, sans-serif", toolbar: { show: false } },
+  chart: { height: 260, type: "area" as const, fontFamily: "Inter, sans-serif", toolbar: { show: false }, animations: { enabled: false } },
   fill: { type: "gradient", gradient: { opacityFrom: 0.45, opacityTo: 0 } },
   stroke: { curve: "smooth" as const, width: 4 },
   dataLabels: { enabled: false },

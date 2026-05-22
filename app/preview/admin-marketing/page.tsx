@@ -23,7 +23,7 @@ const revenueOptions = {
     maxWidth: "100%",
     type: "area" as const,
     fontFamily: "Inter, sans-serif",
-    dropShadow: { enabled: false },
+    dropShadow: { enabled: false , animations: { enabled: false } },
     toolbar: { show: false },
     sparkline: { enabled: true },
   },

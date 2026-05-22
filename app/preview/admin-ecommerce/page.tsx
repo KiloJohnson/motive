@@ -70,7 +70,7 @@ const smallUsersChartOptions = {
     width: "140px",
     type: "line" as const,
     fontFamily: "Inter, sans-serif",
-    dropShadow: { enabled: false },
+    dropShadow: { enabled: false , animations: { enabled: false } },
     toolbar: { show: false },
   },
   tooltip: {
@@ -105,7 +105,7 @@ const smallCustomersChartOptions = {
     width: "140px",
     type: "line" as const,
     fontFamily: "Inter, sans-serif",
-    dropShadow: { enabled: false },
+    dropShadow: { enabled: false , animations: { enabled: false } },
     toolbar: { show: false },
   },
   tooltip: {
@@ -140,7 +140,7 @@ const smallRevenueChartOptions = {
     width: "140px",
     type: "line" as const,
     fontFamily: "Inter, sans-serif",
-    dropShadow: { enabled: false },
+    dropShadow: { enabled: false , animations: { enabled: false } },
     toolbar: { show: false },
   },
   tooltip: {
@@ -185,7 +185,7 @@ const smallProductsChartOptions = {
     fontFamily: "Inter, sans-serif",
     foreColor: "#4B5563",
     parentHeightOffset: 0,
-    toolbar: { show: false },
+    toolbar: { show: false , animations: { enabled: false } },
   },
   plotOptions: {
     bar: { columnWidth: "90%", borderRadius: 3 },
@@ -256,7 +256,7 @@ const totalRevenueOptions = {
     width: "100%",
     type: "area" as const,
     fontFamily: "Inter, sans-serif",
-    dropShadow: { enabled: false },
+    dropShadow: { enabled: false , animations: { enabled: false } },
     toolbar: { show: false },
   },
   tooltip: { enabled: true, x: { show: false } },

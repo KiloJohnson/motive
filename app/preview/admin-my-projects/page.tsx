@@ -32,7 +32,7 @@ const columnOptions = {
     type: "bar" as const,
     height: "320px",
     fontFamily: "Inter, sans-serif",
-    toolbar: { show: false },
+    toolbar: { show: false , animations: { enabled: false } },
   },
   plotOptions: {
     bar: {

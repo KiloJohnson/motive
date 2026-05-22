@@ -273,7 +273,7 @@ const projectsTakenSeries = [{ name: "Projects", data: [7, 8, 9, 6, 7, 10] }];
 const projectsTakenOptions = {
   fill: { colors: [PRIMARY], opacity: 1, type: "solid" as const },
   series: projectsTakenSeries,
-  chart: { height: 400, type: "bar" as const, toolbar: { show: false } },
+  chart: { height: 400, type: "bar" as const, toolbar: { show: false }, animations: { enabled: false } },
   plotOptions: {
     bar: {
       borderRadius: 8,

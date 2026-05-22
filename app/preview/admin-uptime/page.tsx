@@ -26,6 +26,7 @@ const uptimeOptions = {
     type: "heatmap" as const,
     toolbar: { show: false },
     fontFamily: "Inter, sans-serif",
+    animations: { enabled: false },
   },
   dataLabels: { enabled: false },
   colors: [PRIMARY],

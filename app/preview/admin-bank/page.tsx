@@ -25,6 +25,7 @@ const expensesChartOptions = {
     type: "area" as const,
     fontFamily: "Inter, sans-serif",
     dropShadow: { enabled: false },
+    animations: { enabled: false },
     toolbar: { show: false },
   },
   tooltip: { enabled: true, x: { show: true } },

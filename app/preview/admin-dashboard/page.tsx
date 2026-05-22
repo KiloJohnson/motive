@@ -32,7 +32,7 @@ const mainSeries = [
 ];
 
 const mainOptions = {
-  chart: { width: "100%", height: 412, type: "area" as const, fontFamily: "Inter, sans-serif", toolbar: { show: false } },
+  chart: { width: "100%", height: 412, type: "area" as const, fontFamily: "Inter, sans-serif", toolbar: { show: false }, animations: { enabled: false } },
   fill: { type: "gradient", gradient: { enabled: true, opacityFrom: 0.45, opacityTo: 0 } },
   stroke: { curve: "smooth" as const },
   dataLabels: { enabled: false },
@@ -75,7 +75,7 @@ const newProductsSeries = [
 
 const newProductsOptions = {
   colors: [PRIMARY, SECONDARY],
-  chart: { type: "bar" as const, height: 316, fontFamily: "Inter, sans-serif", foreColor: "#4B5563", toolbar: { show: false } },
+  chart: { type: "bar" as const, height: 316, fontFamily: "Inter, sans-serif", foreColor: "#4B5563", toolbar: { show: false }, animations: { enabled: false } },
   plotOptions: { bar: { columnWidth: "80%", borderRadius: 3, borderRadiusApplication: "end" as const } },
   tooltip: { shared: true, intersect: false, style: { fontSize: "14px", fontFamily: "Inter, sans-serif" } },
   states: { hover: { filter: { type: "darken" as const, value: 1 } } },
@@ -109,7 +109,7 @@ const cpcSeries = [
 ];
 
 const cpcOptions = {
-  chart: { height: 286, type: "line" as const, fontFamily: "Inter, sans-serif", dropShadow: { enabled: false }, toolbar: { show: false } },
+  chart: { height: 286, type: "line" as const, fontFamily: "Inter, sans-serif", dropShadow: { enabled: false }, toolbar: { show: false }, animations: { enabled: false } },
   tooltip: { enabled: true, x: { show: false } },
   dataLabels: { enabled: false },
   stroke: { width: 4, curve: "smooth" as const },

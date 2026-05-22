@@ -129,6 +129,7 @@ const commitsOptions = {
     height: 350,
     type: "heatmap" as const,
     toolbar: { show: false },
+    animations: { enabled: false },
   },
   grid: {
     padding: { left: 0, right: 0, top: 0, bottom: 0 },
