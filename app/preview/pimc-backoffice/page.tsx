@@ -37,9 +37,9 @@ export default function PIMCBackofficePage() {
         {/* KPI cards */}
         <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
           {kpis.map((k) => (
-            <div key={k.label} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+            <div key={k.label} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-300 dark:border-gray-700 p-5">
               <div className="flex items-start justify-between mb-3">
-                <p className="text-sm text-gray-500 dark:text-gray-400">{k.label}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{k.label}</p>
                 <div className={`h-9 w-9 rounded-lg flex items-center justify-center ${k.iconBg}`}>
                   <k.icon className={`h-5 w-5 ${k.iconColor}`} />
                 </div>
@@ -56,7 +56,7 @@ export default function PIMCBackofficePage() {
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
 
           {/* Tier breakdown */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-300 dark:border-gray-700 p-5">
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Membership tiers</h2>
             <div className="space-y-4">
               {tiers.map((t) => (
@@ -64,11 +64,11 @@ export default function PIMCBackofficePage() {
                   <div className="flex items-center justify-between mb-1.5">
                     <div className="flex items-center gap-2">
                       <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: t.color }} />
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{t.label}</span>
+                      <span className="text-sm font-medium text-gray-800 dark:text-gray-300">{t.label}</span>
                     </div>
                     <div className="text-right">
                       <span className="text-sm font-bold text-gray-900 dark:text-white">{t.count}</span>
-                      <span className="text-xs text-gray-400 ml-1.5">{t.amount}</span>
+                      <span className="text-xs text-gray-500 ml-1.5">{t.amount}</span>
                     </div>
                   </div>
                   <div className="h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -80,7 +80,7 @@ export default function PIMCBackofficePage() {
           </div>
 
           {/* Recent invoices */}
-          <div className="xl:col-span-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+          <div className="xl:col-span-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-300 dark:border-gray-700">
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700">
               <h2 className="text-sm font-semibold text-gray-900 dark:text-white">Recent invoices</h2>
               <Button color="default" size="xs">
@@ -102,13 +102,13 @@ export default function PIMCBackofficePage() {
                   <TableRow key={inv.member} className="bg-white dark:bg-gray-800">
                     <TableCell>
                       <p className="text-xs font-medium text-gray-900 dark:text-white">{inv.member}</p>
-                      <p className="text-xs text-gray-400">{inv.billing}</p>
+                      <p className="text-xs text-gray-500">{inv.billing}</p>
                     </TableCell>
                     <TableCell>
                       <Badge color={inv.tier === "Diamond+" ? "indigo" : inv.tier === "Diamond" ? "purple" : "warning"} size="xs">{inv.tier}</Badge>
                     </TableCell>
                     <TableCell className="text-xs font-medium text-gray-900 dark:text-white">{inv.amount}</TableCell>
-                    <TableCell className="text-xs text-gray-500 dark:text-gray-400">{inv.due}</TableCell>
+                    <TableCell className="text-xs text-gray-600 dark:text-gray-400">{inv.due}</TableCell>
                     <TableCell>
                       <Badge color={statusColor[inv.status]} size="xs">{inv.status}</Badge>
                     </TableCell>
