@@ -210,13 +210,6 @@ const applicationNav: NavItem[] = [
       { label: "Open App", href: "/preview/admin-dashboard", newTab: true },
     ],
   },
-  {
-    section: "PIMC",
-    accent: true,
-    items: [
-      { label: "PIMC App", href: "/preview/pimc-backoffice", newTab: true },
-    ],
-  },
 ];
 
 const brandStandardsNav: NavItem[] = [
