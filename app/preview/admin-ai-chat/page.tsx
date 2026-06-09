@@ -524,7 +524,7 @@ export default function AdminAiChatPage() {
   const [modelDropdownOpen, setModelDropdownOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
-  const models = ["GPT-4o mini", "GPT-4o", "Claude 3.5 Sonnet"];
+  const models = ["GPT-4o mini", "GPT-4o", "Gemini 1.5 Pro"];
   const [selectedModel, setSelectedModel] = useState("Default (GPT-3.5)");
 
   return (

@@ -53,7 +53,7 @@ const resources = [
   },
   {
     title: "For AI-Assisted Work",
-    description: "Motive is structured to be useful to the tools your team uses — Figma, GitHub Copilot, Claude. The same guidelines that help a designer help an AI make a better suggestion.",
+    description: "Motive is structured to be useful to the tools your team uses — Figma, GitHub Copilot, and AI assistants. The same guidelines that help a designer help an AI make a better suggestion.",
     href: "/marketing",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
