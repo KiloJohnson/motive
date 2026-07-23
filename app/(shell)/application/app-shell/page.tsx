@@ -56,7 +56,7 @@ export default function AppShellPage() {
             {/* Sidebar */}
             <div className="w-64 shrink-0 flex flex-col" style={{ backgroundColor: "#111827" }}>
               <div className="h-14 flex items-center px-4 shrink-0" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                <img src="/logos/scripps_dark.svg" alt="Scripps Health" className="h-6 w-auto" />
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_dark.svg`} alt="Scripps Health" className="h-6 w-auto" />
               </div>
               <nav className="flex-1 py-3 overflow-y-auto">
                 {navItems.map((item) => (

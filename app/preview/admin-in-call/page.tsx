@@ -10,7 +10,7 @@ export default function AdminInCallPage() {
         {/* Caller info */}
         <div className="relative mb-10 flex w-full flex-col items-center justify-center">
           <img
-            src="/images/audio-call/call-image.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/audio-call/call-image.png`}
             alt="Robert Brown"
             className="mb-3 h-36 w-36 rounded-full object-cover"
           />

@@ -20,8 +20,8 @@ export default function Admin404Page() {
           </div>
         </div>
 
-        <img src="/logos/scripps_light.svg" alt="Scripps" className="h-7 w-auto mx-auto mb-6 dark:hidden" />
-        <img src="/logos/scripps_dark.svg" alt="Scripps" className="h-7 w-auto mx-auto mb-6 hidden dark:block" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_light.svg`} alt="Scripps" className="h-7 w-auto mx-auto mb-6 dark:hidden" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_dark.svg`} alt="Scripps" className="h-7 w-auto mx-auto mb-6 hidden dark:block" />
 
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
           Oops! This page doesn't exist.

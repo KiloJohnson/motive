@@ -45,7 +45,7 @@ export default function TopBar() {
 
       {/* Logo */}
       <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-        <img src="/logos/motive_dark.svg" alt="Motive — Scripps Health Design System" style={{ height: "26px", width: "auto" }} />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/motive_dark.svg`} alt="Motive — Scripps Health Design System" style={{ height: "26px", width: "auto" }} />
       </Link>
 
       <div className="ml-auto flex items-center gap-3">

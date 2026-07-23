@@ -36,7 +36,7 @@ export default function AdminRateConversationPage() {
               href="#"
               className="mb-6 flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
             >
-              <img className="mr-2 h-8 w-8" src="/logos/scripps_icon.svg" alt="Scripps logo" />
+              <img className="mr-2 h-8 w-8" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_icon.svg`} alt="Scripps logo" />
               Scripps Health
             </a>
 

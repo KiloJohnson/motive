@@ -16,7 +16,7 @@ export default function WordCountPhysicianBiosPage() {
             <span className="text-lg font-medium text-gray-600">57 lines</span>
           </div>
           <img
-            src="/brand-standards/05-word-count/01-physician-bios/page-58.jpg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/05-word-count/01-physician-bios/page-58.jpg`}
             alt="8.5×11 physician bio word count example — two completed bios showing 275 words / 57 lines with real physician content"
             className="w-full h-auto rounded border border-gray-100"
           />
@@ -33,7 +33,7 @@ export default function WordCountPhysicianBiosPage() {
             Before you begin writing and formatting copy for a 4×9" bio, be sure to refer to the word counts in this guide, which will help you gauge the amount of copy for the space provided.
           </p>
           <img
-            src="/brand-standards/05-word-count/01-physician-bios/page-59.jpg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/05-word-count/01-physician-bios/page-59.jpg`}
             alt="4×9 physician bio word count example — completed front and back showing 75 words / 31 lines with real physician content"
             className="w-full h-auto rounded border border-gray-100"
           />
@@ -42,7 +42,7 @@ export default function WordCountPhysicianBiosPage() {
         <div className="border-t border-gray-100 pt-10">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-5">Additional Examples</h2>
           <img
-            src="/brand-standards/05-word-count/01-physician-bios/page-60.jpg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/05-word-count/01-physician-bios/page-60.jpg`}
             alt="Additional 4×9 physician bio examples — three completed bios side by side showing layout consistency"
             className="w-full h-auto rounded border border-gray-100"
           />

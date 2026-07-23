@@ -41,7 +41,7 @@ function DesktopHeaderPreview({ withUtility }: { withUtility?: boolean }) {
       {withUtility && <UtilityBar />}
       <div className="bg-white flex items-center justify-between px-6 py-3">
         <div className="flex items-center">
-          <img src="/logos/scripps.svg" alt="Scripps" className="h-5 w-auto" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="h-5 w-auto" />
         </div>
         <nav className="flex items-center gap-6 text-sm text-gray-600" style={{ fontFamily: "var(--font-red-hat-text)" }}>
           <span>Doctors &amp; Services</span>
@@ -68,7 +68,7 @@ function StickyHeaderPreview() {
     <div className="border border-gray-200 rounded overflow-hidden shadow-sm">
       <div className="bg-white flex items-center justify-between px-6 py-3 border-b border-gray-100">
         <div className="flex items-center">
-          <img src="/logos/scripps.svg" alt="Scripps" className="h-5 w-auto" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="h-5 w-auto" />
         </div>
         <nav className="flex items-center gap-6 text-sm text-gray-600" style={{ fontFamily: "var(--font-red-hat-text)" }}>
           <span>Doctors &amp; Services</span>
@@ -102,7 +102,7 @@ function MobileHeaderPreview() {
     <div className="border border-gray-200 rounded overflow-hidden shadow-sm max-w-sm">
       <div className="bg-white flex items-center justify-between px-4 py-3">
         <div className="flex items-center">
-          <img src="/logos/scripps.svg" alt="Scripps" className="h-4 w-auto" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="h-4 w-auto" />
         </div>
         <div className="flex items-center gap-3">
           <button className="px-3 py-1 text-xs font-medium text-white rounded" style={{ backgroundColor: "#005FCF", fontFamily: "var(--font-red-hat-text)" }}>

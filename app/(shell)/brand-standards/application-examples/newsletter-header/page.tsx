@@ -19,7 +19,7 @@ export default function NewsletterHeaderPage() {
             </li>
           ))}
         </ol>
-        <img src="/brand-standards/04-application-examples/05-newsletter-header/page-43.jpg" alt="Newsletter header — horizontal format with logo top-left, date top-right, large photo with Veil Column title overlay" className="w-full h-auto rounded border border-gray-100" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/05-newsletter-header/page-43.jpg`} alt="Newsletter header — horizontal format with logo top-left, date top-right, large photo with Veil Column title overlay" className="w-full h-auto rounded border border-gray-100" />
       </section>
     </div>
   );

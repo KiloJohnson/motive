@@ -65,7 +65,7 @@ function VideoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
       <ModalShell title="Robert Elliott, DO" onClose={onClose} width="max-w-2xl">
         <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
           <div className="absolute inset-0 bg-gray-900 flex items-center justify-center">
-            <img src="/images/providers/provider-2.png" alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-2.png`} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
             <div className="relative z-10 text-center">
               <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mx-auto mb-3 shadow-lg">
                 <svg width="20" height="24" viewBox="0 0 20 24" fill="white">
@@ -228,7 +228,7 @@ export default function ModalsPage() {
           <div className="border border-gray-100 rounded-xl p-8 bg-gray-50 flex items-center gap-6">
             <div className="border border-gray-200 rounded-xl bg-white shadow-sm overflow-hidden w-72">
               <div className="relative h-40 bg-gray-900 overflow-hidden">
-                <img src="/images/providers/provider-2.png" alt="" className="w-full h-full object-cover opacity-40" />
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-2.png`} alt="" className="w-full h-full object-cover opacity-40" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center shadow">
                     <svg width="14" height="18" viewBox="0 0 20 24" fill="white"><path d="M2 2l16 10L2 22V2z" /></svg>

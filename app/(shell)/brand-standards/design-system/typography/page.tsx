@@ -35,7 +35,7 @@ export default function TypographyPage() {
               </div>
             </div>
             <div>
-              <img src="/brand-standards/03-design-system/03-typography/page-22.png" alt="Frutiger typeface specimen showing all weights" className="w-full h-auto object-contain" />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/03-design-system/03-typography/page-22.png`} alt="Frutiger typeface specimen showing all weights" className="w-full h-auto object-contain" />
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function TypographyPage() {
               </div>
             </div>
             <div>
-              <img src="/brand-standards/03-design-system/03-typography/page-23.png" alt="Support typeface specimens — Sabon Next, Myriad Pro, and Carto Gothic" className="w-full h-auto object-contain" />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/03-design-system/03-typography/page-23.png`} alt="Support typeface specimens — Sabon Next, Myriad Pro, and Carto Gothic" className="w-full h-auto object-contain" />
             </div>
           </div>
         </div>

@@ -25,12 +25,12 @@ export default function AdminTwoFactorPage() {
           <div className="mr-auto hidden place-self-center lg:col-span-6 lg:flex">
             <img
               className="mx-auto dark:hidden"
-              src="/images/girl-and-computer.svg"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/girl-and-computer.svg`}
               alt="Two-factor authentication illustration"
             />
             <img
               className="mx-auto hidden dark:block"
-              src="/images/girl-and-computer-dark.svg"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/girl-and-computer-dark.svg`}
               alt="Two-factor authentication illustration"
             />
           </div>
@@ -46,12 +46,12 @@ export default function AdminTwoFactorPage() {
               >
                 <img
                   className="mr-2 h-8 w-auto dark:hidden"
-                  src="/logos/scripps_light.svg"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_light.svg`}
                   alt="Scripps Health"
                 />
                 <img
                   className="mr-2 h-8 w-auto hidden dark:block"
-                  src="/logos/scripps_dark.svg"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_dark.svg`}
                   alt="Scripps Health"
                 />
                 Scripps Health

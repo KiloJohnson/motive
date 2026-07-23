@@ -18,7 +18,7 @@ export default function PoleBannersPage() {
             </li>
           ))}
         </ol>
-        <img src="/brand-standards/04-application-examples/03-pole-banners/page-41.jpg" alt="Two pole banner examples — logo bottom with white veil, and logo centered with blue wave overlay" className="w-full h-auto rounded border border-gray-100" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/03-pole-banners/page-41.jpg`} alt="Two pole banner examples — logo bottom with white veil, and logo centered with blue wave overlay" className="w-full h-auto rounded border border-gray-100" />
       </section>
     </div>
   );

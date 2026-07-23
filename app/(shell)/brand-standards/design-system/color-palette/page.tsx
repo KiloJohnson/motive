@@ -28,7 +28,7 @@ export default function ColorPalettePage() {
       </section>
 
       <section className="px-16 py-12">
-        <img src="/brand-standards/03-design-system/02-color-palette/page-21.png" alt="15-color Pantone palette grid showing CMYK, RGB, and Web hex values for each color" className="w-full h-auto object-contain mb-8 max-w-5xl" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/03-design-system/02-color-palette/page-21.png`} alt="15-color Pantone palette grid showing CMYK, RGB, and Web hex values for each color" className="w-full h-auto object-contain mb-8 max-w-5xl" />
 
         <div className="max-w-5xl space-y-4 text-base text-gray-600 leading-relaxed mb-10">
           <p>The Scripps color palette is comprised of dynamic, optimistic and innovative colors.</p>

@@ -11,7 +11,7 @@ export function PreviewTopBar() {
     >
       {/* Motive branding */}
       <Link href="/" className="flex items-center gap-2.5 no-underline">
-        <img src="/logos/scripps_dark.svg" alt="Scripps" className="h-6 w-auto" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_dark.svg`} alt="Scripps" className="h-6 w-auto" />
         <div className="flex items-center gap-1.5">
           <span className="text-white text-sm font-bold tracking-tight">Motive™</span>
           <span className="text-white/40 text-xs">·</span>

@@ -46,7 +46,7 @@ function EmergencyDisclaimer() {
 function QuickViewCard() {
   return (
     <div className="border border-gray-200 rounded-xl p-4 bg-white shadow-sm w-56">
-      <img src="/images/providers/provider-1.png" alt="Kosha Nathwani, MD"
+      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} alt="Kosha Nathwani, MD"
         className="w-16 h-16 rounded-full object-cover mx-auto mb-3" />
       <p className="text-sm font-bold text-center mb-0.5" style={{ color: "#005FCF", fontFamily: "var(--font-red-hat-display)" }}>
         Kosha Nathwani, MD

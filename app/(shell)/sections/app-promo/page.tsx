@@ -34,7 +34,7 @@ function DesktopAppPromo() {
       <div className="absolute inset-0 opacity-20" style={{ background: "url('data:image/svg+xml,<svg/>')" }} />
       <div className="relative z-10 flex items-center gap-8 p-10">
         <div className="flex-1 max-w-md">
-          <img src="/logos/myscripps.svg" alt="MyScripps" className="h-8 w-auto mb-4 brightness-0 invert" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/myscripps.svg`} alt="MyScripps" className="h-8 w-auto mb-4 brightness-0 invert" />
           <p className="text-white text-sm leading-relaxed mb-6 opacity-90" style={{ fontFamily: "var(--font-red-hat-text)" }}>
             Find providers, make or cancel appointments, and meet from home — or anywhere with a secure video visit or e-visit.
           </p>
@@ -58,7 +58,7 @@ function MobileAppPromo() {
   return (
     <div className="relative rounded overflow-hidden max-w-sm" style={{ background: "linear-gradient(135deg, #1a2a4a 0%, #2a3a5a 50%, #3a4a6a 100%)" }}>
       <div className="p-6">
-        <img src="/logos/myscripps.svg" alt="MyScripps" className="h-7 w-auto mb-4 brightness-0 invert" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/myscripps.svg`} alt="MyScripps" className="h-7 w-auto mb-4 brightness-0 invert" />
         <p className="text-white text-sm leading-relaxed mb-5 opacity-90" style={{ fontFamily: "var(--font-red-hat-text)" }}>
           Find providers, make or cancel appointments, and meet from home — or anywhere with a secure video visit or e-visit.
         </p>

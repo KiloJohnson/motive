@@ -259,8 +259,8 @@ export default function AdminInvoiceCreatePage() {
           <div className="p-8 space-y-6 bg-white dark:bg-gray-800">
 
             <div className="flex items-center gap-2">
-              <img src="/logos/scripps_light.svg" alt="Scripps Health" className="h-7 w-auto dark:hidden" />
-              <img src="/logos/scripps_dark.svg" alt="Scripps Health" className="h-7 w-auto hidden dark:block" />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_light.svg`} alt="Scripps Health" className="h-7 w-auto dark:hidden" />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_dark.svg`} alt="Scripps Health" className="h-7 w-auto hidden dark:block" />
             </div>
 
             <div className="flex items-start justify-between">

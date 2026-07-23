@@ -100,7 +100,7 @@ function LightHeader() {
       <div className="flex gap-6">
         <div className="flex gap-4 flex-1">
           <div className="relative shrink-0">
-            <img src="/images/providers/provider-1.png" alt="Kosha Nathwani, MD" className="w-24 h-24 rounded-full object-cover" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} alt="Kosha Nathwani, MD" className="w-24 h-24 rounded-full object-cover" />
             <div className="absolute bottom-0 right-0 w-7 h-7 rounded-full bg-[#005FCF] flex items-center justify-center cursor-pointer shadow">
               <svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M2 1l8 5-8 5V1z" fill="white"/></svg>
             </div>
@@ -121,7 +121,7 @@ function DarkHeader() {
         <div className="flex gap-6">
           <div className="flex gap-4 flex-1">
             <div className="relative shrink-0">
-              <img src="/images/providers/provider-1.png" alt="Kosha Nathwani, MD" className="w-24 h-24 rounded-full object-cover border-2 border-white/30" />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} alt="Kosha Nathwani, MD" className="w-24 h-24 rounded-full object-cover border-2 border-white/30" />
               <div className="absolute bottom-0 right-0 w-7 h-7 rounded-full bg-white flex items-center justify-center cursor-pointer shadow">
                 <svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M2 1l8 5-8 5V1z" fill="#005FCF"/></svg>
               </div>
@@ -153,10 +153,10 @@ function MobileHeader() {
   return (
     <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm max-w-sm">
       <div className="relative h-40">
-        <img src="/images/providers/video.png" alt="" className="w-full h-full object-cover" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/video.png`} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
           <div className="flex items-center gap-3">
-            <img src="/images/providers/provider-1.png" alt="Kosha Nathwani, MD" className="w-14 h-14 rounded-full object-cover border-2 border-white shrink-0" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} alt="Kosha Nathwani, MD" className="w-14 h-14 rounded-full object-cover border-2 border-white shrink-0" />
             <div>
               <p className="text-white font-bold text-base" style={{ fontFamily: "var(--font-red-hat-display)" }}>Kosha Nathwani, MD</p>
               <p className="text-white/80 text-xs" style={{ fontFamily: "var(--font-red-hat-text)" }}>Family Medicine</p>
@@ -215,7 +215,7 @@ export default function ProfileHeaderPage() {
             <p className="text-xs text-[#005FCF] mb-3 cursor-pointer" style={{ fontFamily: "var(--font-red-hat-text)" }}>← Back to search</p>
             <div className="flex gap-6">
               <div className="flex gap-4 flex-1">
-                <img src="/images/providers/provider-1.png" alt="" className="w-24 h-24 rounded-full object-cover shrink-0" />
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} alt="" className="w-24 h-24 rounded-full object-cover shrink-0" />
                 <ProviderInfo />
               </div>
               <PhoneOnlyCTA />

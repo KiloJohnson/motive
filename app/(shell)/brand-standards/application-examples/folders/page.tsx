@@ -25,7 +25,7 @@ export default function FoldersPage() {
             </li>
           ))}
         </ol>
-        <img src="/brand-standards/04-application-examples/01-folders/page-34.png" alt="Two folder cover designs — one Veil Column and one Wave-only graphic design" className="w-full h-auto rounded border border-gray-100" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/01-folders/page-34.png`} alt="Two folder cover designs — one Veil Column and one Wave-only graphic design" className="w-full h-auto rounded border border-gray-100" />
       </section>
     </div>
   );

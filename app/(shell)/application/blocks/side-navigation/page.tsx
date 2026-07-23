@@ -35,7 +35,7 @@ function DefaultSidebar() {
   return (
     <aside className="bg-gray-800 h-auto min-h-[320px] w-full py-4">
       <div className="px-3 mb-4 flex items-center gap-2">
-        <img src="/logos/scripps_dark.svg" alt="Scripps" className="h-6 w-auto" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_dark.svg`} alt="Scripps" className="h-6 w-auto" />
         <span className="text-sm font-semibold text-white">PIMC Back Office</span>
       </div>
       <nav className="px-2 space-y-0.5">

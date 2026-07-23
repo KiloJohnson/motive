@@ -21,7 +21,7 @@ export default function WebsitesAndSocialMediaPage() {
               </li>
             ))}
           </ol>
-          <img src="/brand-standards/04-application-examples/09-websites-and-social-media/page-52.jpg" alt="Employee portal homepage — Wave Graphic footer, orange accent headers, news/events grid" className="w-full h-auto rounded border border-gray-100" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/09-websites-and-social-media/page-52.jpg`} alt="Employee portal homepage — Wave Graphic footer, orange accent headers, news/events grid" className="w-full h-auto rounded border border-gray-100" />
         </div>
 
         <div className="border-t border-gray-100 pt-10">
@@ -39,7 +39,7 @@ export default function WebsitesAndSocialMediaPage() {
               </li>
             ))}
           </ol>
-          <img src="/brand-standards/04-application-examples/09-websites-and-social-media/page-53.jpg" alt="Facebook page templates — cover image examples using Wave Graphic strip, Veil Column, and brand color accents" className="w-full h-auto rounded border border-gray-100" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/09-websites-and-social-media/page-53.jpg`} alt="Facebook page templates — cover image examples using Wave Graphic strip, Veil Column, and brand color accents" className="w-full h-auto rounded border border-gray-100" />
         </div>
 
       </section>

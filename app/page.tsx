@@ -186,7 +186,7 @@ export default function MotiveHome() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-500">
         <div className="max-w-480 mx-auto flex items-center justify-between px-16 py-5">
           <Link href="/">
-            <img src="/logos/motive.svg" alt="Motive — Scripps Health Design System" style={{ height: "30px", width: "auto" }} />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/motive.svg`} alt="Motive — Scripps Health Design System" style={{ height: "30px", width: "auto" }} />
           </Link>
           <div className="relative" ref={dropdownRef}>
             <button
@@ -334,7 +334,7 @@ export default function MotiveHome() {
           </div>
           {/* Pattern blends with background color */}
           <div className="h-61 overflow-hidden">
-            <img src="/images/home/cta1.png" alt="" className="w-full h-full object-cover object-top-left" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/home/cta1.png`} alt="" className="w-full h-full object-cover object-top-left" />
           </div>
         </div>
       </section>
@@ -626,7 +626,7 @@ export default function MotiveHome() {
           </div>
         </div>
         <div className="flex items-center justify-between border-t border-white/10 pt-8">
-          <img src="/logos/motive_dark.svg" alt="Motive" style={{ height: "16px", width: "auto" }} />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/motive_dark.svg`} alt="Motive" style={{ height: "16px", width: "auto" }} />
           <p className="text-xs text-white/40">Scripps Health Design System — Internal use only</p>
           <Link href="/" className="text-xs text-white/40 hover:text-white/70 transition-colors">Back to Top ↑</Link>
         </div>

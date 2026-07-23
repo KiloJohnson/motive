@@ -300,7 +300,7 @@ export default function AdminMailingReadPage() {
               <div className="flex items-center gap-4">
                 <img
                   className="h-10 w-10 rounded-full"
-                  src="/images/providers/provider-4.png"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-4.png`}
                   alt="Avatar"
                 />
                 <div className="font-semibold dark:text-white">

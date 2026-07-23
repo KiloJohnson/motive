@@ -39,7 +39,7 @@ export default function ImageryPage() {
 
         <div>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-5">Imagery Guidelines</h2>
-          <img src="/brand-standards/03-design-system/05-imagery/page-31.jpg" alt="Approved photography examples — natural light, outdoor settings, selective focus, candid poses" className="w-full h-auto rounded border border-gray-100 mb-6" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/03-design-system/05-imagery/page-31.jpg`} alt="Approved photography examples — natural light, outdoor settings, selective focus, candid poses" className="w-full h-auto rounded border border-gray-100 mb-6" />
           <ul className="space-y-2">
             {guidelines.map((g, i) => (
               <li key={i} className="flex gap-3 text-sm text-gray-600 leading-relaxed">
@@ -51,7 +51,7 @@ export default function ImageryPage() {
         </div>
 
         <div>
-          <img src="/brand-standards/03-design-system/05-imagery/page-32.jpg" alt="Additional approved photography examples and things to avoid" className="w-full h-auto rounded border border-gray-100 mb-6" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/03-design-system/05-imagery/page-32.jpg`} alt="Additional approved photography examples and things to avoid" className="w-full h-auto rounded border border-gray-100 mb-6" />
           <div>
             <h3 className="text-base font-semibold text-gray-900 mb-3">Things to Avoid</h3>
             <ul className="space-y-2">

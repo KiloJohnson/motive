@@ -14,7 +14,7 @@ export default function WordCountFlyersPage() {
             <span className="text-2xl font-semibold text-gray-900">220 words</span>
           </div>
           <img
-            src="/brand-standards/05-word-count/03-flyers/page-63.jpg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/05-word-count/03-flyers/page-63.jpg`}
             alt="Event flyer word count examples — two completed flyers showing 220 words each with real physician bio content"
             className="w-full h-auto rounded border border-gray-100"
           />

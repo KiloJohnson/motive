@@ -13,12 +13,12 @@ export default function FoundationMaterialsPage() {
         <div>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-5">Scripps Health Foundation — Invitations</h2>
           <div className="grid grid-cols-2 gap-4 mb-6">
-            <img src="/brand-standards/04-application-examples/10-foundation-materials/page-54a.png" alt="Foundation invitation — large format, full-bleed rose photo with Sabon Next and Veil Column" className="w-full h-auto object-contain border border-gray-100 rounded" />
-            <img src="/brand-standards/04-application-examples/10-foundation-materials/page-54b.jpg" alt="Foundation invitation — smaller format variations showing three Veil Column color options" className="w-full h-auto object-contain border border-gray-100 rounded" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/10-foundation-materials/page-54a.png`} alt="Foundation invitation — large format, full-bleed rose photo with Sabon Next and Veil Column" className="w-full h-auto object-contain border border-gray-100 rounded" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/10-foundation-materials/page-54b.jpg`} alt="Foundation invitation — smaller format variations showing three Veil Column color options" className="w-full h-auto object-contain border border-gray-100 rounded" />
           </div>
           <div className="grid grid-cols-2 gap-4 mb-8">
-            <img src="/brand-standards/04-application-examples/10-foundation-materials/page-55a.png" alt="Foundation formal invitation — Veil Column layout with Sabon Next typesetting" className="w-full h-auto object-contain border border-gray-100 rounded" />
-            <img src="/brand-standards/04-application-examples/10-foundation-materials/page-55b.png" alt="Foundation formal invitation — three color variations of the same layout" className="w-full h-auto object-contain border border-gray-100 rounded" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/10-foundation-materials/page-55a.png`} alt="Foundation formal invitation — Veil Column layout with Sabon Next typesetting" className="w-full h-auto object-contain border border-gray-100 rounded" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/10-foundation-materials/page-55b.png`} alt="Foundation formal invitation — three color variations of the same layout" className="w-full h-auto object-contain border border-gray-100 rounded" />
           </div>
           <p className="text-sm text-gray-500 mb-4">When designing for Scripps Health Foundation invitations, the following elements can be used:</p>
           <ol className="space-y-4">
@@ -58,7 +58,7 @@ export default function FoundationMaterialsPage() {
               </li>
             ))}
           </ol>
-          <img src="/brand-standards/04-application-examples/10-foundation-materials/page-56.jpg" alt="Distinguished Speaker Series postcards — two postcard designs showing logo placement and physician portraits" className="w-full h-auto rounded border border-gray-100" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/10-foundation-materials/page-56.jpg`} alt="Distinguished Speaker Series postcards — two postcard designs showing logo placement and physician portraits" className="w-full h-auto rounded border border-gray-100" />
         </div>
 
       </section>

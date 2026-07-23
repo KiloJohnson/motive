@@ -12,8 +12,8 @@ export default function AdminMaintenancePage() {
           <div className="self-center sm:col-span-7 lg:col-span-6">
             {/* Logo */}
             <a href="/preview/admin-dashboard" className="inline-flex items-center text-xl font-semibold text-gray-900 dark:text-white mb-6">
-              <img className="mr-2 h-8 w-auto dark:hidden" src="/logos/scripps_light.svg" alt="Scripps Health" />
-              <img className="mr-2 h-8 w-auto hidden dark:block" src="/logos/scripps_dark.svg" alt="Scripps Health" />
+              <img className="mr-2 h-8 w-auto dark:hidden" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_light.svg`} alt="Scripps Health" />
+              <img className="mr-2 h-8 w-auto hidden dark:block" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_dark.svg`} alt="Scripps Health" />
             </a>
 
             <h1 className="my-4 text-3xl font-bold text-gray-900 dark:text-white md:my-6 md:text-4xl">

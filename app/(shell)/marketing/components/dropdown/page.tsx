@@ -116,7 +116,7 @@ function UserDropdown() {
         onClick={() => setOpen(o => !o)}
         className="flex items-center gap-2 cursor-pointer"
       >
-        <img src="/images/providers/provider-1.png" alt="" className="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} alt="" className="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm" />
         <svg width="12" height="8" viewBox="0 0 12 8" fill="none" className={`transition-transform text-gray-500 ${open ? "rotate-180" : ""}`}>
           <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>

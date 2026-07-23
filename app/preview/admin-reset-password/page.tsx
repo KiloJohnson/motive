@@ -11,8 +11,8 @@ export default function AdminResetPasswordPage() {
       <div className="w-full max-w-sm">
 
         <div className="flex justify-center mb-6">
-          <img src="/logos/scripps_light.svg" alt="Scripps Health" className="h-8 w-auto dark:hidden" />
-          <img src="/logos/scripps_dark.svg" alt="Scripps Health" className="h-8 w-auto hidden dark:block" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_light.svg`} alt="Scripps Health" className="h-8 w-auto dark:hidden" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_dark.svg`} alt="Scripps Health" className="h-8 w-auto hidden dark:block" />
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">

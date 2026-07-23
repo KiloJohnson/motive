@@ -26,7 +26,7 @@ export default function ArchitecturePage() {
             </div>
           </div>
           <div>
-            <img src="/brand-standards/02-scripps-logo/06-architecture/page-14.jpg" alt="Entity name placement example showing hospital name in Frutiger Bold positioned separately from the logo" className="w-full h-auto object-contain" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/02-scripps-logo/06-architecture/page-14.jpg`} alt="Entity name placement example showing hospital name in Frutiger Bold positioned separately from the logo" className="w-full h-auto object-contain" />
           </div>
         </div>
       </section>

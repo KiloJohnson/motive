@@ -24,7 +24,7 @@ export default function DesignSystemIntroPage() {
             <p className="text-base">The Scripps design system is composed of unique graphic elements that will distinguish Scripps communication materials from those of others in the marketplace.</p>
           </div>
           <div>
-            <img src="/brand-standards/03-design-system/01-introduction/page-20.jpg" alt="The four key design system elements — Logo, Wave Graphic, Veil Column, and Imagery shown in a sample layout" className="w-full h-auto object-contain" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/03-design-system/01-introduction/page-20.jpg`} alt="The four key design system elements — Logo, Wave Graphic, Veil Column, and Imagery shown in a sample layout" className="w-full h-auto object-contain" />
           </div>
         </div>
 

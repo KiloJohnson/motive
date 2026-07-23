@@ -108,7 +108,7 @@ function IndividualProviderCard({ mobile = false }: { mobile?: boolean }) {
     return (
       <div className="bg-white border border-gray-200 rounded-xl p-4 w-[280px] shadow-sm">
         <div className="flex gap-3 mb-3">
-          <ProviderPhoto src="/images/providers/provider-1.png" size={64} initials="KN" />
+          <ProviderPhoto src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} size={64} initials="KN" />
           <div className="flex-1 min-w-0">
             <p className="text-sm font-bold leading-tight mb-0.5" style={{ color: "#005FCF", fontFamily: "var(--font-red-hat-display)" }}>Kosha Nathwani, MD</p>
             <p className="text-xs text-gray-500 mb-1" style={{ fontFamily: "var(--font-red-hat-text)" }}>Internal Medicine</p>
@@ -136,7 +136,7 @@ function IndividualProviderCard({ mobile = false }: { mobile?: boolean }) {
       <div className="flex gap-6">
         {/* Left — provider info */}
         <div className="flex gap-4 w-64 shrink-0">
-          <ProviderPhoto src="/images/providers/provider-1.png" size={80} initials="KN" />
+          <ProviderPhoto src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} size={80} initials="KN" />
           <div className="flex-1 min-w-0">
             <p className="text-base font-bold leading-snug mb-0.5" style={{ color: "#005FCF", fontFamily: "var(--font-red-hat-display)" }}>Kosha Nathwani, MD</p>
             <p className="text-xs text-gray-500 mb-1" style={{ fontFamily: "var(--font-red-hat-text)" }}>Family Medicine</p>

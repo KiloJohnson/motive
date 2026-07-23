@@ -150,7 +150,7 @@ function IconCard() {
   return (
     <Card>
       <CardBody>
-        <img src="/icons/doctor-finder.svg" alt="Service icon" className="w-12 h-12" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/icons/doctor-finder.svg`} alt="Service icon" className="w-12 h-12" />
         <CardTitle text="Action Card" color="#005FCF" />
         <CardBody_Text text="Lorem ipsum dolor sit amet consectetur. Dui quis sed sollicitudin elit ultricies fermentum feugiat sollicitudin. Mollis tempus cum tristique vel." />
         <CardAction label="Action" text />

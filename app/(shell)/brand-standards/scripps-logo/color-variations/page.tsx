@@ -25,8 +25,8 @@ export default function ColorVariationsPage() {
 
       <section className="px-16 py-12">
         <div className="grid grid-cols-2 gap-6 max-w-5xl mb-10">
-          <img src="/brand-standards/02-scripps-logo/04-logo-color-variations/page-09.png" alt="Logo color variations — full-color, one-color blue, one-color black, and reverse white treatments" className="w-full h-auto object-contain border border-gray-100 rounded" />
-          <img src="/brand-standards/02-scripps-logo/04-logo-color-variations/page-10.png" alt="Logo color variations continued — Foundation metallic silver and gold treatments" className="w-full h-auto object-contain border border-gray-100 rounded" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/02-scripps-logo/04-logo-color-variations/page-09.png`} alt="Logo color variations — full-color, one-color blue, one-color black, and reverse white treatments" className="w-full h-auto object-contain border border-gray-100 rounded" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/02-scripps-logo/04-logo-color-variations/page-10.png`} alt="Logo color variations continued — Foundation metallic silver and gold treatments" className="w-full h-auto object-contain border border-gray-100 rounded" />
         </div>
 
         <div className="max-w-5xl space-y-4 text-base text-gray-600 leading-relaxed mb-10">

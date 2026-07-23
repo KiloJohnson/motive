@@ -36,7 +36,7 @@ function DesktopHeaderPreview() {
     <div className="border border-gray-200 rounded overflow-hidden">
       <div className="bg-white flex items-center justify-between px-6 py-3 shadow-sm">
         <div className="flex items-center">
-          <img src="/logos/scripps.svg" alt="Scripps" className="h-5 w-auto" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="h-5 w-auto" />
         </div>
         <nav className="flex items-center gap-6 text-sm text-gray-600">
           <span>Doctors &amp; Services</span>
@@ -58,7 +58,7 @@ function StickyHeaderPreview() {
     <div className="border border-gray-200 rounded overflow-hidden space-y-0">
       <div className="bg-white flex items-center justify-between px-6 py-3 border-b border-gray-100">
         <div className="flex items-center">
-          <img src="/logos/scripps.svg" alt="Scripps" className="h-5 w-auto" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="h-5 w-auto" />
         </div>
         <nav className="flex items-center gap-6 text-sm text-gray-600">
           <span>Doctors &amp; Services</span>
@@ -183,15 +183,15 @@ function LogoPreview() {
   return (
     <div className="border border-gray-200 rounded p-6 bg-white flex flex-wrap items-center gap-10">
       <div className="flex flex-col items-start gap-2">
-        <img src="/logos/scripps.svg" alt="Scripps" className="w-[130px] h-auto" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="w-[130px] h-auto" />
         <p className="text-xs text-gray-400">Market=Scripps</p>
       </div>
       <div className="flex flex-col items-start gap-2">
-        <img src="/logos/myscripps.svg" alt="MyScripps" className="w-[130px] h-auto" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/myscripps.svg`} alt="MyScripps" className="w-[130px] h-auto" />
         <p className="text-xs text-gray-400">PatientPortal</p>
       </div>
       <div className="flex flex-col items-start gap-2">
-        <img src="/logos/sandiegohealth.png" alt="Scripps San Diego Health" className="w-[200px] h-auto" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/sandiegohealth.png`} alt="Scripps San Diego Health" className="w-[200px] h-auto" />
         <p className="text-xs text-gray-400">Market=SanDiegoHealth</p>
       </div>
     </div>

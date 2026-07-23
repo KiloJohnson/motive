@@ -35,7 +35,7 @@ function DefaultNavbar() {
             <HiMenu className="h-5 w-5" />
           </button>
           <div className="flex items-center gap-2">
-            <img src="/logos/scripps.svg" alt="Scripps" className="h-7 w-auto" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="h-7 w-auto" />
             <span className="text-sm font-semibold text-gray-800 dark:text-white hidden sm:block">
               PIMC Back Office
             </span>
@@ -78,7 +78,7 @@ function NavbarWithSearch() {
           <button className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-gray-400">
             <HiMenu className="h-5 w-5" />
           </button>
-          <img src="/logos/scripps.svg" alt="Scripps" className="h-7 w-auto" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="h-7 w-auto" />
         </div>
         {/* Center search */}
         <div className="flex-1 max-w-md">
@@ -126,7 +126,7 @@ function NavbarWithBreadcrumb() {
           <button className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-gray-400">
             <HiMenu className="h-5 w-5" />
           </button>
-          <img src="/logos/scripps.svg" alt="Scripps" className="h-7 w-auto" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="h-7 w-auto" />
         </div>
         <div className="flex items-center gap-2">
           <button className="relative p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-gray-400">
@@ -197,7 +197,7 @@ export default function NavbarsBlockPage() {
       <button className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100">
         <HiMenu className="h-5 w-5" />
       </button>
-      <img src="/logos/scripps.svg" alt="Scripps" className="h-7 w-auto" />
+      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="h-7 w-auto" />
       <span className="text-sm font-semibold text-gray-800">PIMC Back Office</span>
     </div>
     <div className="flex items-center gap-2">
@@ -227,7 +227,7 @@ export default function NavbarsBlockPage() {
   <div className="flex items-center justify-between gap-4">
     <div className="flex items-center gap-3 shrink-0">
       <button><HiMenu className="h-5 w-5" /></button>
-      <img src="/logos/scripps.svg" alt="Scripps" className="h-7 w-auto" />
+      <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps.svg`} alt="Scripps" className="h-7 w-auto" />
     </div>
     <div className="flex-1 max-w-md">
       <TextInput placeholder="Search members, invoices..." icon={HiSearch} sizing="sm" />

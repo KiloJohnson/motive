@@ -95,7 +95,7 @@ function ApptInfoBar({ mobile = false, expanded = false }: { mobile?: boolean; e
     return (
       <div className="flex items-center py-3 px-6 bg-white">
         <div className="flex items-center gap-3 flex-1 min-w-0">
-          <img src="/images/providers/provider-1.png" alt="Kosha Nathwani" className="w-11 h-11 rounded-full object-cover shrink-0" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} alt="Kosha Nathwani" className="w-11 h-11 rounded-full object-cover shrink-0" />
           <div>
             <p className="text-sm font-bold leading-tight" style={{ color: "#3c3c3c", fontFamily: "var(--font-red-hat-text)" }}>Kosha Nathwani, MD</p>
             <p className="text-sm text-gray-500" style={{ fontFamily: "var(--font-red-hat-text)" }}>Family Medicine</p>
@@ -128,10 +128,10 @@ function ApptInfoBar({ mobile = false, expanded = false }: { mobile?: boolean; e
   if (!expanded) {
     return (
       <div className="flex items-center gap-3 py-3 px-4 bg-white">
-        <img src="/images/providers/provider-1.png" alt="" className="w-9 h-9 rounded-full object-cover shrink-0" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} alt="" className="w-9 h-9 rounded-full object-cover shrink-0" />
         <p className="text-sm font-bold text-gray-700 flex-1 truncate" style={{ fontFamily: "var(--font-red-hat-text)" }}>Kosha Nathwani, MD</p>
         <span className="text-gray-400 text-sm">—</span>
-        <img src="/images/providers/provider-1.png" alt="" className="w-9 h-9 rounded-full object-cover shrink-0 opacity-40" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} alt="" className="w-9 h-9 rounded-full object-cover shrink-0 opacity-40" />
         <span className="text-gray-400 font-light text-xl leading-none">+</span>
       </div>
     );
@@ -140,7 +140,7 @@ function ApptInfoBar({ mobile = false, expanded = false }: { mobile?: boolean; e
   return (
     <div className="py-3 px-4 bg-white space-y-3">
       <div className="flex items-center gap-3">
-        <img src="/images/providers/provider-1.png" alt="" className="w-9 h-9 rounded-full object-cover shrink-0" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`} alt="" className="w-9 h-9 rounded-full object-cover shrink-0" />
         <div>
           <p className="text-sm font-bold leading-tight" style={{ color: "#3c3c3c", fontFamily: "var(--font-red-hat-text)" }}>Kosha Nathwani, MD</p>
           <p className="text-xs text-gray-500" style={{ fontFamily: "var(--font-red-hat-text)" }}>Family Medicine</p>

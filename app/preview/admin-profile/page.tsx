@@ -131,7 +131,7 @@ export default function AdminProfilePage() {
 
           <div className="mt-4 flex w-full items-center border-b border-gray-200 pb-4 dark:border-gray-700 sm:mt-6 sm:pb-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="me-4 h-24 w-24 rounded-lg sm:mb-0" src="/images/users/joseph-mcfall.png" alt="Joseph McFall avatar" />
+            <img className="me-4 h-24 w-24 rounded-lg sm:mb-0" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/joseph-mcfall.png`} alt="Joseph McFall avatar" />
             <div className="w-full space-y-2">
               <span className="me-2 rounded-sm bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">PRO</span>
               <h4 className="text-2xl font-bold text-gray-900 dark:text-white">Joseph McFall</h4>

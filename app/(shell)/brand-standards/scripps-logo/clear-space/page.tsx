@@ -18,7 +18,7 @@ export default function ClearSpacePage() {
             <p>An organized and integrated design will promote a more professional image in communications. The design is enhanced when the Scripps logo is consistently positioned and aligned with other images such as: headlines, text, photography, illustrations and other graphic components. Using the alignment options shown here will provide sufficient flexibility to create an integrated logo appearance in a variety of layouts.</p>
           </div>
           <div>
-            <img src="/brand-standards/02-scripps-logo/02-clear-space-and-alignments/page-07.png" alt="Clear space diagram with 1-S measurement guides and approved logo alignment positions" className="w-full h-auto object-contain" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/02-scripps-logo/02-clear-space-and-alignments/page-07.png`} alt="Clear space diagram with 1-S measurement guides and approved logo alignment positions" className="w-full h-auto object-contain" />
           </div>
         </div>
       </section>

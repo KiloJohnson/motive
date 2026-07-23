@@ -19,7 +19,7 @@ export default function InvitationsPage() {
             </li>
           ))}
         </ol>
-        <img src="/brand-standards/04-application-examples/04-invitations/page-42.jpg" alt="Invitation design — Veil Column with text placement over photograph background" className="w-full h-auto rounded border border-gray-100" />
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/04-application-examples/04-invitations/page-42.jpg`} alt="Invitation design — Veil Column with text placement over photograph background" className="w-full h-auto rounded border border-gray-100" />
       </section>
     </div>
   );

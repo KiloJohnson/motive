@@ -19,8 +19,8 @@ export default function ScrippsClinicLogoPage() {
 
       <section className="px-16 py-12">
         <div className="grid grid-cols-2 gap-6 max-w-5xl mb-10">
-          <img src="/brand-standards/02-scripps-logo/09-scripps-clinic-logo/page-17.png" alt="Scripps Clinic logo color variations — full-color, one-color, and reverse treatments" className="w-full h-auto object-contain border border-gray-100 rounded" />
-          <img src="/brand-standards/02-scripps-logo/09-scripps-clinic-logo/page-18.png" alt="Scripps Clinic logo clear space and placement guidelines" className="w-full h-auto object-contain border border-gray-100 rounded" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/02-scripps-logo/09-scripps-clinic-logo/page-17.png`} alt="Scripps Clinic logo color variations — full-color, one-color, and reverse treatments" className="w-full h-auto object-contain border border-gray-100 rounded" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/02-scripps-logo/09-scripps-clinic-logo/page-18.png`} alt="Scripps Clinic logo clear space and placement guidelines" className="w-full h-auto object-contain border border-gray-100 rounded" />
         </div>
 
         <div className="max-w-5xl space-y-6 text-base text-gray-600 leading-relaxed mb-10">

@@ -16,7 +16,7 @@ export default function HeadlinePage() {
             <p className="text-base text-gray-600 leading-relaxed">The headline should always be secondary to the Scripps logo. Although there is no given size relationship between the two, the headline should be scaled to never overpower the Scripps logo — which means that longer titles should appear in a smaller type size than short headlines.</p>
           </div>
           <div>
-            <img src="/brand-standards/02-scripps-logo/08-headline/page-16.jpg" alt="Headline scaling example — short headline vs. long headline sized relative to the Scripps logo" className="w-full h-auto object-contain" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/02-scripps-logo/08-headline/page-16.jpg`} alt="Headline scaling example — short headline vs. long headline sized relative to the Scripps logo" className="w-full h-auto object-contain" />
           </div>
         </div>
       </section>

@@ -238,7 +238,7 @@ export default function AdminChatRoomPage() {
           <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-2.5 dark:border-gray-700 dark:bg-gray-800">
             <div className="flex items-center gap-3">
               <div className="relative shrink-0">
-                <img className="h-8 w-8 rounded-full" src="/images/users/joseph-mcfall.png" alt="Joseph image" />
+                <img className="h-8 w-8 rounded-full" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/joseph-mcfall.png`} alt="Joseph image" />
               </div>
               <div className="leading-1.5 flex w-full flex-col">
                 <span className="text-base font-medium text-gray-900 dark:text-white">Joseph McFall</span>
@@ -276,7 +276,7 @@ export default function AdminChatRoomPage() {
 
             {/* Incoming — text */}
             <div className="group flex max-w-[404px] items-start gap-2.5">
-              <img className="h-8 w-8 rounded-full" src="/images/users/roberta-casas.png" alt="Roberta image" />
+              <img className="h-8 w-8 rounded-full" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/roberta-casas.png`} alt="Roberta image" />
               <div className="flex flex-col gap-1">
                 <div className="flex items-center space-x-2 rtl:space-x-reverse">
                   <a href="#" className="text-sm font-semibold text-gray-900 hover:cursor-pointer hover:underline dark:text-white">Roberta Casas</a>
@@ -292,7 +292,7 @@ export default function AdminChatRoomPage() {
 
             {/* Incoming — voice message */}
             <div className="group flex max-w-[404px] items-start gap-2.5">
-              <img className="h-8 w-8 rounded-full" src="/images/users/roberta-casas.png" alt="Roberta image" />
+              <img className="h-8 w-8 rounded-full" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/roberta-casas.png`} alt="Roberta image" />
               <div className="flex flex-col gap-1">
                 <div className="flex items-center space-x-2 rtl:space-x-reverse">
                   <a href="#" className="text-sm font-semibold text-gray-900 hover:cursor-pointer hover:underline dark:text-white">Roberta Casas</a>
@@ -365,12 +365,12 @@ export default function AdminChatRoomPage() {
                   </div>
                 </div>
               </div>
-              <img className="h-8 w-8 rounded-full" src="/images/users/joseph-mcfall.png" alt="Joseph image" />
+              <img className="h-8 w-8 rounded-full" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/joseph-mcfall.png`} alt="Joseph image" />
             </div>
 
             {/* Incoming — photo */}
             <div className="group flex max-w-[404px] items-start gap-2.5">
-              <img className="h-8 w-8 rounded-full" src="/images/users/roberta-casas.png" alt="Roberta image" />
+              <img className="h-8 w-8 rounded-full" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/roberta-casas.png`} alt="Roberta image" />
               <div className="flex flex-col gap-1">
                 <div className="flex items-center space-x-2 rtl:space-x-reverse">
                   <a href="#" className="text-sm font-semibold text-gray-900 hover:underline dark:text-white">Roberta Casas</a>
@@ -386,7 +386,7 @@ export default function AdminChatRoomPage() {
                         </svg>
                       </button>
                     </div>
-                    <img src="/images/blog/image-1.jpg" className="rounded-lg" alt="New office" />
+                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/blog/image-1.jpg`} className="rounded-lg" alt="New office" />
                   </div>
                 </div>
               </div>
@@ -412,12 +412,12 @@ export default function AdminChatRoomPage() {
                   </div>
                 </div>
               </div>
-              <img className="h-8 w-8 rounded-full" src="/images/users/joseph-mcfall.png" alt="Joseph image" />
+              <img className="h-8 w-8 rounded-full" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/joseph-mcfall.png`} alt="Joseph image" />
             </div>
 
             {/* Incoming — link preview */}
             <div className="group flex max-w-[404px] items-start gap-2.5">
-              <img className="h-8 w-8 rounded-full" src="/images/users/roberta-casas.png" alt="Roberta image" />
+              <img className="h-8 w-8 rounded-full" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/roberta-casas.png`} alt="Roberta image" />
               <div className="flex w-full flex-col gap-1">
                 <div className="flex items-center space-x-2 rtl:space-x-reverse">
                   <a href="#" className="text-sm font-semibold text-gray-900 hover:underline dark:text-white">Roberta Casas</a>
@@ -456,12 +456,12 @@ export default function AdminChatRoomPage() {
                   </div>
                 </div>
               </div>
-              <img className="h-8 w-8 rounded-full" src="/images/users/joseph-mcfall.png" alt="Joseph image" />
+              <img className="h-8 w-8 rounded-full" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/joseph-mcfall.png`} alt="Joseph image" />
             </div>
 
             {/* Incoming — last */}
             <div className="group flex max-w-[404px] items-start gap-2.5">
-              <img className="h-8 w-8 rounded-full" src="/images/users/roberta-casas.png" alt="Roberta image" />
+              <img className="h-8 w-8 rounded-full" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/roberta-casas.png`} alt="Roberta image" />
               <div className="flex flex-col gap-1">
                 <div className="flex items-center space-x-2 rtl:space-x-reverse">
                   <a href="#" className="text-sm font-semibold text-gray-900 hover:cursor-pointer hover:underline dark:text-white">Roberta Casas</a>
@@ -710,7 +710,7 @@ export default function AdminChatRoomPage() {
       {/* Contact info drawer (static preview) */}
       <div id="readUserDrawerAdvanced" className="fixed right-0 top-0 z-40 h-screen w-80 translate-x-full overflow-y-auto bg-white p-4 px-3 transition-transform dark:bg-gray-800" tabIndex={-1} aria-hidden="true">
         <div className="mb-6 flex flex-col items-center justify-center">
-          <img className="mb-4 h-20 w-20 rounded-full" src="/images/users/joseph-mcfall.png" alt="Joseph avatar" />
+          <img className="mb-4 h-20 w-20 rounded-full" src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/users/joseph-mcfall.png`} alt="Joseph avatar" />
           <div className="text-center">
             <a href="#" className="group">
               <h4 className="mb-1 text-xl font-bold leading-none text-gray-900 group-hover:underline dark:text-white">Joseph McFall</h4>
@@ -734,10 +734,10 @@ export default function AdminChatRoomPage() {
           <h3 className="mb-2 text-sm font-medium text-gray-900 dark:text-white">Media</h3>
           <div className="grid grid-cols-3 gap-2">
             <button type="button" className="h-24 w-24">
-              <img src="/images/chat/image-1.png" className="rounded-lg" alt="media 1" />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/chat/image-1.png`} className="rounded-lg" alt="media 1" />
             </button>
             <button type="button" className="h-24 w-24">
-              <img src="/images/chat/image-2.png" className="rounded-lg" alt="media 2" />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/chat/image-2.png`} className="rounded-lg" alt="media 2" />
             </button>
             <button type="button" className="flex h-24 w-24 items-center justify-center rounded-lg bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">
               <span className="text-sm font-semibold">+32</span>

@@ -25,7 +25,7 @@ export default function LogoIntroductionPage() {
             <p>Our logo colors are bright and welcoming, representing accessible, patient-centered care.</p>
           </div>
           <div>
-            <img src="/brand-standards/02-scripps-logo/01-introduction/page-06.png" alt="Logo anatomy — symbol, logotype, and three brand colors labeled with Pantone values" className="w-full h-auto object-contain" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/02-scripps-logo/01-introduction/page-06.png`} alt="Logo anatomy — symbol, logotype, and three brand colors labeled with Pantone values" className="w-full h-auto object-contain" />
           </div>
         </div>
 

@@ -297,7 +297,7 @@ export default function AdminMeetingRoomPage() {
           <div className="relative w-full max-w-6xl rounded-lg shadow-sm">
             <div className="w-full max-w-7xl rounded-lg bg-gray-800 dark:bg-gray-700 overflow-hidden" style={{ aspectRatio: "16/9" }}>
               <img
-                src="/images/providers/provider-1.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-1.png`}
                 alt="Michael Gough main video feed"
                 className="w-full h-full object-cover rounded-lg"
               />
@@ -313,7 +313,7 @@ export default function AdminMeetingRoomPage() {
             {/* Thumbnail 1 — Jese Leos (talking) */}
             <div className="min-w-40 w-40 lg:w-60 min-h-25 h-25 lg:h-40 rounded-lg shadow-sm relative shrink-0 bg-gray-800 overflow-hidden">
               <img
-                src="/images/providers/provider-2.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-2.png`}
                 className="w-full h-full object-cover rounded-lg"
                 alt="Jese Leos video feed"
               />
@@ -332,7 +332,7 @@ export default function AdminMeetingRoomPage() {
             {/* Thumbnail 2 — Bonnie Green (mic available) */}
             <div className="min-w-40 w-40 lg:w-60 min-h-25 h-25 lg:h-40 rounded-lg shadow-sm relative shrink-0 bg-gray-800 overflow-hidden">
               <img
-                src="/images/providers/provider-3.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-3.png`}
                 className="w-full h-full object-cover rounded-lg"
                 alt="Bonnie Green video feed"
               />
@@ -351,7 +351,7 @@ export default function AdminMeetingRoomPage() {
             {/* Thumbnail 3 — Thomas Lean (mic available) */}
             <div className="min-w-40 w-40 lg:w-60 min-h-25 h-25 lg:h-40 rounded-lg shadow-sm relative shrink-0 bg-gray-800 overflow-hidden">
               <img
-                src="/images/providers/provider-4.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/providers/provider-4.png`}
                 className="w-full h-full object-cover rounded-lg"
                 alt="Thomas Lean video feed"
               />

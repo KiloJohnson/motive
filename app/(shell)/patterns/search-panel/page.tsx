@@ -32,8 +32,8 @@ const allResults: ResultItem[] = [
 ];
 
 function ResultIcon({ type }: { type: ResultItem["type"] }) {
-  if (type === "service") return <img src="/icons/doctor-finder.svg" alt="" className="w-5 h-5 shrink-0 opacity-60" />;
-  if (type === "location") return <img src="/icons/affiliated-location.svg" alt="" className="w-5 h-5 shrink-0 opacity-60" />;
+  if (type === "service") return <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/icons/doctor-finder.svg`} alt="" className="w-5 h-5 shrink-0 opacity-60" />;
+  if (type === "location") return <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/icons/affiliated-location.svg`} alt="" className="w-5 h-5 shrink-0 opacity-60" />;
   return (
     <svg width="18" height="20" viewBox="0 0 18 20" fill="none" className="shrink-0 text-gray-400">
       <rect x="1" y="1" width="16" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>

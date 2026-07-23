@@ -24,7 +24,7 @@ export default function SizingPage() {
             <p>Other sizes may be used for unique applications and with prior permission from Marketing Services. For posters that are 24×36&rdquo; wide, a 5&rdquo; logo may be applied. When considering giveaway items use the logo size that best fits in proportion to the giveaway item. Avoid using the logo at sizes smaller than 1&rdquo; to ensure clear reproduction of all logo colors and tonal elements.</p>
           </div>
           <div>
-            <img src="/brand-standards/02-scripps-logo/03-sizing/page-08.png" alt="Logo size specification chart showing print sizes from 1 inch to 2 inches with application context for each" className="w-full h-auto object-contain" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand-standards/02-scripps-logo/03-sizing/page-08.png`} alt="Logo size specification chart showing print sizes from 1 inch to 2 inches with application context for each" className="w-full h-auto object-contain" />
           </div>
         </div>
 

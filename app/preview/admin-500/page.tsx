@@ -13,8 +13,8 @@ export default function Admin500Page() {
           {/* Text content */}
           <div className="self-center text-center md:text-left">
 
-            <img src="/logos/scripps_light.svg" alt="Scripps" className="h-7 w-auto mx-auto md:mx-0 mb-6 dark:hidden" />
-            <img src="/logos/scripps_dark.svg" alt="Scripps" className="h-7 w-auto mx-auto md:mx-0 mb-6 hidden dark:block" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_light.svg`} alt="Scripps" className="h-7 w-auto mx-auto md:mx-0 mb-6 dark:hidden" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/scripps_dark.svg`} alt="Scripps" className="h-7 w-auto mx-auto md:mx-0 mb-6 hidden dark:block" />
 
             <h1 className="mb-4 text-2xl font-bold" style={{ color: "#1A56DB" }}>
               500 Internal Error
