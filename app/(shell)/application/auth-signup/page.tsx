@@ -142,7 +142,7 @@ export default function AuthSignUpPage() {
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">Usage notes</h2>
         <div className="max-w-3xl space-y-0">
           {[
-            { label: "No self-signup",    note: "Members do not create their own accounts. Staff enroll them. This is by design — PIMC is a concierge service, not a self-service product." },
+            { label: "No self-signup",    note: "Members do not create their own accounts. Staff enroll them. This is by design — the enrollment flow is staff-initiated." },
             { label: "Welcome email",     note: "Account creation triggers a welcome email with a password-set link. The member sets their own password before their first portal login." },
             { label: "Deposit handling",  note: "Waitlist deposits auto-apply to the first invoice on conversion. Staff don't need to do anything — the backend handles it. Surface this clearly in the UI so staff understand what's happening." },
             { label: "SMS default off",   note: "The SMS consent checkbox must be unchecked by default, even in the enrollment form. Staff must explicitly check it after the member verbally consents." },

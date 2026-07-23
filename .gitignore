@@ -5,3 +5,9 @@ node_modules/
 .env.*.local
 _private/
 out/
+.claude/
+.gstack/
+z, ship/
+.DS_Store
+tsconfig.tsbuildinfo
+next-env.d.ts

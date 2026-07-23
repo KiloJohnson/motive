@@ -312,9 +312,9 @@ export default function DashboardAnalyticsPage() {
         <div className="max-w-3xl space-y-0">
           {[
             { label: "Alert state",   note: "Use the red accent only for actionable problems — overdue invoices, failed payments, expired cards. Don't use it for neutral counts." },
-            { label: "KPI selection", note: "Dashboard KPIs should answer the question staff ask first thing in the morning. For PIMC: how many members are active, is revenue on track, what needs follow-up today?" },
+            { label: "KPI selection", note: "Dashboard KPIs should answer the question staff ask first thing in the morning: how many members are active, is revenue on track, what needs follow-up today?" },
             { label: "Table scope",   note: "The dashboard table is a summary — not a full list. Cap it at 8–10 rows. Always include a 'View all' link to the full filtered view." },
-            { label: "Tier colors",   note: "Gold = amber, Diamond = sky blue, Diamond+ = violet. Consistent across all PIMC surfaces — badges, charts, filters. Never reassign these." },
+            { label: "Tier colors",   note: "Gold = amber, Diamond = sky blue, Diamond+ = violet. Consistent across all surfaces — badges, charts, filters. Never reassign these." },
           ].map((item, i) => (
             <div key={i} className="grid grid-cols-[160px_1fr] gap-8 py-6 border-b border-gray-100 dark:border-gray-700 last:border-0">
               <p className="text-sm font-bold text-gray-900 dark:text-white">{item.label}</p>

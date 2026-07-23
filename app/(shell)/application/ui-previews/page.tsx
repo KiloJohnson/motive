@@ -144,7 +144,6 @@ export default function UIPreviewsPage() {
             <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
               Scripps PIMC-specific back office shell — Dashboard, Invoices, Member Management, and Waitlist.
               A product-specific implementation built on Motive.
-              Will become a standalone project when the PIMC front end ships.
             </p>
             <Link
               href="/preview/pimc-backoffice"

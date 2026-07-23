@@ -59,8 +59,8 @@ export default function AppTooltipPage() {
             </Tooltip>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Orbital tokenization</span>
-            <Tooltip content="Card data is handled by Chase Orbital's hosted iframe. PIMC servers never see raw card numbers — SAQ A compliant.">
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Payment tokenization</span>
+            <Tooltip content="Card data is handled by a PCI-compliant hosted iframe. Application servers never see raw card numbers — SAQ A compliant.">
               <HiQuestionMarkCircle className="h-4 w-4 text-gray-400 cursor-help" />
             </Tooltip>
           </div>

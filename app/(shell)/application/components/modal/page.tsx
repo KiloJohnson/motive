@@ -71,7 +71,7 @@ export default function AppModalPage() {
       <section className="px-16 py-12 border-b border-gray-100 dark:border-gray-700">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Record payment (cash / check)</h2>
         <p className="text-sm text-gray-400 dark:text-gray-500 mb-6">
-          FrontDesk role records cash and check payments. Staff role also has access. Never handles card data — that goes through Orbital iframe.
+          FrontDesk role records cash and check payments. Staff role also has access. Never handles card data — that goes through the PCI-compliant hosted iframe.
         </p>
         <div className="p-8 bg-gray-50 dark:bg-gray-900 rounded-xl mb-4">
           <Button color="default" onClick={() => setPaymentOpen(true)}>
@@ -331,7 +331,7 @@ export default function AppModalPage() {
             { label: "One action",      note: "Modals should have one primary action. If you need two competing primary actions, reconsider the flow — one should be secondary (color=\"alternative\")." },
             { label: "Escape / close",  note: "Always allow closing via the × button and by clicking the backdrop. The onClose prop handles both. Never trap the user." },
             { label: "Destructive CTA", note: "Destructive confirm button goes on the left (primary position). \"Cancel\" / \"Keep\" goes on the right. This follows the pattern users expect — the dangerous action is clearly labeled and in the primary position." },
-            { label: "No card data",    note: "Never put card input inside a Modal. Card capture for PIMC uses the Orbital hosted iframe — a separate, PCI-compliant flow." },
+            { label: "No card data",    note: "Never put card input inside a Modal. Card capture uses a PCI-compliant hosted iframe — a separate, isolated flow." },
           ].map((item, i) => (
             <div key={i} className="grid grid-cols-[160px_1fr] gap-8 py-6 border-b border-gray-100 dark:border-gray-700 last:border-0">
               <p className="text-sm font-bold text-gray-900 dark:text-white">{item.label}</p>

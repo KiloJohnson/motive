@@ -173,7 +173,7 @@ export default function FormLayoutsPage() {
             { label: "Label every input",  note: "Always use Label with htmlFor matching the input id. Never rely on placeholder text as a label — it disappears when the user starts typing." },
             { label: "Two-column max",     note: "Forms in application UI use a maximum of 2 columns. More than that creates scanning difficulty on smaller screens." },
             { label: "SMS default",        note: "ToggleSwitch for SMS opt-in must default to unchecked (false). This is a compliance requirement, not a preference." },
-            { label: "No card fields",     note: "Never build card number / CVV / expiry inputs. All card capture uses the Orbital hosted iframe. Building these yourself would break SAQ A compliance." },
+            { label: "No card fields",     note: "Never build card number / CVV / expiry inputs. All card capture uses a PCI-compliant hosted iframe. Building these yourself would break SAQ A compliance." },
           ].map((item, i) => (
             <div key={i} className="grid grid-cols-[160px_1fr] gap-8 py-6 border-b border-gray-100 dark:border-gray-700 last:border-0">
               <p className="text-sm font-bold text-gray-900 dark:text-white">{item.label}</p>

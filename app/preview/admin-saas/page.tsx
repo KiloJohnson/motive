@@ -107,21 +107,21 @@ const countries = [
 ];
 
 const topProducts = [
-  { name: "Scripps Health Portal",     cat: "Digital / Platform",     revenue: "$36,820" },
-  { name: "PIMC Membership Platform",  cat: "Digital / Membership",   revenue: "$33,498" },
+  { name: "Patient Portal",            cat: "Digital / Platform",     revenue: "$36,820" },
+  { name: "Membership Platform",       cat: "Digital / Membership",   revenue: "$33,498" },
   { name: "Clinical Analytics Suite",  cat: "Digital / Analytics",    revenue: "$30,745" },
   { name: "Patient Engagement App",    cat: "Digital / Mobile",       revenue: "$29,423" },
-  { name: "Epic Integration Module",   cat: "Digital / Integration",  revenue: "$28,637" },
+  { name: "Integration Module",        cat: "Digital / Integration",  revenue: "$28,637" },
 ];
 
 const transactions = [
-  { id: "#1846325", customer: "Scripps Clinic",    email: "billing@scripps.org",    total: "$466",  date: "09 Mar 2025", status: "Completed", delivery: "Instant (Digital)"    },
-  { id: "#1846326", customer: "Jese Leos",          email: "name@example.com",       total: "$2000", date: "07 Mar 2025", status: "Failed",    delivery: "Scheduled (Digital)"  },
+  { id: "#1846325", customer: "Acme Health",         email: "billing@acmehealth.com", total: "$466",  date: "09 Mar 2025", status: "Completed", delivery: "Instant (Digital)"    },
+  { id: "#1846326", customer: "Jese Leos",           email: "name@example.com",       total: "$2000", date: "07 Mar 2025", status: "Failed",    delivery: "Scheduled (Digital)"  },
   { id: "#1846327", customer: "Bonnie Green",        email: "name@company.com",       total: "$245",  date: "12 Mar 2025", status: "Completed", delivery: "Instant (Digital)"    },
-  { id: "#1846328", customer: "Scripps Research",   email: "company@scripps.edu",    total: "$90",   date: "18 Apr 2025", status: "Refunded",  delivery: "Scheduled (Digital)"  },
+  { id: "#1846328", customer: "Meridian Research",  email: "company@example.edu",    total: "$90",   date: "18 Apr 2025", status: "Refunded",  delivery: "Scheduled (Digital)"  },
   { id: "#1846329", customer: "Michael Gough",       email: "name@example.com",       total: "$3040", date: "21 Apr 2025", status: "Pending",   delivery: "Shipment (Packaging)" },
   { id: "#1846330", customer: "Lana Byrd",           email: "name@example.com",       total: "$2999", date: "24 Apr 2025", status: "Completed", delivery: "Instant (Digital)"    },
-  { id: "#1846331", customer: "Scripps Mercy",       email: "admin@scrippsmergy.org", total: "$1870", date: "05 May 2025", status: "Completed", delivery: "Shipment (Packaging)" },
+  { id: "#1846331", customer: "Northside Clinic",   email: "admin@northsideclinic.com", total: "$1870", date: "05 May 2025", status: "Completed", delivery: "Shipment (Packaging)" },
   { id: "#1846332", customer: "Leslie Livingston",   email: "name@example.com",       total: "$5067", date: "08 May 2025", status: "Refunded",  delivery: "Instant (Digital)"    },
 ];
 
